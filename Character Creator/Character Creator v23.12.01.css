@@ -1,0 +1,54 @@
+.tabselector{
+  cursor: pointer;
+  border: 1px solid black;
+  padding: 5px;
+  margin: 1px;
+  text-align: center;
+  display: flex;
+  align-items: center;  /* vertical centering */
+  justify-content: center;  /* horizontal centering for block elements or items */
+}
+
+#charactersheetbtn{
+	background-color: rgba(148, 140, 120, 0.25) !important;
+}
+
+#charactersheetbtn:hover{
+	background-color: rgba(148, 140, 120, 0.45) !important;
+}
+
+#equipmentbtn{
+	background-color: rgba(100, 255, 100, 0.2);
+}
+
+#equipmentbtn:hover{
+	background-color: rgba(100, 255, 100, 0.35) !important;
+}
+
+#relationshipsbtn{
+	background-color: rgba(191, 236, 242, 1);
+}
+
+#relationshipsbtn:hover{
+	background-color: rgba(177, 216, 222, .4) !important;
+}
+
+#frm_field_7838_container{
+	background-color: rgba(231, 232, 211, 0.25);
+}
+
+#frm_field_7748_container{
+	background-color: rgba(200, 224, 222, 0.25);
+}
+
+#frm_field_8047_container{
+	background-color: rgba(165, 146, 166, 0.25);
+}
+
+#frm_field_8055_container{
+	background-color: rgba(105, 28, 28, 0.15);
+}
+
+#frm_field_7800_container{
+	background-color: rgba(232, 223, 200, 0.25);
+}
