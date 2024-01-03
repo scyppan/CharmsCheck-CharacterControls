@@ -1,3 +1,43 @@
+#headerdiv{
+	display: flex;
+	align-items: flex-end;
+}
+
+#charimg{
+	max-width: 202px;
+}
+
+#headertextdiv{
+	font-size: 32px;
+	font-weight: bold;
+	color: rgba(84, 66, 65,1);
+	padding-left: 15px;
+}
+
+#rolldisplayer{
+	background-color: rgba(209, 206, 184,.97);
+	font-weight: bold !important;
+	position:fixed !important;
+    top: 2;          /* Aligns the top edge of the div with the top of the viewport */
+    left: 2;         /* Aligns the left edge of the div with the left of the viewport */
+    width: 65%;     /* Optional: you can set the width as needed */
+    z-index: 1000;     /* Ensures the div stays on top of other content */
+	  /* Initially visible */
+    opacity: 1;
+    /* Define the animation */
+    animation: fadeOut 4s ease-in-out 6s forwards;
+	font-size: 12px;
+	padding-left: 5px;
+	padding-top: 12px;
+	border-radius:15px;
+	white-space: pre-wrap
+}
+
+@keyframes fadeOut {
+    from { opacity: 1; }
+    to { opacity: 0; }
+}
+
 .maindisplay{
 	border-radius: 5px;
 }

@@ -1162,7 +1162,7 @@ function getuniquebookcategories(bookrecords){
 
 function findbookrecord(book) {
 
-    const normalizeApostrophe = text => text.replace(/’/g, "'");
+    const normalizeApostrophe = text => text.replace(/â€™/g, "'");
 
     let normalizedBookTextContent = normalizeApostrophe(book.textContent);
     return books.find(x => normalizeApostrophe(x.name) === normalizedBookTextContent);
@@ -2582,4 +2582,3 @@ async function fetchdata() {
 
 hideelements();
 fetchdata(); //This code begins the entire chain of events.
-
