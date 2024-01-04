@@ -95,7 +95,7 @@ function roll(id){
 	
 	rolldeets=getrollvals(rolldeets); //adds the skill and ability values to rolldeets;
 	rolldeets.trait=addtraitbonus(id,"empty");
-	//then add equipment rolls
+	rolldeets=getequipmentbonuses(rolldeets);
 	
 	return rolldeets;
 }
@@ -160,6 +160,51 @@ function addtraitbonus(skill, subtype){
 	return bonusamt
 }
 
+function getequipmentbonuses(rolldeets){
+	
+	//outfit
+	if(charvals.gear.outfit.bonuses){
+		charvals.gear.outfit.bonuses.forEach(bns=>{
+			
+			if(rolldeets.val==normalizename(bns.type)){rolldeets.equipment+=parseInt(bns.amount);}
+
+		});}
+
+	//wand
+	if(charvals.gear.wand.bonuses){
+		charvals.gear.wand.bonuses.forEach(bns=>{
+			
+			if(rolldeets.val==normalizename(bns.type)){rolldeets.equipment+=parseInt(bns.amount);}
+
+		});}
+
+	//accessory1
+	if(charvals.gear.accessory1.bonuses){
+		charvals.gear.accessory1.bonuses.forEach(bns=>{
+			
+			if(rolldeets.val==normalizename(bns.type)){rolldeets.equipment+=parseInt(bns.amount);}
+
+		});}
+	
+	//accessory2
+	if(charvals.gear.accessory2.bonuses){
+		charvals.gear.accessory2.bonuses.forEach(bns=>{
+			
+			if(rolldeets.val==normalizename(bns.type)){rolldeets.equipment+=parseInt(bns.amount);}
+
+		});}
+
+	//accessory3
+	if(charvals.gear.accessory3.bonuses){
+		charvals.gear.accessory3.bonuses.forEach(bns=>{
+			
+			if(rolldeets.val==normalizename(bns.type)){rolldeets.equipment+=parseInt(bns.amount);}
+
+		});}
+
+		return rolldeets;
+}
+
 function getrollvals(rolldeets){
 	switch(rolldeets.skillname){
 		case "Power": rolldeets.abilityval = charvals.power; rolldeets.dice=randbetween(1,10); rolldeets.type="straight"; rolldeets.val="Power"; break;
@@ -203,7 +248,7 @@ function getrollvals(rolldeets){
 		case "Permissiveness": rolldeets.parental = parseInt(charvals.permissiveness); rolldeets.dice=randbetween(1,10); rolldeets.type="parental"; rolldeets.val="Parental Permissiveness"; break;
 		case "Wealth": rolldeets.parental = parseInt(charvals.wealth); rolldeets.dice=randbetween(1,10); rolldeets.type="parental"; rolldeets.val="Parental Wealth"; break;
 	}
-	
+	rolldeets.val=normalizename(rolldeets.val); //one final check to make sure the roll deets value is normalized.
 	return rolldeets;
 }
 
@@ -1017,6 +1062,7 @@ function normalizename(name){
 		case "Defense Against the dark arts": return "Defense";
 		case "Defense Against the Dark arts": return "Defense";
 		case "Defense against the Dark arts": return "Defense";
+		case "Defense Against the Dark Arts": return "Defense";
 		case "defense": return "Defense";
 		case "Defensive Magic": return "Defense";
 		case "astronomy": return "Astronomy";
@@ -1364,7 +1410,7 @@ Description: ${charvals.gear.outfit.description}`;
 if (charvals.gear.outfit.bonuses) {
     charvals.gear.outfit.bonuses.forEach(entry => {
         outfittitletxt += `
-Bonuses: ${entry.type} (${entry.amount})`;
+Bonus: ${entry.type} (${entry.amount})`;
     });
 }
 	
@@ -1378,7 +1424,7 @@ Description: ${charvals.gear.outfit.description}`;
 	if(charvals.gear.wand.bonuses){
 	charvals.gear.wand.bonuses.forEach(entry=>{
 		wandtitletxt+=`
-Bonuses: ${entry.type} (${entry.amount})`;
+${entry.source} Bonus: ${entry.type} (${entry.amount})`;
 
 });
 	
@@ -2068,11 +2114,23 @@ function processwoods(woodsdata){
 		
 		let bonuses=[];
 		
-		if(entry.meta.bonustype){
-			for(let i=0;i<entry.meta.bonustype.length;i++){
+		if(entry.meta.woodbonustype){
+			for(let i=0;i<entry.meta.woodbonustype.length;i++){
+				
+				let type="";
+	
+				switch(entry.meta.woodbonustype[i]){
+					case "Casting": type="Casting"; break;
+					case "Ability": type=entry.meta.woodbonusability[i]; break;
+					case "Skill": type=entry.meta.woodbonusskill[i]; break;
+					case "Characteristic": type=entry.meta.woodbonuscharacteristic[i]; break;
+					case "Subtype": type=entry.meta.woodbonussubtype[i]; break;
+				}
+					
 				let bonus={
-					type: entry.meta.woodbonusability || entry.meta.woodbonusskill || entry.meta.woodbonussubtype || entry.meta.woodbonuscharacteristic,
-					amount: parseInt(entry.meta.woodbonusamt) || 0
+					type: normalizename(type),
+					source: "Wood",
+					amount: parseInt(entry.meta.woodbonusamt[i]) || 0
 				}
 				bonuses.push(bonus);
 			}
@@ -2093,12 +2151,23 @@ function processcores(coresdata){
 		let entry = coresdata[key];
 		
 		let bonuses=[];
-		
-		if(entry.meta.bonustype){
-			for(let i=0;i<entry.meta.bonustype.length;i++){
+
+		if(entry.meta.corebonustype){
+			for(let i=0;i<entry.meta.corebonustype.length;i++){
+				
+				let type="";
+				switch(entry.meta.corebonustype[i]){
+					case "Casting": type="Casting"; break;
+					case "Ability": type=entry.meta.corebonusability[i]; break;
+					case "Skill": type=entry.meta.corebonusskill[i]; break;
+					case "Characteristic": type=entry.meta.corebonuscharacteristic[i]; break;
+					case "Subtype": type=entry.meta.corebonussubtype[i]; break;
+				}
+					
 				let bonus={
-					type: entry.meta.corebonusability || entry.meta.corebonusskill || entry.meta.corebonussubtype || entry.meta.corebonuscharacteristic,
-					amount: parseInt(entry.meta.corebonusamt) || 0
+					type: normalizename(type),
+					source: "Core",
+					amount: parseInt(entry.meta.corebonusamt[i]) || 0
 				}
 				bonuses.push(bonus);
 			}
@@ -2118,7 +2187,7 @@ function processqualities(qualitiesdata){
 	Object.keys(qualitiesdata).forEach(key => {
 		let entry = qualitiesdata[key];
 		
-		let bonuses = [{ type: "Casting", amount: parseInt(entry.meta.qualitycastingeffect) || 0 }];
+		let bonuses = [{ type: "Casting", source: "Quality", amount: parseInt(entry.meta.qualitycastingeffect) || 0 }];
 		
 		let quality = {
 			name: entry.meta.qualityname,
@@ -2165,7 +2234,7 @@ function processwands(wandsdata){
 			quality: entry.meta.wandquality,
 			bonuses: bonuses
 		}
-		
+
 		wands.push(wand);
 	});
 }
