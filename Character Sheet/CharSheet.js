@@ -722,6 +722,7 @@ function settraits() {
         traitsection.textContent = "";
         
         charvals.traits.forEach(trait => {
+			if(trait){
             let newdiv = document.createElement("div");
             newdiv.textContent = trait.name;
             
@@ -733,6 +734,7 @@ ${bonus.type} (${bonus.amount})`;
             newdiv.title = titletxt;
             newdiv.className = "trait";
             traitsection.appendChild(newdiv);
+			}
         });
     }
 }
