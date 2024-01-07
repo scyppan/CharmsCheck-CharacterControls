@@ -14,7 +14,7 @@ function assignelements() {
   birthmonth=document.getElementById("field_birthmonth");
   birthday=document.getElementById("field_birthday");
   gregoriandesc=document.getElementById("gregoriandesc");
-  gregoriandesc.style.display="none";
+  gregoriandesc.style="display:none";
   startyear=document.getElementById("startyear");
   
   generosity = document.getElementById("field_generosity2");
@@ -73,13 +73,13 @@ function assignelements() {
   electives5=document.getElementById("frm_field_7629_container");
   electives6=document.getElementById("frm_field_7637_container");
   electives7=document.getElementById("frm_field_7644_container");
-  electives1.style.display="none";
-  electives2.style.display="none";
-  electives3.style.display="none";
-  electives4.style.display="none";
-  electives5.style.display="none";
-  electives6.style.display="none";
-  electives7.style.display="none";
+  electives1.style="display:none"; 
+  electives2.style="display:none";
+  electives3.style="display:none";
+  electives4.style="display:none";
+  electives5.style="display:none";
+  electives6.style="display:none";
+  electives7.style="display:none";
   electivedesc1 = document.getElementById("frm_desc_field_electives1");
   electivedesc2 = document.getElementById("frm_desc_field_electives2");
   electivedesc3 = document.getElementById("frm_desc_field_electives3");
@@ -110,7 +110,7 @@ function assignelements() {
 	electiveset6=container6.children[1];
 	electiveset7=container7.children[1];
 	
-  //document.getElementById("loadingimg").style.display="none";
+  //document.getElementById("loadingimg").style="display:none";
   school=document.getElementById("field_school");
 	
 }
@@ -132,9 +132,9 @@ function setupdatefunctions(){
 	}
 }
 function setrandparental(){
-	generosity.value=randbetween(1,10);
-	wealth.value=randbetween(1,10);
-	permissiveness.value=randbetween(1,10);
+	if(!generosity.value){generosity.value=randbetween(1,10);}
+	if(!wealth.value){wealth.value=randbetween(1,10);}
+	if(!permissiveness.value){permissiveness.value=randbetween(1,10);}
 }
 function setallelectiveupdatefunctions(){
 	setelectiveupdatefunctionsforoneyear(electives.year1);
@@ -157,19 +157,19 @@ function btnclicked(which){
 
 	switch(which){
 	case "charactersheetbtn":
-		charactersheet.style.display = "block";
-		equipment.style.display = "none";
-		relationships.style.display = "none";
+		charactersheet.style = "display: block";
+		equipment.style = "display: none";
+		relationships.style = "display: none";
 	break;
 	case "equipmentbtn":
-		charactersheet.style.display = "none";
-		equipment.style.display = "block";
-		relationships.style.display = "none";
+		charactersheet.style = "display: none";
+		equipment.style = "display: block";
+		relationships.style = "display: none";
 	break;
 	case "relationshipsbtn":
-		charactersheet.style.display = "none";
-		equipment.style.display = "none";
-		relationships.style.display = "block";
+		charactersheet.style = "display: none";
+		equipment.style = "display: none";
+		relationships.style = "display: block";
 	break;
 	}
 }
@@ -538,9 +538,9 @@ function checkleapyear(year){
 }
 function checkspecialskippeddays(day, month, year){
 	if(month==10&&year==1582&&day>4&&day<15){
-		gregoriandesc.style.display="block";
+		gregoriandesc.style="display:block";
 	}else{
-		gregoriandesc.style.display="none";
+		gregoriandesc.style="display:none";
 	}
 }
 function validateWholeNumericInput(id, val) {
@@ -595,8 +595,13 @@ function loadup(){
 	
 	//view
 	btnclicked("charactersheetbtn");
+	document.getElementById("loadinggif").style="display:none;";
+	let outercontainerparent=document.getElementById("outercontainer").parentElement;
+	let outercontainerchild1=document.getElementById("outercontainer").children[0];
+	outercontainerparent.appendChild(outercontainerchild1);
+	
 }
 setTimeout(function (){
 	document.addEventListener('DOMContentLoaded', loadup());	
-},200);
+},1500);
 
