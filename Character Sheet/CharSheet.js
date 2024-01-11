@@ -2301,10 +2301,10 @@ function processbooks(booksdata){
 				thisbookproficiencies.push(proficiency); //only storing the name
 			});
 		}
-		
+
 		if(entry.meta.bookpotion){
 			entry.meta.bookpotion.forEach(potion=>{
-				thisbookpotion.push(potion); //only storing the name
+				thisbookpotions.push(potion); //only storing the name
 			});
 		}
 		
