@@ -1,0 +1,17 @@
+svg{
+	display: flex;
+    justify-content: center; /* Aligns horizontally */
+    align-items: center; /* Aligns vertically */	
+}
+
+.region {
+    fill: #f00;       /* Red fill */
+    stroke: #000;     /* Black stroke */
+    stroke-width: 2;  /* Stroke width of 2 */
+}
+
+.region:hover {
+    fill: #eeeeee;       /* Red fill */
+    stroke: #000;     /* Black stroke */
+    stroke-width: 6;  /* Stroke width of 2 */
+}

@@ -1,3 +1,9 @@
+svg{
+	display: flex;
+    justify-content: center; /* Aligns horizontally */
+    align-items: center; /* Aligns vertically */	
+}
+
 .continent {
     fill: #f00;       /* Red fill */
     stroke: #000;     /* Black stroke */
