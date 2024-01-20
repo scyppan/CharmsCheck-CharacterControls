@@ -1,0 +1,11 @@
+.continent {
+    fill: #f00;       /* Red fill */
+    stroke: #000;     /* Black stroke */
+    stroke-width: 2;  /* Stroke width of 2 */
+}
+
+.continent:hover {
+    fill: #eeeeee;       /* Red fill */
+    stroke: #000;     /* Black stroke */
+    stroke-width: 12;  /* Stroke width of 2 */
+}
