@@ -151,10 +151,12 @@ function addtraitbonus(skill, subtype){
 	let bonusamt=0;
 	
 	charvals.traits.forEach(trait=>{
-		trait.bonuses.forEach(bonus=>{
-			if(bonus.type==normalizename(skill)){bonusamt+=parseInt(bonus.amount);}
-			if(bonus.type==subtype){bonusamt+=parseInt(bonus.amount);}
-		});
+		if(trait){
+			trait.bonuses.forEach(bonus=>{
+				if(bonus.type==normalizename(skill)){bonusamt+=parseInt(bonus.amount);}
+				if(bonus.type==subtype){bonusamt+=parseInt(bonus.amount);}
+			});
+		}
 	});
 	
 	return bonusamt
