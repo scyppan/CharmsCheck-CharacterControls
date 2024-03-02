@@ -1,2 +1,18 @@
-Top level has two layers, lakes and land
-Second layer contains layers and sublayers
+Line Hex color: #283643
+
+For maps:
+ Top level has two layers, lakes and land
+ Second layer contains layers and sublayers
+
+For Asset-drive images
+ Create the asset you wish to include
+ If you want it selectable, create a work path in photoshop by:
+   use magic wand to outline the shape
+   inverse selection
+   go to layers panel and switch to paths panel
+   right click hamburger menu and click "make workpath"
+   copy that workpath to illustrator and put it behind the image layer.
+   So, on top will be the texture layer with class "passthrough" 
+   On bottom will be the border layer with class "selectable"
+   The borders group layer (parent element) must be "No Fill"
+   You'll need to manually change .cls{fill:#fff} to ensure it is #fff instead of "none"

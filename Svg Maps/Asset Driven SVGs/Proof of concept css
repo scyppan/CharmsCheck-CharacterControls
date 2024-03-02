@@ -1,0 +1,19 @@
+svg{
+	display: flex;
+    justify-content: center; /* Aligns horizontally */
+    align-items: center; /* Aligns vertically */	
+}
+
+.selectable {
+    stroke: #000000;     /* Black stroke */
+    stroke-width: 0.25 !important;  /* Stroke width of 2 */
+}
+
+.selectable:hover {
+	stroke: #000000;     /* Black stroke */
+    stroke-width: 10 !important;  /* Stroke width of 2 */
+}
+
+.passthrough{
+	pointer-events:none;	
+}
