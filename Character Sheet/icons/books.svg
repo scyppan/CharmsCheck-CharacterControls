@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="24"
+     height="24"
+     stroke="black"
+     fill="none"
+     stroke-width="2"
+     viewBox="0 0 24 24">
+
+  <!-- Left cover -->
+  <path d="M3 4h6c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H3z"/>
+  
+  <!-- Right cover -->
+  <path d="M21 4h-6c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h6z"/>
+  
+  <!-- Spine -->
+  <path d="M9 4v16"/>
+
+</svg>

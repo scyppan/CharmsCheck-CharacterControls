@@ -56,12 +56,11 @@ function getsuggestions(query, e){
         resultarray.push(li);
         suggestionbox.append(li);
       }
-      
  } 
 
  function createresultlisting(result){
     let li=document.createElement('li');
-    li.id=result.name;
+    li.id=result.id;
     li.classList.add("suggestion");
     li.innerHTML=result.name;
     createclickeventhandler(li);
@@ -70,7 +69,7 @@ function getsuggestions(query, e){
 
  function createclickeventhandler(li) {
     li.addEventListener('click', () => {
-      alert(`Behold, you selected: ${li.textContent}!`);
+      loadchar(li.id);
       // Perform additional logic if necessary
     });
   }

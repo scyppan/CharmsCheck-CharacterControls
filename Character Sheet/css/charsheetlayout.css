@@ -1,0 +1,26 @@
+.charsheet-container {
+    display: flex;
+    min-width: 8in;
+    min-height: 20in;
+    border: 1px solid #000;
+    margin: 20px auto;
+  }
+  
+  .charsheet-tabs {
+    width: 5%;
+    border-right: 1px solid #ccc;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .charsheet-tabs > div {
+    padding: 10px;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+  }
+  
+  .charsheet-content {
+    flex-grow: 1;
+    padding: 20px;
+  }
+  

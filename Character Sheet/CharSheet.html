@@ -3,16 +3,19 @@
   <meta charset="UTF-8">
   <link rel="stylesheet" href="css/page.css">
   <link rel="stylesheet" href="css/searchbox.css">
-  <link rel="stylesheet" href="CharSheet.css">
+  <link rel="stylesheet" href="css/charsheetlayout.css">
 
   <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.js" defer></script>
   
-  <script src="js/0tools/tools.js" defer></script>
   <script src="js/0globalvars/globalvars.js" defer></script>
   <script src="js/0api/loadgiflogic.js" defer></script>
   <script src="js/0api/apicall.js" defer></script>
+  <script src="js/0tools/tools.js" defer></script>
 
   <script src="js/1htmlelements/searchbox.js" defer></script>
+  <script src="js/1htmlelements/charsheetsetup.js" defer></script>
+
+  <script src="js/2loadchar/loadchar.js" defer></script>
   
   <script src="CharSheet.js" defer></script>
 
@@ -21,14 +24,14 @@
 <body>
 
     <div id="loadinggif" class="hidden">
-        loading character data, please wait...
+        loading character data, please wait...<br>
         <img src="https://charmscheck.com/wp-content/uploads/2023/10/Spinner-1.5s-311px.gif">
     </div>
 
 <div id="main" class="hidden">
         
     <div class="searchbox-wrapper"></div>
-    Character Search: <input id="searchbox" type="text">
+    Character Search: <input id="searchbox" type="text" placeholder="Begin typing a character name to see available characters">
     <div id="suggestionscontainer"></div>
       
     <div id="chardisplay">

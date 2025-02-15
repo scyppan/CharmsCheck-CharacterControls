@@ -27,19 +27,21 @@
     border: 1px solid #ccc;
     padding: 6px;
     z-index: 999;
-    width: 65%;
+    width: 45%;
     min-height: 25px;
   }
   
   .suggestion {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
     cursor: pointer;
     padding: 4px;
     margin: 3px;
     list-style-type: none;
     background-color: rgba(190, 224, 171, 0.45);
-    width: 100%;
     border-radius: 7px;
-  }
+  }  
   
   .suggestion:hover {
     background-color: #f0f0f0;
