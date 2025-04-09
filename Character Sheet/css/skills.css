@@ -1,0 +1,79 @@
+/* The parent container that holds all four quadrants */
+#quadrant {
+    /* Use CSS Grid to form a 2x2 layout */
+    display: grid;
+    grid-template-rows: 1fr 1fr;   /* two rows of equal height */
+    grid-template-columns: 1fr 1fr;/* two columns of equal width */
+    gap: 10px;                     /* space between quadrants */
+  
+    width: 100%;
+    max-width: 1200px;            /* optional max width */
+    height: 80vh;                 /* or whatever height you like */
+    margin: 0 auto;             
+  }
+  
+  /* Shared styling for each quadrant */
+  #upperleft,
+  #upperright,
+  #lowerleft,
+  #lowerright {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .bottomability{
+    margin-top: 12px;
+  }
+
+  .rollheaders{
+    background-color: #e7dccc;
+    border-top: 1px solid #999;
+    border-bottom: 1px solid #999;
+    font-weight: bold;
+    text-align: left;
+    
+    /* Use flex to vertically center content */
+    display: flex;
+    align-items: center;
+    
+    /* Optional padding for nicer spacing */
+    padding: 7px;
+    margin-top: 7px;
+  }
+
+  .ability{
+    
+    background-color: #dbc178;
+  }
+
+  .ability:hover{
+    background-color: #566c76;
+  }
+  
+  .skill{
+    background-color: #e0d8bd;
+  }
+
+  .skill:hover{
+    background-color: #bdd4d2;
+  }
+
+  .characteristic{
+    background-color: #bcdba8;
+  }
+
+  .characteristic:hover{
+    background-color: #66745d;
+  }
+
+  .parental{
+    background-color: #e2b0b0;
+  }
+
+  .parental:hover{
+    background-color: #705c5c;
+  }
+
+  .trait{
+    background-color: #efe4d4;
+  }

@@ -69,7 +69,7 @@ function getsuggestions(query, e){
 
  function createclickeventhandler(li) {
     li.addEventListener('click', () => {
+      document.getElementById('suggestions').classList.add('hidden');
       loadchar(li.id);
-      // Perform additional logic if necessary
     });
   }

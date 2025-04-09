@@ -24,6 +24,7 @@
   
   function createContentArea() {
     const content = document.createElement("div");
+    content.id='tabcontent';
     content.classList.add("charsheet-content");
     return content;
   }
@@ -35,6 +36,7 @@
       { name: "Spells", icon: "./icons/spells.svg" },
       { name: "Proficiencies", icon: "./icons/proficiencies.svg" },
       { name: "Potions", icon: "./icons/potions.svg" },
+      { name: "Pets", icon: "./icons/pets.svg" },
       { name: "Inventory", icon: "./icons/equipment.svg" },
       { name: "Books", icon: "./icons/books.svg" },
       { name: "Relationships", icon: "./icons/relationships.svg" }
@@ -44,13 +46,35 @@
       const img = document.createElement("img");
       img.src = page.icon;
       img.alt = page.name;
+      tab.name=page.name;
       tab.appendChild(img);
       tab.addEventListener("click", () => {
-        content.innerHTML = `<h2>${page.name}</h2><p>Placeholder content for ${page.name}.</p>`;
+        console.log(tab.name, "Clicked");
+        tabclick(tab.name);
       });
       tabColumn.appendChild(tab);
     });
-    content.innerHTML = `<h2>${pages[0].name}</h2><p>Placeholder content for ${pages[0].name}.</p>`;
+    
+  }
+
+  function tabclick(tabname){
+
+    let tabcontent = document.getElementById('tabcontent');
+    tabcontent.innerHTML=``;
+
+    switch(tabname){
+      case "Overview":
+        overview();
+      break;
+      case "Skills":
+        skills();
+      break;
+      default:
+        tabcontent.innerHTML=`<h2>${tabname}</h2><p>Placeholder content for ${tabname}.</p>`;
+      break;
+    }
+    
+
   }
 
   createCharacterSheet();

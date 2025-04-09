@@ -1,7 +1,27 @@
 body{
     background-color: rgba(224, 202, 171, 0.5);
+    font-family: 'Pangolin', cursive;
 }
 
 .hidden{
     display:none !important;
 }
+
+.btn {
+    display: inline-flex;     /* so button shrinks to its text */
+    flex: 0 0 auto;           /* don't grow or shrink to fill space */
+    align-self: flex-start;   /* don't stretch vertically in the column */
+    width: auto;              /* override any 100% width rules */
+    min-width: 35px;          /* optional minimum size */
+    
+    align-items: center;
+    justify-content: center;
+  
+    border: 1px solid grey;
+    border-radius: 12px;
+    margin: 3px;
+    padding: 0 7px;
+    box-sizing: border-box;
+    cursor: pointer;
+  }
+  

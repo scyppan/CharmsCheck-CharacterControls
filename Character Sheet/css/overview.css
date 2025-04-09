@@ -1,0 +1,51 @@
+/* tabs.css */
+
+/* Container for the entire overview */
+.character-overview {
+    max-width: 800px;
+    margin: 0 auto;
+    font-family: Arial, sans-serif;
+  }
+  
+  .overview-top {
+    display: flex;
+    flex-wrap: wrap; /* allows wrapping */
+    gap: 20px;
+    margin-bottom: 20px;
+  }
+  
+  .overview-left {
+    flex: 0 0 150px; /* fixed width for left column */
+    /* 150px or 200px, depending on how wide you want the photo column */
+  }
+  
+  .overview-right {
+    flex: 1; /* fill remaining space */
+    min-width: 250px; /* you can reduce or remove if it’s causing wrap issues */
+  }
+  
+  /* Character photo styling */
+  .character-photo {
+    width: 512px;      /* or whatever fixed width you want */
+    height: auto;
+    object-fit: cover;
+    border: 2px solid #ccc;
+    border-radius: 8px;
+    display: block;
+  }
+  
+  /* Demographics list */
+  .demographics {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .demographics li {
+    margin-bottom: 8px;
+  }
+  
+  .demographics li span {
+    font-weight: bold;
+  }
+  

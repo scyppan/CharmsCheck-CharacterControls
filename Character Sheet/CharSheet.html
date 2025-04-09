@@ -1,23 +1,35 @@
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <link rel="stylesheet" href="css/page.css">
-  <link rel="stylesheet" href="css/searchbox.css">
-  <link rel="stylesheet" href="css/charsheetlayout.css">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/page.css">
+    <link rel="stylesheet" href="css/searchbox.css">
+    <link rel="stylesheet" href="css/charsheetlayout.css">
+    <link rel="stylesheet" href="css/overview.css">
+    <link rel="stylesheet" href="css/skills.css">
 
-  <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.js" defer></script>
-  
-  <script src="js/0globalvars/globalvars.js" defer></script>
-  <script src="js/0api/loadgiflogic.js" defer></script>
-  <script src="js/0api/apicall.js" defer></script>
-  <script src="js/0tools/tools.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.js" defer></script>
 
-  <script src="js/1htmlelements/searchbox.js" defer></script>
-  <script src="js/1htmlelements/charsheetsetup.js" defer></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap">
 
-  <script src="js/2loadchar/loadchar.js" defer></script>
-  
-  <script src="CharSheet.js" defer></script>
+    <script src="js/0globalvars/globalvars.js" defer></script>
+    <script src="js/0api/loadgiflogic.js" defer></script>
+    <script src="js/0api/apicall.js" defer></script>
+    <script src="js/0tools/tools.js" defer></script>
+
+    <script src="js/1htmlelements/searchbox.js" defer></script>
+    <script src="js/1htmlelements/charsheetsetup.js" defer></script>
+
+    <script src="js/2loadchar/loadchar.js" defer></script>
+
+    <script src="js/3tabs/overview.js" defer></script>
+    <script src="js/3tabs/skills.js" defer></script>
+    
+    <script src="js/tools/attributes.js" defer></script>
+    <script src="js/tools/traits.js" defer></script>
+    <script src="js/tools/shortname.js" defer></script>
+
+    <script src="CharSheet.js" defer></script>
 
 </head>
 
@@ -28,26 +40,27 @@
         <img src="https://charmscheck.com/wp-content/uploads/2023/10/Spinner-1.5s-311px.gif">
     </div>
 
-<div id="main" class="hidden">
-        
-    <div class="searchbox-wrapper"></div>
-    Character Search: <input id="searchbox" type="text" placeholder="Begin typing a character name to see available characters">
-    <div id="suggestionscontainer"></div>
-      
-    <div id="chardisplay">
-        <div id="leftheader">
-            <img id="characterimg" />
-            <div id="demographics">
-                <!-- e.g. character’s name, age, etc. -->
+    <div id="main" class="hidden">
+
+        <div class="searchbox-wrapper"></div>
+        Character Search: <input id="searchbox" type="text"
+            placeholder="Begin typing a character name to see available characters">
+        <div id="suggestionscontainer"></div>
+
+        <div id="chardisplay">
+            <div id="leftheader">
+                <img id="characterimg" />
+                <div id="demographics">
+                    <!-- e.g. character’s name, age, etc. -->
+                </div>
+            </div>
+            <div id="rightheader">
+                <!-- possibly other info/stats or a tagline -->
             </div>
         </div>
-        <div id="rightheader">
-            <!-- possibly other info/stats or a tagline -->
-        </div>
+
     </div>
 
-</div>
 
-    
 
 </body>

@@ -1,5 +1,8 @@
 function loadchar(id){
     let char = fetchcharacter(id);
-    console.log(char);
+    currentchar=char;
+    document.getElementById('charsheet-container').classList.remove('hidden');
+    document.getElementById('searchbox').value=char.name;
+    overview();
 }
 
