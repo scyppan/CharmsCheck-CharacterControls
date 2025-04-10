@@ -1,12 +1,18 @@
 async function skills() {
 
     const tabcontent = document.getElementById('tabcontent');
-    tabcontent.textContent='Fetching API Data 1/3...';
+    tabcontent.textContent='Fetching API Data 1/6...';
     await gettraits();//make sure we've loaded traits first.
-    tabcontent.textContent='Fetching API Data 2/3......';
+    tabcontent.textContent='Fetching API Data 2/6....';
     await getwands();
-    tabcontent.textContent='Fetching API Data 3/3.........';
+    tabcontent.textContent='Fetching API Data 3/6.....';
     await getaccessories();
+    tabcontent.textContent='Fetching API Data 4/6......';
+    await getwandwoods();
+    tabcontent.textContent='Fetching API Data 5/6.......';
+    await getwandcores();
+    tabcontent.textContent='Fetching API Data 6/6........';
+    await getwandqualities();
     tabcontent.textContent='';
 
     const quadrant = document.createElement('div');
@@ -137,10 +143,18 @@ async function skills() {
     traitsheader.textContent=`Traits`;
     lowerright.appendChild(traitsheader);
 
-    currentchar.meta.traits.forEach(trait=>{
-      let plate = maketraitplate(trait);
+    if (Array.isArray(currentchar.meta.traits)) {
+      currentchar.meta.traits.forEach(trait => {
+        let plate = maketraitplate(trait);
+        lowerright.appendChild(plate);
+      });
+    } else if (currentchar.meta.traits) {
+      let plate = maketraitplate(currentchar.meta.traits);
       lowerright.appendChild(plate);
-    });
+    }
+    
+    addvalstobtns();
+
   }
   
   function createbtn(entry){

@@ -1,8 +1,13 @@
 //api data
 let characters=[];
 let traits;
-let wands;
 let accessories;
+
+let wands;
+let wandwoods;
+let wandcores;
+let wandqualities;
+let wandmakers;
 
 let fuse=null; //for fuzzy searching
 
