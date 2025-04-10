@@ -3,6 +3,4 @@ loadgif.classList.remove('hidden');
 
 function hidegif(){
     loadgif.classList.add('hidden');
-    
 }
-

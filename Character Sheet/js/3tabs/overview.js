@@ -13,7 +13,7 @@ function overview() {
 
     const photo = document.createElement('img');
     photo.classList.add('character-photo');
-    photo.src = currentchar.meta.zwc7o; 
+    photo.src = currentchar.meta.zwc7o || "./icons/defaultcharacter.svg"; 
     photo.alt = 'Character Photo';
 
     leftPanel.appendChild(photo);
