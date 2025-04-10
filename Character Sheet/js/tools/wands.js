@@ -1,4 +1,5 @@
 function matchwand(wandname) {
+    
     const target = wandname.toLowerCase().trim();
     // If wands is not an array, convert its values into one.
     let wandlist = Array.isArray(wands) ? wands : Object.values(wands);
@@ -23,20 +24,15 @@ function matchwandquality(quality) {
     return qualitylist.find(entry => entry.meta.qualityname.toLowerCase().trim() === target);
 }
 
-function matchwandmaker(maker) {
-    const target = maker.toLowerCase().trim();
-    const makerlist = Array.isArray(wandmakers) ? wandmakers : Object.values(wandmakers);
-    return makerlist.find(entry => entry.meta['ac0lx'].toLowerCase().trim() === target);
-}
-
 function getwoodbonusprofile(wood) {
     let len = wood.meta.woodbonustype.length;
     let bonuslist = [];
 
     for (let i = 0; i < len; i++) {
         bonuslist.push({
+            source: "wandwood",
             type: wood.meta.woodbonustype[i],
-            attribute: getname(wood.meta.woodbonusability[i] || wood.meta.woodbonusskill[i] || wood.meta.woodbonussubtype[i] || wood.meta.woodbonuscharacteristic[i],'standard'),
+            attribute: getname(wood.meta.woodbonusability[i] || wood.meta.woodbonusskill[i] || wood.meta.woodbonussubtype[i] || wood.meta.woodbonuscharacteristic[i], 'standard'),
             amt: wood.meta.woodbonusamt[i]
         })
     }
@@ -45,13 +41,14 @@ function getwoodbonusprofile(wood) {
 }
 
 function getcorebonusprofile(core) {
-    let len = core.meta.corebonustype.length; 
+    let len = core.meta.corebonustype.length;
     let bonuslist = [];
 
     for (let i = 0; i < len; i++) {
         bonuslist.push({
+            source: "wandcore",
             type: core.meta.corebonustype[i],
-            attribute: getname(core.meta.corebonusability[i] ||core.meta.corebonusskill[i] || core.meta.corebonussubtype[i] || core.meta.corebonuscharacteristic[i],'standard'),
+            attribute: getname(core.meta.corebonusability[i] || core.meta.corebonusskill[i] || core.meta.corebonussubtype[i] || core.meta.corebonuscharacteristic[i], 'standard'),
             amt: core.meta.corebonusamt[i]
         })
     }
@@ -59,6 +56,16 @@ function getcorebonusprofile(core) {
     return bonuslist;
 }
 
-function getqualityadjustment(quality){
-    return quality.meta.qualitycastingeffect
+function getqualityadjustment(quality) {
+    let quality=[];
+    if(quality.meta.qualitycastingeffect!=0){
+        quality.push({
+            source: "wandquality",
+            type: "casting",
+            attribute: "casting",
+            amt: quality.meta.qualitycastingeffect
+            })    
+    }
+    
+    return quality;
 }

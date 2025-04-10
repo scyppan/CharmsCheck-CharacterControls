@@ -1,7 +1,34 @@
 function getabilityvalue(ability) {
     const abilitybuys = getabilitybuys();
-    return getabilitybuys().filter(val => val === ability).length;
+    let startval = abilitybuys.filter(val => val === ability).length;
+    let wand = getabilityvalfromwand(ability);
+    let accessories=getabilityvalfromaccessories(ability);
+    console.log(
+        startval,
+        wand,
+        accessories
+    )
+    return startval+wand+accessories;
 }
+
+function getabilityvalfromwand(ability) {
+    const effects = getwandeffects();
+    const matchingeffects = effects.filter(effect =>
+        effect.attribute && effect.attribute.toLowerCase().trim() === ability.toLowerCase().trim()
+    );
+    const sum = matchingeffects.reduce((total, effect) => total + (parseInt(effect.amt, 10) || 0), 0);
+    return sum;
+}
+
+function getabilityvalfromaccessories(ability) {
+    const effects = getallaccessorybonusprofile();
+    const matchingeffects = effects.filter(effect =>
+        effect.attribute && effect.attribute.toLowerCase().trim() === ability.toLowerCase().trim()
+    );
+    const sum = matchingeffects.reduce((total, effect) => total + (parseInt(effect.amt, 10) || 0), 0);
+    return sum;
+}
+
 
 function getabilitybuys() {
     return [
@@ -46,30 +73,30 @@ function getskillbuys() {
     ];
 }
 
-function getcourses(){
+function getcourses() {
 
     return [
-    
-    ...currentchar.meta['8f03b'].split(', ').map(name => getname(name, 'standard')), // year1core
-    ...currentchar.meta['njcra'].split(', ').map(name => getname(name, 'standard')), // year2core
-    ...currentchar.meta['mrbb3'].split(', ').map(name => getname(name, 'standard')), // year3core
-    ...currentchar.meta['vd8s6'].split(', ').map(name => getname(name, 'standard')), // year4core
-    ...currentchar.meta['sv4hr'].split(', ').map(name => getname(name, 'standard')), // year5core
-    ...currentchar.meta['dz83x'].split(', ').map(name => getname(name, 'standard')), // year6core
-    ...currentchar.meta['n8pqz'].split(', ').map(name => getname(name, 'standard')), // year7core    
 
-    ...currentchar.meta['electives1'].map(name => getname(name, 'standard')), // electives1
-    ...currentchar.meta['electives2'].map(name => getname(name, 'standard')), // electives2
-    ...currentchar.meta['electives3'].map(name => getname(name, 'standard')), // electives3
-    ...currentchar.meta['electives4'].map(name => getname(name, 'standard')), // electives4
-    ...currentchar.meta['electives5'].map(name => getname(name, 'standard')), // electives5
-    ...currentchar.meta['electives6'].map(name => getname(name, 'standard')), // electives6
-    ...currentchar.meta['electives7'].map(name => getname(name, 'standard')), // electives7   
+        ...currentchar.meta['8f03b'].split(', ').map(name => getname(name, 'standard')), // year1core
+        ...currentchar.meta['njcra'].split(', ').map(name => getname(name, 'standard')), // year2core
+        ...currentchar.meta['mrbb3'].split(', ').map(name => getname(name, 'standard')), // year3core
+        ...currentchar.meta['vd8s6'].split(', ').map(name => getname(name, 'standard')), // year4core
+        ...currentchar.meta['sv4hr'].split(', ').map(name => getname(name, 'standard')), // year5core
+        ...currentchar.meta['dz83x'].split(', ').map(name => getname(name, 'standard')), // year6core
+        ...currentchar.meta['n8pqz'].split(', ').map(name => getname(name, 'standard')), // year7core    
+
+        ...currentchar.meta['electives1'].map(name => getname(name, 'standard')), // electives1
+        ...currentchar.meta['electives2'].map(name => getname(name, 'standard')), // electives2
+        ...currentchar.meta['electives3'].map(name => getname(name, 'standard')), // electives3
+        ...currentchar.meta['electives4'].map(name => getname(name, 'standard')), // electives4
+        ...currentchar.meta['electives5'].map(name => getname(name, 'standard')), // electives5
+        ...currentchar.meta['electives6'].map(name => getname(name, 'standard')), // electives6
+        ...currentchar.meta['electives7'].map(name => getname(name, 'standard')), // electives7   
 
     ]
 }
 
-function getcharacteristics(){
+function getcharacteristics() {
     return {
         creativity: currentchar.meta['creativity'],
         equanimity: currentchar.meta['equanimity'],
@@ -83,7 +110,7 @@ function getcharacteristics(){
     }
 }
 
-function getparental(){
+function getparental() {
     return {
         generosity: currentchar.meta['generosity2'],
         permissiveness: currentchar.meta['permissiveness'],
@@ -91,7 +118,7 @@ function getparental(){
     }
 }
 
-function getequipment(){
+function getequipment() {
     return {
         wand: currentchar.meta['bru22'],
         acc1: currentchar.meta['qb029'],

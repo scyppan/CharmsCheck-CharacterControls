@@ -1,7 +1,5 @@
 function addvalstobtns(){
     let buttonassignments = getbuttonassignments();
-
-    
 }
 
 function getbuttonassignments(){
@@ -43,3 +41,4 @@ function getbuttonassignments(){
         agility: document.getElementById('Agility')
     }
 }
+

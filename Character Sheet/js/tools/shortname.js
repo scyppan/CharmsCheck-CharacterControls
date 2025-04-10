@@ -2,6 +2,26 @@ function getname(word, mode) {
     const lowerWord = word.toLowerCase();
 
     const skills = {
+        "power": {
+            standard: "power",
+            display: "Power",
+            variants: ["Power", "power"]
+        },
+        "erudition": {
+            standard: "erudition",
+            display: "Erudition",
+            variants: ["erudition", "Erudition"]
+        },
+        "naturalism": {
+            standard: "naturalism",
+            display: "Naturalism",
+            variants: ["naturalism", "Naturalism"]
+        },
+        "panache": {
+            standard: "panache",
+            display: "Panache",
+            variants: ["panache", "Panache"]
+        },
         "charms": {
             standard: "charms",
             display: "Charms",
