@@ -168,6 +168,21 @@ function getname(word, mode) {
           standard: "agility",
           display: "Agility",
           variants: ["agility", "Agility"]
+        },
+        "generosity": {
+          standard: "generosity",
+          display: "Generosity",
+          variants: ["generosity", "Generosity", "generocity", "Generocity"]
+        },
+        "permissiveness": {
+          standard: "permissiveness",
+          display: "Permissiveness",
+          variants: ["Permissiveness", "permissiveness"]
+        },
+        "wealth": {
+          standard: "wealth",
+          display: "Wealth",
+          variants: ["wealth", "Wealth", "welth", "Welth"]
         }
       };
 

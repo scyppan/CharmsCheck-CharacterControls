@@ -1,4 +1,4 @@
-function overview() {
+function overviewtab() {
 
     const tabcontent = document.getElementById('tabcontent');
     tabcontent.innerHTML='';

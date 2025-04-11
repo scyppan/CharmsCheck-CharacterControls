@@ -3,6 +3,6 @@ function loadchar(id){
     currentchar=char;
     document.getElementById('charsheet-container').classList.remove('hidden');
     document.getElementById('searchbox').value=char.name;
-    overview();
+    overviewtab();
 }
 

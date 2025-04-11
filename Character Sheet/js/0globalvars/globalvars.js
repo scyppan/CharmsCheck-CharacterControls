@@ -9,6 +9,10 @@ let wandcores;
 let wandqualities;
 let wandmakers;
 
+let spells;
+let books;
+let schools;
+
 let fuse=null; //for fuzzy searching
 
 let searchbox=document.getElementById('searchbox');

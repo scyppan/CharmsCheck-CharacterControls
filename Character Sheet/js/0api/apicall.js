@@ -133,21 +133,59 @@ async function getwandqualities() {
   }
 }
 
-async function getwandmakers() {
-  if (!wandmakers) {  // Only fetch if we don't already have traits
+async function getspells() {
+  if (!spells) {  // Only fetch if we don't already have traits
     try {
-      console.log("Fetching wand makers...");
-      wandmakers = await fetchdata("https://charmscheck.com/wp-json/frm/v2/forms/115/entries?page_size=10000");
+      console.log("Fetching spells...");
+      spells = await fetchdata("https://charmscheck.com/wp-json/frm/v2/forms/191/entries?page_size=10000");
 
-      if (!wandmakers) {
-        console.error("Failed to fetch wand makers: Data is invalid.");
+      if (!spells) {
+        console.error("Failed to fetch spells: Data is invalid.");
       } else {
-        console.log("wand makers successfully loaded:", Array.from(Object.values(wandmakers)).length, "wand makers found.");
+        console.log("spells successfully loaded:", Array.from(Object.values(spells)).length, "spells found.");
       }
 
     } catch (err) {
-      console.error("wand makers fetch error:", err);
-      wandmakers = []; // Prevent future calls from failing
+      console.error("spells fetch error:", err);
+      spells = []; // Prevent future calls from failing
+    }
+  }
+}
+
+async function getbooks() {
+  if (!books) {  // Only fetch if we don't already have traits
+    try {
+      console.log("Fetching books...");
+      books = await fetchdata("https://charmscheck.com/wp-json/frm/v2/forms/8/entries?page_size=10000");
+
+      if (!books) {
+        console.error("Failed to fetch books: Data is invalid.");
+      } else {
+        console.log("books successfully loaded:", Array.from(Object.values(books)).length, "books found.");
+      }
+
+    } catch (err) {
+      console.error("books fetch error:", err);
+      books = []; // Prevent future calls from failing
+    }
+  }
+}
+
+async function getschools() {
+  if (!schools) {  // Only fetch if we don't already have traits
+    try {
+      console.log("Fetching schools...");
+      schools = await fetchdata("https://charmscheck.com/wp-json/frm/v2/forms/3/entries?page_size=10000");
+
+      if (!schools) {
+        console.error("Failed to fetch schools: Data is invalid.");
+      } else {
+        console.log("schools successfully loaded:", Array.from(Object.values(schools)).length, "schools found.");
+      }
+
+    } catch (err) {
+      console.error("schools fetch error:", err);
+      schools = []; // Prevent future calls from failing
     }
   }
 }

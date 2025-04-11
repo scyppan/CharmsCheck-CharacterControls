@@ -32,7 +32,7 @@
   function createTabs(tabColumn, content) {
     const pages = [
       { name: "Overview", icon: "./icons/overview.svg" },
-      { name: "Skills", icon: "./icons/skills.svg" },
+      { name: "Attributes", icon: "./icons/attributes.svg" },
       { name: "Spells", icon: "./icons/spells.svg" },
       { name: "Proficiencies", icon: "./icons/proficiencies.svg" },
       { name: "Potions", icon: "./icons/potions.svg" },
@@ -65,10 +65,13 @@
 
     switch(tabname){
       case "Overview":
-        overview();
+        overviewtab();
       break;
-      case "Skills":
-        skills();
+      case "Attributes":
+        attributestab();
+      break;
+      case "Spells":
+        spellstab();
       break;
       default:
         tabcontent.innerHTML=`<h2>${tabname}</h2><p>Placeholder content for ${tabname}.</p>`;

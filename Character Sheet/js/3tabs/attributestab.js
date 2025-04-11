@@ -1,4 +1,4 @@
-async function skills() {
+async function attributestab() {
 
     const tabcontent = document.getElementById('tabcontent');
     tabcontent.textContent='Fetching API Data 1/6...';
