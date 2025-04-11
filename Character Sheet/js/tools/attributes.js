@@ -1,15 +1,40 @@
 function getabilityvalue(ability) {
+    ability=getname(ability, 'standard');
     const abilitybuys = getabilitybuys();
-    let startval = abilitybuys.filter(val => val === ability).length;
+    let startval = abilitybuys.filter(val => getname(val, 'standard') === ability).length;
     let wand = getabilityvalfromwand(ability);
-    let accessories=getabilityvalfromaccessories(ability);
-    console.log(
-        startval,
-        wand,
-        accessories
-    )
-    return startval+wand+accessories;
+    let accessories = getattrbvalfromaccessories(ability);
+
+    return {
+        base: startval,
+        wand: wand,
+        accessories: accessories
+    }
 }
+
+function getskillvalue(skill) {
+    skill = getname(skill, 'standard');
+    let buys = getskillbuys().filter(val => val === getname(skill, 'standard')).length;
+    let corecourses = getcorecourses().filter(val => val === getname(skill, 'standard')).length;
+    let electivecourses = getelectives().filter(val => val === getname(skill, 'standard')).length;
+    let wandbonus = getskillvalfromwand(skill);
+    let accessories = getattrbvalfromaccessories(skill);
+    let eminence = geteminencebuys().filter(val => val === getname(skill, 'standard')).length;
+    
+    let wandquality=getwandqualityadjustment();
+
+    return {
+        buys: buys,
+        corecourses: corecourses,
+        electivecourses: electivecourses,
+        wandbonus: wandbonus,
+        accessories: accessories,
+        eminence: eminence,
+        wandquality: wandquality
+    };
+}
+
+// =============================
 
 function getabilityvalfromwand(ability) {
     const effects = getwandeffects();
@@ -20,15 +45,15 @@ function getabilityvalfromwand(ability) {
     return sum;
 }
 
-function getabilityvalfromaccessories(ability) {
+function getattrbvalfromaccessories(attrb) {
+    attrb=getname(attrb, 'standard');
     const effects = getallaccessorybonusprofile();
     const matchingeffects = effects.filter(effect =>
-        effect.attribute && effect.attribute.toLowerCase().trim() === ability.toLowerCase().trim()
+        effect.attribute && effect.attribute.toLowerCase().trim() === attrb.toLowerCase().trim()
     );
     const sum = matchingeffects.reduce((total, effect) => total + (parseInt(effect.amt, 10) || 0), 0);
     return sum;
 }
-
 
 function getabilitybuys() {
     return [
@@ -44,10 +69,7 @@ function getabilitybuys() {
     ];
 }
 
-function getskillvalue(skill) {
 
-    return getskillbuys().filter(val => val === getname(skill, 'standard')).length;
-}
 
 function getskillbuys() {
     return [
@@ -68,32 +90,51 @@ function getskillbuys() {
         getname(currentchar.meta['kfo7o'], 'standard'),
         getname(currentchar.meta['dbc3s'], 'standard'),
         getname(currentchar.meta['f3ef7'], 'standard'),
-        ...currentchar.meta['ixbnr'].map(name => getname(name, 'standard')),
-        ...getcourses()
     ];
 }
 
-function getcourses() {
+function geteminencebuys(){
+    return currentchar.meta['ixbnr'].map(name => getname(name, 'standard'));
+}
 
-    return [
+function getcorecourses() {
+    const coreKeys = ['8f03b', 'njcra', 'mrbb3', 'vd8s6', 'sv4hr', 'dz83x', 'n8pqz'];
+    let courses = [];
+    coreKeys.forEach(key => {
+      if (currentchar.meta[key] && currentchar.meta[key].trim() !== "") {
+        let names = currentchar.meta[key]
+                      .split(', ')
+                      .map(name => getname(name, 'standard'))
+                      .filter(name => name && name.trim() !== "");
+        courses.push(...names);
+      }
+    });
+    return courses;
+  }
+  
+  function getelectives() {
+    const electiveKeys = ['electives1', 'electives2', 'electives3', 'electives4', 'electives5', 'electives6', 'electives7'];
+    let courses = [];
+    electiveKeys.forEach(key => {
+      if (currentchar.meta[key] && Array.isArray(currentchar.meta[key])) {
+        let names = currentchar.meta[key]
+                      .map(name => getname(name, 'standard'))
+                      .filter(name => name && name.trim() !== "");
+        courses.push(...names);
+      }
+    });
+    return courses;
+  }
+  
 
-        ...currentchar.meta['8f03b'].split(', ').map(name => getname(name, 'standard')), // year1core
-        ...currentchar.meta['njcra'].split(', ').map(name => getname(name, 'standard')), // year2core
-        ...currentchar.meta['mrbb3'].split(', ').map(name => getname(name, 'standard')), // year3core
-        ...currentchar.meta['vd8s6'].split(', ').map(name => getname(name, 'standard')), // year4core
-        ...currentchar.meta['sv4hr'].split(', ').map(name => getname(name, 'standard')), // year5core
-        ...currentchar.meta['dz83x'].split(', ').map(name => getname(name, 'standard')), // year6core
-        ...currentchar.meta['n8pqz'].split(', ').map(name => getname(name, 'standard')), // year7core    
-
-        ...currentchar.meta['electives1'].map(name => getname(name, 'standard')), // electives1
-        ...currentchar.meta['electives2'].map(name => getname(name, 'standard')), // electives2
-        ...currentchar.meta['electives3'].map(name => getname(name, 'standard')), // electives3
-        ...currentchar.meta['electives4'].map(name => getname(name, 'standard')), // electives4
-        ...currentchar.meta['electives5'].map(name => getname(name, 'standard')), // electives5
-        ...currentchar.meta['electives6'].map(name => getname(name, 'standard')), // electives6
-        ...currentchar.meta['electives7'].map(name => getname(name, 'standard')), // electives7   
-
-    ]
+function getskillvalfromwand(skill) {
+    const standardSkill = getname(skill, 'standard').toLowerCase().trim();
+    const effects = getwandeffects();
+    const matchingeffects = effects.filter(effect =>
+        effect.attribute && getname(effect.attribute.toLowerCase().trim(), 'standard') === standardSkill
+    );
+    const sum = matchingeffects.reduce((total, effect) => total + (parseInt(effect.amt, 10) || 0), 0);
+    return sum;
 }
 
 function getcharacteristics() {

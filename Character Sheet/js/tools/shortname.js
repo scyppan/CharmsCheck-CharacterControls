@@ -2,6 +2,11 @@ function getname(word, mode) {
     const lowerWord = word.toLowerCase();
 
     const skills = {
+        "casting": {
+            standard: "casting",
+            display: "Casting",
+            variants: ["casting", "spell casting", "Casting"]
+        },
         "power": {
             standard: "power",
             display: "Power",
@@ -34,7 +39,7 @@ function getname(word, mode) {
         },
         "defense against the dark arts": {
             standard: "defense",
-            display: "Defense Against the Dark Arts",
+            display: "Defense",
             variants: [
                 "defense against the dark arts",
                 "defence against the dark arts",
@@ -42,7 +47,6 @@ function getname(word, mode) {
                 "defensive magic",
                 "anti-dark arts",
                 "protection magic",
-                "dark arts defense"
             ]
         },
         "dark arts": {
@@ -87,17 +91,17 @@ function getname(word, mode) {
         },
         "history of magic": {
             standard: "history",
-            display: "History of Magic",
+            display: "History",
             variants: ["history of magic", "magic history", "historical magic", "history", "the history of magic"]
         },
         "ancient runes": {
             standard: "runes",
-            display: "Ancient Runes",
+            display: "Runes",
             variants: ["ancient runes", "runes", "old runes", "rune studies", "the ancient runes"]
         },
         "social skills": {
             standard: "social",
-            display: "Social Skills",
+            display: "Social",
             variants: ["social skills", "social", "communication", "interpersonal skills", "societal interaction", "the social skills"]
         },
         "perception": {
@@ -118,14 +122,54 @@ function getname(word, mode) {
         "magical creatures": {
             standard: "creatures",
             display: "Creatures",
-            variants: ["magical creatures", "creatures", "mythical beasts", "fantastical creatures", "beasts", "the magical creatures"]
+            variants: ["Magical Creatures", "magical creatures", "creatures", "mythical beasts", "fantastical creatures", "beasts", "the magical creatures"]
         },
         "mental fortitude": {
             standard: "fortitude",
             display: "Fortitude",
             variants: ["mental fortitude", "Mental fortitude", "mental Fortitude", "fortitude", "Fortitude"]
+        },
+        "willpower": {
+          standard: "willpower",
+          display: "Willpower",
+          variants: ["willpower", "Willpower"]
+        },
+        "intellect": {
+          standard: "intellect",
+          display: "Intellect",
+          variants: ["intellect", "Intellect"]
+        },
+        "creativity": {
+          standard: "creativity",
+          display: "Creativity",
+          variants: ["creativity", "Creativity"]
+        },
+        "equanimity": {
+          standard: "equanimity",
+          display: "Equanimity",
+          variants: ["equanimity", "Equanimity"]
+        },
+        "charisma": {
+          standard: "charisma",
+          display: "Charisma",
+          variants: ["charisma", "Charisma"]
+        },
+        "attractiveness": {
+          standard: "attractiveness",
+          display: "Attractiveness",
+          variants: ["attractiveness", "Attractiveness"]
+        },
+        "strength": {
+          standard: "strength",
+          display: "Strength",
+          variants: ["strength", "Strength"]
+        },
+        "agility": {
+          standard: "agility",
+          display: "Agility",
+          variants: ["agility", "Agility"]
         }
-    };
+      };
 
     for (const key in skills) {
         const skill = skills[key];

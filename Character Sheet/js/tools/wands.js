@@ -1,5 +1,26 @@
+function getwandeffects() {
+
+    let wand = matchwand(currentchar.meta['bru22']);
+
+    if (wand) {
+        let wood = matchwandwood(wand.meta.wandwood);
+        let core = matchwandcore(wand.meta.wandcore);
+
+        return [
+            ...getwoodbonusprofile(wood),
+            ...getcorebonusprofile(core),
+        ];
+    } else {
+        return [];
+    }
+}
+
+// =============================
+
+
+
 function matchwand(wandname) {
-    
+
     const target = wandname.toLowerCase().trim();
     // If wands is not an array, convert its values into one.
     let wandlist = Array.isArray(wands) ? wands : Object.values(wands);
@@ -56,16 +77,16 @@ function getcorebonusprofile(core) {
     return bonuslist;
 }
 
-function getqualityadjustment(quality) {
-    let quality=[];
-    if(quality.meta.qualitycastingeffect!=0){
-        quality.push({
-            source: "wandquality",
-            type: "casting",
-            attribute: "casting",
-            amt: quality.meta.qualitycastingeffect
-            })    
+function getwandqualityadjustment() {
+    let wandname = currentchar.meta['bru22'];
+
+    if (wandname) {
+        let matchedwand = matchwand(wandname);
+        let quality = matchwandquality(matchedwand.meta.wandquality);
+
+        return quality.meta.qualitycastingeffect;
+    } else {
+        return 0;
     }
-    
-    return quality;
+
 }

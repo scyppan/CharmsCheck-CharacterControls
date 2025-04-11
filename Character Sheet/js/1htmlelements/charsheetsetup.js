@@ -47,6 +47,7 @@
       img.src = page.icon;
       img.alt = page.name;
       tab.name=page.name;
+      tab.title=page.name;
       tab.appendChild(img);
       tab.addEventListener("click", () => {
         console.log(tab.name, "Clicked");

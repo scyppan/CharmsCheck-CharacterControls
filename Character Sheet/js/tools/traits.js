@@ -3,18 +3,18 @@ function gettraitdescription(traitname) {
         trait.meta.traitname === traitname
       );
       
-    if (!matchingTrait) return '';
-    const type = matchingTrait.meta.b78xl[0];
-    const amt = matchingTrait.meta.traitbonusamt[0];
-    let traittext = '';
-    if (type === "Skill") {
-      traittext = `+${amt} to ${matchingTrait.meta.traitbonusskill[0]}`;
-    } else if (type === "Subtype") {
-      traittext = `+${amt} when casting spells of the ${matchingTrait.meta.traitbonussubtype[0]} subtype`;
-    } else {
-      traittext = matchingTrait.meta.traitancillarybonus[0];
-    }
-    return traittext;
+      if (!matchingTrait) return '';
+      const type = matchingTrait.meta.b78xl[0];
+      const amt = matchingTrait.meta.traitbonusamt[0];
+      let traittext = '';
+      if (type === "Skill") {
+        traittext = `+${amt} to ${matchingTrait.meta.traitbonusskill[0]}\n\nNote: This value is already added to the sum shown for this skill above.`;
+      } else if (type === "Subtype") {
+        traittext = `+${amt} when casting spells of the ${matchingTrait.meta.traitbonussubtype[0]} subtype\n\nNote: you must click a spell to cast (from your spellbook) to utilize these bonuses. \nIf you cast a straight skill roll, your subtype bonus will not be included.`;
+      } else {
+        traittext = matchingTrait.meta.traitancillarybonus[0];
+      }
+      return traittext;
   }
   
   function gettraitattribute(traitname) {
@@ -44,4 +44,42 @@ function gettraitdescription(traitname) {
         case 'Crafty': return {attribute: "Enchanting", source: 'Trait', amt: 3}
         default: break;
     }
+}
+
+function getchartraits(){
+
+  if (Array.isArray(currentchar.meta.traits)) {
+    let traitarray=[];
+    currentchar.meta.traits.forEach(trait => {
+      const matchingTrait = Object.values(traits).find(t =>
+        t.meta && t.meta.traitname && t.meta.traitname.toLowerCase().trim() === trait.toLowerCase().trim()
+      );
+      traitarray.push(matchingTrait);
+    });
+    return traitarray;
+  } else if (currentchar.meta.traits) {
+    const matchingTrait = Object.values(traits).find(t =>
+      t.meta && t.meta.traitname && t.meta.traitname.toLowerCase().trim() === currentchar.meta.traits.toLowerCase().trim()
+    );
+    return [matchingTrait];
+  }
+}
+
+function getskillbonusesfromtraits(){
+  let mytraits = getchartraits();
+  let traitswithskillbonuses=[];
+  mytraits.forEach(trait=>{
+    
+    for(let i=0;i<trait.meta.traitbonusskill.length;i++){
+      if(trait.meta.b78xl[i]=="Skill"){
+        traitswithskillbonuses.push({
+          traitname: trait.meta.traitname,
+          skill: getname(trait.meta.traitbonusskill[i],'standard'),
+          amt: trait.meta.traitbonusamt[i]
+        });
+      }
+    }
+  });
+
+  return traitswithskillbonuses;
 }
