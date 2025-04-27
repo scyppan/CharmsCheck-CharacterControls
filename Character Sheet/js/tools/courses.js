@@ -1,9 +1,9 @@
 function getcurrcharcourses(){
-    let courses=[...getcorecourses(), ...getelectives()];
+    let courses=[...getcorecoursesdetails(), ...getelectivesdetails()];
     return courses;
 }
 
-function getcorecourses(){
+function getcorecoursesdetails(){
     const yearmap = {
       'Not yet started':0,'First year':1,'Second year':2,
       'Third year':3,'Fourth year':4,'Fifth year':5,
@@ -44,7 +44,7 @@ function getcorecourses(){
     return getrawelectives(year).map(c=>getname(c,'standard'));
   }
   
-  function getelectives(){
+  function getelectivesdetails(){
     const maxyear = getcurrentyearnum();
     const result = [];
     for(let y = 1; y <= maxyear; y++){
@@ -57,5 +57,9 @@ function getcorecourses(){
     }
     return result;
   }
-  
-  
+
+function getschool() {
+    const schoolname = currentchar.meta.school;
+    // peruse the schools object and return the entry whose name matches
+    return Object.values(schools).find(s => s.name === schoolname) || null;
+}

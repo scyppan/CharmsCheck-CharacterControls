@@ -7,6 +7,3 @@ async function spellstab() {
     tabcontent.textContent = 'Fetching API Data 3/3.....';
     await getschools();//make sure we've loaded schools
 }
-
-
-
