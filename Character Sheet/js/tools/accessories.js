@@ -7,7 +7,6 @@ function getallaccessorybonusprofile() {
         ...getaccessorybonusprofile(accessory2),
     ]
 
-    console.log("bonusarray", bonusarray);
     return bonusarray;
 }
 
