@@ -1,3 +1,6 @@
+const cache_ttl = 24 * 3600 * 1000; // 1 day in ms
+const cache_meta = [];
+
 //api data
 let characters=[];
 let traits;

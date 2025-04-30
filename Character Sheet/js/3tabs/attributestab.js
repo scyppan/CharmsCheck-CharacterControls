@@ -2,17 +2,17 @@ async function attributestab() {
 
     const tabcontent = document.getElementById('tabcontent');
     tabcontent.textContent='Fetching API Data 1/6...';
-    await gettraits();//make sure we've loaded traits first.
+    await gettraits(true);//make sure we've loaded traits first.
     tabcontent.textContent='Fetching API Data 2/6....';
-    await getwands();
+    await getwands(true);
     tabcontent.textContent='Fetching API Data 3/6.....';
-    await getaccessories();
+    await getaccessories(true);
     tabcontent.textContent='Fetching API Data 4/6......';
-    await getwandwoods();
+    await getwandwoods(true);
     tabcontent.textContent='Fetching API Data 5/6.......';
-    await getwandcores();
+    await getwandcores(true);
     tabcontent.textContent='Fetching API Data 6/6........';
-    await getwandqualities();
+    await getwandqualities(true);
     tabcontent.textContent='';
 
     const quadrant = document.createElement('div');

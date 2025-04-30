@@ -39,7 +39,8 @@
       { name: "Pets", icon: "./icons/pets.svg" },
       { name: "Inventory", icon: "./icons/equipment.svg" },
       { name: "Books", icon: "./icons/books.svg" },
-      { name: "Relationships", icon: "./icons/relationships.svg" }
+      { name: "Relationships", icon: "./icons/relationships.svg" },
+      { name: "Settings", icon: "./icons/settings.svg" }
     ];
     pages.forEach(page => {
       const tab = document.createElement("div");
@@ -72,6 +73,9 @@
       break;
       case "Spells":
         spellstab();
+      break;
+      case "Settings":
+        settingstab();
       break;
       default:
         tabcontent.innerHTML=`<h2>${tabname}</h2><p>Placeholder content for ${tabname}.</p>`;

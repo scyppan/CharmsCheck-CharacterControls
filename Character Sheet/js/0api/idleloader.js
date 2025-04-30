@@ -1,38 +1,44 @@
 // global tracker for total time spent loading in ms
 let cumulativeloadtime = 0;
 
-/**
- * logs a message into the status modal, auto-scrolling as needed
- */
+let modalon = false;
+
+
 function showstatus(msg) {
-  if (!document.body) {
-    return document.addEventListener('DOMContentLoaded', () => showstatus(msg));
+  if (modalon) {
+
+
+
+    if (!document.body) {
+      return document.addEventListener('DOMContentLoaded', () => showstatus(msg));
+    }
+    let modal = document.getElementById('statusmodal');
+    if (!modal) {
+      modal = document.createElement('div');
+      modal.id = 'statusmodal';
+      Object.assign(modal.style, {
+        position: 'fixed',
+        bottom: '20px',
+        right: '20px',
+        width: '260px',
+        maxHeight: '200px',
+        padding: '10px',
+        background: 'rgba(0,0,0,0.75)',
+        color: '#fff',
+        fontSize: '12px',
+        fontFamily: 'Arial,sans-serif',
+        overflowY: 'auto',
+        zIndex: 9999,
+        borderRadius: '4px'
+      });
+      document.body.appendChild(modal);
+    }
+    const line = document.createElement('div');
+    line.textContent = msg;
+    modal.appendChild(line);
+    modal.scrollTop = modal.scrollHeight;
   }
-  let modal = document.getElementById('statusmodal');
-  if (!modal) {
-    modal = document.createElement('div');
-    modal.id = 'statusmodal';
-    Object.assign(modal.style, {
-      position:      'fixed',
-      bottom:        '20px',
-      right:         '20px',
-      width:         '260px',
-      maxHeight:     '200px',
-      padding:       '10px',
-      background:    'rgba(0,0,0,0.75)',
-      color:         '#fff',
-      fontSize:      '12px',
-      fontFamily:    'Arial,sans-serif',
-      overflowY:     'auto',
-      zIndex:        9999,
-      borderRadius:  '4px'
-    });
-    document.body.appendChild(modal);
-  }
-  const line = document.createElement('div');
-  line.textContent = msg;
-  modal.appendChild(line);
-  modal.scrollTop = modal.scrollHeight;
+
 }
 
 /**
@@ -44,21 +50,21 @@ function showstatus(msg) {
  */
 function startidlefetchsequence() {
   const tasks = [
-    { fn: gettraits,        varname: 'traits',       isloaded: () => traits != null },
-    { fn: getbooks,         varname: 'books',        isloaded: () => books != null },
-    { fn: getaccessories,   varname: 'accessories',  isloaded: () => accessories != null },
-    { fn: getspells,        varname: 'spells',       isloaded: () => spells != null },
-    { fn: getwands,         varname: 'wands',        isloaded: () => wands != null },
-    { fn: getwandwoods,     varname: 'wandwoods',    isloaded: () => wandwoods != null },
-    { fn: getwandcores,     varname: 'wandcores',    isloaded: () => wandcores != null },
-    { fn: getwandqualities, varname: 'wandqualities',isloaded: () => wandqualities != null },
-    { fn: getschools,       varname: 'schools',      isloaded: () => schools != null }
+    { fn: gettraits, varname: 'traits', isloaded: () => traits != null },
+    { fn: getspells, varname: 'spells', isloaded: () => spells != null },
+    { fn: getaccessories, varname: 'accessories', isloaded: () => accessories != null },
+    { fn: getbooks, varname: 'books', isloaded: () => books != null },
+    { fn: getwands, varname: 'wands', isloaded: () => wands != null },
+    { fn: getwandwoods, varname: 'wandwoods', isloaded: () => wandwoods != null },
+    { fn: getwandcores, varname: 'wandcores', isloaded: () => wandcores != null },
+    { fn: getwandqualities, varname: 'wandqualities', isloaded: () => wandqualities != null },
+    { fn: getschools, varname: 'schools', isloaded: () => schools != null }
   ];
 
-  let index     = 0;
+  let index = 0;
   let timerid;
   const inactivitydelay = 5000; // ms before next idle check
-  const quickthreshold   = 1000; // ms to auto-continue
+  const quickthreshold = 1000; // ms to auto-continue
 
   function onactivity() {
     clearTimeout(timerid);
@@ -122,12 +128,12 @@ function startidlefetchsequence() {
 
   function cleanup() {
     clearTimeout(timerid);
-    ['mousemove','mousedown','keydown','scroll','touchstart']
+    ['mousemove', 'mousedown', 'keydown', 'scroll', 'touchstart']
       .forEach(evt => document.removeEventListener(evt, onactivity));
   }
 
   // listen for user activity and start timer
-  ['mousedown','keydown','touchstart']
+  ['mousedown', 'keydown', 'touchstart']
     .forEach(evt => document.addEventListener(evt, onactivity, { passive: true }));
   showstatus('...idle loader started, waiting for inactivity');
   timerid = setTimeout(onidle, inactivitydelay);
