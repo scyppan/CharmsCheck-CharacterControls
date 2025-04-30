@@ -1,0 +1,58 @@
+.spell-category {
+    margin-bottom: 1em;
+    background-color: rgba(164, 179, 163, 0.35); /* very high transparency */
+  }
+  
+  .spell-category summary {
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .difficulty-group {
+    margin-top: 1em; /* wider spacing between difficulty levels */
+  }
+  
+  .spell-item {
+    margin-left: 1em;
+    line-height: 1.4;
+  }
+  
+  /* spelldisplay.css */
+
+.spell-plate {
+    display: inline-block;
+    background-color: #d8b8b8;
+    border: 2px solid #2e0404;
+    border-radius: 12px;
+    padding: 0.25em .5em;
+    margin: 0.25em;
+    font-size: .85rem;
+    font-family: inherit;
+    color: #2e0404;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    user-select: none;
+  }
+  
+  .spell-plate:hover {
+    background-color: #2e0404;
+    color: #d8b8b8;
+    border-color: #d8b8b8;
+  }
+  
+  .spell-plate:active {
+    background-color: #ddd;
+    border-color: #aaa;
+  }
+  
+  .spell-plate:focus {
+    outline: 2px solid #007acc;
+    outline-offset: 2px;
+  }
+  
+  /* Optional: ensure spelling details inside title tooltip wrap */
+  .spell-plate[title] {
+    white-space: pre-wrap;
+  }
+  
