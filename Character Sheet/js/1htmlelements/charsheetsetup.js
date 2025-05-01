@@ -74,6 +74,18 @@
       case "Spells":
         spellstab();
       break;
+      case "Proficiencies":
+        proficiencestab();
+      break;
+      case "Potions":
+        potionstab();
+      break;
+      case "Pets":
+        petstab();
+      break;
+      case "Inventory":
+        inventorytab();
+      break;
       case "Settings":
         settingstab();
       break;

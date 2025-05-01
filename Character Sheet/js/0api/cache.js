@@ -1,13 +1,17 @@
 const cache_configs = [
-    { key: 'traits',        fn: 'gettraits'       },
-    { key: 'accessories',   fn: 'getaccessories'  },
-    { key: 'wands',         fn: 'getwands'        },
-    { key: 'wandwoods',     fn: 'getwandwoods'    },
-    { key: 'wandcores',     fn: 'getwandcores'    },
-    { key: 'wandqualities', fn: 'getwandqualities'},
-    { key: 'spells',        fn: 'getspells'       },
-    { key: 'books',         fn: 'getbooks'        },
-    { key: 'schools',       fn: 'getschools'      }
+    { key: 'traits',        fn: 'gettraits'        },
+    { key: 'accessories',   fn: 'getaccessories'   },
+    { key: 'wands',         fn: 'getwands'         },
+    { key: 'wandwoods',     fn: 'getwandwoods'     },
+    { key: 'wandcores',     fn: 'getwandcores'     },
+    { key: 'wandqualities', fn: 'getwandqualities' },
+    { key: 'spells',        fn: 'getspells'        },
+    { key: 'books',         fn: 'getbooks'         },
+    { key: 'schools',       fn: 'getschools'       },
+    { key: 'proficiencies', fn: 'getproficiencies' },
+    { key: 'potions',       fn: 'getpotions'       },
+    { key: 'namedcreatures',fn: 'getnamedcreatures'},
+    { key: 'items',fn: 'getitems'},
   ];
   
   const assignCacheData = {
@@ -20,6 +24,11 @@ const cache_configs = [
     spells:        v => spells        = v,
     books:         v => books         = v,
     schools:       v => schools       = v,
+    proficiencies: v => proficiencies = v,
+    potions:       v => potions       = v,
+    namedcreatures:v => namedcreatures= v,
+    items:         v => items         = v
+
   };
   
   // 3) A mirror map to read those same locals by key
@@ -33,13 +42,12 @@ const cache_configs = [
     spells:        () => spells,
     books:         () => books,
     schools:       () => schools,
+    proficiencies: () => proficiencies,
+    potions:       () => potions,
+    namedcreatures:() => namedcreatures,
+    items:         () => items
   };
   
-  /**
-   * Loads each dataset from localStorage if fresh.
-   * If the assigned local var is still empty/null, clears the cache,
-   * forces a fetch (via the named get-function), and re-caches.
-   */
   async function init_cache() {
     for (const { key, fn } of cache_configs) {
       const storageKey = `cache_${key}`;

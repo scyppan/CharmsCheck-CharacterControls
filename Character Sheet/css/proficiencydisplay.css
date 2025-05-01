@@ -1,7 +1,9 @@
+/* proficiencydisplay.css */
+
 /* =======================
    Tab‐bar styling
    ======================= */
-   #spelltabbuttonbar {
+   #proficiencytabbuttonbar {
     display: flex;
     gap: 0.5em;
     margin-bottom: 1em;
@@ -9,17 +11,17 @@
     color: #333;
   }
   
-  #spelltabbuttonbar.active {
+  #proficiencytabbuttonbar.active {
     background-color: rgba(73, 65, 54, 0.87);
     color: #e7dcdc;
   }
   
-  #spelltabbuttonbar button:hover {
+  #proficiencytabbuttonbar button:hover {
     background: #e0e0e0;
     cursor: pointer;
   }
   
-  #spelltabbuttonbar button.active {
+  #proficiencytabbuttonbar button.active {
     background: #333;
     color: #fff;
     border-color: #333;
@@ -28,18 +30,18 @@
   /* =======================
      Section (details) colors
      ======================= */
-  .spell-category.favorites  { background: rgba( 67,102, 67, 0.15); }
-  .spell-category.byskill    { background: rgba( 73, 77,112, 0.15); }
-  .spell-category.bybook     { background: rgba(129, 46, 46, 0.15); }
-  .spell-category.bysubtype  { background: rgba(133, 63,136, 0.15); }
+  .proficiency-category.favorites  { background: rgba( 67,102, 67, 0.15); }
+  .proficiency-category.byskill    { background: rgba( 73, 77,112, 0.15); }
+  .proficiency-category.bybook     { background: rgba(129, 46, 46, 0.15); }
+  .proficiency-category.bysubtype  { background: rgba(133, 63,136, 0.15); }
   
-  .spell-category {
+  .proficiency-category {
     margin-bottom: 1em;
     border-radius: 4px;
     padding: 0.5em;
   }
   
-  .spell-category summary {
+  .proficiency-category summary {
     font-weight: bold;
     cursor: pointer;
   }
@@ -48,19 +50,19 @@
     margin-top: 1em;
   }
   
-  .spell-item {
+  .proficiency-item {
     margin-left: 1em;
     line-height: 1.4;
   }
   
-  .spell-plate {
+  .proficiency-plate {
     display: inline-block;
     background-color: #d8b8b8;
     border: 2px solid #2e0404;
     border-radius: 12px;
-    padding: 0.25em .5em;
+    padding: 0.25em 0.5em;
     margin: 0.25em;
-    font-size: .85rem;
+    font-size: 0.85rem;
     font-family: inherit;
     color: #2e0404;
     cursor: pointer;
@@ -69,23 +71,23 @@
     user-select: none;
   }
   
-  .spell-plate:hover {
+  .proficiency-plate:hover {
     background-color: #2e0404;
     color: #d8b8b8;
     border-color: #d8b8b8;
   }
   
-  .spell-plate:active {
+  .proficiency-plate:active {
     background-color: #ddd;
     border-color: #aaa;
   }
   
-  .spell-plate:focus {
+  .proficiency-plate:focus {
     outline: 2px solid #007acc;
     outline-offset: 2px;
   }
   
-  .spell-plate[title] {
+  .proficiency-plate[title] {
     white-space: pre-wrap;
   }
   

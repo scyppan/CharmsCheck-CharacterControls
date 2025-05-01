@@ -58,7 +58,11 @@ function startidlefetchsequence() {
     { fn: getwandwoods, varname: 'wandwoods', isloaded: () => wandwoods != null },
     { fn: getwandcores, varname: 'wandcores', isloaded: () => wandcores != null },
     { fn: getwandqualities, varname: 'wandqualities', isloaded: () => wandqualities != null },
-    { fn: getschools, varname: 'schools', isloaded: () => schools != null }
+    { fn: getschools, varname: 'schools', isloaded: () => schools != null },
+    { fn: getproficiencies, varname: 'proficiencies', isloaded: () => proficiencies != null },
+    { fn: getpotions, varname: 'potions', isloaded: () => potions != null },
+    { fn: getnamedcreatures, varname: 'namedcreatures', isloaded: () => namedcreatures != null },
+    { fn: getitems, varname: 'items', isloaded: () => items !=null}
   ];
 
   let index = 0;

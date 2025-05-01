@@ -3,7 +3,8 @@
 // list of datasets to inspect/clear
 const cacheDatasets = [
   'traits','accessories','wands','wandwoods',
-  'wandcores','wandqualities','spells','books','schools'
+  'wandcores','wandqualities','spells','books','schools', 
+  'proficiencies', 'potions', 'namedcreatures'
 ];
 
 /**

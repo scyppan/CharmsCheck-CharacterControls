@@ -1,7 +1,7 @@
 /* =======================
-   Tab‐bar styling
+   Tab-bar styling
    ======================= */
-   #spelltabbuttonbar {
+   #pettabbuttonbar {
     display: flex;
     gap: 0.5em;
     margin-bottom: 1em;
@@ -9,17 +9,17 @@
     color: #333;
   }
   
-  #spelltabbuttonbar.active {
+  #pettabbuttonbar.active {
     background-color: rgba(73, 65, 54, 0.87);
     color: #e7dcdc;
   }
   
-  #spelltabbuttonbar button:hover {
+  #pettabbuttonbar button:hover {
     background: #e0e0e0;
     cursor: pointer;
   }
   
-  #spelltabbuttonbar button.active {
+  #pettabbuttonbar button.active {
     background: #333;
     color: #fff;
     border-color: #333;
@@ -28,18 +28,17 @@
   /* =======================
      Section (details) colors
      ======================= */
-  .spell-category.favorites  { background: rgba( 67,102, 67, 0.15); }
-  .spell-category.byskill    { background: rgba( 73, 77,112, 0.15); }
-  .spell-category.bybook     { background: rgba(129, 46, 46, 0.15); }
-  .spell-category.bysubtype  { background: rgba(133, 63,136, 0.15); }
+  .pet-category.favorites { background: rgba( 67,102, 67, 0.15); }
+  .pet-category.byspecies { background: rgba( 73, 77,112, 0.15); }
+  .pet-category.bybook    { background: rgba(129, 46, 46, 0.15); }
   
-  .spell-category {
+  .pet-category {
     margin-bottom: 1em;
     border-radius: 4px;
     padding: 0.5em;
   }
   
-  .spell-category summary {
+  .pet-category summary {
     font-weight: bold;
     cursor: pointer;
   }
@@ -48,44 +47,44 @@
     margin-top: 1em;
   }
   
-  .spell-item {
+  .pet-item {
     margin-left: 1em;
     line-height: 1.4;
   }
   
-  .spell-plate {
+  .pet-plate {
     display: inline-block;
-    background-color: #d8b8b8;
-    border: 2px solid #2e0404;
+    background-color: #e0f7f1;
+    border: 2px solid #25755a;
     border-radius: 12px;
     padding: 0.25em .5em;
     margin: 0.25em;
     font-size: .85rem;
     font-family: inherit;
-    color: #2e0404;
+    color: #25755a;
     cursor: pointer;
     text-align: center;
     transition: background-color 0.2s ease, border-color 0.2s ease;
     user-select: none;
   }
   
-  .spell-plate:hover {
-    background-color: #2e0404;
-    color: #d8b8b8;
-    border-color: #d8b8b8;
+  .pet-plate:hover {
+    background-color: #25755a;
+    color: #e0f7f1;
+    border-color: #e0f7f1;
   }
   
-  .spell-plate:active {
+  .pet-plate:active {
     background-color: #ddd;
     border-color: #aaa;
   }
   
-  .spell-plate:focus {
+  .pet-plate:focus {
     outline: 2px solid #007acc;
     outline-offset: 2px;
   }
   
-  .spell-plate[title] {
+  .pet-plate[title] {
     white-space: pre-wrap;
   }
   

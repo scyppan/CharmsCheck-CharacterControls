@@ -44,7 +44,6 @@ function getsuggestions(query, e){
  }
 
  function showresults(results, e){
-    console.log(results);
 
     createsuggestionbox(e);
     let suggestionbox=document.getElementById('suggestions');
