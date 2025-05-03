@@ -1,3 +1,40 @@
-function roll(){
-    
+function getrollresult(rollobj){
+    switch(rollobj.type){
+        case "Power":
+        case "Panache":
+        case "Erudition":
+        case "Naturalism":
+            rollobj.total=
+                rollobj.dice+rollobj.ability+
+                rollobj.wand+rollobj.iteminhand+
+                rollobj.accessory1+rollobj.accessory2+
+                rollobj.inventory;
+        break
+    }
+
+    rollobj = rolltext(rollobj); //adds the rolltext and gives back a rollobj
+    addtorollhistory(rollobj);
+    return rollobj;
 }
+
+function constructrollobj(type){
+
+    return {
+        type: '',
+        dice: 0,
+        ability: 0,
+        skill: 0,
+        characteristic: 0,
+        parental: 0,
+        trait: 0,
+        wand: 0,
+        iteminhand: 0,
+        accessory1: 0,
+        accessory2: 0,
+        inventory: 0, //unequippable items with passive bonuses on them
+        threshold: 0,
+        text: '',
+        total: 0
+    };
+}
+

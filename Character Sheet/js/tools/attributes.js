@@ -1,13 +1,17 @@
 function getabilityvalue(ability) {
-    ability=getname(ability, 'standard');
+    ability = getname(ability, 'standard');
     const abilitybuys = getabilitybuys();
     let startval = abilitybuys.filter(val => getname(val, 'standard') === ability).length;
     let wand = getabilityvalfromwand(ability);
+    let iteminhand = getabilityvalfromiteminhand(ability);
     let accessories = getattrbvalfromaccessories(ability);
+
+    //eventually need to add in passive inventory bonuses
 
     return {
         base: startval,
         wand: wand,
+        iteminhand: iteminhand,
         accessories: accessories
     }
 }
@@ -20,8 +24,8 @@ function getskillvalue(skill) {
     let wandbonus = getskillvalfromwand(skill);
     let accessories = getattrbvalfromaccessories(skill);
     let eminence = geteminencebuys().filter(val => val === getname(skill, 'standard')).length;
-    
-    let wandquality=getwandqualityadjustment();
+
+    let wandquality = getwandqualityadjustment();
 
     return {
         buys: buys,
@@ -36,6 +40,23 @@ function getskillvalue(skill) {
 
 // =============================
 
+function getabilityvalfromiteminhand(ability) {
+    let iteminhand = Object.values(itemsinhand).find(item => item.meta.iteminhanditemname == currentchar.meta.iteminhand);
+    let totalbonus = 0;
+
+    if (iteminhand) {
+
+
+        for (let i = 0; i < iteminhand.meta.iteminhandbonustype.length; i++) {
+            if (iteminhand.meta.iteminhandabilitybonus[i] == ability) {
+                totalbonus += Number(iteminhand.meta.iteminhandbonusamt[i]);
+            }
+        }
+    }
+
+    return totalbonus;
+}
+
 function getabilityvalfromwand(ability) {
     const effects = getwandeffects();
     const matchingeffects = effects.filter(effect =>
@@ -46,7 +67,7 @@ function getabilityvalfromwand(ability) {
 }
 
 function getattrbvalfromaccessories(attrb) {
-    attrb=getname(attrb, 'standard');
+    attrb = getname(attrb, 'standard');
     const effects = getallaccessorybonusprofile();
     const matchingeffects = effects.filter(effect =>
         effect.attribute && effect.attribute.toLowerCase().trim() === attrb.toLowerCase().trim()
@@ -93,7 +114,7 @@ function getskillbuys() {
     ];
 }
 
-function geteminencebuys(){
+function geteminencebuys() {
     return currentchar.meta['ixbnr'].map(name => getname(name, 'standard'));
 }
 
@@ -101,31 +122,31 @@ function getcorecourses() {
     const coreKeys = ['8f03b', 'njcra', 'mrbb3', 'vd8s6', 'sv4hr', 'dz83x', 'n8pqz'];
     let courses = [];
     coreKeys.forEach(key => {
-      if (currentchar.meta[key] && currentchar.meta[key].trim() !== "") {
-        let names = currentchar.meta[key]
-                      .split(', ')
-                      .map(name => getname(name, 'standard'))
-                      .filter(name => name && name.trim() !== "");
-        courses.push(...names);
-      }
+        if (currentchar.meta[key] && currentchar.meta[key].trim() !== "") {
+            let names = currentchar.meta[key]
+                .split(', ')
+                .map(name => getname(name, 'standard'))
+                .filter(name => name && name.trim() !== "");
+            courses.push(...names);
+        }
     });
     return courses;
-  }
-  
-  function getelectives() {
+}
+
+function getelectives() {
     const electiveKeys = ['electives1', 'electives2', 'electives3', 'electives4', 'electives5', 'electives6', 'electives7'];
     let courses = [];
     electiveKeys.forEach(key => {
-      if (currentchar.meta[key] && Array.isArray(currentchar.meta[key])) {
-        let names = currentchar.meta[key]
-                      .map(name => getname(name, 'standard'))
-                      .filter(name => name && name.trim() !== "");
-        courses.push(...names);
-      }
+        if (currentchar.meta[key] && Array.isArray(currentchar.meta[key])) {
+            let names = currentchar.meta[key]
+                .map(name => getname(name, 'standard'))
+                .filter(name => name && name.trim() !== "");
+            courses.push(...names);
+        }
     });
     return courses;
-  }
-  
+}
+
 
 function getskillvalfromwand(skill) {
     const standardSkill = getname(skill, 'standard').toLowerCase().trim();

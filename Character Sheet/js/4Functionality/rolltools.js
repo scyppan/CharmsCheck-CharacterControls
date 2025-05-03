@@ -3,10 +3,10 @@ function randbetween(lo, hi) {
 }
 
 function checkcritfail(rollval) {
-    if (rollval == 1) { return "Crit Fail" }
-    else if (rollval == 10) { return "Crit Success" }
+    if (rollval == 1) { return "fail" }
+    else if (rollval == 10) { return "success" }
     else {
-        return "Normal";
+        return "none";
     }
 }
 

@@ -1,0 +1,61 @@
+/* settingtab.css */
+
+/* tab buttons */
+#settingstabbuttonbar {
+  margin-bottom: 1rem;
+  display: flex;
+  gap: 0.5rem;
+}
+#settingstabbuttonbar button {
+  padding: 0.4rem 0.8rem;
+  border: 1px solid #ccc;
+  background: #f7f7f7;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#settingstabbuttonbar button:hover { background: #eaeaea; }
+#settingstabbuttonbar button.active {
+  background: #ddd;
+  border-color: #999;
+}
+
+/* cache & history panes */
+#cacheminiwindow,
+#historyminiwindow {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 1rem;
+  min-height: 200px;
+  overflow-y: auto;
+}
+
+/* list styling */
+#settingsminiwindow {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#settingsminiwindow li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+#settingsminiwindow li span {
+  flex: 1;
+}
+
+/* fetch/clear buttons */
+#settingsminiwindow li button {
+  padding: 0.2rem 0.6rem;
+  border: 1px solid #bbb;
+  background: #fafafa;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+#settingsminiwindow li button:hover {
+  background: #eee;
+}

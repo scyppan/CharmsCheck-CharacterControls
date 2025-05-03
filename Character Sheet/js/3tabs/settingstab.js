@@ -2,162 +2,153 @@
 
 // list of datasets to inspect/clear
 const cacheDatasets = [
-  'traits',
-  'accessories',
-  'wands',
-  'wandwoods',
-  'wandcores',
-  'wandqualities',
-  'spells',
-  'books',
-  'schools',
-  'proficiencies',
-  'potions',
-  'namedcreatures',
-  'items',
-  'itemsinhand',
-  'generalitems',
-  'creatures',
-  'creatureparts',
-  'plants',
-  'plantparts',
-  'preparations',
-  'fooddrink'
+  'traits', 'accessories', 'wands', 'wandwoods', 'wandcores', 'wandqualities',
+  'spells', 'books', 'schools', 'proficiencies', 'potions', 'namedcreatures',
+  'items', 'itemsinhand', 'generalitems', 'creatures', 'creatureparts',
+  'plants', 'plantparts', 'preparations', 'fooddrink'
 ];
 
-/**
- * clear cache for a single dataset and reset its global var
- * @param {string} key
- */
+async function settingstab() {
+  const tabcontent = document.getElementById('tabcontent');
+  tabcontent.textContent = 'Loading settings…';
+  rendersettingstabui();
+  loadcachemini();                   // default view
+  activateSettingTab('btncache');
+}
+
+function rendersettingstabui() {
+  const tabcontent = document.getElementById('tabcontent');
+  tabcontent.textContent = '';
+
+  // button bar
+  const bar = document.createElement('div');
+  bar.id = 'settingstabbuttonbar';
+  const btnCache = Object.assign(document.createElement('button'), { id: 'btncache', textContent: 'Cache' });
+  const btnHistory = Object.assign(document.createElement('button'), { id: 'btnhistory', textContent: 'Roll History' });
+  btnCache.addEventListener('click', () => { activateSettingTab('btncache'); loadcachemini(); });
+  btnHistory.addEventListener('click', () => { activateSettingTab('btnhistory'); loadhistorymini(); });
+  bar.append(btnCache, btnHistory);
+  tabcontent.append(bar);
+
+  // two mini-windows
+  const cachePane = document.createElement('div'); cachePane.id = 'cacheminiwindow';
+  const historyPane = document.createElement('div'); historyPane.id = 'historyminiwindow';
+  tabcontent.append(cachePane, historyPane);
+}
+
+function activateSettingTab(tabId) {
+  document.querySelectorAll('#settingstabbuttonbar > button')
+    .forEach(b => b.classList.remove('active'));
+  document.getElementById(tabId).classList.add('active');
+
+  document.getElementById('cacheminiwindow').style.display = (tabId === 'btncache') ? '' : 'none';
+  document.getElementById('historyminiwindow').style.display = (tabId === 'btnhistory') ? '' : 'none';
+}
+
+function loadcachemini() {
+  const container = document.getElementById('cacheminiwindow');
+  container.textContent = '';
+
+  const list = document.createElement('ul');
+  list.id = 'settingsminiwindow';
+  cacheDatasets.forEach(key => {
+    const li = document.createElement('li');
+
+    // timestamp or “Not cached”
+    const raw = localStorage.getItem('cache_' + key);
+    let label = key + ': Not cached';
+    if (raw) {
+      try {
+        const { ts } = JSON.parse(raw);
+        label = `${key}: ${new Date(ts).toLocaleString()}`;
+      } catch { }
+    }
+
+    const span = document.createElement('span');
+    span.textContent = label;
+
+    const btnFetch = document.createElement('button');
+    btnFetch.textContent = 'Fetch';
+    btnFetch.addEventListener('click', async () => {
+      await fetchcachefor(key);
+      loadcachemini();
+    });
+
+    const btnClear = document.createElement('button');
+    btnClear.textContent = 'Clear';
+    btnClear.addEventListener('click', () => {
+      clearcachefor(key);
+    });
+
+    li.append(span, btnFetch, btnClear);
+    list.append(li);
+  });
+
+  container.append(list);
+}
+
+function loadhistorymini() {
+  const container = document.getElementById('historyminiwindow');
+  container.textContent = '';
+
+  if (!Array.isArray(rollhistory) || rollhistory.length === 0) {
+    container.textContent = 'No rolls yet';
+    return;
+  }
+
+  // show most recent 20 rolls in reverse order
+  rollhistory.slice(-20).reverse().forEach(hit => {
+    const details = document.createElement('details');
+
+    const time = new Date(hit.timestamp).toLocaleTimeString();
+    const summary = document.createElement('summary');
+    summary.textContent = hit.dice === 1
+      ? `${hit.type} (CRIT FAIL) — ${time}`
+      : hit.dice === 10
+        ? `${hit.type} (CRIT SUCCEED ${hit.total}) — ${time}`
+        : `${hit.type} (${hit.total}) — ${time}`;
+
+    details.appendChild(summary);
+
+    // show the full roll object when expanded
+    const content = document.createElement('pre');
+    content.textContent = JSON.stringify(hit, null, 2);
+    details.appendChild(content);
+
+    container.appendChild(details);
+  });
+}
+
+
+/** clear cache for one dataset */
 function clearcachefor(key) {
   localStorage.removeItem('cache_' + key);
   window[key] = undefined;
-  // remove from cache_meta
   if (Array.isArray(cache_meta)) {
     const idx = cache_meta.findIndex(e => e.dataset === key);
     if (idx > -1) cache_meta.splice(idx, 1);
   }
-  renderSettingsUI();
   console.log(`cache cleared for ${key}`);
+  loadcachemini();
 }
 
-/**
- * fetch a dataset anew (after clearing or first time)
- * and update cache timestamp
- * @param {string} key
- */
+/** fetch/re-cache one dataset */
 async function fetchcachefor(key) {
-  const fnName = 'get' + key;
-  const fn = window[fnName];
-  if (typeof fn !== 'function') {
-    console.error(`Function ${fnName} not found for dataset ${key}`);
-    return;
-  }
+  const fn = window['get' + key];
+  if (typeof fn !== 'function') return console.error(`No get${key}()`);
+  await fn(false);
   try {
-    // perform the API load
-    await fn(false);
-    // after load, store to localStorage manually
-    const storageKey = 'cache_' + key;
-    try {
-      localStorage.setItem(storageKey, JSON.stringify({ ts: Date.now(), data: window[key] }));
-      // update cache_meta for settings history
-      if (Array.isArray(cache_meta)) {
-        const oldIdx = cache_meta.findIndex(e => e.dataset === key);
-        if (oldIdx > -1) cache_meta.splice(oldIdx, 1);
-        cache_meta.push({ dataset: key, lastcache: new Date() });
-      }
-      console.log(`${key} cache saved via fetchcachefor`);
-    } catch (e) {
-      console.warn(`Failed to write cache for ${key}:`, e);
+    localStorage.setItem(
+      'cache_' + key,
+      JSON.stringify({ ts: Date.now(), data: window[key] })
+    );
+    if (Array.isArray(cache_meta)) {
+      const old = cache_meta.findIndex(e => e.dataset === key);
+      if (old > -1) cache_meta.splice(old, 1);
+      cache_meta.push({ dataset: key, lastcache: new Date() });
     }
-    // refresh UI immediately
-    renderSettingsUI();
-    console.log(`${key} fetched and UI updated`);
-  } catch (err) {
-    console.error(`Error fetching ${key}:`, err);
+    console.log(`${key} fetched`);
+  } catch (e) {
+    console.warn(`Failed saving cache for ${key}`, e);
   }
-}
-
-/**
- * render the settings tab UI:
- * - show last cache datetime for each dataset
- * - clear and fetch buttons per dataset
- * - note about reloading form
- */
-function renderSettingsUI() {
-  const tabcontent = document.getElementById('tabcontent');
-  tabcontent.textContent = '';
-
-  const mini = document.createElement('div');
-  mini.id = 'settingsminiwindow';
-  Object.assign(mini.style, {
-    border: '1px solid #ccc',
-    padding: '10px',
-    maxWidth: '400px'
-  });
-
-  const header = document.createElement('h3');
-  header.textContent = 'Cached Datasets';
-  mini.appendChild(header);
-
-  const list = document.createElement('ul');
-  cacheDatasets.forEach(key => {
-    const item = document.createElement('li');
-    item.style.marginBottom = '8px';
-
-    // name and timestamp
-    const storageKey = 'cache_' + key;
-    const raw = localStorage.getItem(storageKey);
-    let text;
-    if (raw) {
-      try {
-        const { ts } = JSON.parse(raw);
-        text = key + ': ' + new Date(ts).toLocaleString();
-      } catch {
-        text = key + ': Invalid cache data';
-      }
-    } else {
-      text = key + ': Not cached';
-    }
-    const span = document.createElement('span');
-    span.textContent = text;
-    item.appendChild(span);
-
-    const clearBtn = document.createElement('button');
-    clearBtn.textContent = 'Clear';
-    clearBtn.style.marginLeft = '8px';
-    clearBtn.addEventListener('click', () => clearcachefor(key));
-    item.appendChild(clearBtn);
-
-    const fetchBtn = document.createElement('button');
-    fetchBtn.textContent = 'Fetch';
-    fetchBtn.style.marginLeft = '4px';
-    fetchBtn.addEventListener('click', () => fetchcachefor(key));
-    item.appendChild(fetchBtn);
-
-    list.appendChild(item);
-  });
-  mini.appendChild(list);
-
-  const clearAll = document.createElement('button');
-  clearAll.textContent = 'Clear All Cache';
-  clearAll.style.marginTop = '10px';
-  clearAll.addEventListener('click', () => cacheDatasets.forEach(clearcachefor));
-  mini.appendChild(clearAll);
-
-  const note = document.createElement('div');
-  note.style.marginTop = '12px';
-  note.style.fontSize = '12px';
-  note.style.color = '#555';
-  note.textContent = "Note: After clearing a dataset's cache, reload the form to update displayed data.";
-  mini.appendChild(note);
-
-  tabcontent.appendChild(mini);
-}
-
-/**
- * entry point for settings tab
- */
-function settingstab() {
-  renderSettingsUI();
 }
