@@ -3,29 +3,39 @@ const cache_meta = [];
 const SKILL_ORDER = ['charms','defense','darkarts','transfiguration',
                     'creatures', 'herbology', 'history', 'arithmancy', 
                     'potions', 'alchemy', 'artificing', 'runes',
-                    'muggles', 'astronomy', 'divination'
+                    'muggles', 'astronomy', 'divination', 'itemsinhand'
                 ];
 
 //datasets
 let characters=[];
 let traits;
-let accessories;
 
 let wands;
 let wandwoods;
 let wandcores;
 let wandqualities;
 let wandmakers;
+let accessories;
+let itemsinhand;
+
+let items;
 
 let spells;
 let proficiencies;
 let potions;
 
 let namedcreatures;
-let items;
 
 let books;
 let schools;
+
+let generalitems;
+let creatures;
+let creatureparts;
+let plants;
+let plantparts;
+let preparations;
+let fooddrink;
 
 let fuse=null; //for fuzzy searching
 

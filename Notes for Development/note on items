@@ -1,0 +1,16 @@
+Items as a dataset has many subtypes
+• General items
+• creatures
+• creature parts
+• plants
+• plant parts
+• food/drink
+• books
+• potions (both alchemical and standard are together)
+• preparations
+
+Equippable items fall outside of these subtypes and aren't incorporated into the items dataset. These include three datasets
+
+• Wands (with multiple children datasets)
+• Items in hand
+• Accessories

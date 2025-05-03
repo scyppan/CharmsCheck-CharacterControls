@@ -86,6 +86,9 @@
       case "Inventory":
         inventorytab();
       break;
+      case "Relationships":
+        relationshiptab();
+      break;
       case "Settings":
         settingstab();
       break;

@@ -1,0 +1,138 @@
+/* =======================
+   Tab-bar styling
+   ======================= */
+   #inventorytabbuttonbar {
+    display: flex;
+    gap: 0.5em;
+    margin-bottom: 1em;
+    background-color: rgba(224, 202, 171, 0.5);
+    padding: 0.25em;
+    border-radius: 6px;
+  }
+  
+  #inventorytabbuttonbar button {
+    background: transparent;
+    border: 1px solid #333;
+    border-radius: 4px;
+    padding: 0.5em 1em;
+    font: inherit;
+    color: #333;
+    transition: background-color 0.2s ease, color 0.2s ease;
+  }
+  
+  #inventorytabbuttonbar button:hover {
+    background: #e0e0e0;
+    cursor: pointer;
+  }
+  
+  #inventorytabbuttonbar button.active {
+    background: #333;
+    color: #fff;
+    border-color: #333;
+  }
+  
+  #inventorytabbuttonbar button:focus {
+    outline: 2px solid #007acc;
+    outline-offset: 2px;
+  }
+  
+  
+  /* =======================
+     Equipment section
+     ======================= */
+  .equipment-section {
+    margin-bottom: 1.5em;
+  }
+  
+  .equipment-section h3 {
+    margin: 0 0 0.5em;
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+  
+  .equipment-line {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5em;
+  }
+  
+  .equipment-line span.inventory-plate {
+    margin-left: 0.5em;
+  }
+  
+  
+  /* =======================
+     Category (details) styling
+     ======================= */
+  .inventory-category {
+    margin-bottom: 1em;
+    border-radius: 4px;
+    padding: 0.5em;
+  }
+  
+  .inventory-category summary {
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  /* Category-specific backgrounds */
+  .inventory-category.equipped        { background: rgba( 67, 102,  67, 0.15); }
+  .inventory-category.unequipped      { background: rgba(112,  67,  67, 0.15); }
+  .inventory-category.general-items   { background: rgba( 73,  77, 112, 0.15); }
+  .inventory-category.creatures       { background: rgba(129,  46,  46, 0.15); }
+  .inventory-category.plants          { background: rgba(133,  63, 136, 0.15); }
+  .inventory-category.preparations    { background: rgba( 73, 102, 102, 0.15); }
+  .inventory-category.creature-parts  { background: rgba(102,  73, 112, 0.15); }
+  .inventory-category.plant-parts     { background: rgba( 56, 112,  67, 0.15); }
+  .inventory-category.food-drinks     { background: rgba(112, 102,  67, 0.15); }
+  .inventory-category.potions         { background: rgba( 77, 112,  73, 0.15); }
+  .inventory-category.books           { background: rgba(102,  67, 112, 0.15); }
+  
+  
+  /* =======================
+     Item list styling
+     ======================= */
+  .item-list {
+    margin-left: 1em;
+    line-height: 1.4;
+  }
+  
+  /* =======================
+     Inventory-plate styling
+     ======================= */
+  .inventory-plate {
+    display: inline-block;
+    background-color: #d8b8b8;
+    border: 2px solid #2e0404;
+    border-radius: 12px;
+    padding: 0.25em 0.5em;
+    margin: 0.25em;
+    font-size: 0.85rem;
+    font-family: inherit;
+    color: #2e0404;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    user-select: none;
+  }
+  
+  .inventory-plate:hover {
+    background-color: #2e0404;
+    color: #d8b8b8;
+    border-color: #d8b8b8;
+  }
+  
+  .inventory-plate:active {
+    background-color: #ddd;
+    border-color: #aaa;
+  }
+  
+  .inventory-plate:focus {
+    outline: 2px solid #007acc;
+    outline-offset: 2px;
+  }
+  
+  .inventory-plate[title] {
+    white-space: pre-wrap;
+  }
+  

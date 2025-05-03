@@ -13,72 +13,90 @@ async function petstab() {
 function rendercreaturestabui() {
     const tabcontent = document.getElementById('tabcontent');
     tabcontent.textContent = '';
-
     const mini = document.createElement('div');
     mini.id = 'creatureminiwindow';
     tabcontent.appendChild(mini);
-
+  
+    // 1) grab your pet list and zip in the new relationship field
     const pets = getpetlist();
-    if (!pets.length) {
-        mini.textContent = 'No creatures to display.';
-        return;
+    const relArr = currentchar.meta.petrelationshipquality || [];
+    const petsWithRel = pets.map((pet, i) => ({
+      ...pet,
+      relationship: relArr[i] || 'Unknown relationship'
+    }));
+  
+    if (!petsWithRel.length) {
+      mini.textContent = 'No creatures to display.';
+      return;
     }
-
-    // Group pets by species
-    const speciesGroups = {};
-    pets.forEach(pet => {
+  
+    // 2) top-level grouping by relationship
+    const relGroups = {};
+    petsWithRel.forEach(pet => {
+      const rel = pet.relationship;
+      (relGroups[rel] ||= []).push(pet);
+    });
+  
+    // 3) render each relationship bucket
+    Object.entries(relGroups).forEach(([rel, group]) => {
+      const relDetails = document.createElement('details');
+      relDetails.className = 'pet-category';
+      const relSummary = document.createElement('summary');
+      relSummary.textContent = rel;
+      relDetails.appendChild(relSummary);
+  
+      // 4) inside each, group by species
+      const speciesGroups = {};
+      group.forEach(pet => {
         const sp = pet.species || 'Unknown';
         (speciesGroups[sp] ||= []).push(pet);
-    });
-
-    const speciesEntries = Object.entries(speciesGroups);
-    const multiSpecies = speciesEntries.filter(([_, arr]) => arr.length > 1);
-    const singleSpecies = speciesEntries.filter(([_, arr]) => arr.length === 1);
-
-    if (multiSpecies.length === 0) {
-        // Case 1: No species has more than 1 member → flat list
-        pets.forEach(pet => {
+      });
+      const multi = Object.entries(speciesGroups).filter(([, arr]) => arr.length > 1);
+      const single = Object.entries(speciesGroups).filter(([, arr]) => arr.length === 1);
+  
+      if (multi.length === 0) {
+        // no repeated species → flat list
+        group.forEach(pet => {
+          const btn = createpetplate(pet);
+          btn.textContent = `${pet.name} (${pet.species || 'Unknown'})`;
+          relDetails.appendChild(btn);
+        });
+      } else {
+        // species with multiples
+        multi.forEach(([sp, arr]) => {
+          const spDet = document.createElement('details');
+          spDet.className = 'pet-category';
+          const spSum = document.createElement('summary');
+          spSum.textContent = sp;
+          spDet.appendChild(spSum);
+          arr.forEach(pet => {
+            const btn = createpetplate(pet);
+            btn.textContent = `${pet.name} (${sp})`;
+            spDet.appendChild(btn);
+          });
+          relDetails.appendChild(spDet);
+        });
+        // all the singleton species under “Other species”
+        if (single.length) {
+          const otherDet = document.createElement('details');
+          otherDet.className = 'pet-category';
+          const otherSum = document.createElement('summary');
+          otherSum.textContent = 'Other species';
+          otherDet.appendChild(otherSum);
+          single.forEach(([, arr]) => {
+            const pet = arr[0];
             const btn = createpetplate(pet);
             btn.textContent = `${pet.name} (${pet.species || 'Unknown'})`;
-            mini.appendChild(btn);
-        });
-    } else {
-        // Case 2: Some species have more than 1 member
-        // First, create <details> for each multi-member species
-        multiSpecies.forEach(([species, group]) => {
-            const details = document.createElement('details');
-            details.className = 'pet-category';
-            const summary = document.createElement('summary');
-            summary.textContent = species;
-            details.appendChild(summary);
-
-            group.forEach(pet => {
-                const btn = createpetplate(pet);
-                btn.textContent = `${pet.name} (${species})`;
-                details.appendChild(btn);
-            });
-
-            mini.appendChild(details);
-        });
-
-        // Now, collect all the single-member species under "Other species"
-        if (singleSpecies.length) {
-            const details = document.createElement('details');
-            details.className = 'pet-category';
-            const summary = document.createElement('summary');
-            summary.textContent = 'Other species';
-            details.appendChild(summary);
-
-            singleSpecies.forEach(([species, [pet]]) => {
-                const btn = createpetplate(pet);
-                btn.textContent = `${pet.name} (${species})`;
-                details.appendChild(btn);
-            });
-
-            mini.appendChild(details);
+            otherDet.appendChild(btn);
+          });
+          relDetails.appendChild(otherDet);
         }
-    }
-}
+      }
+  
+      mini.appendChild(relDetails);
+    });
+  }
+  
 
 function createpetplate(pet) {
 
@@ -130,4 +148,3 @@ function createpetplate(pet) {
 
     return btn;
 }
-

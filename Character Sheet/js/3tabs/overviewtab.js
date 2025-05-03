@@ -25,12 +25,16 @@ function overviewtab() {
     const demographicsList = document.createElement('ul');
     demographicsList.classList.add('demographics');
 
+    const eminencePoints = (Array.isArray(currentchar.meta.ixbnr) && currentchar.meta.ixbnr.length > 0 && currentchar.meta.ixbnr[0]) 
+  ? currentchar.meta.ixbnr.length 
+  : 0;
+
     // Add placeholder demographics
     demographicsList.appendChild(createDemoItem('Name:', currentchar.name));
     demographicsList.appendChild(createDemoItem('Canon:', currentchar.meta.s4ee3));
     demographicsList.appendChild(createDemoItem('Birthdate:', createBirthdate()));
     demographicsList.appendChild(createDemoItem('School:', currentchar.meta.school));
-    demographicsList.appendChild(createDemoItem('Eminence Points:', currentchar.meta.ixbnr?.length || 0));
+    demographicsList.appendChild(createDemoItem('Eminence Points:', eminencePoints));
 
     rightPanel.appendChild(demographicsList);
     rightPanel.appendChild(createCastAtAgeSelect());
@@ -126,8 +130,8 @@ function createCastAtAgeSelect() {
       });
   
     // Append label and select to the container
-    container.appendChild(label);
-    container.appendChild(select);
+    //container.appendChild(label);
+    //container.appendChild(select); //removing age-linked casting for now
   
     return container;
   }

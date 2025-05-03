@@ -401,3 +401,292 @@ async function getitems(checkCache = true) {
     items = [];
   }
 }
+
+async function getitemsinhand(checkCache = true) {
+  const cacheKey = 'cache_itemsinhand';
+
+  // 1) If already loaded in-memory, skip
+  if (checkCache && itemsinhand !== undefined) return;
+
+  // 2) Try cache
+  if (checkCache) {
+    const entry = getCacheEntry(cacheKey);
+    if (entry) {
+      itemsinhand = entry.data;
+      cache_meta.push({ dataset: 'itemsinhand', lastcache: new Date(entry.ts) });
+      console.log('items in hand loaded from cache');
+      return;
+    }
+  }
+
+  // 3) Fetch from API
+  try {
+    console.log('Fetching items in hand...');
+    itemsinhand = await fetchdata(
+      "https://charmscheck.com/wp-json/frm/v2/forms/1085/entries?page_size=10000"
+    );
+    setCacheEntry(cacheKey, itemsinhand);
+    cache_meta.push({ dataset: 'itemsinhand', lastcache: new Date() });
+
+    const count = Array.isArray(itemsinhand)
+      ? itemsinhand.length
+      : Object.keys(itemsinhand).length;
+    console.log(`items in hand fetched (${count} items)`);
+  } catch (err) {
+    console.error('Items in hand fetch error:', err);
+    itemsinhand = [];
+  }
+}
+
+async function getgeneralitems(checkCache = true) {
+  const cacheKey = 'cache_generalitems';
+
+  // 1) If already loaded in-memory, skip
+  if (checkCache && generalitems !== undefined) return;
+
+  // 2) Try cache
+  if (checkCache) {
+    const entry = getCacheEntry(cacheKey);
+    if (entry) {
+      generalitems = entry.data;
+      cache_meta.push({ dataset: 'generalitems', lastcache: new Date(entry.ts) });
+      console.log('general items loaded from cache');
+      return;
+    }
+  }
+
+  // 3) Fetch from API
+  try {
+    console.log('Fetching general items...');
+    generalitems = await fetchdata(
+      "https://charmscheck.com/wp-json/frm/v2/forms/126/entries?page_size=10000"
+    );
+    setCacheEntry(cacheKey, generalitems);
+    cache_meta.push({ dataset: 'generalitems', lastcache: new Date() });
+
+    const count = Array.isArray(generalitems)
+      ? generalitems.length
+      : Object.keys(generalitems).length;
+    console.log(`general items fetched (${count} items)`);
+  } catch (err) {
+    console.error('General items fetch error:', err);
+    generalitems = [];
+  }
+}
+
+async function getcreatures(checkCache = true) {
+  const cacheKey = 'cache_creatures';
+
+  // 1) If already loaded in-memory, skip
+  if (checkCache && creatures !== undefined) return;
+
+  // 2) Try cache
+  if (checkCache) {
+    const entry = getCacheEntry(cacheKey);
+    if (entry) {
+      creatures = entry.data;
+      cache_meta.push({ dataset: 'creatures', lastcache: new Date(entry.ts) });
+      console.log('creatures loaded from cache');
+      return;
+    }
+  }
+
+  // 3) Fetch from API
+  try {
+    console.log('Fetching creatures...');
+    creatures = await fetchdata(
+      "https://charmscheck.com/wp-json/frm/v2/forms/48/entries?page_size=10000"
+    );
+    setCacheEntry(cacheKey, creatures);
+    cache_meta.push({ dataset: 'creatures', lastcache: new Date() });
+
+    const count = Array.isArray(creatures)
+      ? creatures.length
+      : Object.keys(creatures).length;
+    console.log(`creatures fetched (${count} items)`);
+  } catch (err) {
+    console.error('Creatures fetch error:', err);
+    creatures = [];
+  }
+}
+
+async function getcreatureparts(checkCache = true) {
+  const cacheKey = 'cache_creatureparts';
+
+  // 1) If already loaded in-memory, skip
+  if (checkCache && creatureparts !== undefined) return;
+
+  // 2) Try cache
+  if (checkCache) {
+    const entry = getCacheEntry(cacheKey);
+    if (entry) {
+      creatureparts = entry.data;
+      cache_meta.push({ dataset: 'creatureparts', lastcache: new Date(entry.ts) });
+      console.log('creature parts loaded from cache');
+      return;
+    }
+  }
+
+  // 3) Fetch from API
+  try {
+    console.log('Fetching creature parts...');
+    creatureparts = await fetchdata(
+      "https://charmscheck.com/wp-json/frm/v2/forms/53/entries?page_size=10000"
+    );
+    setCacheEntry(cacheKey, creatureparts);
+    cache_meta.push({ dataset: 'creatureparts', lastcache: new Date() });
+
+    const count = Array.isArray(creatureparts)
+      ? creatureparts.length
+      : Object.keys(creatureparts).length;
+    console.log(`creature parts fetched (${count} items)`);
+  } catch (err) {
+    console.error('Creature parts fetch error:', err);
+    creatureparts = [];
+  }
+}
+
+async function getplants(checkCache = true) {
+  const cacheKey = 'cache_plants';
+
+  // 1) If already loaded in-memory, skip
+  if (checkCache && plants !== undefined) return;
+
+  // 2) Try cache
+  if (checkCache) {
+    const entry = getCacheEntry(cacheKey);
+    if (entry) {
+      plants = entry.data;
+      cache_meta.push({ dataset: 'plants', lastcache: new Date(entry.ts) });
+      console.log('plants loaded from cache');
+      return;
+    }
+  }
+
+  // 3) Fetch from API
+  try {
+    console.log('Fetching plants...');
+    plants = await fetchdata(
+      "https://charmscheck.com/wp-json/frm/v2/forms/2/entries?page_size=10000"
+    );
+    setCacheEntry(cacheKey, plants);
+    cache_meta.push({ dataset: 'plants', lastcache: new Date() });
+
+    const count = Array.isArray(plants)
+      ? plants.length
+      : Object.keys(plants).length;
+    console.log(`plants fetched (${count} items)`);
+  } catch (err) {
+    console.error('Plants fetch error:', err);
+    plants = [];
+  }
+}
+
+async function getplantparts(checkCache = true) {
+  const cacheKey = 'cache_plantparts';
+
+  // 1) If already loaded in-memory, skip
+  if (checkCache && plantparts !== undefined) return;
+
+  // 2) Try cache
+  if (checkCache) {
+    const entry = getCacheEntry(cacheKey);
+    if (entry) {
+      plantparts = entry.data;
+      cache_meta.push({ dataset: 'plantparts', lastcache: new Date(entry.ts) });
+      console.log('plant parts loaded from cache');
+      return;
+    }
+  }
+
+  // 3) Fetch from API
+  try {
+    console.log('Fetching plant parts...');
+    plantparts = await fetchdata(
+      "https://charmscheck.com/wp-json/frm/v2/forms/43/entries?page_size=10000"
+    );
+    setCacheEntry(cacheKey, plantparts);
+    cache_meta.push({ dataset: 'plantparts', lastcache: new Date() });
+
+    const count = Array.isArray(plantparts)
+      ? plantparts.length
+      : Object.keys(plantparts).length;
+    console.log(`plant parts fetched (${count} items)`);
+  } catch (err) {
+    console.error('Plant parts fetch error:', err);
+    plantparts = [];
+  }
+}
+
+async function getpreparations(checkCache = true) {
+  const cacheKey = 'cache_preparations';
+
+  // 1) If already loaded in-memory, skip
+  if (checkCache && preparations !== undefined) return;
+
+  // 2) Try cache
+  if (checkCache) {
+    const entry = getCacheEntry(cacheKey);
+    if (entry) {
+      preparations = entry.data;
+      cache_meta.push({ dataset: 'preparations', lastcache: new Date(entry.ts) });
+      console.log('preparations loaded from cache');
+      return;
+    }
+  }
+
+  // 3) Fetch from API
+  try {
+    console.log('Fetching preparations...');
+    preparations = await fetchdata(
+      "https://charmscheck.com/wp-json/frm/v2/forms/908/entries?page_size=10000"
+    );
+    setCacheEntry(cacheKey, preparations);
+    cache_meta.push({ dataset: 'preparations', lastcache: new Date() });
+
+    const count = Array.isArray(preparations)
+      ? preparations.length
+      : Object.keys(preparations).length;
+    console.log(`preparations fetched (${count} items)`);
+  } catch (err) {
+    console.error('Preparations fetch error:', err);
+    preparations = [];
+  }
+}
+
+async function getfooddrink(checkCache = true) {
+  const cacheKey = 'cache_fooddrink';
+
+  // 1) If already loaded in-memory, skip
+  if (checkCache && fooddrink !== undefined) return;
+
+  // 2) Try cache
+  if (checkCache) {
+    const entry = getCacheEntry(cacheKey);
+    if (entry) {
+      fooddrink = entry.data;
+      cache_meta.push({ dataset: 'fooddrink', lastcache: new Date(entry.ts) });
+      console.log('food & drinks loaded from cache');
+      return;
+    }
+  }
+
+  // 3) Fetch from API
+  try {
+    console.log('Fetching food & drinks...');
+    fooddrink = await fetchdata(
+      "https://charmscheck.com/wp-json/frm/v2/forms/67/entries?page_size=10000"
+    );
+    setCacheEntry(cacheKey, fooddrink);
+    cache_meta.push({ dataset: 'fooddrink', lastcache: new Date() });
+
+    const count = Array.isArray(fooddrink)
+      ? fooddrink.length
+      : Object.keys(fooddrink).length;
+    console.log(`food & drinks fetched (${count} items)`);
+  } catch (err) {
+    console.error('Food & drinks fetch error:', err);
+    fooddrink = [];
+  }
+}
+
