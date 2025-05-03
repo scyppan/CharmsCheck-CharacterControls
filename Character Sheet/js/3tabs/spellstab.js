@@ -242,7 +242,7 @@ function renderspellstabui() {
     const tabcontent = document.getElementById('tabcontent');
     tabcontent.textContent = '';
 
-    // build the bar
+    // build the button bar
     const buttonbar = document.createElement('div');
     buttonbar.id = 'spelltabbuttonbar';
 
@@ -278,11 +278,10 @@ function renderspellstabui() {
         loadbysubtype();
     });
 
-
     buttonbar.append(btnFav, btnSkill, btnBook, btnSubtype);
     tabcontent.appendChild(buttonbar);
 
-    // mini window container
+    // create the mini-window container
     const mini = document.createElement('div');
     mini.id = 'spellminiwindow';
     tabcontent.appendChild(mini);
@@ -290,41 +289,35 @@ function renderspellstabui() {
 }
 
 function createspellplate(spellname) {
+    // 1) Look up the full spell record
     const record = Object.values(spells).find(s => s.meta.spellname === spellname);
     if (!record) throw new Error(`Spell "${spellname}" not found in spells API`);
-
+  
+    // 2) Pull out data
     const description = record.meta['4x6t713'];
-    const subtype = record.meta.m7sdz2;
-    const difficulty = Number(record.meta.r87jo13);
-
-    const known = getknownspells().find(s => s.spellname === spellname) || {};
+    const subtype     = record.meta.m7sdz2;
+    const difficulty  = Number(record.meta.r87jo13);
+  
+    // 3) Check for user-known overrides (e.g. source)
+    const known  = getknownspells().find(s => s.spellname === spellname) || {};
     const source = known.source;
-
+  
+    // 4) Build the button
     const btn = document.createElement('button');
-    btn.className = 'spell-plate';
+    btn.className   = 'spell-plate';
     btn.textContent = spellname;
-    btn.title =
-        `${spellname} (${subtype}; ${difficulty})\n` +
-        `${description}` +
-        `${source ? `\nSource: ${source}` : ''}`;
-
-    btn.addEventListener('click', e => {
-        if (e.altKey) {
-            printspelldescription(btn);
-        } else {
-            displaySpellDetails(spellname);
-        }
-    });
-
-    btn.addEventListener('keydown', e => {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            btn.click();
-        }
-    });
-
+    btn.title = [
+      `${spellname} (${subtype}; ${difficulty})`,
+      description,
+      source ? `Source: ${source}` : null
+    ].filter(Boolean).join('\n');
+  
+    // 5) Attach the roll listener right now
+    attachspellroll(btn);
+  
+    // 6) Return it, ready to insert
     return btn;
-}
+  }  
 
 function printspelldescription(btn) {
     console.log(btn.title);
@@ -333,7 +326,6 @@ function printspelldescription(btn) {
 function activateTab(tabId) {
     const kids = document.querySelectorAll('#spelltabbuttonbar > button');
     kids.forEach(btn => btn.classList.remove('active'));
-  
+
     document.getElementById(tabId).classList.add('active');
-  }
-  
+}

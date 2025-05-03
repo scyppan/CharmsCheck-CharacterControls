@@ -9,8 +9,6 @@ function getcompleterelationshiplist(){
             note: currentchar.meta.m4ao0[i],
         });
     }
-
     return relationships;
-    
 }
 

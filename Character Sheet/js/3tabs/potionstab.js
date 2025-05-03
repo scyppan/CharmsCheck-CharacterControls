@@ -262,19 +262,7 @@ function createpotionplate(potionname) {
     if (effects)     titleLines.push(`Effects: ${effects}`);
     btn.title = titleLines.join("\n");
 
-    btn.addEventListener('click', e => {
-        if (e.altKey) {
-            printpotiondescription(btn);
-        } else {
-            displayPotionDetails(potionname);
-        }
-    });
-    btn.addEventListener('keydown', e => {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            btn.click();
-        }
-    });
+    attachpotionroll(btn);
 
     return btn;
 }

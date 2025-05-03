@@ -221,21 +221,17 @@ function createproficiencyplate(proficiencyname) {
     btn.className   = 'proficiency-plate';
     btn.textContent = proficiencyname;
 
-    const titleLines = [];
-    titleLines.push(`${proficiencyname} (${skill}; ${difficulty})`);
-    titleLines.push(desc);
+    const titleLines = [
+        `${proficiencyname} (${skill}; ${difficulty})`,
+        desc
+    ];
     if (prereqs) titleLines.push(`Prereqs: ${prereqs}`);
     if (items)   titleLines.push(`Items: ${items}`);
     if (source)  titleLines.push(`Source: ${source}`);
-    btn.title = titleLines.join("\n");
+    btn.title = titleLines.join('\n');
 
-    btn.addEventListener('click', e => {
-        if (e.altKey) {
-            printproficiencydescription(btn);
-        } else {
-            displayProficiencyDetails(proficiencyname);
-        }
-    });
+    attachproficiencyroll(btn);
+
     btn.addEventListener('keydown', e => {
         if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();

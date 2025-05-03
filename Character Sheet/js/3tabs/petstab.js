@@ -131,20 +131,7 @@ function createpetplate(pet) {
 
     btn.title = titleLines.join("\n");
 
-    btn.addEventListener('click', e => {
-        if (e.altKey) {
-            printpetdescription(btn);
-        } else {
-            displayPetDetails(pet.name);
-        }
-    });
-
-    btn.addEventListener('keydown', e => {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            btn.click();
-        }
-    });
+    attachpetroll(btn);
 
     return btn;
 }
