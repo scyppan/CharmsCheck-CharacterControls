@@ -34,5 +34,5 @@
   #roll-modal li { border-radius: 12px; padding: 0.5rem; }
   #roll-modal li:nth-child(odd) { background-color: #a4afab; color: #424745; }
   #roll-modal li:nth-child(even) { background-color: #424745; color: #ebebeb; }
-  #roll-modal li:last-child { font-weight: bold; border: 5px dashed rgb(210, 212, 176); }
+  #roll-modal li:last-child { border: 5px dashed rgb(210, 212, 176); }
   

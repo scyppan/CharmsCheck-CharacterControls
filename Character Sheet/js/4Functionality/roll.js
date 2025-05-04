@@ -1,23 +1,44 @@
-function getrollresult(rollobj){
-    switch(rollobj.type.toLowerCase()){
+function getrollresult(rollobj) {
+    switch (rollobj.type.toLowerCase()) {
         case "power":
         case "panache":
         case "erudition":
         case "naturalism":
-            rollobj.total=
-                rollobj.dice+rollobj.ability+
-                rollobj.wand+rollobj.iteminhand+
-                rollobj.accessories+rollobj.inventory;
-        break;
+            rollobj.total =
+                rollobj.dice + rollobj.ability +
+                rollobj.wand + rollobj.iteminhand +
+                rollobj.accessories + rollobj.inventory;
+            break;
         case "charms":
         case "darkarts":
         case "defense":
         case "transfiguration":
-            rollobj.total=
-                rollobj.dice+rollobj.ability+
-                rollobj.wand+rollobj.iteminhand+
-                rollobj.accessories+rollobj.inventory;
-        break;
+            rollobj.total =
+                rollobj.dice + rollobj.ability +
+                rollobj.wand + rollobj.iteminhand +
+                rollobj.accessories + rollobj.inventory;
+            break;
+        case 'alchemy':
+        case 'flying':
+        case 'muggles':
+        case 'runes':
+        case 'divination':
+        case 'arithmancy':
+        case 'astronomy':
+        case 'history':
+        case 'potions':
+        case 'artificing':
+        case 'herbology':
+        case 'creatures':
+        case 'perception':
+        case 'social':
+            rollobj.total =
+                rollobj.dice +
+                rollobj.ability +
+                rollobj.iteminhand +
+                rollobj.accessories +
+                rollobj.inventory;
+            break;
     }
 
     rollobj = rolltext(rollobj); //adds the rolltext and gives back a rollobj
@@ -25,7 +46,7 @@ function getrollresult(rollobj){
     return rollobj;
 }
 
-function constructrollobj(type){
+function constructrollobj(type) {
 
     return {
         type: '',
