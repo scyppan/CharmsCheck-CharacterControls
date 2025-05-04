@@ -32,7 +32,6 @@ function attachabilityroll(btn) {
 
 function attachskillroll(btn) {
     btn.addEventListener('click', function () {
-        showrollmodal('skill roll');
 
         let skill=getname(btn.id,'standard');
         let skillval =getskillvalue(skill); 
