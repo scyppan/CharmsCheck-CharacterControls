@@ -1,7 +1,7 @@
 // settings.js
 
 // list of datasets to inspect/clear
-const cacheDatasets = [
+const cacheDatasets = ['characters',
   'traits', 'accessories', 'wands', 'wandwoods', 'wandcores', 'wandqualities',
   'spells', 'books', 'schools', 'proficiencies', 'potions', 'namedcreatures',
   'items', 'itemsinhand', 'generalitems', 'creatures', 'creatureparts',

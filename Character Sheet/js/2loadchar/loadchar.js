@@ -6,4 +6,3 @@ function loadchar(id){
     overviewtab();
     startidlefetchsequence();
 }
-

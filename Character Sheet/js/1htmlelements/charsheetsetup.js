@@ -38,7 +38,6 @@
       { name: "Potions", icon: "./icons/potions.svg" },
       { name: "Pets", icon: "./icons/pets.svg" },
       { name: "Inventory", icon: "./icons/equipment.svg" },
-      { name: "Books", icon: "./icons/books.svg" },
       { name: "Relationships", icon: "./icons/relationships.svg" },
       { name: "Settings", icon: "./icons/settings.svg" }
     ];
@@ -99,6 +98,4 @@
     
 
   }
-
-  createCharacterSheet();
   

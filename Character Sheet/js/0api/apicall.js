@@ -41,6 +41,46 @@ function setCacheEntry(key, data) {
   }
 }
 
+async function getcharacters(checkCache = true) {
+  const cacheKey = 'cache_characters';
+
+  // 1) In-memory check: only skip if we've already loaded >0 entries
+  if (checkCache && Array.isArray(characters) && characters.length > 0) {
+    console.log(`characters already in memory (${characters.length} items), skipping fetch`);
+    return characters;
+  }
+
+  // 2) LocalStorage cache
+  if (checkCache) {
+    const entry = getCacheEntry(cacheKey);
+    if (entry) {
+      characters = entry.data;
+      cache_meta.push({ dataset: 'characters', lastcache: new Date(entry.ts) });
+      console.log(`characters loaded from cache (${characters.length} items)`);
+      return characters;
+    }
+  }
+
+  // 3) Network fetch with error handling
+  try {
+    console.log('Fetching characters from API…');
+    characters = await fetchdata(
+      "https://charmscheck.com/wp-json/frm/v2/forms/972/entries?page_size=10000"
+    );
+    setCacheEntry(cacheKey, characters);
+    cache_meta.push({ dataset: 'characters', lastcache: new Date() });
+    const count = Array.isArray(characters)
+      ? characters.length
+      : Object.keys(characters).length;
+    console.log(`characters fetched (${count} items)`);
+    return characters;
+  } catch (err) {
+    console.error('Characters fetch error:', err);
+    characters = [];
+    return characters;
+  }
+}
+
 // === API getters with optional cache check ===
 async function gettraits(checkCache = true) {
   const cacheKey = 'cache_traits';

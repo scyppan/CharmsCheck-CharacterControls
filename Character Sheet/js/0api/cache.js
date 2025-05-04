@@ -1,4 +1,5 @@
 const cache_configs = [
+    { key: 'characters',     fn: 'getcharacters'      },
     { key: 'traits',         fn: 'gettraits'          },
     { key: 'accessories',    fn: 'getaccessories'     },
     { key: 'wands',          fn: 'getwands'           },
@@ -23,6 +24,7 @@ const cache_configs = [
   ];
   
   const assignCacheData = {
+    characters:     v => characters     = v,
     traits:         v => traits         = v,
     accessories:    v => accessories    = v,
     wands:          v => wands          = v,
@@ -47,6 +49,7 @@ const cache_configs = [
   };
   
   const getCacheData = {
+    characters:     () => characters,
     traits:         () => traits,
     accessories:    () => accessories,
     wands:          () => wands,

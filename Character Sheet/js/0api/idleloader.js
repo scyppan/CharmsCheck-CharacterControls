@@ -1,145 +1,91 @@
-// global tracker for total time spent loading in ms
-let cumulativeloadtime = 0;
-
-let modalon = false;
-
-
-function showstatus(msg) {
-  if (modalon) {
-
-
-
-    if (!document.body) {
-      return document.addEventListener('DOMContentLoaded', () => showstatus(msg));
-    }
-    let modal = document.getElementById('statusmodal');
-    if (!modal) {
-      modal = document.createElement('div');
-      modal.id = 'statusmodal';
-      Object.assign(modal.style, {
-        position: 'fixed',
-        bottom: '20px',
-        right: '20px',
-        width: '260px',
-        maxHeight: '200px',
-        padding: '10px',
-        background: 'rgba(0,0,0,0.75)',
-        color: '#fff',
-        fontSize: '12px',
-        fontFamily: 'Arial,sans-serif',
-        overflowY: 'auto',
-        zIndex: 9999,
-        borderRadius: '4px'
-      });
-      document.body.appendChild(modal);
-    }
-    const line = document.createElement('div');
-    line.textContent = msg;
-    modal.appendChild(line);
-    modal.scrollTop = modal.scrollHeight;
+// 1) Utility to check if cache_<key> exists and is still fresh
+function isCacheFresh(key) {
+  const storageKey = `cache_${key}`;
+  const raw = localStorage.getItem(storageKey);
+  if (!raw) return false;
+  try {
+    const { ts } = JSON.parse(raw);
+    return (Date.now() - ts) < cache_ttl;
+  } catch {
+    localStorage.removeItem(storageKey);
+    return false;
   }
-
 }
 
-/**
- * starts monitoring for 5s of inactivity,
- * loads the next fetch fn whose var is still null/undefined,
- * if any load takes <1s, immediately loads the next,
- * resets on user activity rather than stopping,
- * reports progress to modal and console.
- */
+// 2) The idle‐loader itself, now calling loadcachemini() after each successful cache update
 function startidlefetchsequence() {
-  const tasks = [
-    { fn: gettraits, varname: 'traits', isloaded: () => traits != null },
-    { fn: getspells, varname: 'spells', isloaded: () => spells != null },
-    { fn: getaccessories, varname: 'accessories', isloaded: () => accessories != null },
-    { fn: getbooks, varname: 'books', isloaded: () => books != null },
-    { fn: getwands, varname: 'wands', isloaded: () => wands != null },
-    { fn: getwandwoods, varname: 'wandwoods', isloaded: () => wandwoods != null },
-    { fn: getwandcores, varname: 'wandcores', isloaded: () => wandcores != null },
-    { fn: getwandqualities, varname: 'wandqualities', isloaded: () => wandqualities != null },
-    { fn: getschools, varname: 'schools', isloaded: () => schools != null },
-    { fn: getproficiencies, varname: 'proficiencies', isloaded: () => proficiencies != null },
-    { fn: getpotions, varname: 'potions', isloaded: () => potions != null },
-    { fn: getnamedcreatures, varname: 'namedcreatures', isloaded: () => namedcreatures != null },
-    { fn: getitems, varname: 'items', isloaded: () => items !=null}
-  ];
+  const inactivityDelay = 5000;   // ms of no activity before loading
+  const quickThreshold  = 1000;   // ms per load to auto-continue
+  let timerId, index = 0, cumulativeloadtime = 0;
 
-  let index = 0;
-  let timerid;
-  const inactivitydelay = 5000; // ms before next idle check
-  const quickthreshold = 1000; // ms to auto-continue
-
-  function onactivity() {
-    clearTimeout(timerid);
-    showstatus('...activity detected, resetting idle timer');
-    timerid = setTimeout(onidle, inactivitydelay);
+  function onActivity() {
+    clearTimeout(timerId);
+    timerId = setTimeout(onIdle, inactivityDelay);
   }
 
-  async function onidle() {
-    showstatus('...checking next source');
-    // skip already-loaded
-    while (index < tasks.length && tasks[index].isloaded()) {
-      showstatus(`...${tasks[index].varname} already loaded, skipping`);
-      index++;
-    }
-    if (index >= tasks.length) {
-      showstatus('...all sources processed, stopping idle loader');
-      cleanup();
-      return;
+  async function onIdle() {
+    // skip already fresh
+    while (index < cache_configs.length) {
+      const { key } = cache_configs[index];
+      if (getCacheData[key]() != null && isCacheFresh(key)) {
+        index++;
+      } else break;
     }
 
-    // load as many as possible: stop when load ≥1s or cum load ≥5s
-    let took = Infinity;
+    // if done, schedule next pass
+    if (index >= cache_configs.length) {
+      cleanup();
+      return void setTimeout(startidlefetchsequence, cache_ttl);
+    }
+
+    // load in batch
+    let lastLoadTime = Infinity;
     do {
-      const task = tasks[index++];
-      showstatus(`...attempting to load ${task.varname}`);
+      const { key, fn } = cache_configs[index++];
       const start = performance.now();
       try {
-        await task.fn();
-        took = performance.now() - start;
-        cumulativeloadtime += took;
-        showstatus(`...${task.varname} loaded in ${Math.round(took)}ms (cumulative ${Math.round(cumulativeloadtime)}ms)`);
-        const loadedcount = tasks.filter(t => t.isloaded()).length;
-        console.log(`${loadedcount} of ${tasks.length} loaded`);
+        const bypassCache = !isCacheFresh(key);
+        await window[fn](bypassCache);
+
+        loadcachemini();
+
+        lastLoadTime = performance.now() - start;
+        cumulativeloadtime += lastLoadTime;
+        console.log(`${index} of ${cache_configs.length} items loaded`);
       } catch (err) {
-        took = quickthreshold; // force stop on error
-        showstatus(`...${task.varname} error: ${err.message || err}`);
+        lastLoadTime = quickThreshold; 
+        console.error(`Error loading ${key}: ${err}`);
       }
-      // skip newly-loaded
-      while (index < tasks.length && tasks[index].isloaded()) {
-        showstatus(`...${tasks[index].varname} already loaded, skipping`);
-        index++;
+
+      // skip newly fresh ones
+      while (index < cache_configs.length) {
+        const { key: nextKey } = cache_configs[index];
+        if (getCacheData[nextKey]() != null && isCacheFresh(nextKey)) {
+          index++;
+        } else break;
       }
     } while (
-      index < tasks.length &&
-      took < quickthreshold &&
-      cumulativeloadtime < inactivitydelay
+      index < cache_configs.length &&
+      lastLoadTime < quickThreshold &&
+      cumulativeloadtime < inactivityDelay
     );
 
-    // decide next step
-    if (cumulativeloadtime >= inactivitydelay) {
-      showstatus('...cumulative load time ≥5000ms, stopping idle loads');
+    // finish or wait for next idle
+    if (index >= cache_configs.length || cumulativeloadtime >= inactivityDelay) {
       cleanup();
-    } else if (index >= tasks.length) {
-      showstatus('...all sources processed, stopping idle loader');
-      cleanup();
+      setTimeout(startidlefetchsequence, cache_ttl);
     } else {
-      showstatus(`...waiting ${inactivitydelay}ms of inactivity for next load`);
-      timerid = setTimeout(onidle, inactivitydelay);
+      timerId = setTimeout(onIdle, inactivityDelay);
     }
   }
 
   function cleanup() {
-    clearTimeout(timerid);
-    ['mousemove', 'mousedown', 'keydown', 'scroll', 'touchstart']
-      .forEach(evt => document.removeEventListener(evt, onactivity));
+    clearTimeout(timerId);
+    ['mousemove','mousedown','keydown','scroll','touchstart']
+      .forEach(evt => document.removeEventListener(evt, onActivity));
   }
 
-  // listen for user activity and start timer
-  ['mousedown', 'keydown', 'touchstart']
-    .forEach(evt => document.addEventListener(evt, onactivity, { passive: true }));
-  showstatus('...idle loader started, waiting for inactivity');
-  timerid = setTimeout(onidle, inactivitydelay);
+  ['mousedown','keydown','touchstart']
+    .forEach(evt => document.addEventListener(evt, onActivity, { passive: true }));
+  timerId = setTimeout(onIdle, inactivityDelay);
 }
-
