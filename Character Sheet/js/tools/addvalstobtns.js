@@ -80,6 +80,20 @@ function getskills() {
   };
 }
 
+function getcharacteristics(){
+  return {
+    creativity:     Number(currentchar.meta.creativity),
+    equanimity:     Number(currentchar.meta.equanimity),
+    charisma:       Number(currentchar.meta.charisma),
+    attractiveness: Number(currentchar.meta.attractiveness),
+    strength:       Number(currentchar.meta.strength),
+    agility:        Number(currentchar.meta.agility),
+    intellect:      Number(currentchar.meta.intellect),
+    willpower:      Number(currentchar.meta.willpower),
+    fortitude:      Number(currentchar.meta.fortitude)
+  };
+}
+
 function updateabilitybuttons(abilities, buttonassignments) {
   Object.entries(abilities).forEach(([stat, { base, wandbonus, wandquality, accessories }]) => {
     const baseval = Number(base) || 0;

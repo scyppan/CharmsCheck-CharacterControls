@@ -87,6 +87,10 @@ function loadcachemini() {
   container.append(list);
 }
 
+/**
+ * Renders the most recent 20 rolls into the history mini‐window,
+ * using hit.spell when hit.type === 'spell'.
+ */
 function loadhistorymini() {
   const container = document.getElementById('historyminiwindow');
   container.textContent = '';
@@ -97,26 +101,32 @@ function loadhistorymini() {
   }
 
   // show most recent 20 rolls in reverse order
-  rollhistory.slice(-20).reverse().forEach(hit => {
-    const details = document.createElement('details');
+  rollhistory
+    .slice(-20)
+    .reverse()
+    .forEach(hit => {
+      const details = document.createElement('details');
 
-    const time = new Date(hit.timestamp).toLocaleTimeString();
-    const summary = document.createElement('summary');
-    summary.textContent = hit.dice === 1
-      ? `${hit.type} (CRIT FAIL) — ${time}`
-      : hit.dice === 10
-        ? `${hit.type} (CRIT SUCCEED ${hit.total}) — ${time}`
-        : `${hit.type} (${hit.total}) — ${time}`;
+      // choose display label: use hit.spell when type is 'spell'
+      const label = hit.type === 'spell' ? hit.spell : hit.type;
+      const time = new Date(hit.timestamp).toLocaleTimeString();
 
-    details.appendChild(summary);
+      const summary = document.createElement('summary');
+      summary.textContent = hit.dice === 1
+        ? `${label} (CRIT FAIL) — ${time}`
+        : hit.dice === 10
+          ? `${label} (CRIT SUCCEED ${hit.total}) — ${time}`
+          : `${label} (${hit.total}) — ${time}`;
 
-    // show the full roll object when expanded
-    const content = document.createElement('pre');
-    content.textContent = JSON.stringify(hit, null, 2);
-    details.appendChild(content);
+      details.appendChild(summary);
 
-    container.appendChild(details);
-  });
+      // show the full roll object when expanded
+      const content = document.createElement('pre');
+      content.textContent = JSON.stringify(hit, null, 2);
+      details.appendChild(content);
+
+      container.appendChild(details);
+    });
 }
 
 

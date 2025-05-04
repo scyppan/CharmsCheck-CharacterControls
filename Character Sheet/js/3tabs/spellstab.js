@@ -20,44 +20,50 @@ function loadfavorites() {
     const favorites = getknownspells().filter(sp => sp.favorite === 'Yes');
     const categories = ['charms', 'defense', 'darkarts', 'transfiguration'];
 
-    categories.forEach(category => {
-        const catSpells = favorites.filter(sp => sp.skill.toLowerCase() === category);
-        if (!catSpells.length) return;
+    if (favorites.length > 0) {
 
-        const details = document.createElement('details');
-        details.className = 'spell-category favorites';
+        categories.forEach(category => {
+            const catSpells = favorites.filter(sp => sp.skill.toLowerCase() === category);
+            if (!catSpells.length) return;
 
-        const summary = document.createElement('summary');
-        summary.textContent = category;
-        details.appendChild(summary);
+            const details = document.createElement('details');
+            details.className = 'spell-category favorites';
 
-        const byDifficulty = catSpells.reduce((acc, sp) => {
-            (acc[sp.difficulty] ||= []).push(sp);
-            return acc;
-        }, {});
+            const summary = document.createElement('summary');
+            summary.textContent = category;
+            details.appendChild(summary);
 
-        Object.keys(byDifficulty)
-            .map(Number)
-            .sort((a, b) => a - b)
-            .forEach(difficulty => {
-                const groupDiv = document.createElement('div');
-                groupDiv.className = 'difficulty-group';
+            const byDifficulty = catSpells.reduce((acc, sp) => {
+                (acc[sp.difficulty] ||= []).push(sp);
+                return acc;
+            }, {});
 
-                const label = document.createElement('div');
-                label.className = 'difficulty-label';
-                label.textContent = `Difficulty ${difficulty}`;
-                groupDiv.appendChild(label);
+            Object.keys(byDifficulty)
+                .map(Number)
+                .sort((a, b) => a - b)
+                .forEach(difficulty => {
+                    const groupDiv = document.createElement('div');
+                    groupDiv.className = 'difficulty-group';
 
-                byDifficulty[difficulty].forEach(spell => {
-                    groupDiv.appendChild(createspellplate(spell.spellname));
+                    const label = document.createElement('div');
+                    label.className = 'difficulty-label';
+                    label.textContent = `Difficulty ${difficulty}`;
+                    groupDiv.appendChild(label);
+
+                    byDifficulty[difficulty].forEach(spell => {
+                        if (spell.spellname) {
+                            groupDiv.appendChild(createspellplate(spell.spellname));
+                        }
+                    });
+
+                    details.appendChild(groupDiv);
                 });
 
-                details.appendChild(groupDiv);
-            });
-
-        mini.appendChild(details);
-    });
+            mini.appendChild(details);
+        });
+    }
 }
+
 
 function loadbyskill() {
     const mini = document.getElementById('spellminiwindow');
@@ -94,7 +100,9 @@ function loadbyskill() {
                 groupDiv.appendChild(label);
 
                 byDifficulty[difficulty].forEach(spell => {
-                    groupDiv.appendChild(createspellplate(spell.spellname));
+                    if (spell.spellname) {
+                        groupDiv.appendChild(createspellplate(spell.spellname));
+                    }
                 });
 
                 details.appendChild(groupDiv);
@@ -289,35 +297,44 @@ function renderspellstabui() {
 }
 
 function createspellplate(spellname) {
-    // 1) Look up the full spell record
-    const record = Object.values(spells).find(s => s.meta.spellname === spellname);
-    if (!record) throw new Error(`Spell "${spellname}" not found in spells API`);
-  
-    // 2) Pull out data
-    const description = record.meta['4x6t713'];
-    const subtype     = record.meta.m7sdz2;
-    const difficulty  = Number(record.meta.r87jo13);
-  
-    // 3) Check for user-known overrides (e.g. source)
-    const known  = getknownspells().find(s => s.spellname === spellname) || {};
-    const source = known.source;
-  
-    // 4) Build the button
-    const btn = document.createElement('button');
-    btn.className   = 'spell-plate';
-    btn.textContent = spellname;
-    btn.title = [
-      `${spellname} (${subtype}; ${difficulty})`,
-      description,
-      source ? `Source: ${source}` : null
-    ].filter(Boolean).join('\n');
-  
-    // 5) Attach the roll listener right now
-    attachspellroll(btn);
-  
-    // 6) Return it, ready to insert
-    return btn;
-  }  
+
+    if (spellname) {
+        // 1) Look up the full spell record
+        const record = Object.values(spells).find(s => s.meta.spellname === spellname);
+        if (!record) throw new Error(`Spell "${spellname}" not found in spells API`);
+
+        // 2) Pull out data from the API record
+        const description = record.meta['4x6t713'];
+        const subtype = record.meta.m7sdz2;
+        const difficulty = Number(record.meta.r87jo13);
+
+        // 3) Check for user-known overrides (e.g. source, skill)
+        const known = getknownspells().find(s => s.spellname === spellname) || {};
+        const source = known.source || '';
+        const skill = known.skill || '';
+
+        // 4) Build the button
+        const btn = document.createElement('button');
+        btn.className = 'spell-plate';
+        btn.textContent = spellname;
+        btn.title = [
+            `${spellname} (${subtype}; ${difficulty})`,
+            description,
+            source ? `Source: ${source}` : null
+        ].filter(Boolean).join('\n');
+
+        // 5) Store metadata in data-attributes
+        btn.dataset.spellname = spellname;
+        btn.dataset.spellskill = skill;
+        btn.dataset.spellsubtype = subtype;
+        btn.dataset.spellthreshold = difficulty.toString();
+
+        // 6) Attach the roll-listener
+        attachspellroll(btn);
+
+        return btn;
+    }
+}
 
 function printspelldescription(btn) {
     console.log(btn.title);

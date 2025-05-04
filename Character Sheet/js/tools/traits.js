@@ -83,3 +83,28 @@ function getskillbonusesfromtraits(){
 
   return traitswithskillbonuses;
 }
+
+function getsubtypebonusesfromtraits() {
+  const mytraits = getchartraits();
+  const traitswithsubtypebonuses = [];
+
+  mytraits.forEach(trait => {
+      const bonusTypes    = trait.meta.b78xl;               // parallel array indicating “Skill” vs “Subtype”
+      const subtypeKeys   = trait.meta.traitbonussubtype;   // array of subtype keys
+      const bonusAmounts  = trait.meta.traitbonusamt;       // array of bonus amounts
+
+      if (Array.isArray(subtypeKeys) && Array.isArray(bonusTypes) && Array.isArray(bonusAmounts)) {
+          for (let i = 0; i < subtypeKeys.length; i++) {
+              if (bonusTypes[i] === "Subtype") {
+                  traitswithsubtypebonuses.push({
+                      traitname: trait.meta.traitname,
+                      subtype:   getname(subtypeKeys[i], 'standard'),
+                      amt:       Number(bonusAmounts[i])
+                  });
+              }
+          }
+      }
+  });
+
+  return traitswithsubtypebonuses;
+}

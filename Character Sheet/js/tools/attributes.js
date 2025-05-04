@@ -24,12 +24,12 @@ function getskillvalue(skill) {
     let corecourses = getcorecourses().filter(val => val === getname(skill, 'standard')).length;
     let electivecourses = getelectives().filter(val => val === getname(skill, 'standard')).length;
     let wandbonus = getskillvalfromwand(skill);
-    let iteminhand=getabilityvalfromiteminhand(getabilityfromskill(skill));
+    let iteminhand = getabilityvalfromiteminhand(getabilityfromskill(skill));
     let accessories = getattrbvalfromaccessories(skill);
     let eminence = geteminencebuys().filter(val => val === getname(skill, 'standard')).length;
     let wandquality = getwandqualityadjustment();
-    let trait=getskillbonusfromtrait(skill);
-    
+    let trait = getskillbonusfromtrait(skill);
+
     return {
         buys: buys,
         corecourses: corecourses,
@@ -45,12 +45,12 @@ function getskillvalue(skill) {
 
 // =============================
 
-function getskillbonusfromtrait(skill){
-    let traitbonuses=getskillbonusesfromtraits();
-    let totalbonus=0;
-    traitbonuses.forEach(bns=>{
-        if(bns.skill==skill){
-            totalbonus+=Number(bns.amt);
+function getskillbonusfromtrait(skill) {
+    let traitbonuses = getskillbonusesfromtraits();
+    let totalbonus = 0;
+    traitbonuses.forEach(bns => {
+        if (bns.skill == skill) {
+            totalbonus += Number(bns.amt);
         }
     });
     return totalbonus;
@@ -81,6 +81,67 @@ function getabilityvalfromwand(ability) {
     );
     const sum = matchingeffects.reduce((total, effect) => total + (parseInt(effect.amt, 10) || 0), 0);
     return sum;
+}
+
+function getskillvalfromiteminhand(skill) {
+    const skillLower = String(skill).toLowerCase();
+    const iteminhand = Object.values(itemsinhand)
+        .find(item => item.meta.iteminhanditemname === currentchar.meta.iteminhand);
+
+    let totalbonus = 0;
+    const bonuses = iteminhand?.meta?.iteminhandskillbonus;
+    const amounts = iteminhand?.meta?.iteminhandbonusamt;
+
+    if (Array.isArray(bonuses) && Array.isArray(amounts)) {
+        for (let i = 0; i < bonuses.length; i++) {
+            if (String(bonuses[i]).toLowerCase() === skillLower) {
+                totalbonus += Number(amounts[i]);
+            }
+        }
+    }
+
+    return totalbonus;
+}
+
+function getsubtypevalfromiteminhand(subtype) {
+    const subtypeLower = String(subtype).toLowerCase();
+    const iteminhand = Object.values(itemsinhand)
+        .find(item => item.meta.iteminhanditemname === currentchar.meta.iteminhand);
+    if (!iteminhand) return 0;
+
+    let totalbonus = 0;
+    const bonuses = iteminhand.meta.iteminhandsubtypebonus;
+    const amounts = iteminhand.meta.iteminhandbonusamt;
+
+    if (Array.isArray(bonuses) && Array.isArray(amounts)) {
+        for (let i = 0; i < bonuses.length; i++) {
+            if (String(bonuses[i]).toLowerCase() === subtypeLower) {
+                totalbonus += Number(amounts[i]);
+            }
+        }
+    }
+
+    return totalbonus;
+}
+
+function getcharacteristicvalfromiteminhand(characteristic) {
+    const charLower = String(characteristic).toLowerCase();
+    const iteminhand = Object.values(itemsinhand)
+        .find(item => item.meta.iteminhanditemname === currentchar.meta.iteminhand);
+
+    let totalbonus = 0;
+    const bonuses = iteminhand?.meta?.iteminhandcharacteristicbonus;
+    const amounts = iteminhand?.meta?.iteminhandbonusamt;
+
+    if (Array.isArray(bonuses) && Array.isArray(amounts)) {
+        for (let i = 0; i < bonuses.length; i++) {
+            if (String(bonuses[i]).toLowerCase() === charLower) {
+                totalbonus += Number(amounts[i]);
+            }
+        }
+    }
+
+    return totalbonus;
 }
 
 function getattrbvalfromaccessories(attrb) {
@@ -162,7 +223,6 @@ function getelectives() {
     return courses;
 }
 
-
 function getskillvalfromwand(skill) {
     const standardSkill = getname(skill, 'standard').toLowerCase().trim();
     const effects = getwandeffects();
@@ -171,6 +231,20 @@ function getskillvalfromwand(skill) {
     );
     const sum = matchingeffects.reduce((total, effect) => total + (parseInt(effect.amt, 10) || 0), 0);
     return sum;
+}
+
+function getcharacteristicval(characteristic) {
+    const values = getcharacteristics();
+    const normalized = String(characteristic).trim().toLowerCase();
+
+    for (const [key, value] of Object.entries(values)) {
+        if (key.toLowerCase() === normalized) {
+            return value;
+        }
+    }
+
+    console.warn(`getcharacteristicval: unknown characteristic "${characteristic}"`);
+    return 0;
 }
 
 function getcharacteristics() {
@@ -189,9 +263,9 @@ function getcharacteristics() {
 
 function getparental() {
     return {
-        generosity: currentchar.meta['generosity2'],
-        permissiveness: currentchar.meta['permissiveness'],
-        wealth: currentchar.meta['wealth2']
+        generosity: Number(currentchar.meta['generosity2']),
+        permissiveness: Number(currentchar.meta['permissiveness']),
+        wealth: Number(currentchar.meta['wealth2'])
     }
 }
 
@@ -202,7 +276,6 @@ function getequipment() {
         acc2: currentchar.meta['vykq1']
     }
 }
-
 
 function getabilityfromskill(skill) {
     switch (skill.toLowerCase()) {
@@ -237,3 +310,12 @@ function getabilityfromskill(skill) {
             return null;
     }
 }
+
+function gettotalsubtypebonus(rollobj) {
+    return getsubtypebonusesfromtraits()
+      .reduce((sum, bonus) => {
+        return bonus.subtype === rollobj.subtype
+          ? sum + bonus.amt
+          : sum;
+      }, 0);
+  }

@@ -35,26 +35,62 @@ function rolltext(rollobj) {
         case 'runes':
         case 'divination':
         case 'arithmancy':
-        case 'astronomy': 
-        case 'history': 
-        case 'potions': 
-        case 'artificing': 
-        case 'herbology': 
-        case 'creatures': 
-        case 'perception': 
-        case 'social': 
-        {
-            const skillName = getname(rollobj.type, 'display');
-            const article = /^[aeiou]/i.test(skillName) ? 'an' : 'a';
+        case 'astronomy':
+        case 'history':
+        case 'potions':
+        case 'artificing':
+        case 'herbology':
+        case 'creatures':
+        case 'perception':
+        case 'social':
+            {
+                const skillName = getname(rollobj.type, 'display');
+                const article = /^[aeiou]/i.test(skillName) ? 'an' : 'a';
 
+                if (critresult === 'success') {
+                    rollobj.text = `${charname} attempts ${article} ${skillName} check and CRITICALLY SUCCEEDS with a total roll value of ${rollobj.total}.`;
+                } else if (critresult === 'fail') {
+                    rollobj.text = `${charname} attempts ${article} ${skillName} check and CRITICALLY FAILS.`;
+                } else {
+                    rollobj.text = `${charname} attempts ${article} ${skillName} check with a total roll value of ${rollobj.total}.`;
+                }
+            } break;
+        case 'fortitude':
+        case 'willpower':
+        case 'intellect':
+        case 'creativity':
+        case 'equanimity':
+        case 'charisma':
+        case 'attractiveness':
+        case 'strength':
+        case 'agility':
+            // rollobj.total should already be computed elsewhere
+            rollobj.text = `${charname} rolls a ${getname(rollobj.type, 'display')} roll with a total roll value of ${rollobj.total}.`;
+            break;
+        case 'generosity':
+        case 'wealth':
+        case 'permissiveness':
             if (critresult === 'success') {
-                rollobj.text = `${charname} attempts ${article} ${skillName} check and CRITICALLY SUCCEEDS with a total roll value of ${rollobj.total}.`;
+                rollobj.text = `${charname}’s parents roll a ${getname(rollobj.type, 'display')} roll and CRITICALLY SUCCEED. \nThey deny ${charname}’s request.`;
             } else if (critresult === 'fail') {
-                rollobj.text = `${charname} attempts ${article} ${skillName} check and CRITICALLY FAILS.`;
+                rollobj.text = `${charname}’s parents roll a ${getname(rollobj.type, 'display')} roll and CRITICALLY FAIL. \nThey agree to ${charname}’s request.`;
             } else {
-                rollobj.text = `${charname} attempts ${article} ${skillName} check with a total roll value of ${rollobj.total}.`;
+                rollobj.text = `${charname}’s parents roll a ${getname(rollobj.type, 'display')} roll with a total roll value of ${rollobj.total}.`;
             }
-        } break;
+            break;
+        case "spell":
+            if (rollobj.spell === 'Common Shielding Spell' && rollobj.dice == 10) {
+                rollobj.text = `${charname} CRITICALLY SUCCEEDS in casting Protego! The incoming attack is automatically rebuffed!`;
+            } else if (rollobj.dice === 1) {
+                rollobj.text = `${charname} CRITICALLY FAILS to cast ${rollobj.spell}.`;
+            } else if (rollobj.dice === 10 && rollobj.total > rollobj.threshold) {
+                rollobj.text = `${charname} CRITICALLY SUCCEED with a total roll value of ${rollobj.total}.`;
+            } else if (rollobj.total >= rollobj.threshold) {
+                rollobj.text = `${charname} successfully casts with a total roll value of ${rollobj.total}.`;
+            } else {
+                rollobj.text = `${charname} Fails to cast ${rollobj.spell}.`;
+            }
+        break;
 
     }
     return rollobj;

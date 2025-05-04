@@ -37,8 +37,48 @@ function getrollresult(rollobj) {
                 rollobj.ability +
                 rollobj.iteminhand +
                 rollobj.accessories +
-                rollobj.inventory;
+                rollobj.inventory + 
+                rollobj.trait;
             break;
+        case 'fortitude':
+        case 'willpower':
+        case 'intellect':
+        case 'creativity':
+        case 'equanimity':
+        case 'charisma':
+        case 'attractiveness':
+        case 'strength':
+        case 'agility':
+            let charval = getcharacteristicval(rollobj.type.toLowerCase());
+            let rolls = [];
+            for (let i = 0; i < charval; i++) {
+                rolls.push(randbetween(1, 10));
+            }
+
+            rollobj.dice =
+                rolls.reduce((total, roll) => total + roll, 0);
+            rollobj.characteristicrolls = rolls;
+            rollobj.accessories = getattrbvalfromaccessories(rollobj.type);
+
+            rollobj.total =
+                rollobj.dice +
+                rollobj.iteminhand +
+                rollobj.accessories +
+                rollobj.inventory;
+
+            break;
+        case 'generosity':
+        case 'wealth':
+        case 'permissiveness':
+            rollobj.total =
+                rollobj.dice +
+                rollobj.parental;
+            break;
+        case "spell":
+            rollobj.total =
+                rollobj.dice + rollobj.ability + rollobj.skill +
+                rollobj.wand + rollobj.iteminhand +
+                rollobj.accessories + rollobj.inventory
     }
 
     rollobj = rolltext(rollobj); //adds the rolltext and gives back a rollobj
@@ -49,7 +89,7 @@ function getrollresult(rollobj) {
 function constructrollobj(type) {
 
     return {
-        type: '',
+        type: type.toLowerCase(),
         dice: 0,
         ability: 0,
         skill: 0,
@@ -65,4 +105,3 @@ function constructrollobj(type) {
         total: 0
     };
 }
-
