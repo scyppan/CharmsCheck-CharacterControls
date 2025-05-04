@@ -2,7 +2,8 @@ function getabilityvalue(ability) {
     ability = getname(ability, 'standard');
     const abilitybuys = getabilitybuys();
     let startval = abilitybuys.filter(val => getname(val, 'standard') === ability).length;
-    let wand = getabilityvalfromwand(ability);
+    let wandbonus = getabilityvalfromwand(ability);
+    let wandquality = getwandqualityadjustmentforability(ability);
     let iteminhand = getabilityvalfromiteminhand(ability);
     let accessories = getattrbvalfromaccessories(ability);
 
@@ -10,7 +11,8 @@ function getabilityvalue(ability) {
 
     return {
         base: startval,
-        wand: wand,
+        wandbonus: wandbonus,
+        wandquality: wandquality,
         iteminhand: iteminhand,
         accessories: accessories
     }
@@ -22,11 +24,12 @@ function getskillvalue(skill) {
     let corecourses = getcorecourses().filter(val => val === getname(skill, 'standard')).length;
     let electivecourses = getelectives().filter(val => val === getname(skill, 'standard')).length;
     let wandbonus = getskillvalfromwand(skill);
+    let iteminhand=getabilityvalfromiteminhand(getabilityfromskill(skill));
     let accessories = getattrbvalfromaccessories(skill);
     let eminence = geteminencebuys().filter(val => val === getname(skill, 'standard')).length;
-
     let wandquality = getwandqualityadjustment();
-
+    let trait=getskillbonusfromtrait(skill);
+    
     return {
         buys: buys,
         corecourses: corecourses,
@@ -34,21 +37,35 @@ function getskillvalue(skill) {
         wandbonus: wandbonus,
         accessories: accessories,
         eminence: eminence,
-        wandquality: wandquality
+        wandquality: wandquality,
+        trait: trait,
+        iteminhand: iteminhand
     };
 }
 
 // =============================
 
+function getskillbonusfromtrait(skill){
+    let traitbonuses=getskillbonusesfromtraits();
+    let totalbonus=0;
+    traitbonuses.forEach(bns=>{
+        if(bns.skill==skill){
+            totalbonus+=Number(bns.amt);
+        }
+    });
+    return totalbonus;
+}
+
 function getabilityvalfromiteminhand(ability) {
-    let iteminhand = Object.values(itemsinhand).find(item => item.meta.iteminhanditemname == currentchar.meta.iteminhand);
+    const abilityLower = ability.toLowerCase();
+    const iteminhand = Object.values(itemsinhand)
+        .find(item => item.meta.iteminhanditemname === currentchar.meta.iteminhand);
+
     let totalbonus = 0;
 
-    if (iteminhand) {
-
-
-        for (let i = 0; i < iteminhand.meta.iteminhandbonustype.length; i++) {
-            if (iteminhand.meta.iteminhandabilitybonus[i] == ability) {
+    if (iteminhand && Array.isArray(iteminhand.meta.iteminhandabilitybonus)) {
+        for (let i = 0; i < iteminhand.meta.iteminhandabilitybonus.length; i++) {
+            if (iteminhand.meta.iteminhandabilitybonus[i].toLowerCase() === abilityLower) {
                 totalbonus += Number(iteminhand.meta.iteminhandbonusamt[i]);
             }
         }
@@ -89,8 +106,6 @@ function getabilitybuys() {
         currentchar.meta['p0o5p'] //year7
     ];
 }
-
-
 
 function getskillbuys() {
     return [
@@ -185,5 +200,40 @@ function getequipment() {
         wand: currentchar.meta['bru22'],
         acc1: currentchar.meta['qb029'],
         acc2: currentchar.meta['vykq1']
+    }
+}
+
+
+function getabilityfromskill(skill) {
+    switch (skill.toLowerCase()) {
+        case 'charms':
+        case 'defense':
+        case 'darkarts':
+        case 'transfiguration':
+            return 'Power';
+
+        case 'runes':
+        case 'arithmancy':
+        case 'muggles':
+        case 'history':
+            return 'Erudition';
+
+        case 'flying':
+        case 'alchemy':
+        case 'potions':
+        case 'artificing':
+        case 'herbology':
+            return 'Panache';
+
+        case 'astronomy':
+        case 'divination':
+        case 'creatures':
+        case 'perception':
+        case 'social':
+            return 'Naturalism';
+
+
+        default:
+            return null;
     }
 }

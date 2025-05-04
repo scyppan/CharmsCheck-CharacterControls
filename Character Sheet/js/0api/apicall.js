@@ -10,8 +10,6 @@ const requestoptions = {
 async function fetchjson(url) {
   const res = await fetch(url, requestoptions);
   if (res.status === 200) {
-    hidegif();     // loadgiflogic.js
-    createfuse();  // searchbox.js
     return res.json();
   }
   throw new Error(res.status);
@@ -294,7 +292,7 @@ async function getproficiencies(checkCache = true) {
     proficiencies = [];
   }
 }
-// Fetch potions similarly to proficiencies and books
+
 async function getpotions(checkCache = true) {
   const cacheKey = 'cache_potions';
   // 1) if already loaded in-memory, skip

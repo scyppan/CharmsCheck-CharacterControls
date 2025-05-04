@@ -1,18 +1,20 @@
 async function attributestab() {
 
   const tabcontent = document.getElementById('tabcontent');
-  tabcontent.textContent = 'Fetching API Data 1/6...';
-  await gettraits(true);//make sure we've loaded traits first.
-  tabcontent.textContent = 'Fetching API Data 2/6....';
+  tabcontent.textContent = 'Fetching API Data 1/7...';
+  await gettraits(true);
+  tabcontent.textContent = 'Fetching API Data 2/7....';
   await getwands(true);
-  tabcontent.textContent = 'Fetching API Data 3/6.....';
+  tabcontent.textContent = 'Fetching API Data 3/7.....';
   await getaccessories(true);
-  tabcontent.textContent = 'Fetching API Data 4/6......';
+  tabcontent.textContent = 'Fetching API Data 4/7......';
   await getwandwoods(true);
-  tabcontent.textContent = 'Fetching API Data 5/6.......';
+  tabcontent.textContent = 'Fetching API Data 5/7.......';
   await getwandcores(true);
-  tabcontent.textContent = 'Fetching API Data 6/6........';
+  tabcontent.textContent = 'Fetching API Data 6/7........';
   await getwandqualities(true);
+  tabcontent.textContent = 'Fetching API Data 7/7........';
+  await getitemsinhand(true);
   tabcontent.textContent = '';
 
   const quadrant = document.createElement('div');
@@ -45,28 +47,28 @@ async function attributestab() {
   tabcontent.appendChild(quadrant);
 
   const abilitySkillsData = [
-    { name: 'Power', value: 8, type: 'ability' },
-    { name: 'Charms', value: 25, type: 'skill' },
+    { name: 'Power', value: 0, type: 'ability' },
+    { name: 'Charms', value: 0, type: 'skill' },
     { name: 'Dark Arts', value: 0, type: 'skill' },
-    { name: 'Defense', value: 7, type: 'skill' },
-    { name: 'Transfiguration', value: 7, type: 'skill' },
+    { name: 'Defense', value: 0, type: 'skill' },
+    { name: 'Transfiguration', value: 0, type: 'skill' },
     { name: 'Naturalism', value: 0, type: 'ability' },
-    { name: 'Astronomy', value: 5, type: 'skill' },
+    { name: 'Astronomy', value: 0, type: 'skill' },
     { name: 'Divination', value: 0, type: 'skill' },
-    { name: 'Creatures', value: 5, type: 'skill' },
+    { name: 'Creatures', value: 0, type: 'skill' },
     { name: 'Perception', value: 0, type: 'skill' },
     { name: 'Social Skills', value: 0, type: 'skill' },
     { name: 'Erudition', value: 0, type: 'ability' },
-    { name: 'Runes', value: 2, type: 'skill' },
-    { name: 'Arithmancy', value: 3, type: 'skill' },
-    { name: 'Muggles', value: 5, type: 'skill' },
-    { name: 'History', value: 7, type: 'skill' },
+    { name: 'Runes', value: 0, type: 'skill' },
+    { name: 'Arithmancy', value: 0, type: 'skill' },
+    { name: 'Muggles', value: 0, type: 'skill' },
+    { name: 'History', value: 0, type: 'skill' },
     { name: 'Panache', value: 0, type: 'ability' },
-    { name: 'Flying', value: 1, type: 'skill' },
-    { name: 'Alchemy', value: 2, type: 'skill' },
-    { name: 'Potions', value: 5, type: 'skill' },
+    { name: 'Flying', value: 0, type: 'skill' },
+    { name: 'Alchemy', value: 0, type: 'skill' },
+    { name: 'Potions', value: 0, type: 'skill' },
     { name: 'Artificing', value: 0, type: 'skill' },
-    { name: 'Herbology', value: 5, type: 'skill' }
+    { name: 'Herbology', value: 0, type: 'skill' }
   ];
 
   // Populate the grid with skill chips
@@ -188,6 +190,4 @@ function maketraitplate(trait) {
   plate.title = gettraitdescription(trait);
   return plate;
 }
-
-
 

@@ -1,15 +1,23 @@
 function getrollresult(rollobj){
-    switch(rollobj.type){
-        case "Power":
-        case "Panache":
-        case "Erudition":
-        case "Naturalism":
+    switch(rollobj.type.toLowerCase()){
+        case "power":
+        case "panache":
+        case "erudition":
+        case "naturalism":
             rollobj.total=
                 rollobj.dice+rollobj.ability+
                 rollobj.wand+rollobj.iteminhand+
-                rollobj.accessory1+rollobj.accessory2+
-                rollobj.inventory;
-        break
+                rollobj.accessories+rollobj.inventory;
+        break;
+        case "charms":
+        case "darkarts":
+        case "defense":
+        case "transfiguration":
+            rollobj.total=
+                rollobj.dice+rollobj.ability+
+                rollobj.wand+rollobj.iteminhand+
+                rollobj.accessories+rollobj.inventory;
+        break;
     }
 
     rollobj = rolltext(rollobj); //adds the rolltext and gives back a rollobj
@@ -29,8 +37,7 @@ function constructrollobj(type){
         trait: 0,
         wand: 0,
         iteminhand: 0,
-        accessory1: 0,
-        accessory2: 0,
+        accessories: 0,
         inventory: 0, //unequippable items with passive bonuses on them
         threshold: 0,
         text: '',

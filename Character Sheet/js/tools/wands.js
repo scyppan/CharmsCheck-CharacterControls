@@ -17,8 +17,6 @@ function getwandeffects() {
 
 // =============================
 
-
-
 function matchwand(wandname) {
 
     const target = wandname.toLowerCase().trim();
@@ -84,9 +82,17 @@ function getwandqualityadjustment() {
         let matchedwand = matchwand(wandname);
         let quality = matchwandquality(matchedwand.meta.wandquality);
 
-        return quality.meta.qualitycastingeffect;
+        return Number(quality.meta.qualitycastingeffect);
     } else {
-        return 0;
+        return Number(0);
     }
 
+}
+
+function getwandqualityadjustmentforability(ability){
+    if(ability.toLowerCase() == 'power'){
+        return Number(getwandqualityadjustment());
+    }else{
+        return Number(0);
+    }
 }
