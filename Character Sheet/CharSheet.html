@@ -3,48 +3,59 @@
 <head>
     <meta charset="UTF-8">
 
+
+    /**
+    * Drop-in Cache Proxy for WordPress REST
+    *
+    * Intercepts all fetch() calls to “/wp-json/” endpoints,
+    * consults Cache Storage for entries younger than 24 h,
+    * otherwise falls back to network and entombs the fresh response.
+    * Yields sub-ms retrieval and circumvents localStorage quotas.
+    */
+
     <script src="https://cdn.jsdelivr.net/npm/lz-string@1.5.0/libs/lz-string.min.js"></script>
 
     <script>
         (() => {
-          const ttl    = 864e5;                     // 24 h
-          const bucket = 'api-cache';
-          const orig   = window.fetch.bind(window);
-        
-          // helper: returns cached Response if fresh, else null
-          async function fromCache(cache, req) {
-            const resp = await cache.match(req);
-            if (!resp) return null;
-            const ts = +resp.headers.get('x-cache-time') || 0;
-            return (Date.now() - ts < ttl) ? resp.clone() : null;
-          }
-        
-          window.fetch = async (url, opts={}) => {
-            if (!url.includes('/wp-json/')) return orig(url, opts);
-        
-            const cache = await caches.open(bucket);
-            const req   = new Request(url, opts);
-        
-            // 1. try cache
-            const cached = await fromCache(cache, req);
-            if (cached) return cached;
-        
-            // 2. network -> store clone
-            const net = await orig(req);
-            try {
-              const clone = net.clone();
-              const hdrs  = new Headers(clone.headers);
-              hdrs.set('x-cache-time', Date.now());
-              const cachedResp = new Response(await clone.blob(), { status: clone.status, statusText: clone.statusText, headers: hdrs });
-              cache.put(req, cachedResp);
-            } catch (e) { /* quota or opaque errors – ignore */ }
-        
-            return net;
-          };
-        })();
-        </script>
+            const ttl = 864e5;                     // 24 h
+            const bucket = 'api-cache';
+            const orig = window.fetch.bind(window);
 
-    
+            // helper: returns cached Response if fresh, else null
+            async function fromCache(cache, req) {
+                const resp = await cache.match(req);
+                if (!resp) return null;
+                const ts = +resp.headers.get('x-cache-time') || 0;
+                return (Date.now() - ts < ttl) ? resp.clone() : null;
+            }
+
+            window.fetch = async (url, opts = {}) => {
+                if (!url.includes('/wp-json/')) return orig(url, opts);
+
+                const cache = await caches.open(bucket);
+                const req = new Request(url, opts);
+
+                // 1. try cache
+                const cached = await fromCache(cache, req);
+                if (cached) return cached;
+
+                // 2. network -> store clone
+                const net = await orig(req);
+                try {
+                    const clone = net.clone();
+                    const hdrs = new Headers(clone.headers);
+                    hdrs.set('x-cache-time', Date.now());
+                    const cachedResp = new Response(await clone.blob(), { status: clone.status, statusText: clone.statusText, headers: hdrs });
+                    cache.put(req, cachedResp);
+                } catch (e) { /* quota or opaque errors – ignore */ }
+
+                return net;
+            };
+        })();
+    </script>
+
+    */
+    */
 
     <link rel="stylesheet" href="css/page.css">
     <link rel="stylesheet" href="css/searchbox.css">
