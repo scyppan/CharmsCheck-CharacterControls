@@ -78,7 +78,13 @@ function getrollresult(rollobj) {
             rollobj.total =
                 rollobj.dice + rollobj.ability + rollobj.skill +
                 rollobj.wand + rollobj.iteminhand +
-                rollobj.accessories + rollobj.inventory
+                rollobj.accessories + rollobj.inventory;
+        break;
+        case "proficiency":
+            rollobj.total =
+                rollobj.dice + rollobj.ability + rollobj.skill +
+                rollobj.iteminhand + rollobj.accessories + 
+                rollobj.inventory + rollobj.trait;
     }
 
     rollobj = rolltext(rollobj); //adds the rolltext and gives back a rollobj

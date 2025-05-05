@@ -84,11 +84,22 @@ function rolltext(rollobj) {
             } else if (rollobj.dice === 1) {
                 rollobj.text = `${charname} CRITICALLY FAILS to cast ${rollobj.spell}.`;
             } else if (rollobj.dice === 10 && rollobj.total > rollobj.threshold) {
-                rollobj.text = `${charname} CRITICALLY SUCCEED with a total roll value of ${rollobj.total}.`;
+                rollobj.text = `${charname} CRITICALLY SUCCEED in casting ${rollobj.spell} with a total roll value of ${rollobj.total}.`;
             } else if (rollobj.total >= rollobj.threshold) {
-                rollobj.text = `${charname} successfully casts with a total roll value of ${rollobj.total}.`;
+                rollobj.text = `${charname} successfully casts ${rollobj.spell} with a total roll value of ${rollobj.total}.`;
             } else {
                 rollobj.text = `${charname} Fails to cast ${rollobj.spell}.`;
+            }
+        break;
+        case "proficiency":
+            if (rollobj.dice === 1) {
+                rollobj.text = `${charname} CRITICALLY FAILS to perform the proficiency ${rollobj.proficiency}.`;
+            } else if (rollobj.dice === 10 && rollobj.total > rollobj.threshold) {
+                rollobj.text = `${charname} CRITICALLY SUCCEED in performing the proficiency ${rollobj.proficiency} with a total roll value of ${rollobj.total}.`;
+            } else if (rollobj.total >= rollobj.threshold) {
+                rollobj.text = `${charname} successfully performed the proficiency ${rollobj.proficiency} with a total roll value of ${rollobj.total}.`;
+            } else {
+                rollobj.text = `${charname} Fails to perform the ${rollobj.proficiency} proficiency.`;
             }
         break;
 

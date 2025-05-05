@@ -4,5 +4,5 @@ function loadchar(id){
     document.getElementById('charsheet-container').classList.remove('hidden');
     document.getElementById('searchbox').value=char.name;
     overviewtab();
-    startidlefetchsequence();
+    rollhistory=[];
 }

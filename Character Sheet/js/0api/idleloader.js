@@ -1,4 +1,19 @@
-// 1) Utility to check if cache_<key> exists and is still fresh
+/**
+ * Returns true if the global variable for `key` is non-empty.
+ */
+function isDataLoaded(key) {
+  const data = getCacheData[key]();
+  if (Array.isArray(data)) {
+    return data.length > 0;
+  } else if (data && typeof data === 'object') {
+    return Object.keys(data).length > 0;
+  }
+  return false;
+}
+
+/**
+ * Utility to check if cache_<key> exists and is still fresh
+ */
 function isCacheFresh(key) {
   const storageKey = `cache_${key}`;
   const raw = localStorage.getItem(storageKey);
@@ -12,7 +27,10 @@ function isCacheFresh(key) {
   }
 }
 
-// 2) The idle‐loader itself, now calling loadcachemini() after each successful cache update
+/**
+ * Idle‐loader: prioritizes loading any global var that's empty,
+ * then falls back to freshness of cache, without losing existing behavior.
+ */
 function startidlefetchsequence() {
   const inactivityDelay = 5000;   // ms of no activity before loading
   const quickThreshold  = 1000;   // ms per load to auto-continue
@@ -24,21 +42,23 @@ function startidlefetchsequence() {
   }
 
   async function onIdle() {
-    // skip already fresh
+    // 1) skip all keys where data is loaded AND cache is fresh
     while (index < cache_configs.length) {
       const { key } = cache_configs[index];
-      if (getCacheData[key]() != null && isCacheFresh(key)) {
+      if (isDataLoaded(key) && isCacheFresh(key)) {
         index++;
-      } else break;
+      } else {
+        break;
+      }
     }
 
-    // if done, schedule next pass
+    // 2) if we've loaded everything, schedule next pass after TTL
     if (index >= cache_configs.length) {
       cleanup();
       return void setTimeout(startidlefetchsequence, cache_ttl);
     }
 
-    // load in batch
+    // 3) load in batch until we hit a slow load or run out of time
     let lastLoadTime = Infinity;
     do {
       const { key, fn } = cache_configs[index++];
@@ -47,22 +67,25 @@ function startidlefetchsequence() {
         const bypassCache = !isCacheFresh(key);
         await window[fn](bypassCache);
 
+        // update the settings UI after each fetch
         loadcachemini();
 
         lastLoadTime = performance.now() - start;
         cumulativeloadtime += lastLoadTime;
         console.log(`${index} of ${cache_configs.length} items loaded`);
       } catch (err) {
-        lastLoadTime = quickThreshold; 
+        lastLoadTime = quickThreshold;
         console.error(`Error loading ${key}: ${err}`);
       }
 
-      // skip newly fresh ones
+      // 4) skip any newly loaded & fresh ones
       while (index < cache_configs.length) {
         const { key: nextKey } = cache_configs[index];
-        if (getCacheData[nextKey]() != null && isCacheFresh(nextKey)) {
+        if (isDataLoaded(nextKey) && isCacheFresh(nextKey)) {
           index++;
-        } else break;
+        } else {
+          break;
+        }
       }
     } while (
       index < cache_configs.length &&
@@ -70,7 +93,7 @@ function startidlefetchsequence() {
       cumulativeloadtime < inactivityDelay
     );
 
-    // finish or wait for next idle
+    // 5) finish or wait for next idle/event
     if (index >= cache_configs.length || cumulativeloadtime >= inactivityDelay) {
       cleanup();
       setTimeout(startidlefetchsequence, cache_ttl);

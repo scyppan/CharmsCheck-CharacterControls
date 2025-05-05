@@ -64,12 +64,12 @@ function loadfavorites() {
     }
 }
 
-
 function loadbyskill() {
     const mini = document.getElementById('spellminiwindow');
     mini.textContent = '';
 
-    const all = getcompletespelllist();
+    // filter out any entries without a spellname
+    const all = getcompletespelllist().filter(sp => Boolean(sp.spellname));
 
     SKILL_ORDER.forEach(skillName => {
         const skillSpells = all.filter(sp => sp.skill === skillName);
@@ -100,6 +100,7 @@ function loadbyskill() {
                 groupDiv.appendChild(label);
 
                 byDifficulty[difficulty].forEach(spell => {
+                    // extra guard, though filter above should catch missing names
                     if (spell.spellname) {
                         groupDiv.appendChild(createspellplate(spell.spellname));
                     }
@@ -116,23 +117,22 @@ function loadbybook() {
     const mini = document.getElementById('spellminiwindow');
     mini.textContent = '';
 
-    const all = getcompletespelllist();
+    // filter out any entries without a spellname
+    const all = getcompletespelllist().filter(sp => Boolean(sp.spellname));
 
     SKILL_ORDER.forEach(skillName => {
         const skillSpells = all.filter(sp => sp.skill === skillName);
         if (!skillSpells.length) return;
 
         const skillDetails = document.createElement('details');
-        skillDetails.className = `spell-category`;
+        skillDetails.className = 'spell-category bybook-skill';
+
         const skillSummary = document.createElement('summary');
         skillSummary.textContent = skillName;
         skillDetails.appendChild(skillSummary);
 
-        // only include non-empty sources
         const sources = Array.from(new Set(
-            skillSpells
-                .map(sp => sp.source)
-                .filter(src => src)  // drop empty/undefined
+            skillSpells.map(sp => sp.source).filter(src => src)
         ));
 
         sources.forEach(source => {
@@ -163,7 +163,9 @@ function loadbybook() {
                     groupDiv.appendChild(label);
 
                     byDifficulty[difficulty].forEach(spell => {
-                        groupDiv.appendChild(createspellplate(spell.spellname));
+                        if (spell.spellname) {
+                            groupDiv.appendChild(createspellplate(spell.spellname));
+                        }
                     });
 
                     bookDetails.appendChild(groupDiv);
@@ -180,22 +182,20 @@ function loadbysubtype() {
     const mini = document.getElementById('spellminiwindow');
     mini.textContent = '';
 
-    const all = getcompletespelllist();
+    // filter out any entries without a spellname
+    const all = getcompletespelllist().filter(sp => Boolean(sp.spellname));
 
     SKILL_ORDER.forEach(skillName => {
         const skillSpells = all.filter(sp => sp.skill === skillName);
         if (!skillSpells.length) return;
 
-        // top‐level <details> for the skill
         const skillDetails = document.createElement('details');
         skillDetails.className = 'spell-category bysubtype-skill';
         const skillSummary = document.createElement('summary');
         skillSummary.textContent = skillName;
         skillDetails.appendChild(skillSummary);
 
-        // group spells by subtype
         const bySubtype = skillSpells.reduce((acc, sp) => {
-            // look up the full record to get subtype
             const record = Object.values(spells)
                 .find(s => s.meta.spellname === sp.spellname);
             const subtype = record?.meta.m7sdz2 || 'Unknown';
@@ -203,7 +203,6 @@ function loadbysubtype() {
             return acc;
         }, {});
 
-        // sort subtypes alphabetically
         Object.keys(bySubtype)
             .sort((a, b) => a.localeCompare(b))
             .forEach(subtype => {
@@ -213,7 +212,6 @@ function loadbysubtype() {
                 subtypeSummary.textContent = subtype;
                 subtypeDetails.appendChild(subtypeSummary);
 
-                // within each subtype, group by difficulty
                 const spellsInSub = bySubtype[subtype];
                 const byDifficulty = spellsInSub.reduce((acc, sp) => {
                     (acc[sp.difficulty] ||= []).push(sp);
@@ -233,7 +231,9 @@ function loadbysubtype() {
                         groupDiv.appendChild(label);
 
                         byDifficulty[difficulty].forEach(spell => {
-                            groupDiv.appendChild(createspellplate(spell.spellname));
+                            if (spell.spellname) {
+                                groupDiv.appendChild(createspellplate(spell.spellname));
+                            }
                         });
 
                         subtypeDetails.appendChild(groupDiv);

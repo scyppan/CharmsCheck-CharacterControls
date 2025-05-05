@@ -221,6 +221,7 @@ function createproficiencyplate(proficiencyname) {
     btn.className   = 'proficiency-plate';
     btn.textContent = proficiencyname;
 
+    // build the tooltip/title
     const titleLines = [
         `${proficiencyname} (${skill}; ${difficulty})`,
         desc
@@ -230,8 +231,15 @@ function createproficiencyplate(proficiencyname) {
     if (source)  titleLines.push(`Source: ${source}`);
     btn.title = titleLines.join('\n');
 
+    // store metadata in data-attributes for attachproficiencyroll to use
+    btn.dataset.proficiencyname    = proficiencyname;
+    btn.dataset.proficiencyskill   = skill;
+    btn.dataset.proficiencythreshold = difficulty;
+
+    // attach the roll listener
     attachproficiencyroll(btn);
 
+    // keyboard accessibility
     btn.addEventListener('keydown', e => {
         if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();

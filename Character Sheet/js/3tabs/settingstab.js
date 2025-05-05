@@ -45,25 +45,45 @@ function activateSettingTab(tabId) {
   document.getElementById('historyminiwindow').style.display = (tabId === 'btnhistory') ? '' : 'none';
 }
 
+/**
+ * Displays each cache dataset with timestamp (if any)
+ * and the number of items currently loaded in the corresponding global variable.
+ */
 function loadcachemini() {
   const container = document.getElementById('cacheminiwindow');
   container.textContent = '';
 
   const list = document.createElement('ul');
   list.id = 'settingsminiwindow';
+
   cacheDatasets.forEach(key => {
     const li = document.createElement('li');
 
-    // timestamp or “Not cached”
+    // 1. Timestamp or “Not cached”
     const raw = localStorage.getItem('cache_' + key);
     let label = key + ': Not cached';
     if (raw) {
       try {
         const { ts } = JSON.parse(raw);
         label = `${key}: ${new Date(ts).toLocaleString()}`;
-      } catch { }
+      } catch { /* invalid JSON, leave as "Not cached" */ }
     }
 
+    // 2. Number of items in the global variable named by `key`
+    let loadedCount = 0;
+    try {
+      const data = eval(key);
+      if (Array.isArray(data)) {
+        loadedCount = data.length;
+      } else if (data && typeof data === 'object') {
+        loadedCount = Object.keys(data).length;
+      }
+    } catch {
+      // variable not defined or other error: count stays 0
+    }
+    label += ` (${loadedCount} items loaded)`;
+
+    // 3. Build UI
     const span = document.createElement('span');
     span.textContent = label;
 
@@ -87,10 +107,6 @@ function loadcachemini() {
   container.append(list);
 }
 
-/**
- * Renders the most recent 20 rolls into the history mini‐window,
- * using hit.spell when hit.type === 'spell'.
- */
 function loadhistorymini() {
   const container = document.getElementById('historyminiwindow');
   container.textContent = '';

@@ -89,8 +89,8 @@ function attachparentalroll(btn) {
 function attachspellroll(btn) {
     btn.addEventListener('click', function (e) {
         // Alt-click shows the tooltip
-        if (e.altKey) {
-            showrollmodal(btn.title);
+        if (e.altKey) { 
+            console.log(btn.title);
             return;
         }
 
@@ -139,13 +139,49 @@ function attachspellroll(btn) {
 
 function attachproficiencyroll(btn) {
     btn.addEventListener('click', function (e) {
-        if (e.altKey) {
-            showrollmodal(btn.title);
-        } else {
-            showrollmodal('proficiency roll');
-        }
+      // Alt-click shows the tooltip
+      if (e.altKey) {
+        showrollmodal(btn.title);
+        return;
+      }
+  
+      // 1) Pull metadata from the button's dataset
+      const proficiencyName = btn.dataset.proficiencyname;
+      const skill           = btn.dataset.proficiencyskill;
+      const threshold       = Number(btn.dataset.proficiencythreshold);
+  
+      // 2) Construct the roll object
+      let rollobj       = constructrollobj('proficiency');
+      let skillval      = getskillvalue(skill);
+      let abilityName   = getabilityfromskill(skill);
+      let abilityval    = getabilityvalue(abilityName);
+      let abilitytotal  = abilityval.base;
+  
+      rollobj.dice = randbetween(1, 10);
+  
+      rollobj.ability     = abilitytotal;
+      rollobj.skill       = skillval.buys + skillval.eminence +
+                           skillval.corecourses + skillval.electivecourses;
+      
+      // Proficiencies don't use wand bonus or subtypes
+      rollobj.iteminhand  = skillval.iteminhand + abilityval.iteminhand;
+      rollobj.accessories = skillval.accessories + abilityval.accessories;
+  
+      // Trait bonuses linked to skill
+      rollobj.trait = getskillbonusesfromtraits()
+        .reduce((sum, bonus) =>
+          bonus.skill === skill ? sum + bonus.amt : sum
+        , 0);
+  
+      // 3) Store metadata on the roll object
+      rollobj.proficiency = proficiencyName;
+      rollobj.threshold   = threshold;
+  
+      // 4) Execute the roll and display the result
+      rollobj = getrollresult(rollobj);
+      showrollmodal(rollobj.text);
     });
-}
+  }
 
 function attachpotionroll(btn) {
     btn.addEventListener('click', function (e) {
