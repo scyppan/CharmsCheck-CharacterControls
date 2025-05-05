@@ -323,8 +323,6 @@ function createspellplate(spellname) {
             source ? `Source: ${source}` : null
         ].filter(Boolean).join('\n');
 
-        console.log(spellname, btn);
-
         // 5) Store metadata in data-attributes
         btn.dataset.spellname = spellname;
         btn.dataset.spellskill = skill;
