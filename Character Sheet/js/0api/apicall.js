@@ -9,13 +9,16 @@ const headers = new Headers();
 headers.append('Authorization','Basic Q0E2RS1LUjdaLUtCT0wtTlVYUTp4');
 const requestoptions = { method:'GET', headers, redirect:'follow' };
 
-async function fetchjson(url) {
-  const res = await fetch(url, requestoptions);
-  if (res.status === 200) return res.json();
+async function fetchjson(url, lastFetched) {
+  const hdrs = new Headers(headers);
+  if (lastFetched) hdrs.append('If-Modified-Since', lastFetched.toUTCString());
+  const res = await fetch(url, { ...requestoptions, headers: hdrs });
+  if (res.status === 304) return null;           // not changed
+  if (res.status === 200) return res.json();      // fresh data
   throw new Error(res.status);
 }
 
-const fetchdata = url => fetchjson(url);
+const fetchdata = (url, lastFetched) => fetchjson(url, lastFetched);
 
 async function getcharacters() {
   if (isloaded(characters)) return characters;

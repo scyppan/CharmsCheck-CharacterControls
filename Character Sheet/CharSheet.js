@@ -16,7 +16,7 @@ async function initApp() {
   }
   
   async function initCharmsCheckLoader() {
-	const version = 'a25.5.5.02';
+	const version = 'a25.5.5.04';
 	const subDir  = 'Character%20Sheet/';
 	const base    = `https://cdn.jsdelivr.net/gh/scyppan/CharmsCheck-CharacterControls@${version}/${subDir}`;
   
