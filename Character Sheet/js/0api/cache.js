@@ -1,3 +1,5 @@
+/* cache.js – drop-in replacement with in-memory indexing added */
+
 const cache_configs = [
     { key: 'characters',     fn: 'getcharacters'      },
     { key: 'traits',         fn: 'gettraits'          },
@@ -73,6 +75,40 @@ const cache_configs = [
     fooddrink:      () => fooddrink
   };
   
+  /* ── INDEX CONFIGURATION ────────────────────────────────────────────────── */
+  /* Define which fields to index for each dataset. */
+  const INDEX_FIELDS = {
+    spells:         ['spellname','skill','subtype'],
+    items:          ['name','category'],
+    proficiencies:  ['name','type'],
+    namedcreatures: ['name','species'],
+    potions:        ['name'],
+    characters:     ['shortname']
+  };
+  /* Global container for indexes */
+  window.indexes = window.indexes || {};
+  
+  /**
+   * Build in-memory indexes for one dataset.
+   * Creates window.indexes[key][field] = { value1: [records], value2: [...] }
+   */
+  function buildIndexes(key) {
+    const fields = INDEX_FIELDS[key];
+    if (!fields) return;
+    const data = getCacheData[key]() || [];
+    const idxObj = {};
+    fields.forEach(f => { idxObj[f] = {}; });
+    data.forEach(rec => {
+      fields.forEach(f => {
+        const val = rec[f];
+        if (val != null) {
+          if (!idxObj[f][val]) idxObj[f][val] = [];
+          idxObj[f][val].push(rec);
+        }
+      });
+    });
+    window.indexes[key] = idxObj;
+  }
   
   async function init_cache() {
     for (const { key, fn } of cache_configs) {
@@ -89,6 +125,7 @@ const cache_configs = [
             cache_meta.push({ dataset: key, lastcache: new Date(ts) });
             console.log(`cache hit: loaded ${key} (ts=${new Date(ts).toISOString()})`);
             loadedFromCache = true;
+            buildIndexes(key);                // ← index on cache hit
           } else {
             localStorage.removeItem(storageKey);
             console.log(`cache expired for ${key}`);
@@ -99,7 +136,7 @@ const cache_configs = [
         }
       }
   
-      // 2) check if the local var is actually populated
+      // 2) fresh fetch if needed
       const current = getCacheData[key]();
       const isEmptyArray = Array.isArray(current) && current.length === 0;
       if (!loadedFromCache || current == null || isEmptyArray) {
@@ -107,16 +144,17 @@ const cache_configs = [
         localStorage.removeItem(storageKey);
   
         try {
-          // window[fn] should be your get... function that returns a Promise
-          await window[fn](true);
+          await window[fn](true);          // e.g. getspells(true)
           const fresh = getCacheData[key]();
           cache_meta.push({ dataset: key, lastcache: new Date() });
           localStorage.setItem(storageKey,
             JSON.stringify({ ts: Date.now(), data: fresh }));
           console.log(`cache refreshed: ${key}`);
+          buildIndexes(key);               // ← index on fresh fetch
         } catch (err) {
           console.error(`failed to fetch fresh ${key}:`, err);
         }
       }
     }
   }
+  
