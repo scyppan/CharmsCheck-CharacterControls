@@ -309,7 +309,7 @@ function createspellplate(spellname) {
         const difficulty = Number(record.meta.r87jo13);
 
         // 3) Check for user-known overrides (e.g. source, skill)
-        const known = getknownspells().find(s => s.spellname === spellname) || {};
+        const known = getcompletespelllist().find(s => s.spellname === spellname) || {};
         const source = known.source || '';
         const skill = known.skill || '';
 
@@ -322,6 +322,8 @@ function createspellplate(spellname) {
             description,
             source ? `Source: ${source}` : null
         ].filter(Boolean).join('\n');
+
+        console.log(spellname, btn);
 
         // 5) Store metadata in data-attributes
         btn.dataset.spellname = spellname;
