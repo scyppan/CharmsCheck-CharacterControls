@@ -124,12 +124,12 @@ function attachspellroll(btn) {
             abilityval.accessories +
             accessoriessubtypebonus;
 
-        rollobj.trait = gettotalsubtypebonus(rollobj);
-
         // 3) Store the rest of your metadata on the roll object
         rollobj.spell = spellname;
         rollobj.subtype = subtype;
         rollobj.threshold = threshold;
+
+        rollobj.trait = gettotalsubtypebonus(rollobj);
 
         // 4) Execute the roll and display the result
         rollobj = getrollresult(rollobj);

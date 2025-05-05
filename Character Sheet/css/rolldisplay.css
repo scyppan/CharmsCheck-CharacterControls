@@ -19,14 +19,16 @@
   /* Toggle button */
   #roll-modal .roll-toggle {
     position: absolute;
-    top: 8px;
-    right: 8px;
-    background: transparent;
+    top: -3px;
+    right: -3px;
+    background: #666143;
+    font-weight: bold;
     border: none;
+    border-radius:3px;
     font-size: 1.2rem;
     line-height: 1;
     cursor: pointer;
-    color: #424745;
+    color: #fff;
   }
   
   /* (your existing list & item rules…) */
