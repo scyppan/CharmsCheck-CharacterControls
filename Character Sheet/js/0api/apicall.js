@@ -1,329 +1,730 @@
-const isloaded = d =>
-  (Array.isArray(d) && d.length > 0) ||
-  (d && typeof d === 'object' && !Array.isArray(d) && Object.keys(d).length > 0);
-
+// === existing fetch logic ===
 const headers = new Headers();
-headers.append('Authorization', 'Basic Q0E2RS1LUjdaLUtCT0wtTlVYUTp4');
-const requestOptions = { method: 'GET', headers, redirect: 'follow' };
+headers.append("Authorization", "Basic Q0E2RS1LUjdaLUtCT0wtTlVYUTp4");
+const requestoptions = {
+  method: 'GET',
+  headers,
+  redirect: 'follow'
+};
 
-async function fetchjson(url, prevEtag) {
-  const hdrs = new Headers(headers);
-  if (prevEtag) hdrs.append('If-None-Match', prevEtag);
-  const res = await fetch(url, { ...requestOptions, headers: hdrs });
-  if (res.status === 304) return null;
-  if (res.ok) {
-    const data = await res.json();
-    return { data, etag: res.headers.get('ETag') };
+async function fetchjson(url) {
+  const res = await fetch(url, requestoptions);
+  if (res.status === 200) {
+    return res.json();
   }
-  throw new Error(`HTTP ${res.status}`);
+  throw new Error(res.status);
 }
 
-const fetchdata = (url, prevEtag) => fetchjson(url, prevEtag);
+const fetchdata = url => fetchjson(url);
 
-async function getcharacters() {
-  if (isloaded(characters)) return characters;
-  const meta = cache_meta.find(m => m.dataset === 'characters');
-  const result = await fetchdata(
-    'https://charmscheck.com/wp-json/frm/v2/forms/972/entries?page_size=10000',
-    meta?.etag
-  );
-  if (result) {
-    characters = result.data;
-    cache_meta.push({ dataset:'characters', etag:result.etag, lastcache:new Date() });
+// === caching helpers ===
+function getCacheEntry(key) {
+  try {
+    const raw = localStorage.getItem(key);
+    if (!raw) return null;
+    const { ts, data } = JSON.parse(raw);
+    if (Date.now() - ts < cache_ttl) {
+      return { ts, data };
+    }
+    localStorage.removeItem(key);
+  } catch (e) {
+    localStorage.removeItem(key);
   }
-  return characters;
+  return null;
 }
 
-async function gettraits() {
-  if (isloaded(traits)) return traits;
-  const meta = cache_meta.find(m => m.dataset === 'traits');
-  const result = await fetchdata(
-    'https://charmscheck.com/wp-json/frm/v2/forms/979/entries?page_size=10000',
-    meta?.etag
-  );
-  if (result) {
-    traits = result.data;
-    cache_meta.push({ dataset:'traits', etag:result.etag, lastcache:new Date() });
+function setCacheEntry(key, data) {
+  try {
+    localStorage.setItem(key, JSON.stringify({ ts: Date.now(), data }));
+  } catch (e) {
+    // ignore storage errors
   }
-  return traits;
 }
 
-async function getaccessories() {
-  if (isloaded(accessories)) return accessories;
-  const meta = cache_meta.find(m => m.dataset === 'accessories');
-  const result = await fetchdata(
-    'https://charmscheck.com/wp-json/frm/v2/forms/995/entries?page_size=10000',
-    meta?.etag
-  );
-  if (result) {
-    accessories = result.data;
-    cache_meta.push({ dataset:'accessories', etag:result.etag, lastcache:new Date() });
+async function getcharacters(checkCache = true) {
+  const cacheKey = 'cache_characters';
+
+  // 1) In-memory check: only skip if we've already loaded >0 entries
+  if (checkCache && Array.isArray(characters) && characters.length > 0) {
+    console.log(`characters already in memory (${characters.length} items), skipping fetch`);
+    return characters;
   }
-  return accessories;
+
+  // 2) LocalStorage cache
+  if (checkCache) {
+    const entry = getCacheEntry(cacheKey);
+    if (entry) {
+      characters = entry.data;
+      cache_meta.push({ dataset: 'characters', lastcache: new Date(entry.ts) });
+      console.log(`characters loaded from cache (${characters.length} items)`);
+      return characters;
+    }
+  }
+
+  // 3) Network fetch with error handling
+  try {
+    console.log('Fetching characters from API…');
+    characters = await fetchdata(
+      "https://charmscheck.com/wp-json/frm/v2/forms/972/entries?page_size=10000"
+    );
+    setCacheEntry(cacheKey, characters);
+    cache_meta.push({ dataset: 'characters', lastcache: new Date() });
+    const count = Array.isArray(characters)
+      ? characters.length
+      : Object.keys(characters).length;
+    console.log(`characters fetched (${count} items)`);
+    return characters;
+  } catch (err) {
+    console.error('Characters fetch error:', err);
+    characters = [];
+    return characters;
+  }
 }
 
-async function getitemsinhand() {
-  if (isloaded(itemsinhand)) return itemsinhand;
-  const meta = cache_meta.find(m => m.dataset === 'itemsinhand');
-  const result = await fetchdata(
-    'https://charmscheck.com/wp-json/frm/v2/forms/1085/entries?page_size=10000',
-    meta?.etag
-  );
-  if (result) {
-    itemsinhand = result.data;
-    cache_meta.push({ dataset:'itemsinhand', etag:result.etag, lastcache:new Date() });
+// === API getters with optional cache check ===
+async function gettraits(checkCache = true) {
+  const cacheKey = 'cache_traits';
+  if (checkCache && traits !== undefined) return;
+  if (checkCache) {
+    const entry = getCacheEntry(cacheKey);
+    if (entry) {
+      traits = entry.data;
+      cache_meta.push({ dataset: 'traits', lastcache: new Date(entry.ts) });
+      console.log('traits loaded from cache');
+      return;
+    }
   }
-  return itemsinhand;
+  try {
+    console.log('Fetching traits...');
+    traits = await fetchdata("https://charmscheck.com/wp-json/frm/v2/forms/979/entries?page_size=10000");
+    setCacheEntry(cacheKey, traits);
+    cache_meta.push({ dataset: 'traits', lastcache: new Date() });
+    console.log(`traits fetched (${Array.isArray(traits)?traits.length:Object.keys(traits).length} items)`);
+  } catch (err) {
+    console.error('Trait fetch error:', err);
+    traits = [];
+  }
 }
 
-async function getitems() {
-  if (isloaded(items)) return items;
-  const meta = cache_meta.find(m => m.dataset === 'items');
-  const result = await fetchdata(
-    'https://charmscheck.com/wp-json/frm/v2/forms/964/entries?page_size=10000',
-    meta?.etag
-  );
-  if (result) {
-    items = result.data;
-    cache_meta.push({ dataset:'items', etag:result.etag, lastcache:new Date() });
+async function getaccessories(checkCache = true) {
+  const cacheKey = 'cache_accessories';
+  if (checkCache && accessories !== undefined) return;
+  if (checkCache) {
+    const entry = getCacheEntry(cacheKey);
+    if (entry) {
+      accessories = entry.data;
+      cache_meta.push({ dataset: 'accessories', lastcache: new Date(entry.ts) });
+      console.log('accessories loaded from cache');
+      return;
+    }
   }
-  return items;
+  try {
+    console.log('Fetching accessories...');
+    accessories = await fetchdata("https://charmscheck.com/wp-json/frm/v2/forms/995/entries?page_size=10000");
+    setCacheEntry(cacheKey, accessories);
+    cache_meta.push({ dataset: 'accessories', lastcache: new Date() });
+    console.log(`accessories fetched (${Array.isArray(accessories)?accessories.length:Object.keys(accessories).length} items)`);
+  } catch (err) {
+    console.error('Accessory fetch error:', err);
+    accessories = [];
+  }
 }
 
-async function getspells() {
-  if (isloaded(spells)) return spells;
-  const meta = cache_meta.find(m => m.dataset === 'spells');
-  const result = await fetchdata(
-    'https://charmscheck.com/wp-json/frm/v2/forms/191/entries?page_size=10000',
-    meta?.etag
-  );
-  if (result) {
-    spells = result.data;
-    cache_meta.push({ dataset:'spells', etag:result.etag, lastcache:new Date() });
+async function getwands(checkCache = true) {
+  const cacheKey = 'cache_wands';
+  if (checkCache && wands !== undefined) return;
+  if (checkCache) {
+    const entry = getCacheEntry(cacheKey);
+    if (entry) {
+      wands = entry.data;
+      cache_meta.push({ dataset: 'wands', lastcache: new Date(entry.ts) });
+      console.log('wands loaded from cache');
+      return;
+    }
   }
-  return spells;
+  try {
+    console.log('Fetching wands...');
+    wands = await fetchdata("https://charmscheck.com/wp-json/frm/v2/forms/114/entries?page_size=10000");
+    setCacheEntry(cacheKey, wands);
+    cache_meta.push({ dataset: 'wands', lastcache: new Date() });
+    console.log(`wands fetched (${Array.isArray(wands)?wands.length:Object.keys(wands).length} items)`);
+  } catch (err) {
+    console.error('Wands fetch error:', err);
+    wands = [];
+  }
 }
 
-async function getproficiencies() {
-  if (isloaded(proficiencies)) return proficiencies;
-  const meta = cache_meta.find(m => m.dataset === 'proficiencies');
-  const result = await fetchdata(
-    'https://charmscheck.com/wp-json/frm/v2/forms/944/entries?page_size=10000',
-    meta?.etag
-  );
-  if (result) {
-    proficiencies = result.data;
-    cache_meta.push({ dataset:'proficiencies', etag:result.etag, lastcache:new Date() });
+async function getwandwoods(checkCache = true) {
+  const cacheKey = 'cache_wandwoods';
+  if (checkCache && wandwoods !== undefined) return;
+  if (checkCache) {
+    const entry = getCacheEntry(cacheKey);
+    if (entry) {
+      wandwoods = entry.data;
+      cache_meta.push({ dataset: 'wandwoods', lastcache: new Date(entry.ts) });
+      console.log('wandwoods loaded from cache');
+      return;
+    }
   }
-  return proficiencies;
+  try {
+    console.log('Fetching wandwoods...');
+    wandwoods = await fetchdata("https://charmscheck.com/wp-json/frm/v2/forms/120/entries?page_size=10000");
+    setCacheEntry(cacheKey, wandwoods);
+    cache_meta.push({ dataset: 'wandwoods', lastcache: new Date() });
+    console.log(`wandwoods fetched (${Array.isArray(wandwoods)?wandwoods.length:Object.keys(wandwoods).length} items)`);
+  } catch (err) {
+    console.error('Wandwoods fetch error:', err);
+    wandwoods = [];
+  }
 }
 
-async function getpotions() {
-  if (isloaded(potions)) return potions;
-  const meta = cache_meta.find(m => m.dataset === 'potions');
-  const result = await fetchdata(
-    'https://charmscheck.com/wp-json/frm/v2/forms/34/entries?page_size=10000',
-    meta?.etag
-  );
-  if (result) {
-    potions = result.data;
-    cache_meta.push({ dataset:'potions', etag:result.etag, lastcache:new Date() });
+async function getwandcores(checkCache = true) {
+  const cacheKey = 'cache_wandcores';
+  if (checkCache && wandcores !== undefined) return;
+  if (checkCache) {
+    const entry = getCacheEntry(cacheKey);
+    if (entry) {
+      wandcores = entry.data;
+      cache_meta.push({ dataset: 'wandcores', lastcache: new Date(entry.ts) });
+      console.log('wandcores loaded from cache');
+      return;
+    }
   }
-  return potions;
+  try {
+    console.log('Fetching wandcores...');
+    wandcores = await fetchdata("https://charmscheck.com/wp-json/frm/v2/forms/116/entries?page_size=10000");
+    setCacheEntry(cacheKey, wandcores);
+    cache_meta.push({ dataset: 'wandcores', lastcache: new Date() });
+    console.log(`wandcores fetched (${Array.isArray(wandcores)?wandcores.length:Object.keys(wandcores).length} items)`);
+  } catch (err) {
+    console.error('Wandcores fetch error:', err);
+    wandcores = [];
+  }
 }
 
-async function getnamedcreatures() {
-  if (isloaded(namedcreatures)) return namedcreatures;
-  const meta = cache_meta.find(m => m.dataset === 'namedcreatures');
-  const result = await fetchdata(
-    'https://charmscheck.com/wp-json/frm/v2/forms/170/entries?page_size=10000',
-    meta?.etag
-  );
-  if (result) {
-    namedcreatures = result.data;
-    cache_meta.push({ dataset:'namedcreatures', etag:result.etag, lastcache:new Date() });
+async function getwandqualities(checkCache = true) {
+  const cacheKey = 'cache_wandqualities';
+  if (checkCache && wandqualities !== undefined) return;
+  if (checkCache) {
+    const entry = getCacheEntry(cacheKey);
+    if (entry) {
+      wandqualities = entry.data;
+      cache_meta.push({ dataset: 'wandqualities', lastcache: new Date(entry.ts) });
+      console.log('wandqualities loaded from cache');
+      return;
+    }
   }
-  return namedcreatures;
+  try {
+    console.log('Fetching wandqualities...');
+    wandqualities = await fetchdata("https://charmscheck.com/wp-json/frm/v2/forms/124/entries?page_size=10000");
+    setCacheEntry(cacheKey, wandqualities);
+    cache_meta.push({ dataset: 'wandqualities', lastcache: new Date() });
+    console.log(`wandqualities fetched (${Array.isArray(wandqualities)?wandqualities.length:Object.keys(wandqualities).length} items)`);
+  } catch (err) {
+    console.error('Wandqualities fetch error:', err);
+    wandqualities = [];
+  }
 }
 
-async function getbooks() {
-  if (isloaded(books)) return books;
-  const meta = cache_meta.find(m => m.dataset === 'books');
-  const result = await fetchdata(
-    'https://charmscheck.com/wp-json/frm/v2/forms/8/entries?page_size=10000',
-    meta?.etag
-  );
-  if (result) {
-    books = result.data;
-    cache_meta.push({ dataset:'books', etag:result.etag, lastcache:new Date() });
+async function getspells(checkCache = true) {
+  const cacheKey = 'cache_spells';
+  if (checkCache && spells !== undefined) return;
+  if (checkCache) {
+    const entry = getCacheEntry(cacheKey);
+    if (entry) {
+      spells = entry.data;
+      cache_meta.push({ dataset: 'spells', lastcache: new Date(entry.ts) });
+      console.log('spells loaded from cache');
+      return;
+    }
   }
-  return books;
+  try {
+    console.log('Fetching spells...');
+    spells = await fetchdata("https://charmscheck.com/wp-json/frm/v2/forms/191/entries?page_size=10000");
+    setCacheEntry(cacheKey, spells);
+    cache_meta.push({ dataset: 'spells', lastcache: new Date() });
+    console.log(`spells fetched (${Array.isArray(spells)?spells.length:Object.keys(spells).length} items)`);
+  } catch (err) {
+    console.error('Spells fetch error:', err);
+    spells = [];
+  }
 }
 
-async function getschools() {
-  if (isloaded(schools)) return schools;
-  const meta = cache_meta.find(m => m.dataset === 'schools');
-  const result = await fetchdata(
-    'https://charmscheck.com/wp-json/frm/v2/forms/3/entries?page_size=10000',
-    meta?.etag
-  );
-  if (result) {
-    schools = result.data;
-    cache_meta.push({ dataset:'schools', etag:result.etag, lastcache:new Date() });
+async function getbooks(checkCache = true) {
+  const cacheKey = 'cache_books';
+  if (checkCache && books !== undefined) return;
+  if (checkCache) {
+    const entry = getCacheEntry(cacheKey);
+    if (entry) {
+      books = entry.data;
+      cache_meta.push({ dataset: 'books', lastcache: new Date(entry.ts) });
+      console.log('books loaded from cache');
+      return;
+    }
   }
-  return schools;
+  try {
+    console.log('Fetching books...');
+    books = await fetchdata("https://charmscheck.com/wp-json/frm/v2/forms/8/entries?page_size=10000");
+    setCacheEntry(cacheKey, books);
+    cache_meta.push({ dataset: 'books', lastcache: new Date() });
+    console.log(`books fetched (${Array.isArray(books)?books.length:Object.keys(books).length} items)`);
+  } catch (err) {
+    console.error('Books fetch error:', err);
+    books = [];
+  }
 }
 
-async function getwands() {
-  if (isloaded(wands)) return wands;
-  const meta = cache_meta.find(m => m.dataset === 'wands');
-  const result = await fetchdata(
-    'https://charmscheck.com/wp-json/frm/v2/forms/114/entries?page_size=10000',
-    meta?.etag
-  );
-  if (result) {
-    wands = result.data;
-    cache_meta.push({ dataset:'wands', etag:result.etag, lastcache:new Date() });
+async function getschools(checkCache = true) {
+  const cacheKey = 'cache_schools';
+  if (checkCache && schools !== undefined) return;
+  if (checkCache) {
+    const entry = getCacheEntry(cacheKey);
+    if (entry) {
+      schools = entry.data;
+      cache_meta.push({ dataset: 'schools', lastcache: new Date(entry.ts) });
+      console.log('schools loaded from cache');
+      return;
+    }
   }
-  return wands;
+  try {
+    console.log('Fetching schools...');
+    schools = await fetchdata("https://charmscheck.com/wp-json/frm/v2/forms/3/entries?page_size=10000");
+    setCacheEntry(cacheKey, schools);
+    cache_meta.push({ dataset: 'schools', lastcache: new Date() });
+    console.log(`schools fetched (${Array.isArray(schools)?schools.length:Object.keys(schools).length} items)`);
+  } catch (err) {
+    console.error('Schools fetch error:', err);
+    schools = [];
+  }
 }
 
-async function getwandwoods() {
-  if (isloaded(wandwoods)) return wandwoods;
-  const meta = cache_meta.find(m => m.dataset === 'wandwoods');
-  const result = await fetchdata(
-    'https://charmscheck.com/wp-json/frm/v2/forms/120/entries?page_size=10000',
-    meta?.etag
-  );
-  if (result) {
-    wandwoods = result.data;
-    cache_meta.push({ dataset:'wandwoods', etag:result.etag, lastcache:new Date() });
+async function getproficiencies(checkCache = true) {
+  const cacheKey = 'cache_proficiencies';
+  // 1) if already loaded in-memory, skip
+  if (checkCache && proficiencies !== undefined) return;
+  
+  // 2) try cache
+  if (checkCache) {
+    const entry = getCacheEntry(cacheKey);
+    if (entry) {
+      proficiencies = entry.data;
+      cache_meta.push({ dataset: 'proficiencies', lastcache: new Date(entry.ts) });
+      console.log('proficiencies loaded from cache');
+      return;
+    }
   }
-  return wandwoods;
+
+  // 3) fetch from API
+  try {
+    console.log('Fetching proficiencies...');
+    proficiencies = await fetchdata(
+      // replace FORM_ID with your actual form ID for proficiencies
+      "https://charmscheck.com/wp-json/frm/v2/forms/944/entries?page_size=10000"
+    );
+    setCacheEntry(cacheKey, proficiencies);
+    cache_meta.push({ dataset: 'proficiencies', lastcache: new Date() });
+    const count = Array.isArray(proficiencies)
+      ? proficiencies.length
+      : Object.keys(proficiencies).length;
+    console.log(`proficiencies fetched (${count} items)`);
+  } catch (err) {
+    console.error('Proficiencies fetch error:', err);
+    proficiencies = [];
+  }
 }
 
-async function getwandcores() {
-  if (isloaded(wandcores)) return wandcores;
-  const meta = cache_meta.find(m => m.dataset === 'wandcores');
-  const result = await fetchdata(
-    'https://charmscheck.com/wp-json/frm/v2/forms/116/entries?page_size=10000',
-    meta?.etag
-  );
-  if (result) {
-    wandcores = result.data;
-    cache_meta.push({ dataset:'wandcores', etag:result.etag, lastcache:new Date() });
+async function getpotions(checkCache = true) {
+  const cacheKey = 'cache_potions';
+  // 1) if already loaded in-memory, skip
+  if (checkCache && potions !== undefined) return;
+
+  // 2) try cache
+  if (checkCache) {
+      const entry = getCacheEntry(cacheKey);
+      if (entry) {
+          potions = entry.data;
+          cache_meta.push({ dataset: 'potions', lastcache: new Date(entry.ts) });
+          console.log('potions loaded from cache');
+          return;
+      }
   }
-  return wandcores;
+
+  // 3) fetch from API
+  try {
+      console.log('Fetching potions...');
+      potions = await fetchdata(
+          // replace FORM_ID with your actual form ID for potions
+          "https://charmscheck.com/wp-json/frm/v2/forms/34/entries?page_size=10000"
+      );
+      setCacheEntry(cacheKey, potions);
+      cache_meta.push({ dataset: 'potions', lastcache: new Date() });
+      const count = Array.isArray(potions)
+          ? potions.length
+          : Object.keys(potions).length;
+      console.log(`potions fetched (${count} items)`);
+  } catch (err) {
+      console.error('Potions fetch error:', err);
+      potions = [];
+  }
 }
 
-async function getwandqualities() {
-  if (isloaded(wandqualities)) return wandqualities;
-  const meta = cache_meta.find(m => m.dataset === 'wandqualities');
-  const result = await fetchdata(
-    'https://charmscheck.com/wp-json/frm/v2/forms/124/entries?page_size=10000',
-    meta?.etag
-  );
-  if (result) {
-    wandqualities = result.data;
-    cache_meta.push({ dataset:'wandqualities', etag:result.etag, lastcache:new Date() });
+async function getnamedcreatures(checkCache = true) {
+  const cacheKey = 'cache_namedcreatures';
+  // 1) if already loaded in-memory, skip
+  if (checkCache && namedcreatures !== undefined) return;
+
+  // 2) try cache
+  if (checkCache) {
+      const entry = getCacheEntry(cacheKey);
+      if (entry) {
+          namedcreatures = entry.data;
+          cache_meta.push({ dataset: 'namedcreatures', lastcache: new Date(entry.ts) });
+          console.log('namedcreatures loaded from cache');
+          return;
+      }
   }
-  return wandqualities;
+
+  // 3) fetch from API
+  try {
+      console.log('Fetching named creatures...');
+      namedcreatures = await fetchdata(
+          // replace FORM_ID with your actual form ID for named creatures
+          "https://charmscheck.com/wp-json/frm/v2/forms/170/entries?page_size=10000"
+      );
+      setCacheEntry(cacheKey, namedcreatures);
+      cache_meta.push({ dataset: 'namedcreatures', lastcache: new Date() });
+      const count = Array.isArray(namedcreatures)
+          ? namedcreatures.length
+          : Object.keys(namedcreatures).length;
+      console.log(`namedcreatures fetched (${count} items)`);
+  } catch (err) {
+      console.error('Named creatures fetch error:', err);
+      namedcreatures = [];
+  }
 }
 
-async function getgeneralitems() {
-  if (isloaded(generalitems)) return generalitems;
-  const meta = cache_meta.find(m => m.dataset === 'generalitems');
-  const result = await fetchdata(
-    'https://charmscheck.com/wp-json/frm/v2/forms/126/entries?page_size=10000',
-    meta?.etag
-  );
-  if (result) {
-    generalitems = result.data;
-    cache_meta.push({ dataset:'generalitems', etag:result.etag, lastcache:new Date() });
+async function getitems(checkCache = true) {
+  const cacheKey = 'cache_items';
+
+  // 1) If already loaded in-memory, skip
+  if (checkCache && items !== undefined) return;
+
+  // 2) Try cache
+  if (checkCache) {
+    const entry = getCacheEntry(cacheKey);
+    if (entry) {
+      items = entry.data;
+      cache_meta.push({ dataset: 'items', lastcache: new Date(entry.ts) });
+      console.log('items loaded from cache');
+      return;
+    }
   }
-  return generalitems;
+
+  // 3) Fetch from API
+  try {
+    console.log('Fetching items...');
+    items = await fetchdata(
+      // replace FORM_ID with your actual form ID for items
+      "https://charmscheck.com/wp-json/frm/v2/forms/964/entries?page_size=10000"
+    );
+    setCacheEntry(cacheKey, items);
+    cache_meta.push({ dataset: 'items', lastcache: new Date() });
+
+    const count = Array.isArray(items)
+      ? items.length
+      : Object.keys(items).length;
+    console.log(`items fetched (${count} items)`);
+  } catch (err) {
+    console.error('Items fetch error:', err);
+    items = [];
+  }
 }
 
-async function getcreatures() {
-  if (isloaded(creatures)) return creatures;
-  const meta = cache_meta.find(m => m.dataset === 'creatures');
-  const result = await fetchdata(
-    'https://charmscheck.com/wp-json/frm/v2/forms/48/entries?page_size=10000',
-    meta?.etag
-  );
-  if (result) {
-    creatures = result.data;
-    cache_meta.push({ dataset:'creatures', etag:result.etag, lastcache:new Date() });
+async function getitemsinhand(checkCache = true) {
+  const cacheKey = 'cache_itemsinhand';
+
+  // 1) If already loaded in-memory, skip
+  if (checkCache && itemsinhand !== undefined) return;
+
+  // 2) Try cache
+  if (checkCache) {
+    const entry = getCacheEntry(cacheKey);
+    if (entry) {
+      itemsinhand = entry.data;
+      cache_meta.push({ dataset: 'itemsinhand', lastcache: new Date(entry.ts) });
+      console.log('items in hand loaded from cache');
+      return;
+    }
   }
-  return creatures;
+
+  // 3) Fetch from API
+  try {
+    console.log('Fetching items in hand...');
+    itemsinhand = await fetchdata(
+      "https://charmscheck.com/wp-json/frm/v2/forms/1085/entries?page_size=10000"
+    );
+    setCacheEntry(cacheKey, itemsinhand);
+    cache_meta.push({ dataset: 'itemsinhand', lastcache: new Date() });
+
+    const count = Array.isArray(itemsinhand)
+      ? itemsinhand.length
+      : Object.keys(itemsinhand).length;
+    console.log(`items in hand fetched (${count} items)`);
+  } catch (err) {
+    console.error('Items in hand fetch error:', err);
+    itemsinhand = [];
+  }
 }
 
-async function getcreatureparts() {
-  if (isloaded(creatureparts)) return creatureparts;
-  const meta = cache_meta.find(m => m.dataset === 'creatureparts');
-  const result = await fetchdata(
-    'https://charmscheck.com/wp-json/frm/v2/forms/53/entries?page_size=10000',
-    meta?.etag
-  );
-  if (result) {
-    creatureparts = result.data;
-    cache_meta.push({ dataset:'creatureparts', etag:result.etag, lastcache:new Date() });
+async function getgeneralitems(checkCache = true) {
+  const cacheKey = 'cache_generalitems';
+
+  // 1) If already loaded in-memory, skip
+  if (checkCache && generalitems !== undefined) return;
+
+  // 2) Try cache
+  if (checkCache) {
+    const entry = getCacheEntry(cacheKey);
+    if (entry) {
+      generalitems = entry.data;
+      cache_meta.push({ dataset: 'generalitems', lastcache: new Date(entry.ts) });
+      console.log('general items loaded from cache');
+      return;
+    }
   }
-  return creatureparts;
+
+  // 3) Fetch from API
+  try {
+    console.log('Fetching general items...');
+    generalitems = await fetchdata(
+      "https://charmscheck.com/wp-json/frm/v2/forms/126/entries?page_size=10000"
+    );
+    setCacheEntry(cacheKey, generalitems);
+    cache_meta.push({ dataset: 'generalitems', lastcache: new Date() });
+
+    const count = Array.isArray(generalitems)
+      ? generalitems.length
+      : Object.keys(generalitems).length;
+    console.log(`general items fetched (${count} items)`);
+  } catch (err) {
+    console.error('General items fetch error:', err);
+    generalitems = [];
+  }
 }
 
-async function getplants() {
-  if (isloaded(plants)) return plants;
-  const meta = cache_meta.find(m => m.dataset === 'plants');
-  const result = await fetchdata(
-    'https://charmscheck.com/wp-json/frm/v2/forms/2/entries?page_size=10000',
-    meta?.etag
-  );
-  if (result) {
-    plants = result.data;
-    cache_meta.push({ dataset:'plants', etag:result.etag, lastcache:new Date() });
+async function getcreatures(checkCache = true) {
+  const cacheKey = 'cache_creatures';
+
+  // 1) If already loaded in-memory, skip
+  if (checkCache && creatures !== undefined) return;
+
+  // 2) Try cache
+  if (checkCache) {
+    const entry = getCacheEntry(cacheKey);
+    if (entry) {
+      creatures = entry.data;
+      cache_meta.push({ dataset: 'creatures', lastcache: new Date(entry.ts) });
+      console.log('creatures loaded from cache');
+      return;
+    }
   }
-  return plants;
+
+  // 3) Fetch from API
+  try {
+    console.log('Fetching creatures...');
+    creatures = await fetchdata(
+      "https://charmscheck.com/wp-json/frm/v2/forms/48/entries?page_size=10000"
+    );
+    setCacheEntry(cacheKey, creatures);
+    cache_meta.push({ dataset: 'creatures', lastcache: new Date() });
+
+    const count = Array.isArray(creatures)
+      ? creatures.length
+      : Object.keys(creatures).length;
+    console.log(`creatures fetched (${count} items)`);
+  } catch (err) {
+    console.error('Creatures fetch error:', err);
+    creatures = [];
+  }
 }
 
-async function getplantparts() {
-  if (isloaded(plantparts)) return plantparts;
-  const meta = cache_meta.find(m => m.dataset === 'plantparts');
-  const result = await fetchdata(
-    'https://charmscheck.com/wp-json/frm/v2/forms/43/entries?page_size=10000',
-    meta?.etag
-  );
-  if (result) {
-    plantparts = result.data;
-    cache_meta.push({ dataset:'plantparts', etag:result.etag, lastcache:new Date() });
+async function getcreatureparts(checkCache = true) {
+  const cacheKey = 'cache_creatureparts';
+
+  // 1) If already loaded in-memory, skip
+  if (checkCache && creatureparts !== undefined) return;
+
+  // 2) Try cache
+  if (checkCache) {
+    const entry = getCacheEntry(cacheKey);
+    if (entry) {
+      creatureparts = entry.data;
+      cache_meta.push({ dataset: 'creatureparts', lastcache: new Date(entry.ts) });
+      console.log('creature parts loaded from cache');
+      return;
+    }
   }
-  return plantparts;
+
+  // 3) Fetch from API
+  try {
+    console.log('Fetching creature parts...');
+    creatureparts = await fetchdata(
+      "https://charmscheck.com/wp-json/frm/v2/forms/53/entries?page_size=10000"
+    );
+    setCacheEntry(cacheKey, creatureparts);
+    cache_meta.push({ dataset: 'creatureparts', lastcache: new Date() });
+
+    const count = Array.isArray(creatureparts)
+      ? creatureparts.length
+      : Object.keys(creatureparts).length;
+    console.log(`creature parts fetched (${count} items)`);
+  } catch (err) {
+    console.error('Creature parts fetch error:', err);
+    creatureparts = [];
+  }
 }
 
-async function getpreparations() {
-  if (isloaded(preparations)) return preparations;
-  const meta = cache_meta.find(m => m.dataset === 'preparations');
-  const result = await fetchdata(
-    'https://charmscheck.com/wp-json/frm/v2/forms/908/entries?page_size=10000',
-    meta?.etag
-  );
-  if (result) {
-    preparations = result.data;
-    cache_meta.push({ dataset:'preparations', etag:result.etag, lastcache:new Date() });
+async function getplants(checkCache = true) {
+  const cacheKey = 'cache_plants';
+
+  // 1) If already loaded in-memory, skip
+  if (checkCache && plants !== undefined) return;
+
+  // 2) Try cache
+  if (checkCache) {
+    const entry = getCacheEntry(cacheKey);
+    if (entry) {
+      plants = entry.data;
+      cache_meta.push({ dataset: 'plants', lastcache: new Date(entry.ts) });
+      console.log('plants loaded from cache');
+      return;
+    }
   }
-  return preparations;
+
+  // 3) Fetch from API
+  try {
+    console.log('Fetching plants...');
+    plants = await fetchdata(
+      "https://charmscheck.com/wp-json/frm/v2/forms/2/entries?page_size=10000"
+    );
+    setCacheEntry(cacheKey, plants);
+    cache_meta.push({ dataset: 'plants', lastcache: new Date() });
+
+    const count = Array.isArray(plants)
+      ? plants.length
+      : Object.keys(plants).length;
+    console.log(`plants fetched (${count} items)`);
+  } catch (err) {
+    console.error('Plants fetch error:', err);
+    plants = [];
+  }
 }
 
-async function getfooddrink() {
-  if (isloaded(fooddrink)) return fooddrink;
-  const meta = cache_meta.find(m => m.dataset === 'fooddrink');
-  const result = await fetchdata(
-    'https://charmscheck.com/wp-json/frm/v2/forms/67/entries?page_size=10000',
-    meta?.etag
-  );
-  if (result) {
-    fooddrink = result.data;
-    cache_meta.push({ dataset:'fooddrink', etag:result.etag, lastcache:new Date() });
+async function getplantparts(checkCache = true) {
+  const cacheKey = 'cache_plantparts';
+
+  // 1) If already loaded in-memory, skip
+  if (checkCache && plantparts !== undefined) return;
+
+  // 2) Try cache
+  if (checkCache) {
+    const entry = getCacheEntry(cacheKey);
+    if (entry) {
+      plantparts = entry.data;
+      cache_meta.push({ dataset: 'plantparts', lastcache: new Date(entry.ts) });
+      console.log('plant parts loaded from cache');
+      return;
+    }
   }
-  return fooddrink;
+
+  // 3) Fetch from API
+  try {
+    console.log('Fetching plant parts...');
+    plantparts = await fetchdata(
+      "https://charmscheck.com/wp-json/frm/v2/forms/43/entries?page_size=10000"
+    );
+    setCacheEntry(cacheKey, plantparts);
+    cache_meta.push({ dataset: 'plantparts', lastcache: new Date() });
+
+    const count = Array.isArray(plantparts)
+      ? plantparts.length
+      : Object.keys(plantparts).length;
+    console.log(`plant parts fetched (${count} items)`);
+  } catch (err) {
+    console.error('Plant parts fetch error:', err);
+    plantparts = [];
+  }
 }
+
+async function getpreparations(checkCache = true) {
+  const cacheKey = 'cache_preparations';
+
+  // 1) If already loaded in-memory, skip
+  if (checkCache && preparations !== undefined) return;
+
+  // 2) Try cache
+  if (checkCache) {
+    const entry = getCacheEntry(cacheKey);
+    if (entry) {
+      preparations = entry.data;
+      cache_meta.push({ dataset: 'preparations', lastcache: new Date(entry.ts) });
+      console.log('preparations loaded from cache');
+      return;
+    }
+  }
+
+  // 3) Fetch from API
+  try {
+    console.log('Fetching preparations...');
+    preparations = await fetchdata(
+      "https://charmscheck.com/wp-json/frm/v2/forms/908/entries?page_size=10000"
+    );
+    setCacheEntry(cacheKey, preparations);
+    cache_meta.push({ dataset: 'preparations', lastcache: new Date() });
+
+    const count = Array.isArray(preparations)
+      ? preparations.length
+      : Object.keys(preparations).length;
+    console.log(`preparations fetched (${count} items)`);
+  } catch (err) {
+    console.error('Preparations fetch error:', err);
+    preparations = [];
+  }
+}
+
+async function getfooddrink(checkCache = true) {
+  const cacheKey = 'cache_fooddrink';
+
+  // 1) If already loaded in-memory, skip
+  if (checkCache && fooddrink !== undefined) return;
+
+  // 2) Try cache
+  if (checkCache) {
+    const entry = getCacheEntry(cacheKey);
+    if (entry) {
+      fooddrink = entry.data;
+      cache_meta.push({ dataset: 'fooddrink', lastcache: new Date(entry.ts) });
+      console.log('food & drinks loaded from cache');
+      return;
+    }
+  }
+
+  // 3) Fetch from API
+  try {
+    console.log('Fetching food & drinks...');
+    fooddrink = await fetchdata(
+      "https://charmscheck.com/wp-json/frm/v2/forms/67/entries?page_size=10000"
+    );
+    setCacheEntry(cacheKey, fooddrink);
+    cache_meta.push({ dataset: 'fooddrink', lastcache: new Date() });
+
+    const count = Array.isArray(fooddrink)
+      ? fooddrink.length
+      : Object.keys(fooddrink).length;
+    console.log(`food & drinks fetched (${count} items)`);
+  } catch (err) {
+    console.error('Food & drinks fetch error:', err);
+    fooddrink = [];
+  }
+}
+
