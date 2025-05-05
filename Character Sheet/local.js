@@ -8,8 +8,8 @@ async function initApp() {
 	document.getElementById('charsheetmain').classList.remove('hidden');
 	searchbox.focus();
   
-	init_cache();
-	startidlefetchsequence();
+	//init_cache();
+	//startidlefetchsequence();
 	createCharacterSheet();
   }
 

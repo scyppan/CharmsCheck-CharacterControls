@@ -1,114 +1,93 @@
-/**
- * Returns true if the global variable for `key` is non-empty.
- */
-function isDataLoaded(key) {
-  const data = getCacheData[key]();
-  if (Array.isArray(data)) {
-    return data.length > 0;
-  } else if (data && typeof data === 'object') {
-    return Object.keys(data).length > 0;
-  }
-  return false;
-}
+// const isdataloaded = key => {
+//   const getter = window.getCacheData?.[key]
+//   if (typeof getter !== 'function') return false
+//   const data = getter()
+//   if (Array.isArray(data))      return data.length > 0
+//   if (data && typeof data === 'object') return Object.keys(data).length > 0
+//   return false
+// }
 
-/**
- * Utility to check if cache_<key> exists and is still fresh
- */
-function isCacheFresh(key) {
-  const storageKey = `cache_${key}`;
-  const raw = localStorage.getItem(storageKey);
-  if (!raw) return false;
-  try {
-    const { ts } = JSON.parse(raw);
-    return (Date.now() - ts) < cache_ttl;
-  } catch {
-    localStorage.removeItem(storageKey);
-    return false;
-  }
-}
+// const iscachefresh = (key, ttl = 24 * 60 * 60 * 1000) => {
+//   const raw = localStorage.getItem(`cache_${key}`)
+//   if (!raw) return false
+//   try {
+//     const { ts } = JSON.parse(raw)
+//     return (Date.now() - ts) < ttl
+//   } catch {
+//     localStorage.removeItem(`cache_${key}`)
+//     return false
+//   }
+// }
 
-/**
- * Idle‐loader: prioritizes loading any global var that's empty,
- * then falls back to freshness of cache, without losing existing behavior.
- */
-function startidlefetchsequence() {
-  const inactivityDelay = 5000;   // ms of no activity before loading
-  const quickThreshold  = 1000;   // ms per load to auto-continue
-  let timerId, index = 0, cumulativeloadtime = 0;
+// function startidlefetchsequence(cacheconfigs, {
+//   cachettl = 24*60*60*1000,
+//   inactivitydelay = 5000,
+//   quickthreshold  = 1000
+// } = {}) {
+//   let index = 0, cumulative = 0, timerid
 
-  function onActivity() {
-    clearTimeout(timerId);
-    timerId = setTimeout(onIdle, inactivityDelay);
-  }
+//   const reset = () => {
+//     index = 0; cumulative = 0
+//     startidlefetchsequence(cacheconfigs, { cachettl, inactivitydelay, quickthreshold })
+//   }
 
-  async function onIdle() {
-    // 1) skip all keys where data is loaded AND cache is fresh
-    while (index < cache_configs.length) {
-      const { key } = cache_configs[index];
-      if (isDataLoaded(key) && isCacheFresh(key)) {
-        index++;
-      } else {
-        break;
-      }
-    }
+//   const onactivity = () => {
+//     clearTimeout(timerid)
+//     timerid = setTimeout(onidle, inactivitydelay)
+//   }
 
-    // 2) if we've loaded everything, schedule next pass after TTL
-    if (index >= cache_configs.length) {
-      cleanup();
-      return void setTimeout(startidlefetchsequence, cache_ttl);
-    }
+//   async function onidle() {
+//     while (index < cacheconfigs.length) {
+//       const { key } = cacheconfigs[index]
+//       if (isdataloaded(key) && iscachefresh(key, cachettl)) index++
+//       else break
+//     }
 
-    // 3) load in batch until we hit a slow load or run out of time
-    let lastLoadTime = Infinity;
-    do {
-      const { key, fn } = cache_configs[index++];
-      const start = performance.now();
-      try {
-        const bypassCache = !isCacheFresh(key);
-        await window[fn](bypassCache);
+//     if (index >= cacheconfigs.length) {
+//       cleanup()
+//       return setTimeout(reset, cachettl)
+//     }
 
-        // update the settings UI after each fetch
-        loadcachemini();
+//     let lasttime = Infinity
+//     do {
+//       const { key, fn } = cacheconfigs[index++]
+//       const bypass = !iscachefresh(key, cachettl)
+//       const start  = performance.now()
+//       try {
+//         await window[fn](bypass)
+//       } catch (e) {
+//         console.error(`error loading ${key}:`, e)
+//       }
+//       lasttime = performance.now() - start
+//       cumulative += lasttime
 
-        lastLoadTime = performance.now() - start;
-        cumulativeloadtime += lastLoadTime;
-        console.log(`${index} of ${cache_configs.length} items loaded`);
-      } catch (err) {
-        lastLoadTime = quickThreshold;
-        console.error(`Error loading ${key}: ${err}`);
-      }
+//       while (index < cacheconfigs.length) {
+//         const nextKey = cacheconfigs[index].key
+//         if (isdataloaded(nextKey) && iscachefresh(nextKey, cachettl)) index++
+//         else break
+//       }
+//     } while (
+//       index < cacheconfigs.length &&
+//       lasttime < quickthreshold &&
+//       cumulative < inactivitydelay
+//     )
 
-      // 4) skip any newly loaded & fresh ones
-      while (index < cache_configs.length) {
-        const { key: nextKey } = cache_configs[index];
-        if (isDataLoaded(nextKey) && isCacheFresh(nextKey)) {
-          index++;
-        } else {
-          break;
-        }
-      }
-    } while (
-      index < cache_configs.length &&
-      lastLoadTime < quickThreshold &&
-      cumulativeloadtime < inactivityDelay
-    );
+//     if (index >= cacheconfigs.length || cumulative >= inactivitydelay) {
+//       cleanup()
+//       setTimeout(reset, cachettl)
+//     } else {
+//       timerid = setTimeout(onidle, inactivitydelay)
+//     }
+//   }
 
-    // 5) finish or wait for next idle/event
-    if (index >= cache_configs.length || cumulativeloadtime >= inactivityDelay) {
-      cleanup();
-      setTimeout(startidlefetchsequence, cache_ttl);
-    } else {
-      timerId = setTimeout(onIdle, inactivityDelay);
-    }
-  }
+//   function cleanup() {
+//     clearTimeout(timerid)
+//     ['mousemove','mousedown','keydown','scroll','touchstart']
+//       .forEach(evt => document.removeEventListener(evt, onactivity))
+//   }
 
-  function cleanup() {
-    clearTimeout(timerId);
-    ['mousemove','mousedown','keydown','scroll','touchstart']
-      .forEach(evt => document.removeEventListener(evt, onActivity));
-  }
+//   ['mousemove','mousedown','keydown','scroll','touchstart']
+//     .forEach(evt => document.addEventListener(evt, onactivity, { passive: true }))
 
-  ['mousedown','keydown','touchstart']
-    .forEach(evt => document.addEventListener(evt, onActivity, { passive: true }));
-  timerId = setTimeout(onIdle, inactivityDelay);
-}
+//   timerid = setTimeout(onidle, inactivitydelay)
+// }
