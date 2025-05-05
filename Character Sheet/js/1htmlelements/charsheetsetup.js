@@ -30,24 +30,26 @@
   }
 
   function createTabs(tabColumn, content) {
+    const iconbase = 'https://raw.githubusercontent.com/scyppan/CharmsCheck-CharacterControls/Character-Controls-25/Character%20Sheet/icons';
     const pages = [
-      { name: "Overview", icon: "./icons/overview.svg" },
-      { name: "Attributes", icon: "./icons/attributes.svg" },
-      { name: "Spells", icon: "./icons/spells.svg" },
-      { name: "Proficiencies", icon: "./icons/proficiencies.svg" },
-      { name: "Potions", icon: "./icons/potions.svg" },
-      { name: "Pets", icon: "./icons/pets.svg" },
-      { name: "Inventory", icon: "./icons/equipment.svg" },
-      { name: "Relationships", icon: "./icons/relationships.svg" },
-      { name: "Settings", icon: "./icons/settings.svg" }
+      { name: "Overview",       icon: "overview.svg" },
+      { name: "Attributes",     icon: "attributes.svg" },
+      { name: "Spells",         icon: "spells.svg" },
+      { name: "Proficiencies",  icon: "proficiencies.svg" },
+      { name: "Potions",        icon: "potions.svg" },
+      { name: "Pets",           icon: "pets.svg" },
+      { name: "Inventory",      icon: "equipment.svg" },
+      { name: "Relationships",  icon: "relationships.svg" },
+      { name: "Settings",       icon: "settings.svg" }
     ];
+  
     pages.forEach(page => {
       const tab = document.createElement("div");
       const img = document.createElement("img");
-      img.src = page.icon;
+      img.src = `${iconbase}/${page.icon}`;
       img.alt = page.name;
-      tab.name=page.name;
-      tab.title=page.name;
+      tab.name = page.name;
+      tab.title = page.name;
       tab.appendChild(img);
       tab.addEventListener("click", () => {
         console.log(tab.name, "Clicked");
@@ -55,8 +57,7 @@
       });
       tabColumn.appendChild(tab);
     });
-    
-  }
+  }  
 
   function tabclick(tabname){
 
