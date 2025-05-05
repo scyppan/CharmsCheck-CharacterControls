@@ -49,17 +49,22 @@ function getequippeditems() {
 
 function getallequippableitems() {
 
-    let length = currentchar.meta.equippableitemtype.length;
     let equippableitems = [];
+    if (currentchar.meta.equippableitemtype) {
 
-    for (let i = 0; i < length; i++) {
-        equippableitems.push({
-            type: currentchar.meta.equippableitemtype[i],
-            item:
-                Object.values(wands).find(w => w.meta.wandname == currentchar.meta.equippablewandname[i]) ||
-                Object.values(itemsinhand).find(item => item.meta.iteminhanditemname == currentchar.meta.equippableiteminhand[i]) ||
-                Object.values(accessories).find(a => a.meta.accessoryname == currentchar.meta.equippableaccessoryname[i])
-        })
+
+        let length = currentchar.meta.equippableitemtype.length;
+
+
+        for (let i = 0; i < length; i++) {
+            equippableitems.push({
+                type: currentchar.meta.equippableitemtype[i],
+                item:
+                    Object.values(wands).find(w => w.meta.wandname == currentchar.meta.equippablewandname[i]) ||
+                    Object.values(itemsinhand).find(item => item.meta.iteminhanditemname == currentchar.meta.equippableiteminhand[i]) ||
+                    Object.values(accessories).find(a => a.meta.accessoryname == currentchar.meta.equippableaccessoryname[i])
+            })
+        }
     }
 
     return equippableitems;

@@ -217,10 +217,8 @@ function attachpotionroll(btn) {
 
 function attachpetroll(btn) {
     btn.addEventListener('click', function (e) {
-        if (e.altKey) {
-            showrollmodal(btn.title);
-        } else {
-            showrollmodal('petroll');
-        }
+        
+        console.log(btn.title);
+        
     });
 }
