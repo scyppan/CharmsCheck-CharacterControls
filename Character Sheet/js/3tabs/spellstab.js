@@ -1,10 +1,24 @@
 async function spellstab() {
     const tabcontent = document.getElementById('tabcontent');
-    tabcontent.textContent = 'Fetching API Data 1/3...';
+    tabcontent.textContent = 'Fetching API Data 1/10...';
+    await gettraits(true);//make sure we've loaded traits
+    tabcontent.textContent = 'Fetching API Data 2/10....';
+    await getwands(true);//make sure we've loaded wands
+    tabcontent.textContent = 'Fetching API Data 3/10.....';
+    await getaccessories(true);//make sure we've loaded accessories
+    tabcontent.textContent = 'Fetching API Data 4/10......';
+    await getwandwoods(true);//make sure we've loaded wandwoods
+    tabcontent.textContent = 'Fetching API Data 5/10.......';
+    await getwandcores(true);//make sure we've loaded wandcores
+    tabcontent.textContent = 'Fetching API Data 6/10........';
+    await getwandqualities(true);//make sure we've loaded wandqualities
+    tabcontent.textContent = 'Fetching API Data 7/10.........';
+    await getitemsinhand(true);//make sure we've loaded itemsinhand
+    tabcontent.textContent = 'Fetching API Data 8/10..........';
     await getspells(true);//make sure we've loaded spells
-    tabcontent.textContent = 'Fetching API Data 2/3....';
+    tabcontent.textContent = 'Fetching API Data 9/10...........';
     await getbooks(true);//make sure we've loaded books
-    tabcontent.textContent = 'Fetching API Data 3/3.....';
+    tabcontent.textContent = 'Fetching API Data 10/10............';
     await getschools(true);//make sure we've loaded schools
     renderspellstabui();
     loadfavorites(); //default view
