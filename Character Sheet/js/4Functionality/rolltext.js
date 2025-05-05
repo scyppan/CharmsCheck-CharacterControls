@@ -102,6 +102,16 @@ function rolltext(rollobj) {
                 rollobj.text = `${charname} Fails to perform the ${rollobj.proficiency} proficiency.`;
             }
         break;
+        case "potion":
+            if (rollobj.dice === 1) {
+                rollobj.text = `${charname} CRITICALLY FAILS to brew ${rollobj.potion}. What a mess!`;
+            } else if (rollobj.dice === 10 && rollobj.total > rollobj.threshold) {
+                rollobj.text = `${charname} CRITICALLY SUCCEED in brewing ${rollobj.potion} with a total roll value of ${rollobj.total}. \nRecord this value as the set value of the potions.`;
+            } else if (rollobj.total >= rollobj.threshold) {
+                rollobj.text = `${charname} successfully brewed ${rollobj.potion} with a total roll value of ${rollobj.total}. Record this value as the set value of the potions.`;
+            } else {
+                rollobj.text = `${charname} Fails to brew ${rollobj.potion}.`;
+            }
 
     }
     return rollobj;

@@ -240,32 +240,43 @@ function renderpotionstabui() {
 }
 
 function createpotionplate(potionname) {
+    // 1) Look up the full potion record
     const record = Object.values(potions)
-        .find(p => p.meta.potionname === potionname);
+      .find(p => p.meta.potionname === potionname);
     if (!record) throw new Error(`Potion "${potionname}" not found`);
-
+  
+    // 2) Pull out data from the API record
     const desc        = record.meta.qs2u8;
     const difficulty  = Number(record.meta.potionthreshold);
     const ingredients = record.meta.potioningredient;
     const effects     = record.meta.ag82a;
-    const favorite = getknownpotions()
-      .find(p => p.potionname === potionname && p.favorite === 'Yes');
-
+    const skill       = record.meta.potionskill || '';
+  
+    // 3) Build the button
     const btn = document.createElement('button');
+    btn.type        = 'button';
     btn.className   = 'potion-plate';
     btn.textContent = potionname;
-
-    const titleLines = [];
-    titleLines.push(`${potionname} (${difficulty})`);
-    titleLines.push(desc);
+  
+    // 4) Build tooltip/title
+    const titleLines = [
+      `${potionname} (${difficulty})`,
+      desc
+    ];
     if (ingredients) titleLines.push(`Ingredients: ${ingredients}`);
     if (effects)     titleLines.push(`Effects: ${effects}`);
     btn.title = titleLines.join("\n");
-
+  
+    // 5) Store metadata in data-attributes
+    btn.dataset.potionname      = potionname;
+    btn.dataset.skill     = skill;
+    btn.dataset.threshold = difficulty.toString();
+  
+    // 6) Attach the roll-listener
     attachpotionroll(btn);
-
+  
     return btn;
-}
+  }  
 
 function printpotiondescription(btn) {
     console.log(btn.title);

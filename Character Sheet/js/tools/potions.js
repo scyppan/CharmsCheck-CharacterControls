@@ -18,23 +18,24 @@ function getcompletepotionslist() {
 function getknownpotions() {
     const potionarray=[];
     const potionnamearray = currentchar.meta['89nyg'];
-
-
     
     for (let i = 0; i < potionnamearray.length; i++) {
+
         const record = Object.values(potions)
         .find(p => p.meta.potionname === potionnamearray[i]);
 
-
-        potionarray.push({
-            potionname: record.meta.potionname,
-            skill: record.meta.potionskill,
-            difficulty: Number(record.meta.potionthreshold),
-            ingredients: record.meta.potioningredient,
-            effects: record.meta.ag82a,
-            description: record.meta.qs2u8,
-            source: currentchar.meta.potionlearnedfrom[i] || ''
-        });
+        if(record){
+            potionarray.push({
+                potionname: record.meta.potionname,
+                skill: record.meta.potionskill,
+                difficulty: Number(record.meta.potionthreshold),
+                ingredients: record.meta.potioningredient,
+                effects: record.meta.ag82a,
+                description: record.meta.qs2u8,
+                source: currentchar.meta.potionlearnedfrom[i] || ''
+            });
+        }
+        
     }
     return potionarray;
 }
