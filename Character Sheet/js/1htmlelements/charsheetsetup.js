@@ -5,7 +5,7 @@
     createTabs(tabColumn, content);
     container.appendChild(tabColumn);
     container.appendChild(content);
-    document.body.appendChild(container);
+    document.getElementById('charsheetmain').appendChild(container);
   }
 
   function createContainer() {

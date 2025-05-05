@@ -1,94 +1,160 @@
-// // cachemanager.js
-// // — requires global LZString
+/* cache.js – drop-in replacement with in-memory indexing added */
 
-// // ui: status modal
-// function injectcachemodalstyles() {
-//     if (document.getElementById('cm-styles')) return
-//     const s = document.createElement('style')
-//     s.id = 'cm-styles'
-//     s.textContent = `
-//       #cache-status-modal {
-//         position: fixed; bottom:1rem; left:1rem;
-//         background: rgba(0,0,0,0.75); color:#fff;
-//         padding:.5rem 1rem; border-radius:4px;
-//         font-size:.85rem; max-width:200px;
-//         max-height:120px; overflow-y:auto;
-//         z-index:10000;
-//       }
-//       #cache-status-modal ul {margin:0; padding:0; list-style:none}
-//       #cache-status-modal li {margin-bottom:.25rem}
-//     `
-//     document.head.appendChild(s)
-//   }
-//   function createcachemodal() {
-//     if (document.getElementById('cache-status-modal')) return
-//     const m = document.createElement('div')
-//     m.id = 'cache-status-modal'
-//     m.innerHTML = '<ul></ul>'
-//     document.body.appendChild(m)
-//   }
-//   function updatecachemodal(msg) {
-//     const ul = document.querySelector('#cache-status-modal ul')
-//     if (!ul) return
-//     const li = document.createElement('li')
-//     li.textContent = msg
-//     ul.appendChild(li)
-//     ul.scrollTop = ul.scrollHeight
-//   }
+const cache_configs = [
+    { key: 'characters',     fn: 'getcharacters'      },
+    { key: 'traits',         fn: 'gettraits'          },
+    { key: 'accessories',    fn: 'getaccessories'     },
+    { key: 'wands',          fn: 'getwands'           },
+    { key: 'wandwoods',      fn: 'getwandwoods'       },
+    { key: 'wandcores',      fn: 'getwandcores'       },
+    { key: 'wandqualities',  fn: 'getwandqualities'   },
+    { key: 'spells',         fn: 'getspells'          },
+    { key: 'books',          fn: 'getbooks'           },
+    { key: 'schools',        fn: 'getschools'         },
+    { key: 'proficiencies',  fn: 'getproficiencies'   },
+    { key: 'potions',        fn: 'getpotions'         },
+    { key: 'namedcreatures', fn: 'getnamedcreatures'  },
+    { key: 'items',          fn: 'getitems'           },
+    { key: 'itemsinhand',    fn: 'getitemsinhand'     },
+    { key: 'generalitems',   fn: 'getgeneralitems'    },
+    { key: 'creatures',      fn: 'getcreatures'       },
+    { key: 'creatureparts',  fn: 'getcreatureparts'   },
+    { key: 'plants',         fn: 'getplants'          },
+    { key: 'plantparts',     fn: 'getplantparts'      },
+    { key: 'preparations',   fn: 'getpreparations'    },
+    { key: 'fooddrink',      fn: 'getfooddrink'       }
+  ];
   
-//   // persistence via localStorage
-//   function getpersisted(key) {
-//     try {
-//       const c = localStorage.getItem('cache_' + key)
-//       if (!c) return null
-//       return JSON.parse(LZString.decompress(c))
-//     } catch {
-//       return null
-//     }
-//   }
-//   function setpersisted(key, data) {
-//     const c = LZString.compress(JSON.stringify(data))
-//     localStorage.setItem('cache_' + key, c)
-//   }
+  const assignCacheData = {
+    characters:     v => characters     = v,
+    traits:         v => traits         = v,
+    accessories:    v => accessories    = v,
+    wands:          v => wands          = v,
+    wandwoods:      v => wandwoods      = v,
+    wandcores:      v => wandcores      = v,
+    wandqualities:  v => wandqualities  = v,
+    spells:         v => spells         = v,
+    books:          v => books          = v,
+    schools:        v => schools        = v,
+    proficiencies:  v => proficiencies  = v,
+    potions:        v => potions        = v,
+    namedcreatures: v => namedcreatures = v,
+    items:          v => items          = v,
+    itemsinhand:    v => itemsinhand    = v,
+    generalitems:   v => generalitems   = v,
+    creatures:      v => creatures      = v,
+    creatureparts:  v => creatureparts  = v,
+    plants:         v => plants         = v,
+    plantparts:     v => plantparts     = v,
+    preparations:   v => preparations   = v,
+    fooddrink:      v => fooddrink      = v
+  };
   
-//   // download helper (saves to default downloads folder)
-//   function downloadfile(name, content) {
-//     const blob = new Blob([content], { type: 'text/plain' })
-//     const url  = URL.createObjectURL(blob)
-//     const a    = document.createElement('a')
-//     a.href     = url
-//     a.download = name
-//     document.body.appendChild(a)
-//     a.click()
-//     document.body.removeChild(a)
-//     URL.revokeObjectURL(url)
-//   }
+  const getCacheData = {
+    characters:     () => characters,
+    traits:         () => traits,
+    accessories:    () => accessories,
+    wands:          () => wands,
+    wandwoods:      () => wandwoods,
+    wandcores:      () => wandcores,
+    wandqualities:  () => wandqualities,
+    spells:         () => spells,
+    books:          () => books,
+    schools:        () => schools,
+    proficiencies:  () => proficiencies,
+    potions:        () => potions,
+    namedcreatures: () => namedcreatures,
+    items:          () => items,
+    itemsinhand:    () => itemsinhand,
+    generalitems:   () => generalitems,
+    creatures:      () => creatures,
+    creatureparts:  () => creatureparts,
+    plants:         () => plants,
+    plantparts:     () => plantparts,
+    preparations:   () => preparations,
+    fooddrink:      () => fooddrink
+  };
   
-//   // flush one dataset: persist + download
-//   async function flushcache(key, data) {
-//     updatecachemodal(`💾 flushing ${key}…`)
-//     setpersisted(key, data)
-//     downloadfile(`${key}.txt`, LZString.compress(JSON.stringify(data)))
-//     updatecachemodal(`✅ saved ${key}`)
-//   }
+  /* ── INDEX CONFIGURATION ────────────────────────────────────────────────── */
+  /* Define which fields to index for each dataset. */
+  const INDEX_FIELDS = {
+    spells:         ['spellname','skill','subtype'],
+    items:          ['name','category'],
+    proficiencies:  ['name','type'],
+    namedcreatures: ['name','species'],
+    potions:        ['name'],
+    characters:     ['shortname']
+  };
+  /* Global container for indexes */
+  window.indexes = window.indexes || {};
   
-//   // schedule flush on idle
-//   function markdirty(key, data) {
-//     requestIdleCallback(() => flushcache(key, data), { timeout: 10000 })
-//   }
+  /**
+   * Build in-memory indexes for one dataset.
+   * Creates window.indexes[key][field] = { value1: [records], value2: [...] }
+   */
+  function buildIndexes(key) {
+    const fields = INDEX_FIELDS[key];
+    if (!fields) return;
+    const data = getCacheData[key]() || [];
+    const idxObj = {};
+    fields.forEach(f => { idxObj[f] = {}; });
+    data.forEach(rec => {
+      fields.forEach(f => {
+        const val = rec[f];
+        if (val != null) {
+          if (!idxObj[f][val]) idxObj[f][val] = [];
+          idxObj[f][val].push(rec);
+        }
+      });
+    });
+    window.indexes[key] = idxObj;
+  }
   
-//   // init_cache(key, initialData)
-//   // — loads from localStorage or uses initialData,
-//   //    then schedules a background save.
-//   // — does NOT show any file picker.
-//   async function init_cache(key, initialData = {}) {
-//     injectcachemodalstyles()
-//     createcachemodal()
-//     updatecachemodal(`🚀 init_cache ${key}`)
-//     const saved = getpersisted(key)
-//     const dataset = saved !== null ? saved : initialData
-//     updatecachemodal(`ℹ️ loaded ${key} (${Object.keys(dataset).length} entries)`)
-//     markdirty(key, dataset)
-//     return dataset
-//   }
+  async function init_cache() {
+    for (const { key, fn } of cache_configs) {
+      const storageKey = `cache_${key}`;
+      let loadedFromCache = false;
+  
+      // 1) try loading from localStorage
+      const raw = localStorage.getItem(storageKey);
+      if (raw) {
+        try {
+          const { ts, data } = JSON.parse(raw);
+          if (Date.now() - ts < cache_ttl) {
+            assignCacheData[key](data);
+            cache_meta.push({ dataset: key, lastcache: new Date(ts) });
+            console.log(`cache hit: loaded ${key} (ts=${new Date(ts).toISOString()})`);
+            loadedFromCache = true;
+            buildIndexes(key);                // ← index on cache hit
+          } else {
+            localStorage.removeItem(storageKey);
+            console.log(`cache expired for ${key}`);
+          }
+        } catch (e) {
+          localStorage.removeItem(storageKey);
+          console.warn(`cache parse error for ${key}, clearing`, e);
+        }
+      }
+  
+      // 2) fresh fetch if needed
+      const current = getCacheData[key]();
+      const isEmptyArray = Array.isArray(current) && current.length === 0;
+      if (!loadedFromCache || current == null || isEmptyArray) {
+        console.warn(`cache missing or empty for ${key}, fetching fresh…`);
+        localStorage.removeItem(storageKey);
+  
+        try {
+          await window[fn](true);          // e.g. getspells(true)
+          const fresh = getCacheData[key]();
+          cache_meta.push({ dataset: key, lastcache: new Date() });
+          localStorage.setItem(storageKey,
+            JSON.stringify({ ts: Date.now(), data: fresh }));
+          console.log(`cache refreshed: ${key}`);
+          buildIndexes(key);               // ← index on fresh fetch
+        } catch (err) {
+          console.error(`failed to fetch fresh ${key}:`, err);
+        }
+      }
+    }
+  }
   
