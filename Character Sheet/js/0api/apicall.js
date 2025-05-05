@@ -1,94 +1,117 @@
-// configuration
+/* ========================================================================
+   abstracted dataset fetch/cache module — WITH VERBOSE LOGGING
+   (requires: cache_ttl, cache_meta, and your `let`-globals declared elsewhere)
+   Steps: 1) cache → 2) API → 3) throw if still empty
+   ===================================================================== */
+
+/* ---------- config ---------- */
 const headers = new Headers();
-headers.append('Authorization','Basic Q0E2RS1LUjdaLUtCT0wtTlVYUTp4');
+headers.append('authorization','Basic Q0E2RS1LUjdaLUtCT0wtTlVYUTp4');
 const requestoptions = { method:'GET', headers, redirect:'follow' };
 
-// core fetch + cache
-const fetchjson = async url => {
+/* ---------- network helpers ---------- */
+async function fetchjson(url) {
+  console.log('→ fetchjson', url);
   const res = await fetch(url, requestoptions);
+  console.log('← status', res.status);
   if (res.status === 200) return res.json();
-  throw new Error(res.status);
-};
+  throw new Error(`HTTP ${res.status}`);
+}
 const fetchdata = url => fetchjson(url);
 
-const getCacheEntry = key => {
+/* ---------- cache helpers ---------- */
+function getCacheEntry(key) {
+  console.log(`[LS] check ${key}`);
   try {
     const raw = localStorage.getItem(key);
-    if (!raw) return null;
+    if (!raw) return console.log('[LS] miss'), null;
     const { ts, data } = JSON.parse(raw);
+    const age = ((Date.now() - ts)/1000).toFixed(1);
+    console.log('[LS] age', age+'s','len',Object.values(data).length);
     if (Date.now() - ts < cache_ttl) return { ts, data };
-    localStorage.removeItem(key);
-  } catch {
-    localStorage.removeItem(key);
+    console.log('[LS] stale→purge'); localStorage.removeItem(key);
+  } catch(e) {
+    console.warn('[LS] err', e); localStorage.removeItem(key);
   }
   return null;
-};
-const setCacheEntry = (key, data) => {
+}
+function setCacheEntry(key, data) {
   try {
     localStorage.setItem(key, JSON.stringify({ ts: Date.now(), data }));
-  } catch {}
-};
-
-// ensure ≥1 entry
-const validateEntries = (data, name) => {
-  if (!Array.isArray(data) || data.length === 0) {
-    console.error(`no ${name} entries`);
-    throw new Error(`no ${name} entries found`);
+    console.log(`[LS] saved ${key} (${data.length})`);
+  } catch(e) {
+    console.warn('[LS] save fail', e);
   }
-  return data;
-};
+}
 
-// generator for all getters
-const makeGetter = (varName, dataset, url) => {
-  return async (checkCache = true) => {
-    const cacheKey = `cache_${dataset}`;
-    if (checkCache && Array.isArray(globalThis[varName]) && globalThis[varName].length)
-      return globalThis[varName];
-    if (checkCache) {
-      const entry = getCacheEntry(cacheKey);
-      if (entry) {
-        globalThis[varName] = entry.data;
-        cache_meta.push({ dataset, lastcache: new Date(entry.ts) });
-        console.log(`${dataset} loaded from cache (${entry.data.length})`);
-        return validateEntries(entry.data, dataset);
-      }
-    }
-    try {
-      console.log(`Fetching ${dataset}…`);
-      const data = await fetchdata(url);
-      setCacheEntry(cacheKey, data);
-      cache_meta.push({ dataset, lastcache: new Date() });
-      console.log(`${dataset} fetched (${data.length})`);
-      globalThis[varName] = data;
-      return validateEntries(data, dataset);
-    } catch (err) {
-      console.error(`${dataset} fetch error:`, err);
-      globalThis[varName] = [];
-      return validateEntries(globalThis[varName], dataset);
-    }
-  };
-};
+/* ---------- normaliser ---------- */
+function toArray(raw) {
+  const arr = Array.isArray(raw) ? raw : Object.values(raw||{});
+  console.log('normalized len', arr.length);
+  return arr;
+}
 
-// instantiate getters
-const getcharacters       = makeGetter('characters',       'characters',       'https://charmscheck.com/wp-json/frm/v2/forms/972/entries?page_size=10000');
-const gettraits           = makeGetter('traits',           'traits',           'https://charmscheck.com/wp-json/frm/v2/forms/979/entries?page_size=10000');
-const getaccessories      = makeGetter('accessories',      'accessories',      'https://charmscheck.com/wp-json/frm/v2/forms/995/entries?page_size=10000');
-const getwands            = makeGetter('wands',            'wands',            'https://charmscheck.com/wp-json/frm/v2/forms/114/entries?page_size=10000');
-const getwandwoods        = makeGetter('wandwoods',        'wandwoods',        'https://charmscheck.com/wp-json/frm/v2/forms/120/entries?page_size=10000');
-const getwandcores        = makeGetter('wandcores',        'wandcores',        'https://charmscheck.com/wp-json/frm/v2/forms/116/entries?page_size=10000');
-const getwandqualities    = makeGetter('wandqualities',    'wandqualities',    'https://charmscheck.com/wp-json/frm/v2/forms/124/entries?page_size=10000');
-const getspells           = makeGetter('spells',           'spells',           'https://charmscheck.com/wp-json/frm/v2/forms/191/entries?page_size=10000');
-const getbooks            = makeGetter('books',            'books',            'https://charmscheck.com/wp-json/frm/v2/forms/8/entries?page_size=10000');
-const getschools          = makeGetter('schools',          'schools',          'https://charmscheck.com/wp-json/frm/v2/forms/3/entries?page_size=10000');
-const getproficiencies    = makeGetter('proficiencies',    'proficiencies',    'https://charmscheck.com/wp-json/frm/v2/forms/944/entries?page_size=10000');
-const getpotions          = makeGetter('potions',          'potions',          'https://charmscheck.com/wp-json/frm/v2/forms/34/entries?page_size=10000');
-const getnamedcreatures   = makeGetter('namedcreatures',   'namedcreatures',   'https://charmscheck.com/wp-json/frm/v2/forms/170/entries?page_size=10000');
-const getitems            = makeGetter('items',            'items',            'https://charmscheck.com/wp-json/frm/v2/forms/964/entries?page_size=10000');
-const getitemsinhand      = makeGetter('itemsinhand',      'itemsinhand',      'https://charmscheck.com/wp-json/frm/v2/forms/1085/entries?page_size=10000');
-const getgeneralitems     = makeGetter('generalitems',     'generalitems',     'https://charmscheck.com/wp-json/frm/v2/forms/126/entries?page_size=10000');
-const getcreatures        = makeGetter('creatures',        'creatures',        'https://charmscheck.com/wp-json/frm/v2/forms/48/entries?page_size=10000');
-const getcreatureparts    = makeGetter('creatureparts',    'creatureparts',    'https://charmscheck.com/wp-json/frm/v2/forms/53/entries?page_size=10000');
-const getplants           = makeGetter('plants',           'plants',           'https://charmscheck.com/wp-json/frm/v2/forms/2/entries?page_size=10000');
-const getplantparts       = makeGetter('plantparts',       'plantparts',       'https://charmscheck.com/wp-json/frm/v2/forms/43/entries?page_size=10000');
-const getpreparations     = makeGetter('preparations',     'preparations',     'https://charmscheck.com/wp-json/frm/v2/forms/908/entries?page_size=10000');
-const getfooddrink        = makeGetter('fooddrink',        'fooddrink',        'https://charmscheck.com/wp-json/frm/v2/forms/67/entries?page_size=10000');
+/* ---------- assign both globalThis & lexical ---------- */
+function assign(name, arr) {
+  globalThis[name] = arr;
+  try { eval(`${name} = arr`); } catch {}
+}
+
+/* ---------- generic getter ---------- */
+async function getDataset(name, url, checkCache = true) {
+  console.log(`\n=== ${name} ===`);
+  const key = `cache_${name}`;
+
+  // 1) cache
+  if (checkCache) {
+    const entry = getCacheEntry(key);
+    if (entry) {
+      const arr = toArray(entry.data);
+      console.log('[1] cache hit', arr.length);
+      assign(name, arr);
+      cache_meta.push({ dataset:name, lastcache:new Date(entry.ts) });
+      if (arr.length) return arr;
+      console.warn('[1] empty→API');
+    }
+  }
+
+  // 2) API
+  console.log('[2] API fetch');
+  const arr = toArray(await fetchdata(url));
+  console.log('[2] got', arr.length);
+  assign(name, arr);
+  setCacheEntry(key, arr);
+  cache_meta.push({ dataset:name, lastcache:new Date() });
+
+  // 3) validate
+  if (!arr.length) {
+    console.error('[3] FAIL empty');
+    throw new Error(`no ${name} entries`);
+  }
+  console.log('[3] OK');
+  return arr;
+}
+
+/* ---------- concrete getters ---------- */
+const getcharacters      = (...a) => getDataset('characters',      'https://charmscheck.com/wp-json/frm/v2/forms/972/entries?page_size=10000', ...a);
+const gettraits          = (...a) => getDataset('traits',          'https://charmscheck.com/wp-json/frm/v2/forms/979/entries?page_size=10000', ...a);
+const getaccessories     = (...a) => getDataset('accessories',     'https://charmscheck.com/wp-json/frm/v2/forms/995/entries?page_size=10000', ...a);
+const getwands           = (...a) => getDataset('wands',           'https://charmscheck.com/wp-json/frm/v2/forms/114/entries?page_size=10000', ...a);
+const getwandwoods       = (...a) => getDataset('wandwoods',       'https://charmscheck.com/wp-json/frm/v2/forms/120/entries?page_size=10000', ...a);
+const getwandcores       = (...a) => getDataset('wandcores',       'https://charmscheck.com/wp-json/frm/v2/forms/116/entries?page_size=10000', ...a);
+const getwandqualities   = (...a) => getDataset('wandqualities',   'https://charmscheck.com/wp-json/frm/v2/forms/124/entries?page_size=10000', ...a);
+const getspells          = (...a) => getDataset('spells',          'https://charmscheck.com/wp-json/frm/v2/forms/191/entries?page_size=10000', ...a);
+const getbooks           = (...a) => getDataset('books',           'https://charmscheck.com/wp-json/frm/v2/forms/8/entries?page_size=10000',   ...a);
+const getschools         = (...a) => getDataset('schools',         'https://charmscheck.com/wp-json/frm/v2/forms/3/entries?page_size=10000',   ...a);
+const getproficiencies   = (...a) => getDataset('proficiencies',   'https://charmscheck.com/wp-json/frm/v2/forms/944/entries?page_size=10000', ...a);
+const getpotions         = (...a) => getDataset('potions',         'https://charmscheck.com/wp-json/frm/v2/forms/34/entries?page_size=10000',  ...a);
+const getnamedcreatures  = (...a) => getDataset('namedcreatures',  'https://charmscheck.com/wp-json/frm/v2/forms/170/entries?page_size=10000', ...a);
+const getitems           = (...a) => getDataset('items',           'https://charmscheck.com/wp-json/frm/v2/forms/964/entries?page_size=10000', ...a);
+const getitemsinhand     = (...a) => getDataset('itemsinhand',     'https://charmscheck.com/wp-json/frm/v2/forms/1085/entries?page_size=10000',...a);
+const getgeneralitems    = (...a) => getDataset('generalitems',    'https://charmscheck.com/wp-json/frm/v2/forms/126/entries?page_size=10000',...a);
+const getcreatures       = (...a) => getDataset('creatures',       'https://charmscheck.com/wp-json/frm/v2/forms/48/entries?page_size=10000',  ...a);
+const getcreatureparts   = (...a) => getDataset('creatureparts',   'https://charmscheck.com/wp-json/frm/v2/forms/53/entries?page_size=10000',  ...a);
+const getplants          = (...a) => getDataset('plants',          'https://charmscheck.com/wp-json/frm/v2/forms/2/entries?page_size=10000',   ...a);
+const getplantparts      = (...a) => getDataset('plantparts',      'https://charmscheck.com/wp-json/frm/v2/forms/43/entries?page_size=10000',  ...a);
+const getpreparations    = (...a) => getDataset('preparations',    'https://charmscheck.com/wp-json/frm/v2/forms/908/entries?page_size=10000', ...a);
+const getfooddrink       = (...a) => getDataset('fooddrink',       'https://charmscheck.com/wp-json/frm/v2/forms/67/entries?page_size=10000',  ...a);
