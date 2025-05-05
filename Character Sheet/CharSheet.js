@@ -7,7 +7,7 @@ async function initApp() {
   
 	hidegif();       // remove loading indicator
 	createfuse();    // initialize search box
-	main.classList.remove('hidden');
+	document.getElementById('charsheetmain').classList.remove('hidden');
 	searchbox.focus();
   
 	init_cache();
@@ -16,7 +16,7 @@ async function initApp() {
   }
   
   async function initCharmsCheckLoader() {
-	const version = 'a.25.5.4.02';
+	const version = 'a.25.5.4.03';
 	const subDir  = 'Character%20Sheet/';
 	const base    = `https://cdn.jsdelivr.net/gh/scyppan/CharmsCheck-CharacterControls@${version}/${subDir}`;
   
