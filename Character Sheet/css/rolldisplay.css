@@ -29,6 +29,10 @@
     line-height: 1;
     cursor: pointer;
     color: #fff;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 7px;
+    padding-right: 7px;
   }
   
   /* (your existing list & item rules…) */
