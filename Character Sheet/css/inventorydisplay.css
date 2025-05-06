@@ -1,40 +1,25 @@
-/* =======================
-   Tab-bar styling
-   ======================= */
-   #inventorytabbuttonbar {
-    display: flex;
-    gap: 0.5em;
-    margin-bottom: 1em;
-    background-color: rgba(224, 202, 171, 0.5);
-    padding: 0.25em;
-    border-radius: 6px;
-  }
-  
-  #inventorytabbuttonbar button {
-    background: transparent;
-    border: 1px solid #333;
-    border-radius: 4px;
-    padding: 0.5em 1em;
-    font: inherit;
-    color: #333;
-    transition: background-color 0.2s ease, color 0.2s ease;
-  }
-  
-  #inventorytabbuttonbar button:hover {
-    background: #e0e0e0;
-    cursor: pointer;
-  }
-  
-  #inventorytabbuttonbar button.active {
-    background: #333;
-    color: #fff;
-    border-color: #333;
-  }
-  
-  #inventorytabbuttonbar button:focus {
-    outline: 2px solid #007acc;
-    outline-offset: 2px;
-  }
+#inventorytabbuttonbar {
+  display: flex;
+  gap: 0.5em;
+  margin-bottom: 1em;
+}
+
+#inventorytabbuttonbar button {
+  background-color: rgba(77, 81, 107, 0.87);  /* #4d516b */
+  color: rgba(216, 219, 242, 0.87);           /* #d8dbf2 */
+  padding: 3px;
+  border: none;
+}
+
+#inventorytabbuttonbar button:hover {
+  background-color: rgba(97, 101, 127, 0.87); /* slightly lighter */
+  cursor: pointer;
+}
+
+#inventorytabbuttonbar button.active {
+  background-color: rgba(216, 219, 242, 0.87); /* #d8dbf2 */
+  color: rgba(77, 81, 107, 0.87);               /* #4d516b */
+}
   
   
   /* =======================

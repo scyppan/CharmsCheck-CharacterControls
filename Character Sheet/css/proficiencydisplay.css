@@ -1,31 +1,25 @@
-/* proficiencydisplay.css */
+#proficiencytabbuttonbar {
+  display: flex;
+  gap: 0.5em;
+  margin-bottom: 1em;
+}
 
-/* =======================
-   Tab‐bar styling
-   ======================= */
-   #proficiencytabbuttonbar {
-    display: flex;
-    gap: 0.5em;
-    margin-bottom: 1em;
-    background-color: rgba(224, 202, 171, 0.5);
-    color: #333;
-  }
-  
-  #proficiencytabbuttonbar.active {
-    background-color: rgba(73, 65, 54, 0.87);
-    color: #e7dcdc;
-  }
-  
-  #proficiencytabbuttonbar button:hover {
-    background: #e0e0e0;
-    cursor: pointer;
-  }
-  
-  #proficiencytabbuttonbar button.active {
-    background: #333;
-    color: #fff;
-    border-color: #333;
-  }
+#proficiencytabbuttonbar button {
+  background-color: rgba(143, 131, 89, 0.87); /* #8f8359 */
+  color: rgba(217, 211, 193, 0.87);           /* #d9d3c1 */
+  padding: 3px;
+  border: none;
+}
+
+#proficiencytabbuttonbar button:hover {
+  background-color: rgba(159, 147, 107, 0.87); /* slightly lighter */
+  cursor: pointer;
+}
+
+#proficiencytabbuttonbar button.active {
+  background-color: rgba(217, 211, 193, 0.87); /* #d9d3c1 */
+  color: rgba(143, 131, 89, 0.87);             /* #8f8359 */
+}
   
   /* =======================
      Section (details) colors
