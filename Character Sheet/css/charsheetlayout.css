@@ -1,50 +1,60 @@
 .charsheet-container {
   width: 95%;
   display: flex;
-  justify-content: flex-start; /* children start at left */
+  justify-content: flex-start;
+  /* children start at left */
   border: 3px solid #615e4c;
   border-radius: 3px;
 }
-  
+
 .charsheet-tabs {
-  width: 32px;               /* fixed width for the tab column */
+  width: 64px;
+  /* fixed width for the tab column */
   border-right: 1px solid #ccc;
   display: flex;
   flex-direction: column;
 }
 
-.charsheet-tabs > div {
-  width: 32px;               /* fixed square tabs */
-  height: 32px;
-  margin: 0;                 /* remove any extra spacing */
-  padding: 0;                /* remove the 10px padding */
+.charsheet-tabs>div {
+  width: 64px;
+  /* fixed square tabs */
+  height: 64px;
+  margin: 0;
+  /* remove any extra spacing */
+  padding: 0;
+  /* remove the 10px padding */
   border-bottom: 1px solid #ccc;
   cursor: pointer;
-  display: flex;             /* center the icon */
+  display: flex;
+  /* center the icon */
   align-items: center;
   justify-content: center;
 }
 
-.charsheet-tabs > div img {
+.charsheet-tabs>div img {
   max-width: 100%;
   max-height: 100%;
   display: block;
 }
 
-  
-  .charsheet-content {
-    flex-grow: 1;
-    padding: 20px;
-  }
+.charsheet-content {
+  flex-grow: 1;
+  padding: 20px;
+}
 
-  .btn{
-    font-weight: normal;
-    padding-left: 7px;
-    padding-right: 7px;
-    padding-top: 3px;
-    padding-bottom: 0px;
-  }
-  
-  button{
-    color: #000;
-  }
+.btn {
+  font-weight: normal;
+  padding-left: 7px;
+  padding-right: 7px;
+  padding-top: 3px;
+  padding-bottom: 0px;
+}
+
+button {
+  font-size: 11px;
+  font-weight: normal;
+  padding-left: 7px;
+  padding-right: 7px;
+  padding-top: 3px;
+  padding-bottom: 0px;
+}
