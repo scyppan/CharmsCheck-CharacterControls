@@ -18,7 +18,7 @@ async function initApp() {
   }
   
   async function initCharmsCheckLoader() {
-	const version = 'a25.5.5.10';
+	const version = 'a25.5.6.01';
 	const subDir  = 'Character%20Sheet/';
 	const base    = `https://cdn.jsdelivr.net/gh/scyppan/CharmsCheck-CharacterControls@${version}/${subDir}`;
   
@@ -26,7 +26,7 @@ async function initApp() {
 	  'css/page.css','css/searchbox.css','css/charsheetlayout.css','css/overview.css',
 	  'css/skills.css','css/spelldisplay.css','css/proficiencydisplay.css',
 	  'css/potionsdisplay.css','css/petsdisplay.css','css/inventorydisplay.css',
-	  'css/relationshipdisplay.css','css/settingdisplay.css','css/rolldisplay.css'
+	  'css/relationshipdisplay.css','css/settingdisplay.css','css/rolldisplay.css', 'css/wounddisplay.css'
 	];
 	const js = [
 	  'js/0globalvars/globalvars.js',
@@ -40,7 +40,7 @@ async function initApp() {
 	  'js/tools/relationships.js','js/tools/inventory.js','js/tools/pets.js',
 	  'js/tools/potions.js','js/tools/proficiencies.js','js/tools/spells.js',
 	  'js/tools/books.js','js/tools/courses.js','js/tools/accessories.js',
-	  'js/tools/attributes.js','js/tools/wands.js',
+	  'js/tools/attributes.js','js/tools/wands.js','js/3tabs/woundstab.js','js/tools/wounds.js',
 	  'js/tools/traits.js','js/tools/shortname.js','js/tools/addvalstobtns.js',
 	  'js/4Functionality/roll.js','js/4Functionality/rollclicks.js',
 	  'js/4Functionality/rolltools.js','js/4Functionality/rolltext.js'
