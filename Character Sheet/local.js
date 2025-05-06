@@ -11,6 +11,7 @@ async function initApp() {
 	//init_cache();
 	//startidlefetchsequence();
 	createCharacterSheet();
+    
   }
 
   initApp();

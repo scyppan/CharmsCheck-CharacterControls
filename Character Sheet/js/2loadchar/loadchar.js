@@ -5,4 +5,5 @@ function loadchar(id){
     document.getElementById('searchbox').value=char.name;
     overviewtab();
     rollhistory=[];
+    totallightwounds=0;
 }

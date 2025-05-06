@@ -4,14 +4,15 @@
     <meta charset="UTF-8">
 
 
-    <!--
-    * Drop-in Cache Proxy for WordPress REST
-    *
-    * Intercepts all fetch() calls to “/wp-json/” endpoints,
-    * consults Cache Storage for entries younger than 24 h,
-    * otherwise falls back to network and entombs the fresh response.
-    * Yields sub-ms retrieval and circumvents localStorage quotas.
-    -->
+<!--
+  WordPress REST API Cache Proxy:
+
+  Intercepts fetch() calls to wp-json endpoints.
+  Checks Cache Storage for responses cached within the past 24 hours.
+  Falls back to network requests and caches fresh responses.
+  Ensures rapid retrieval and avoids localStorage quota limitations.
+-->
+
 
     <script src="https://cdn.jsdelivr.net/npm/lz-string@1.5.0/libs/lz-string.min.js"></script>
 
@@ -54,8 +55,7 @@
         })();
     </script>
 
-    */
-    */
+
 
     <link rel="stylesheet" href="css/page.css">
     <link rel="stylesheet" href="css/searchbox.css">
@@ -69,7 +69,9 @@
     <link rel="stylesheet" href="css/inventorydisplay.css">
     <link rel="stylesheet" href="css/relationshipdisplay.css">
     <link rel="stylesheet" href="css/settingdisplay.css">
+
     <link rel="stylesheet" href="css/rolldisplay.css">
+    <link rel="stylesheet" href="css/wounddisplay.css">
 
     <script src="https://cdn.jsdelivr.net/npm/fuse.js/dist/fuse.js" defer></script>
 
@@ -98,7 +100,10 @@
     <script src="js/3tabs/relationshipstab.js" defer></script>
     <script src="js/3tabs/settingstab.js" defer></script>
 
+    <script src="js/3tabs/woundstab.js" defer></script>
+
     <script src="js/tools/relationships.js" defer></script>
+    <script src="js/tools/wounds.js" defer></script>
     <script src="js/tools/inventory.js" defer></script>
     <script src="js/tools/pets.js" defer></script>
     <script src="js/tools/potions.js" defer></script>
@@ -137,17 +142,6 @@
             placeholder="Begin typing a character name to see available characters">
         <div id="suggestionscontainer"></div>
 
-        <div id="chardisplay">
-            <div id="leftheader">
-                <img id="characterimg" />
-                <div id="demographics">
-                    <!-- e.g. character’s name, age, etc. -->
-                </div>
-            </div>
-            <div id="rightheader">
-                <!-- possibly other info/stats or a tagline -->
-            </div>
-        </div>
     </div>
 
 </body>

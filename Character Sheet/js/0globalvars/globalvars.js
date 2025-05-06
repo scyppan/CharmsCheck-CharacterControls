@@ -44,4 +44,7 @@ let main=document.getElementById('main');
 let chardisplay=document.getElementById('chardisplay');
 let currentchar;
 let castatage=8;
+
 let rollhistory=[];
+let woundhistory=[];
+let totallightwounds=0;
