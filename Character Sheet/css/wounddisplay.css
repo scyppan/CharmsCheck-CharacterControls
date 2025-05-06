@@ -5,6 +5,7 @@ div[title="Wounds"] {
   
   /* overlay as a child of the button container */
   div[title="Wounds"] .wound-overlay {
+    font-size:12px;
     position: fixed;
     top: 50%;
     left: 85px; 
@@ -13,7 +14,7 @@ div[title="Wounds"] {
     height: 80vh;
     background: #ccbaba;
     box-shadow: -2px 0 8px rgba(0,0,0,0.3);
-    padding: 1rem;
+    padding: 7px;
     overflow-y: auto;
     z-index: 1000;
   }
@@ -21,7 +22,7 @@ div[title="Wounds"] {
   /* breathing room after the Injury Type column */
   .wt-injuries-table th:first-child,
   .wt-injuries-table td:first-child {
-    padding-right: 1.5rem;
+    padding-right: 1.15rem;
   }
   
   /* push the history details down */
@@ -57,11 +58,12 @@ div[title="Wounds"] {
   /* clear borders on the action table */
   .wt-action-table {
     border-collapse: collapse;
+    margin-top:7px; 
   }
   .wt-action-table th,
   .wt-action-table td {
     border: 1px solid #888;
-    padding: 0.01rem;
+    padding: 3px;
   }
   
   /* —— Red motif for the top-bar buttons —— */
@@ -93,8 +95,7 @@ div[title="Wounds"] {
     background-color: #928585;
     color: #FFF;
     border-radius: 4px;
-    padding: 0.3rem 0.6rem;
-    font-size: 0.9rem;
+    padding: 3px;
     cursor: pointer;
     transition: background-color 0.2s, border-color 0.2s;
   }
