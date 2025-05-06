@@ -18,6 +18,10 @@ div[title="Wounds"] {
     overflow-y: auto;
     z-index: 1000;
   }
+
+  .wound-overlay table{
+    padding:3px !important;
+  }
   
   /* breathing room after the Injury Type column */
   .wt-injuries-table th:first-child,

@@ -57,7 +57,7 @@ function createInjuryBreakdownSection() {
   const section = document.createElement('div');
   section.className = 'wt-injuries';
 
-  const header = document.createElement('h4');
+  const header = document.createElement('h6');
   header.textContent = 'Injury Breakdown';
   section.appendChild(header);
 
