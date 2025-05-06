@@ -5,24 +5,18 @@
     display: flex;
     gap: 0.5em;
     margin-bottom: 1em;
-    background-color: rgba(224, 202, 171, 0.5);
-    color: #333;
+    background-color: rgba(67, 87, 72, 0.87);
+    color: rgba(193, 212, 198, 0.87);
   }
   
   #spelltabbuttonbar.active {
-    background-color: rgba(73, 65, 54, 0.87);
-    color: #e7dcdc;
+    color: rgba(67, 87, 72, 0.87);
+    background-color:  rgba(193, 212, 198, 0.87);
   }
   
   #spelltabbuttonbar button:hover {
-    background: #e0e0e0;
+    background: rgba(80, 97, 84, 0.87);
     cursor: pointer;
-  }
-  
-  #spelltabbuttonbar button.active {
-    background: #333;
-    color: #fff;
-    border-color: #333;
   }
   
   /* =======================

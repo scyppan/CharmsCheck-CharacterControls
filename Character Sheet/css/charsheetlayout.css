@@ -43,15 +43,11 @@
 }
 
 .btn {
-  font-weight: normal;
-  padding-left: 7px;
-  padding-right: 7px;
-  padding-top: 3px;
-  padding-bottom: 0px;
+  color: #706958;
 }
 
 button {
-  font-size: 11px;
+  font-size: 12px;
   font-weight: normal;
   padding-left: 7px;
   padding-right: 7px;
