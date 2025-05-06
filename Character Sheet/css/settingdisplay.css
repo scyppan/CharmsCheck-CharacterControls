@@ -52,12 +52,13 @@
 #settingsminiwindow li button {
   padding: 0.2rem 0.6rem;
   border: 1px solid #bbb;
-  background: #fafafa;
+  background: rgba(51, 51, 51, 0.87); 
   border-radius: 4px;
   font-size: 0.9rem;
   cursor: pointer;
   transition: background 0.2s;
 }
+
 #settingsminiwindow li button:hover {
-  background: #eee;
+  background: rgba(82, 80, 80, 0.87); 
 }
