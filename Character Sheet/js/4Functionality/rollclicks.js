@@ -8,6 +8,8 @@ function attachbasicroll(btn) {
         `);
 
     });
+
+    window.parent.postMessage(rollobj.text,"*");
 }
 
 function attachabilityroll(btn) {
@@ -27,6 +29,7 @@ function attachabilityroll(btn) {
 
         rollobj = getrollresult(rollobj);
         showrollmodal(rollobj.text);
+        window.parent.postMessage(rollobj.text,"*");
     });
 }
 
@@ -53,6 +56,7 @@ function attachskillroll(btn) {
 
         rollobj = getrollresult(rollobj);
         showrollmodal(rollobj.text);
+        window.parent.postMessage(rollobj.text,"*");
     });
 }
 
@@ -69,6 +73,7 @@ function attachcharacteristicroll(btn) {
 
         rollobj = getrollresult(rollobj);
         showrollmodal(rollobj.text);
+        window.parent.postMessage(rollobj.text,"*");
 
     });
 }
@@ -83,6 +88,7 @@ function attachparentalroll(btn) {
         console.log(rollobj);
         rollobj = getrollresult(rollobj);
         showrollmodal(rollobj.text);
+        window.parent.postMessage(rollobj.text,"*");
     });
 }
 
@@ -134,6 +140,7 @@ function attachspellroll(btn) {
         // 4) Execute the roll and display the result
         rollobj = getrollresult(rollobj);
         showrollmodal(rollobj.text);
+        window.parent.postMessage(rollobj.text,"*");
     });
 }
 
@@ -180,6 +187,7 @@ function attachproficiencyroll(btn) {
         // 4) Execute the roll and display the result
         rollobj = getrollresult(rollobj);
         showrollmodal(rollobj.text);
+        window.parent.postMessage(rollobj.text,"*");
     });
 }
 
@@ -211,6 +219,7 @@ function attachpotionroll(btn) {
 
             rollobj = getrollresult(rollobj);
             showrollmodal(rollobj.text);
+            window.parent.postMessage(rollobj.text,"*");
         }
     });
 }
@@ -218,7 +227,7 @@ function attachpotionroll(btn) {
 function attachpetroll(btn) {
     btn.addEventListener('click', function (e) {
         
-        console.log(btn.title);
+        window.parent.postMessage(btn.title,"*");
         
     });
 }
