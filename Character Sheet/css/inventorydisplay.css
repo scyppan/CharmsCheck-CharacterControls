@@ -87,14 +87,14 @@
      ======================= */
   .inventory-plate {
     display: inline-block;
-    background-color: #d8b8b8;
-    border: 2px solid #2e0404;
+    background-color: rgba(216, 219, 242, 0.87);  
+    border: 2px solid rgba(77, 81, 107, 0.87); 
     border-radius: 12px;
     padding: 0.25em 0.5em;
     margin: 0.25em;
     font-size: 0.85rem;
     font-family: inherit;
-    color: #2e0404;
+    color: rgba(77, 81, 107, 0.87); 
     cursor: pointer;
     text-align: center;
     transition: background-color 0.2s ease, border-color 0.2s ease;
@@ -102,21 +102,11 @@
   }
   
   .inventory-plate:hover {
-    background-color: #2e0404;
-    color: #d8b8b8;
-    border-color: #d8b8b8;
+    background-color: rgba(87, 91, 116, 0.87); 
+    color: rgba(216, 219, 242, 0.87);  
+    border-color: rgba(216, 219, 242, 0.87);  
   }
-  
-  .inventory-plate:active {
-    background-color: #ddd;
-    border-color: #aaa;
-  }
-  
-  .inventory-plate:focus {
-    outline: 2px solid #007acc;
-    outline-offset: 2px;
-  }
-  
+
   .inventory-plate[title] {
     white-space: pre-wrap;
   }

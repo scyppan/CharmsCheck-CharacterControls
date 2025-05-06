@@ -5,20 +5,20 @@
 }
 
 #proficiencytabbuttonbar button {
-  background-color: rgba(143, 131, 89, 0.87); /* #8f8359 */
+  background-color: rgba(102, 95, 69, 0.87); 
   color: rgba(217, 211, 193, 0.87);           /* #d9d3c1 */
   padding: 3px;
   border: none;
 }
 
 #proficiencytabbuttonbar button:hover {
-  background-color: rgba(159, 147, 107, 0.87); /* slightly lighter */
+  background-color:rgba(126, 118, 89, 0.87);  /* slightly lighter */
   cursor: pointer;
 }
 
 #proficiencytabbuttonbar button.active {
   background-color: rgba(217, 211, 193, 0.87); /* #d9d3c1 */
-  color: rgba(143, 131, 89, 0.87);             /* #8f8359 */
+  color: rgba(102, 95, 69, 0.87);           
 }
   
   /* =======================
