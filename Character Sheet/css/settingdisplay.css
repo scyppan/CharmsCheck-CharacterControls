@@ -50,11 +50,10 @@
 
 /* fetch/clear buttons */
 #settingsminiwindow li button {
-  padding: 0.2rem 0.6rem;
+  padding: 3px;
   border: 1px solid #bbb;
   background: rgba(51, 51, 51, 0.87); 
   border-radius: 4px;
-  font-size: 0.9rem;
   cursor: pointer;
   transition: background 0.2s;
 }

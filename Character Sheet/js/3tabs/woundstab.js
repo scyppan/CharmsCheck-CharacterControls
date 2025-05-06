@@ -23,8 +23,8 @@ function renderwoundstabui() {
 
 function createWoundsSummarySection() {
   const section = document.createElement('div');
-  const h3 = document.createElement('h3');
-  h3.textContent = 'Total Wounds';
+  const h6 = document.createElement('h6');
+  h6.textContent = 'Total Wounds';
 
   const ul = document.createElement('ul');
 
@@ -49,7 +49,7 @@ function createWoundsSummarySection() {
   const note = document.createElement('p');
   note.innerHTML = '<em>Note: 7 heavy wounds kills a human.</em>';
 
-  section.append(h3, ul, note);
+  section.append(h6, ul, note);
   return section;
 }
 

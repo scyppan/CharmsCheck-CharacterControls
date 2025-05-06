@@ -229,3 +229,7 @@ div[title="Wounds"] {
     bottom:   1rem      !important;
     left:     1rem      !important;
   }
+
+  h6{
+    margin: 3px;
+  }
