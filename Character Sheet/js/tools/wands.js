@@ -44,16 +44,20 @@ function matchwandquality(quality) {
 }
 
 function getwoodbonusprofile(wood) {
-    let len = wood.meta.woodbonustype.length;
     let bonuslist = [];
 
-    for (let i = 0; i < len; i++) {
-        bonuslist.push({
-            source: "wandwood",
-            type: wood.meta.woodbonustype[i],
-            attribute: getname(wood.meta.woodbonusability[i] || wood.meta.woodbonusskill[i] || wood.meta.woodbonussubtype[i] || wood.meta.woodbonuscharacteristic[i], 'standard'),
-            amt: wood.meta.woodbonusamt[i]
-        })
+    if (wood.meta.woodbonustype) {
+        let len = wood.meta.woodbonustype.length;
+
+
+        for (let i = 0; i < len; i++) {
+            bonuslist.push({
+                source: "wandwood",
+                type: wood.meta.woodbonustype[i],
+                attribute: getname(wood.meta.woodbonusability[i] || wood.meta.woodbonusskill[i] || wood.meta.woodbonussubtype[i] || wood.meta.woodbonuscharacteristic[i], 'standard'),
+                amt: wood.meta.woodbonusamt[i]
+            })
+        }
     }
 
     return bonuslist;
@@ -86,13 +90,12 @@ function getwandqualityadjustment() {
     } else {
         return Number(0);
     }
-
 }
 
-function getwandqualityadjustmentforability(ability){
-    if(ability.toLowerCase() == 'power'){
+function getwandqualityadjustmentforability(ability) {
+    if (ability.toLowerCase() == 'power') {
         return Number(getwandqualityadjustment());
-    }else{
+    } else {
         return Number(0);
     }
 }

@@ -105,6 +105,7 @@ function createEquipmentSection(title, entries) {
         btn.classList.add('inventory-plate');
         const field = wandOrHand.type === 'Wand' ? 'wandname' : 'itemname';
         btn.textContent = wandOrHand.item.meta[field];
+        btn.title=getequippedtitle(wandOrHand);
         line.appendChild(btn);
         section.appendChild(line);
     }
@@ -118,6 +119,7 @@ function createEquipmentSection(title, entries) {
         const btn = document.createElement('span');
         btn.classList.add('inventory-plate');
         btn.textContent = ent.item.meta.accessoryname;
+        btn.title=getequippedtitle(ent);
         line.appendChild(btn);
         section.appendChild(line);
     });

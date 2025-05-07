@@ -187,3 +187,16 @@ function getuniqueequippableitems() {
     // 3) return array of unique items with their equipped flag
     return Array.from(merged.values());
 }
+
+function getequippedtitle(entry) {console.log(entry);
+    if (entry.type === 'Wand') {
+        return entry.item.meta.efpc5 || '';
+    }
+    if (entry.type === 'Item in hand') {
+        return entry.item.meta.iteminhanddescription || '';
+    }
+    if(entry.type ==="Accessory"){
+        return entry.item.meta.accessorydescription || '';
+    }
+    return '';
+}
