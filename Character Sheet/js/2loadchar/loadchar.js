@@ -10,7 +10,7 @@ function loadchar(id) {
     //tell the parent window that a character has been assigned
     var name = currentchar.meta['5syv4'];
     window.parent.postMessage(
-        { type: 'charassigned', name: name },
+        { eventtype: 'charassigned', name: name },
         '*'
     );
 }
