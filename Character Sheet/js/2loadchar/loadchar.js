@@ -6,4 +6,5 @@ function loadchar(id){
     overviewtab();
     rollhistory=[];
     totallightwounds=0;
+    window.parent.postMessage('charassigned','*');
 }
