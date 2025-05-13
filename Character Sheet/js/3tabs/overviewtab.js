@@ -29,8 +29,20 @@ function overviewtab() {
   ? currentchar.meta.ixbnr.length 
   : 0;
 
+    //creates the name li that clicks to edit char
+    let charnameli=document.createElement('li');
+    let charnamespan = document.createElement('span');
+    let charnamea=document.createElement('a');
+    charnamea.target = '_blank'; // Open in new tab
+    charnamespan.textContent="Name:";
+    charnamea.href=`https://charmscheck.com/charcreate23/?frm_action=edit&entry=${currentchar.id}#`;
+    charnamea.textContent=currentchar.name;
+    charnamea.title="Click to edit this character in a new window";
+    charnameli.appendChild(charnamespan);
+    charnameli.appendChild(charnamea);
+
     // Add placeholder demographics
-    demographicsList.appendChild(createDemoItem('Name:', currentchar.name));
+    demographicsList.appendChild(charnameli);
     demographicsList.appendChild(createDemoItem('Canon:', currentchar.meta.s4ee3));
     demographicsList.appendChild(createDemoItem('Birthdate:', createBirthdate()));
     demographicsList.appendChild(createDemoItem('School:', currentchar.meta.school));
@@ -102,7 +114,7 @@ function createCastAtAgeSelect() {
   
     // Define the options
     const optionsData = [
-        { value: 'before_school', text: 'Before School' },
+      { value: 'before_school', text: 'Before School' },
       { value: 'year_1',        text: '1st year' },
       { value: 'year_2',        text: '2nd year' },
       { value: 'year_3',        text: '3rd year' },

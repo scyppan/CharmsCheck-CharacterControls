@@ -1,6 +1,7 @@
 body{
     background-color: rgba(224, 202, 171, 0.5);
     font-family: 'Pangolin', cursive;
+    color: #2c2c2c;
 }
 
 .hidden{
@@ -25,3 +26,13 @@ body{
     cursor: pointer;
   }
   
+  a {
+    text-decoration: none;
+    color: inherit; /* or use a specific color like #2c2c2c */
+  }
+
+  a:hover{
+    color: #454b69;
+    font-weight: bold;
+  }
+

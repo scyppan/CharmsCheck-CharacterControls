@@ -86,8 +86,6 @@ function getallunequippableitems() {
         unequippableitemsraw.push({ type, item: baseItem });
     }
 
-    console.log(unequippableitemsraw);
-
     // 2) For each raw entry, look up the final object in its own collection
     const finalitems = [];
     unequippableitemsraw.forEach(entry => {
@@ -154,6 +152,7 @@ function getallunequippableitems() {
         finalitems.push({ type, item: finalitem });
     });
 
+    getunequipableitembonuses(); //mutator function no return
     return finalitems;
 }
 
@@ -200,3 +199,35 @@ function getequippedtitle(entry) {console.log(entry);
     }
     return '';
 }
+
+function getunequipableitembonuses(){
+    let itemlist = getallunequippableitems();
+    console.log(itemlist);
+    
+
+    itemlist.forEach(item=>{
+        console.log("MYCHECK", item.item);
+        if(item.type=="General"){
+            const generalitem=item.item;
+            console.log("generalitementry", generalitem);
+            const bonuslen=generalitem.meta.generalitempassiveabilitytype.length;
+            
+            if(bonuslen>0){item.bonuslist=[];}
+            for(let i=0;i<bonuslen;i++){
+                item.bonuslist.push({
+                    bonustype: generalitem.meta.generalitempassiveabilitybonus[i] ||
+                               generalitem.meta.generalitempassiveskillbonus[i] ||
+                               generalitem.meta.generalitempassivecharacteristicbonus[i] ||
+                               generalitem.meta.generalitempassivesubtypebonus[i] || "none",
+                    amt: generalitem.meta.generalitempassivebonusamt
+                });
+            }
+
+        }else{
+            item.bonuslist=[];
+        }
+    });
+    //there's no return because it simply modifies the underlying object. 
+}
+
+getunequipableitembonuses();
