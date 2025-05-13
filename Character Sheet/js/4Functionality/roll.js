@@ -33,12 +33,13 @@ function getrollresult(rollobj) {
         case 'perception':
         case 'social':
             rollobj.total =
-                rollobj.dice +
-                rollobj.ability +
-                rollobj.iteminhand +
-                rollobj.accessories +
-                rollobj.inventory + 
-                rollobj.trait;
+                (Number(rollobj.dice) || 0) +
+                (Number(rollobj.ability) || 0) +
+                (Number(rollobj.skill) || 0) +
+                (Number(rollobj.iteminhand) || 0) +
+                (Number(rollobj.accessories) || 0) +
+                (Number(rollobj.inventory) || 0) +
+                (Number(rollobj.trait) || 0);
             break;
         case 'fortitude':
         case 'willpower':
@@ -79,20 +80,24 @@ function getrollresult(rollobj) {
                 rollobj.dice + rollobj.ability + rollobj.skill +
                 rollobj.wand + rollobj.iteminhand +
                 rollobj.accessories + rollobj.inventory;
-        break;
+            break;
         case "proficiency":
             rollobj.total =
-                rollobj.dice + rollobj.ability + rollobj.skill +
-                rollobj.iteminhand + rollobj.accessories + 
-                rollobj.inventory + rollobj.trait;
-                break;
+                (Number(rollobj.dice) || 0) +
+                (Number(rollobj.ability) || 0) +
+                (Number(rollobj.skill) || 0) +
+                (Number(rollobj.iteminhand) || 0) +
+                (Number(rollobj.accessories) || 0) +
+                (Number(rollobj.inventory) || 0) +
+                (Number(rollobj.trait) || 0);
+            break;
+
         case "potion":
             rollobj.total =
                 rollobj.dice + rollobj.ability + rollobj.skill +
-                rollobj.iteminhand + rollobj.accessories + 
+                rollobj.iteminhand + rollobj.accessories +
                 rollobj.inventory;
-        break;
-
+            break;
     }
 
     rollobj = rolltext(rollobj); //adds the rolltext and gives back a rollobj

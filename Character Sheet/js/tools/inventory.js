@@ -1,8 +1,9 @@
 function getcompleteinventorylist() {
-    return [
+    let returnlist = [
         ...getuniqueequippableitems(),
         ...getallunequippableitems()
     ]
+
 }
 
 function getequippeditems() {
@@ -89,7 +90,7 @@ function getallunequippableitems() {
     // 2) For each raw entry, look up the final object in its own collection
     const finalitems = [];
     unequippableitemsraw.forEach(entry => {
-        console.log(entry);
+
         const { type, item: wrapped } = entry;
         if (!wrapped) {
             finalitems.push({ type, item: null });
@@ -152,7 +153,6 @@ function getallunequippableitems() {
         finalitems.push({ type, item: finalitem });
     });
 
-    getunequipableitembonuses(); //mutator function no return
     return finalitems;
 }
 
@@ -187,47 +187,58 @@ function getuniqueequippableitems() {
     return Array.from(merged.values());
 }
 
-function getequippedtitle(entry) {console.log(entry);
+function getequippedtitle(entry) {
     if (entry.type === 'Wand') {
         return entry.item.meta.efpc5 || '';
     }
-    if (entry.type === 'Item in hand') {
+    else if (entry.type === 'Item in hand') {
         return entry.item.meta.iteminhanddescription || '';
     }
-    if(entry.type ==="Accessory"){
+    else if (entry.type === "Accessory") {
         return entry.item.meta.accessorydescription || '';
     }
+
     return '';
 }
 
-function getunequipableitembonuses(){
+function getunequipableitembonuses() {
+    let bonuslist = [];
     let itemlist = getallunequippableitems();
-    console.log(itemlist);
-    
+    itemlist.forEach(item => {
 
-    itemlist.forEach(item=>{
-        console.log("MYCHECK", item.item);
-        if(item.type=="General"){
-            const generalitem=item.item;
-            console.log("generalitementry", generalitem);
-            const bonuslen=generalitem.meta.generalitempassiveabilitytype.length;
-            
-            if(bonuslen>0){item.bonuslist=[];}
-            for(let i=0;i<bonuslen;i++){
-                item.bonuslist.push({
+        if (item.type == "General") {
+            const generalitem = item.item;
+
+            const bonuslen = generalitem.meta.generalitempassiveabilitytype.length;
+
+            for (let i = 0; i < bonuslen; i++) {
+                bonuslist.push({
+                    source: generalitem.meta.generalitemname,
                     bonustype: generalitem.meta.generalitempassiveabilitybonus[i] ||
-                               generalitem.meta.generalitempassiveskillbonus[i] ||
-                               generalitem.meta.generalitempassivecharacteristicbonus[i] ||
-                               generalitem.meta.generalitempassivesubtypebonus[i] || "none",
+                        generalitem.meta.generalitempassiveskillbonus[i] ||
+                        generalitem.meta.generalitempassivecharacteristicbonus[i] ||
+                        generalitem.meta.generalitempassivesubtypebonus[i] || "none",
                     amt: generalitem.meta.generalitempassivebonusamt
                 });
             }
 
-        }else{
-            item.bonuslist=[];
         }
     });
-    //there's no return because it simply modifies the underlying object. 
+    return bonuslist;
 }
 
-getunequipableitembonuses();
+function getpassivebonusesbyattribute(attribute) {
+    const bonuses = getunequipableitembonuses();
+
+    return bonuses.reduce((sum, bonus) => {
+        
+        if (getname(bonus.bonustype, 'standard').toLowerCase() === getname(attribute, 'standard').toLowerCase()) {
+            if (Array.isArray(bonus.amt)) {
+                return sum + bonus.amt.reduce((subsum, val) => subsum + parseFloat(val), 0);
+            } else {
+                return sum + parseFloat(bonus.amt);
+            }
+        }
+        return sum;
+    }, 0);
+}

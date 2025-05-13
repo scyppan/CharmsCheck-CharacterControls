@@ -26,7 +26,7 @@ function attachabilityroll(btn) {
         rollobj.wand = abilityval.wandbonus + abilityval.wandquality;
         rollobj.iteminhand = abilityval.iteminhand;
         rollobj.accessories = abilityval.accessories;
-
+        rollobj.inventory=getpassivebonusesbyattribute(abilityname);
         rollobj = getrollresult(rollobj);
         showrollmodal(rollobj.text);
         window.parent.postMessage(rollobj.text,"*");
@@ -53,6 +53,9 @@ function attachskillroll(btn) {
         rollobj.iteminhand = skillval.iteminhand + abilityval.iteminhand;
         rollobj.accessories = skillval.accessories + abilityval.accessories;
         rollobj.trait = skillval.trait;
+        rollobj.inventory=getpassivebonusesbyattribute(abilityname)+
+            getpassivebonusesbyattribute(skill);
+
 
         rollobj = getrollresult(rollobj);
         showrollmodal(rollobj.text);
@@ -68,8 +71,7 @@ function attachcharacteristicroll(btn) {
         //dice are added later on getrollresult
         rollobj.iteminhand = getcharacteristicvalfromiteminhand(btn.id)
         rollobj.accessories = getattrbvalfromaccessories(btn.id);
-
-        //inventory bonuses need to be added.
+        rollobj.inventory=getpassivebonusesbyattribute(btn.id);
 
         rollobj = getrollresult(rollobj);
         showrollmodal(rollobj.text);
@@ -112,6 +114,7 @@ function attachspellroll(btn) {
         let abilityname = getabilityfromskill(skill);
         let abilityval = getabilityvalue(abilityname);
         let abilitytotal = abilityval.base
+        
 
         rollobj.dice = randbetween(1, 10);
 
@@ -129,6 +132,9 @@ function attachspellroll(btn) {
         rollobj.accessories = skillval.accessories +
             abilityval.accessories +
             accessoriessubtypebonus;
+
+        rollobj.inventory=getpassivebonusesbyattribute(abilityname)+
+            getpassivebonusesbyattribute(skill);
 
         // 3) Store the rest of your metadata on the roll object
         rollobj.spell = spellname;
@@ -174,6 +180,9 @@ function attachproficiencyroll(btn) {
         rollobj.iteminhand = skillval.iteminhand + abilityval.iteminhand;
         rollobj.accessories = skillval.accessories + abilityval.accessories;
 
+        rollobj.inventory=getpassivebonusesbyattribute(abilityname)+
+            getpassivebonusesbyattribute(skill);
+
         // Trait bonuses linked to skill
         rollobj.trait = getskillbonusesfromtraits()
             .reduce((sum, bonus) =>
@@ -216,6 +225,9 @@ function attachpotionroll(btn) {
             rollobj.accessories = skillval.accessories + abilityval.accessories;
             rollobj.potion = potionname;
             rollobj.threshold = threshold;
+
+            rollobj.inventory=getpassivebonusesbyattribute(abilityname)+
+                getpassivebonusesbyattribute(skill);
 
             rollobj = getrollresult(rollobj);
             showrollmodal(rollobj.text);

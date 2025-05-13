@@ -130,67 +130,67 @@ function getname(word, mode) {
             variants: ["mental fortitude", "Mental fortitude", "mental Fortitude", "fortitude", "Fortitude"]
         },
         "willpower": {
-          standard: "willpower",
-          display: "Willpower",
-          variants: ["willpower", "Willpower"]
+            standard: "willpower",
+            display: "Willpower",
+            variants: ["willpower", "Willpower"]
         },
         "intellect": {
-          standard: "intellect",
-          display: "Intellect",
-          variants: ["intellect", "Intellect"]
+            standard: "intellect",
+            display: "Intellect",
+            variants: ["intellect", "Intellect"]
         },
         "creativity": {
-          standard: "creativity",
-          display: "Creativity",
-          variants: ["creativity", "Creativity"]
+            standard: "creativity",
+            display: "Creativity",
+            variants: ["creativity", "Creativity"]
         },
         "equanimity": {
-          standard: "equanimity",
-          display: "Equanimity",
-          variants: ["equanimity", "Equanimity"]
+            standard: "equanimity",
+            display: "Equanimity",
+            variants: ["equanimity", "Equanimity"]
         },
         "charisma": {
-          standard: "charisma",
-          display: "Charisma",
-          variants: ["charisma", "Charisma"]
+            standard: "charisma",
+            display: "Charisma",
+            variants: ["charisma", "Charisma"]
         },
         "attractiveness": {
-          standard: "attractiveness",
-          display: "Attractiveness",
-          variants: ["attractiveness", "Attractiveness"]
+            standard: "attractiveness",
+            display: "Attractiveness",
+            variants: ["attractiveness", "Attractiveness"]
         },
         "strength": {
-          standard: "strength",
-          display: "Strength",
-          variants: ["strength", "Strength"]
+            standard: "strength",
+            display: "Strength",
+            variants: ["strength", "Strength"]
         },
         "agility": {
-          standard: "agility",
-          display: "Agility",
-          variants: ["agility", "Agility"]
+            standard: "agility",
+            display: "Agility",
+            variants: ["agility", "Agility"]
         },
         "generosity": {
-          standard: "generosity",
-          display: "Generosity",
-          variants: ["generosity", "Generosity", "generocity", "Generocity"]
+            standard: "generosity",
+            display: "Generosity",
+            variants: ["generosity", "Generosity", "generocity", "Generocity"]
         },
         "permissiveness": {
-          standard: "permissiveness",
-          display: "Permissiveness",
-          variants: ["Permissiveness", "permissiveness"]
+            standard: "permissiveness",
+            display: "Permissiveness",
+            variants: ["Permissiveness", "permissiveness"]
         },
         "wealth": {
-          standard: "wealth",
-          display: "Wealth",
-          variants: ["wealth", "Wealth", "welth", "Welth"]
+            standard: "wealth",
+            display: "Wealth",
+            variants: ["wealth", "Wealth", "welth", "Welth"]
         }
-      };
+    };
 
     for (const key in skills) {
         const skill = skills[key];
         const allNames = [
-            skill.standard.toLowerCase(), 
-            skill.display.toLowerCase(), 
+            skill.standard.toLowerCase(),
+            skill.display.toLowerCase(),
             ...skill.variants.map(v => v.toLowerCase())
         ];
         if (allNames.includes(lowerWord)) {
@@ -201,9 +201,9 @@ function getname(word, mode) {
         }
     }
 
-    if(word!=''){
-        console.log("No mapping found for:", word, "with mode:", mode);
+    if (word !== '') {
+        word = word.toLowerCase().replace(/\s+/g, '');
     }
-    
+
     return word;
 }

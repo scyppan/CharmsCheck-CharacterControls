@@ -99,37 +99,38 @@ function updateabilitybuttons(abilities, buttonassignments) {
     const baseval = Number(base) || 0;
     const wandval = Number(wandbonus) + Number(wandquality) || 0;
     const accval = Number(accessories) || 0;
-    const equipment = wandval + accval;
+    const passiveval = getpassivebonusesbyattribute(stat) || 0;
+
+    const equipment = wandval + accval + passiveval;
+
     const bonustext = equipment !== 0
       ? (equipment > 0 ? ` (+${equipment})` : ` (${equipment})`)
       : "";
+
     const total = baseval + equipment;
+
     buttonassignments[stat].textContent = `${getname(stat, 'display')} ${baseval}${bonustext}`;
-    buttonassignments[stat].title = `base: ${baseval}\nwand: ${wandval}\naccessories: ${accval}`;
+    buttonassignments[stat].title =
+      `base: ${baseval}\nwand: ${wandval}\naccessories: ${accval}\npassive: ${passiveval}`;
     buttonassignments[stat].dataset.total = total;
   });
 }
 
 function updateskillbuttons(skills, buttonassignments) {
-  // Get all trait bonuses once.
   const traitbonuses = getskillbonusesfromtraits();
 
   Object.entries(skills).forEach(([skill, { buys, corecourses, electivecourses, wandbonus, accessories, eminence, wandquality }]) => {
     const includequality = (skill === "transfiguration" || skill === "charms" || skill === "darkarts" || skill === "defense");
     const quality = includequality ? Number(wandquality) || 0 : 0;
 
-    // Calculate base without eminence bonus.
     const basewithouteminence = (Number(buys) || 0) + (Number(corecourses) || 0) + (Number(electivecourses) || 0);
     let finalbase = basewithouteminence;
 
-    // *** TRAIT BONUS CALCULATION ***
-    // Filter trait bonuses matching the standardized skill name and sum their amounts.
     const traitbonus = traitbonuses
       .filter(tb => getname(tb.skill, 'standard') === getname(skill, 'standard'))
       .reduce((sum, tb) => sum + (Number(tb.amt) || 0), 0);
     finalbase += traitbonus;
 
-    // For muggles, add a background bonus (always show it in title even if 0).
     let backgroundbonus = 0;
     let backgroundtext = "";
     if (skill === "muggles") {
@@ -143,10 +144,11 @@ function updateskillbuttons(skills, buttonassignments) {
       finalbase += backgroundbonus;
     }
 
-    // Add eminence last.
     finalbase += Number(eminence) || 0;
 
-    const equipment = (Number(wandbonus) || 0) + (Number(accessories) || 0) + quality;
+    const passiveval = getpassivebonusesbyattribute(skill) || 0;
+    const equipment = (Number(wandbonus) || 0) + (Number(accessories) || 0) + quality + passiveval;
+
     const bonustext = equipment !== 0
       ? (equipment > 0 ? ` (+${equipment})` : ` (${equipment})`)
       : "";
@@ -159,11 +161,12 @@ function updateskillbuttons(skills, buttonassignments) {
       `buys: ${buys}\n` +
       `corecourses: ${corecourses}\n` +
       `electivecourses: ${electivecourses}\n` +
-      `trait bonus: ${traitbonus}\n` + // Shows the trait bonus sum.
+      `trait bonus: ${traitbonus}\n` +
       `wandbonus: ${wandbonus}\n` +
       `accessories: ${accessories}\n` +
       `eminence: ${eminence}\n` +
-      (includequality ? `wandquality: ${wandquality}\n` : "");
+      (includequality ? `wandquality: ${wandquality}\n` : "") +
+      `passive: ${passiveval}`;
 
     buttonassignments[skill].dataset.total = total;
   });
