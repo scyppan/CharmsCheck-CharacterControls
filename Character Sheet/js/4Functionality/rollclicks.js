@@ -17,7 +17,7 @@ function attachabilityroll(btn) {
 
         let ability = btn.id
         let abilityval = getabilityvalue(ability);
-
+        let abilityname = getname(btn.id, 'standard');
         let rollobj = constructrollobj(ability);
 
         rollobj.dice = randbetween(1, 10);
