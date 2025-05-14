@@ -12,12 +12,12 @@ async function initApp() {
 	searchbox.focus();
   
 	init_cache();
-	startidlefetchsequence();
+	//startidlefetchsequence();
 	createCharacterSheet();
   }
   
   async function initCharmsCheckLoader() {
-	const version = 'a25.5.6.01';
+	const version = 'a25.5.14.05';
 	const subDir  = 'Character%20Sheet/';
 	const base    = `https://cdn.jsdelivr.net/gh/scyppan/CharmsCheck-CharacterControls@${version}/${subDir}`;
   
