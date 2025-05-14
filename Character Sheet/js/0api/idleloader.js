@@ -19,10 +19,10 @@ const isCacheFresh = (key, ttl = 24 * 60 * 60 * 1000) => {
 };
 
 // walk through cacheConfigs, loading missing or stale datasets on idle
-function startidlefetchsequence (cacheConfigs, {
-  cacheTTL = 24*60*60*1000,
+function startidlefetchsequence(cacheConfigs, {
+  cacheTTL = 24 * 60 * 60 * 1000,
   inactivityDelay = 5000,
-  quickThreshold  = 1000
+  quickThreshold = 1000
 } = {}) {
   let index = 0;
   let cumulative = 0;
@@ -59,10 +59,12 @@ function startidlefetchsequence (cacheConfigs, {
       const bypass = !isCacheFresh(key, cacheTTL);
       const start = performance.now();
       try {
-        await window[fn](bypass);
+        // skip localStorage AND force a cache-busting HTTP fetch when stale/missing
+        await window[fn](bypass, bypass);
       } catch (err) {
-        console.error(`Error loading ${key}:`, err);
+        console.warn(`warn loading ${key}:`, err);
       }
+
       lastTime = performance.now() - start;
       cumulative += lastTime;
 
@@ -89,11 +91,11 @@ function startidlefetchsequence (cacheConfigs, {
 
   function cleanup() {
     clearTimeout(timerId);
-    ['mousemove','mousedown','keydown','scroll','touchstart']
+    ['mousemove', 'mousedown', 'keydown', 'scroll', 'touchstart']
       .forEach(evt => document.removeEventListener(evt, onActivity));
   }
 
-  ['mousemove','mousedown','keydown','scroll','touchstart']
+  ['mousemove', 'mousedown', 'keydown', 'scroll', 'touchstart']
     .forEach(evt => document.addEventListener(evt, onActivity, { passive: true }));
 
   timerId = setTimeout(onIdle, inactivityDelay);

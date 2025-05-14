@@ -64,29 +64,44 @@ function assign(name, arr) {
 /* ---------- generic getter ---------- */
 async function getDataset(name, url, checkCache = true, forceApi = false) {
   const key = `cache_${name}`;
-
   console.log(`[getDataset:${name}] checkCache=${checkCache}, forceApi=${forceApi}`);
 
   // 1) try localStorage cache if allowed and not forced off
   if (checkCache && !forceApi) {
-    const entry = getCacheEntry(key);
-    if (entry) {
-      const arr = toArray(entry.data);
-      assign(name, arr);
-      cache_meta.push({ dataset: name, lastcache: new Date(entry.ts) });
-      if (arr.length) {
-        console.log(`[getDataset:${name}] returned ${arr.length} from localStorage`);
-        return arr;
+    let raw = null;
+    try {
+      raw = localStorage.getItem(key);
+      if (raw) {
+        const { ts, data } = JSON.parse(raw);
+        if (Date.now() - ts < cache_ttl) {
+          const arr = Array.isArray(data) ? data : Object.values(data || {});
+          globalThis[name] = arr;
+          eval(`${name} = arr`);
+          cache_meta.push({ dataset: name, lastcache: new Date(ts) });
+          if (arr.length) {
+            console.log(`[getDataset:${name}] returned ${arr.length} from localStorage`);
+            return arr;
+          }
+        } else {
+          localStorage.removeItem(key);
+        }
       }
+    } catch (e) {
+      localStorage.removeItem(key);
     }
   }
 
-  // 2) API fetch (forceApi === true will skip HTTP cache too)
-  const arr = toArray(await fetchdata(url, forceApi));
-  assign(name, arr);
+  // 2) API fetch (always skip both localStorage cache-check here AND browser HTTP cache)
+  const rawJson = await fetchjson(url, /* skipHttpCache = */ true);
+  const arr = Array.isArray(rawJson) ? rawJson : Object.values(rawJson || {});
+  globalThis[name] = arr;
+  eval(`${name} = arr`);
 
   // write‐through to localStorage
-  setCacheEntry(key, arr);
+  try {
+    localStorage.setItem(key, JSON.stringify({ ts: Date.now(), data: arr }));
+  } catch (e) { /* ignore quota errors */ }
+
   cache_meta.push({ dataset: name, lastcache: new Date() });
   console.log(`[getDataset:${name}] fetched ${arr.length} from API`);
 
@@ -118,3 +133,26 @@ const getplants         = (...a) => getDataset('plants',         'https://charms
 const getplantparts     = (...a) => getDataset('plantparts',     'https://charmscheck.com/wp-json/frm/v2/forms/43/entries?page_size=10000',  ...a);
 const getpreparations   = (...a) => getDataset('preparations',   'https://charmscheck.com/wp-json/frm/v2/forms/908/entries?page_size=10000', ...a);
 const getfooddrink      = (...a) => getDataset('fooddrink',      'https://charmscheck.com/wp-json/frm/v2/forms/67/entries?page_size=10000',  ...a);
+
+async function forcefetchapi(key) {
+  console.log("FORCEFETCHAPI");
+  const fnName = 'get' + key;            // e.g. "gettraits"
+  let fn;
+  try {
+    fn = eval(fnName);                   // pick it up from your script’s scope
+  } catch (e) {
+    console.error(`No function named ${fnName}()`);
+    return;
+  }
+  if (typeof fn !== 'function') {
+    console.error(`${fnName} is not a function`);
+    return;
+  }
+  try {
+    // (false = skip cache read, true = force API)
+    const data = await fn(false, true);
+    console.log(`${fnName} fetched from API`, data);
+  } catch (err) {
+    console.error(`Error fetching ${fnName}()`, err);
+  }
+}

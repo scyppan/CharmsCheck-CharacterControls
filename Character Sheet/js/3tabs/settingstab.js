@@ -158,25 +158,3 @@ function clearcachefor(key) {
   loadcachemini();
 }
 
-async function forcefetchapi(key) {
-  console.log("FORCEFETCHAPI");
-  const fnName = 'get' + key;            // e.g. "gettraits"
-  let fn;
-  try {
-    fn = eval(fnName);                   // pick it up from your script’s scope
-  } catch (e) {
-    console.error(`No function named ${fnName}()`);
-    return;
-  }
-  if (typeof fn !== 'function') {
-    console.error(`${fnName} is not a function`);
-    return;
-  }
-  try {
-    // (false = skip cache read, true = force API)
-    const data = await fn(false, true);
-    console.log(`${fnName} fetched from API`, data);
-  } catch (err) {
-    console.error(`Error fetching ${fnName}()`, err);
-  }
-}
