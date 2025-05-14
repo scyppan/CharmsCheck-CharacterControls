@@ -110,12 +110,13 @@ const cache_configs = [
     window.indexes[key] = idxObj;
   }
   
-  async function init_cache() {
-    for (const { key, fn } of cache_configs) {
-      const storageKey = `cache_${key}`;
-      let loadedFromCache = false;
-  
-      // 1) try loading from localStorage
+ async function init_cache(forceApi = false) {
+  for (const { key, fn } of cache_configs) {
+    const storageKey = `cache_${key}`;
+    let loadedFromCache = false;
+
+    // 1) Try loading from localStorage (only if not forcing)
+    if (!forceApi) {
       const raw = localStorage.getItem(storageKey);
       if (raw) {
         try {
@@ -125,7 +126,7 @@ const cache_configs = [
             cache_meta.push({ dataset: key, lastcache: new Date(ts) });
             console.log(`cache hit: loaded ${key} (ts=${new Date(ts).toISOString()})`);
             loadedFromCache = true;
-            buildIndexes(key);                // ← index on cache hit
+            buildIndexes(key);
           } else {
             localStorage.removeItem(storageKey);
             console.log(`cache expired for ${key}`);
@@ -135,26 +136,29 @@ const cache_configs = [
           console.warn(`cache parse error for ${key}, clearing`, e);
         }
       }
-  
-      // 2) fresh fetch if needed
-      const current = getCacheData[key]();
-      const isEmptyArray = Array.isArray(current) && current.length === 0;
-      if (!loadedFromCache || current == null || isEmptyArray) {
-        console.warn(`cache missing or empty for ${key}, fetching fresh…`);
-        localStorage.removeItem(storageKey);
-  
-        try {
-          await window[fn](true);          // e.g. getspells(true)
-          const fresh = getCacheData[key]();
-          cache_meta.push({ dataset: key, lastcache: new Date() });
-          localStorage.setItem(storageKey,
-            JSON.stringify({ ts: Date.now(), data: fresh }));
-          console.log(`cache refreshed: ${key}`);
-          buildIndexes(key);               // ← index on fresh fetch
-        } catch (err) {
-          console.error(`failed to fetch fresh ${key}:`, err);
-        }
+    }
+
+    // 2) Decide if we still need to fetch fresh
+    const current = getCacheData[key]();
+    const isEmptyArray = Array.isArray(current) && current.length === 0;
+    if (forceApi || !loadedFromCache || current == null || isEmptyArray) {
+      console.warn(`fetching fresh ${key} (forceApi=${forceApi})…`);
+
+      try {
+        // (checkCache = !forceApi, forceApi = forceApi)
+        await window[fn]( /* checkCache: */ !forceApi, /* forceApi: */ forceApi );
+        const fresh = getCacheData[key]();
+        cache_meta.push({ dataset: key, lastcache: new Date() });
+        localStorage.setItem(
+          storageKey,
+          JSON.stringify({ ts: Date.now(), data: fresh })
+        );
+        console.log(`cache refreshed: ${key}`);
+        buildIndexes(key);
+      } catch (err) {
+        console.error(`failed to fetch fresh ${key}:`, err);
       }
     }
   }
+}
   

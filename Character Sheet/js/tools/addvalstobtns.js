@@ -16,10 +16,14 @@ function addvalstobtns() {
 function updatecharacteristicstobtns(characteristics, buttonassignments) {
   Object.entries(characteristics).forEach(([trait, value]) => {
     if (buttonassignments[trait]) {
-      const val = Number(value) || 0;
-      buttonassignments[trait].innerHTML = `${getname(trait, 'display')} ${val}d10`;
-      buttonassignments[trait].title = `${getname(trait, 'display')}: ${val}`;
-      buttonassignments[trait].dataset.total = val;
+      const base = Number(value) || 0;
+      const passive = getpassivebonusesbyattribute(trait) || 0;
+      const displayname = getname(trait, 'display');
+      const bonustext = passive !== 0 ? ` (+${passive})` : '';
+
+      buttonassignments[trait].innerHTML = `${displayname} ${base}d10${bonustext}`;
+      buttonassignments[trait].title = `${displayname}: ${base} base\npassive: ${passive}`;
+      buttonassignments[trait].dataset.total = base + passive;
     }
   });
 }

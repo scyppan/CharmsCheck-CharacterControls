@@ -236,10 +236,11 @@ function attachpotionroll(btn) {
     });
 }
 
-function attachpetroll(btn) {
+function posttitle(btn) {
     btn.addEventListener('click', function (e) {
         
         window.parent.postMessage(btn.title,"*");
-        
+        console.log(btn.title);
     });
 }
+

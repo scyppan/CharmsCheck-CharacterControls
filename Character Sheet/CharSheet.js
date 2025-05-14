@@ -1,5 +1,4 @@
 //this is the script to put in wordpress scripts n' styles
-
 async function initApp() {
 	console.log("loading scripts");
 	await initCharmsCheckLoader();

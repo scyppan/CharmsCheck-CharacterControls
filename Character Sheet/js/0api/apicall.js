@@ -10,12 +10,25 @@ headers.append('authorization','Basic Q0E2RS1LUjdaLUtCT0wtTlVYUTp4');
 const requestoptions = { method:'GET', headers, redirect:'follow' };
 
 /* ---------- network helpers ---------- */
-async function fetchjson(url) {
-  const res = await fetch(url, requestoptions);
+async function fetchjson(url, skipHttpCache = false) {
+  // add a cache-busting query if we really want fresh data
+  const bust = skipHttpCache
+    ? (url.includes('?') ? `&_cb=${Date.now()}` : `?_cb=${Date.now()}`)
+    : '';
+  const fullUrl = url + bust;
+
+  // tell fetch() not to use its built-in HTTP cache when skipHttpCache is true
+  const opts = skipHttpCache
+    ? { ...requestoptions, cache: 'no-store' }
+    : requestoptions;
+
+  const res = await fetch(fullUrl, opts);
   if (res.status === 200) return res.json();
   throw new Error(`HTTP ${res.status}`);
 }
-const fetchdata = url => fetchjson(url);
+
+const fetchdata = (url, skipHttpCache = false) => fetchjson(url, skipHttpCache);
+
 
 /* ---------- cache helpers ---------- */
 function getCacheEntry(key) {
@@ -49,25 +62,33 @@ function assign(name, arr) {
 }
 
 /* ---------- generic getter ---------- */
-async function getDataset(name, url, checkCache = true) {
+async function getDataset(name, url, checkCache = true, forceApi = false) {
   const key = `cache_${name}`;
 
-  // 1) cache
-  if (checkCache) {
+  console.log(`[getDataset:${name}] checkCache=${checkCache}, forceApi=${forceApi}`);
+
+  // 1) try localStorage cache if allowed and not forced off
+  if (checkCache && !forceApi) {
     const entry = getCacheEntry(key);
     if (entry) {
       const arr = toArray(entry.data);
       assign(name, arr);
       cache_meta.push({ dataset: name, lastcache: new Date(entry.ts) });
-      if (arr.length) return arr;
+      if (arr.length) {
+        console.log(`[getDataset:${name}] returned ${arr.length} from localStorage`);
+        return arr;
+      }
     }
   }
 
-  // 2) API
-  const arr = toArray(await fetchdata(url));
+  // 2) API fetch (forceApi === true will skip HTTP cache too)
+  const arr = toArray(await fetchdata(url, forceApi));
   assign(name, arr);
+
+  // write‐through to localStorage
   setCacheEntry(key, arr);
   cache_meta.push({ dataset: name, lastcache: new Date() });
+  console.log(`[getDataset:${name}] fetched ${arr.length} from API`);
 
   // 3) validate
   if (!arr.length) throw new Error(`no ${name} entries`);

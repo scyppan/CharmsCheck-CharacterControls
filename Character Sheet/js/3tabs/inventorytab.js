@@ -86,6 +86,8 @@ function renderEquipment(container) {
 }
 
 function createEquipmentSection(title, entries) {
+
+    console.log(entries);
     const section = document.createElement('div');
     section.classList.add('equipment-section');
 
@@ -94,20 +96,32 @@ function createEquipmentSection(title, entries) {
     h3.textContent = title;
     section.appendChild(h3);
 
-    // 1) Wand or Item in hand line
-    const wandOrHand = entries.find(e => e.type === 'Wand')
-        || entries.find(e => e.type === 'Item in hand');
-    if (wandOrHand) {
+    const wand = entries.find(e => e.type === 'Wand');
+    if (wand) {
         const line = document.createElement('div');
         line.classList.add('equipment-line');
-        line.textContent = wandOrHand.type + ': ';
+        line.textContent = 'Wand: ';
         const btn = document.createElement('span');
         btn.classList.add('inventory-plate');
-        const field = wandOrHand.type === 'Wand' ? 'wandname' : 'itemname';
-        btn.textContent = wandOrHand.item.meta[field];
-        btn.title=getequippedtitle(wandOrHand);
+        btn.textContent = wand.item.meta.wandname;
+        btn.title = getequippedtitle(wand);
         line.appendChild(btn);
         section.appendChild(line);
+        posttitle(btn);
+    }
+
+    const iteminhand = entries.find(e => e.type === 'iteminhand');
+    if (iteminhand) {
+        const line = document.createElement('div');
+        line.classList.add('equipment-line');
+        line.textContent = 'Item in hand: ';
+        const btn = document.createElement('span');
+        btn.classList.add('inventory-plate');
+        btn.textContent = iteminhand.item.meta.iteminhanditemname;
+        btn.title = getequippedtitle(iteminhand);
+        line.appendChild(btn);
+        section.appendChild(line);
+        posttitle(btn);
     }
 
     // 2) Accessories (up to 2, but will show however many)
@@ -119,9 +133,10 @@ function createEquipmentSection(title, entries) {
         const btn = document.createElement('span');
         btn.classList.add('inventory-plate');
         btn.textContent = ent.item.meta.accessoryname;
-        btn.title=getequippedtitle(ent);
+        btn.title = getequippedtitle(ent);
         line.appendChild(btn);
         section.appendChild(line);
+        posttitle(btn);
     });
 
     return section;
@@ -131,6 +146,7 @@ function renderGeneralItems(container) {
     container.textContent = '';
     const entries = getcompleteinventorylist().filter(i => i.type === 'General');
     container.appendChild(createCategorySection('General Items', entries));
+
 }
 
 function renderCreaturesAndPlants(container) {
@@ -182,7 +198,118 @@ function createCategorySection(title, entries) {
         const span = document.createElement('span');
         span.classList.add('inventory-plate');
         span.textContent = item.meta[lookupMetaField(type)];
-        if (equipped) span.title = `${type} (equipped): ${span.textContent}`;
+        if (equipped) {
+            span.title = `${type} (equipped): ${span.textContent}`;
+            posttitle(span);
+        } else {
+            console.log(type, item);
+            switch (type) {
+                case "General":
+                    const name = item.meta.generalitemname;
+                    const desc = item.meta.generalitemdescription;
+
+                    // pull all the passive bonuses for this item
+                    const passiveList = getPassiveBonusesBySource(name);
+
+                    // build a small “profile” string, one per line
+                    let passiveProfile = passiveList
+                        .map(b => {
+                            const amts = Array.isArray(b.amt) ? b.amt : [b.amt];
+                            return amts.map(a => `${b.bonustype}: ${a}`).join('\n');
+                        })
+                        .join('\n');
+
+                    // assemble the full tooltip
+                    span.title =
+                        `${name}\n` +
+                        `${desc}` +
+                        (passiveProfile
+                            ? `\n\nPassive Bonuses:\n${passiveProfile}`
+                            : '');
+                    posttitle(span);
+                    break;
+                case "Creature":
+                    span.title =
+                        `${item.meta.creaturename}\n` +
+                        `${item.meta.description}` +
+                        `\n\nNote: This creature is neither tamed nor bonded. It doesn't have a name or specific stats. It's been trapped and nothing more.`;
+                    posttitle(span);
+                    break;
+                case "Plant":
+                    span.title =
+                        `${item.meta.plantname}\n` +
+                        `${item.meta.plantdescription}` +
+                        `\n\Plant Parts: ${item.meta.plantparts.join(', ')}`;
+                    posttitle(span);
+                    break;
+                case "Preparation":
+                    span.title =
+                        `${item.meta.prepname}\n` +
+                        `Ingredients: ${item.meta.prepingredients}\n` +
+                        `${item.meta.prepdescription}` +
+                        `\n\nRaw Effects:\n${item.meta.prepraweffects}` +
+                        `\n\nPotion Effects:\n${item.meta.preppotioneffects}`;
+
+                    posttitle(span);
+                    break;
+                case "Creature Parts":
+                    span.title =
+                        `${item.meta.creaturepartname}\n` +
+                        `${item.meta.creaturepartdescription}` +
+                        `\n\nRaw Effects:\n${item.meta.creaturepartraweffects}` +
+                        `\n\nPotion Effects:\n${item.meta.creaturepartpotioneffects}`;
+
+                    posttitle(span);
+                    break;
+                case "Plant Parts":
+                    span.title =
+                        `${item.meta.plantpartname}\n` +
+                        `${item.meta.plantpartdescription}` +
+                        `\n\nRaw Effects:\n${item.meta.plantpartraweffects}` +
+                        `\n\nPotion Effects:\n${item.meta.plantpartpotioneffects}`;
+
+                    posttitle(span);
+                    break;
+                case "Food/Drink":
+                    span.title =
+                        `${item.meta.fooddrinkname}\n` +
+                        `${item.meta.fooddrinkdescription}` +
+                        `\n\nRaw Effects:\n${item.meta.fooddrinkraweffects}` +
+                        `\n\nEffects in Potions:\n${item.meta.fooddrinkeffectinpotions}`;
+
+                    posttitle(span);
+
+                    break;
+                case "Potion":
+                    span.title =
+                        `${item.meta.potionname} (` +
+                        `${item.meta.potionskill === 'Potions' ? 'Standard Potion' : 'Alchemical Potion'} | ` +
+                        `${item.meta.potionthreshold})\n` +
+                        `Proficiencies: ` +
+                        `${Array.isArray(item.meta.potionrequiredproficiencies) && item.meta.potionrequiredproficiencies.length > 0
+                            ? item.meta.potionrequiredproficiencies.join(', ')
+                            : 'None'}\n` +
+                        `Ingredients: ` +
+                        `${Array.isArray(item.meta.potioningredient) && item.meta.potioningredient.length > 0
+                            ? item.meta.potioningredient.join(', ')
+                            : 'DETERMINED BY HEADMASTER'}\n` +
+                        `Brew Time: ${item.meta.potionbrewtime}\n` +
+                        `${item.meta.potiondescription}` +
+                        `\n\nRaw Effect:\n${item.meta.potionraweffect}` +
+                        `\n\n${item.meta.ag82a}`;
+
+                    posttitle(span);
+                    break;
+                case "Book":
+                    span.title =
+                        `${item.meta.bookname}\n` +
+                        `${item.meta.bookdescription}`;
+
+                    posttitle(span);
+                    break;
+            }
+        }
+
         listDiv.appendChild(span);
     });
 

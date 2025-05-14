@@ -90,9 +90,10 @@ function loadcachemini() {
     const btnFetch = document.createElement('button');
     btnFetch.textContent = 'Fetch';
     btnFetch.addEventListener('click', async () => {
-      await fetchcachefor(key);
+      await forcefetchapi(key);
       loadcachemini();
     });
+
 
     const btnClear = document.createElement('button');
     btnClear.textContent = 'Clear';
@@ -145,7 +146,6 @@ function loadhistorymini() {
     });
 }
 
-
 /** clear cache for one dataset */
 function clearcachefor(key) {
   localStorage.removeItem('cache_' + key);
@@ -158,23 +158,25 @@ function clearcachefor(key) {
   loadcachemini();
 }
 
-/** fetch/re-cache one dataset */
-async function fetchcachefor(key) {
-  const fn = window['get' + key];
-  if (typeof fn !== 'function') return console.error(`No get${key}()`);
-  await fn(false);
+async function forcefetchapi(key) {
+  console.log("FORCEFETCHAPI");
+  const fnName = 'get' + key;            // e.g. "gettraits"
+  let fn;
   try {
-    localStorage.setItem(
-      'cache_' + key,
-      JSON.stringify({ ts: Date.now(), data: window[key] })
-    );
-    if (Array.isArray(cache_meta)) {
-      const old = cache_meta.findIndex(e => e.dataset === key);
-      if (old > -1) cache_meta.splice(old, 1);
-      cache_meta.push({ dataset: key, lastcache: new Date() });
-    }
-    console.log(`${key} fetched`);
+    fn = eval(fnName);                   // pick it up from your script’s scope
   } catch (e) {
-    console.warn(`Failed saving cache for ${key}`, e);
+    console.error(`No function named ${fnName}()`);
+    return;
+  }
+  if (typeof fn !== 'function') {
+    console.error(`${fnName} is not a function`);
+    return;
+  }
+  try {
+    // (false = skip cache read, true = force API)
+    const data = await fn(false, true);
+    console.log(`${fnName} fetched from API`, data);
+  } catch (err) {
+    console.error(`Error fetching ${fnName}()`, err);
   }
 }

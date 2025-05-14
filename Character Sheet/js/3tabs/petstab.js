@@ -131,7 +131,7 @@ function createpetplate(pet) {
 
     btn.title = titleLines.join("\n");
 
-    attachpetroll(btn);
+    posttitle(btn);
 
     return btn;
 }

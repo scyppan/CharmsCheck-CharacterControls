@@ -191,7 +191,11 @@ function getskillbuys() {
 }
 
 function geteminencebuys() {
+    if(currentchar.meta['ixbnr']){
     return currentchar.meta['ixbnr'].map(name => getname(name, 'standard'));
+    }else{
+        return [];
+    }
 }
 
 function getcorecourses() {

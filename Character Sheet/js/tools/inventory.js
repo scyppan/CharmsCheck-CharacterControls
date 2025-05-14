@@ -1,9 +1,8 @@
 function getcompleteinventorylist() {
-    let returnlist = [
+    return [
         ...getuniqueequippableitems(),
         ...getallunequippableitems()
     ]
-
 }
 
 function getequippeditems() {
@@ -22,9 +21,9 @@ function getequippeditems() {
             item: wandObj || null
         });
     } else if (rawItemInHand) {
-        const handItemObj = Object.values(itemsinhand).find(i => i.meta.itemname === rawItemInHand);
+        const handItemObj = Object.values(itemsinhand).find(i => i.meta.iteminhanditemname === rawItemInHand);
         equipped.push({
-            type: "Item in hand",
+            type: "iteminhand",
             item: handItemObj || null
         });
     }
@@ -187,20 +186,6 @@ function getuniqueequippableitems() {
     return Array.from(merged.values());
 }
 
-function getequippedtitle(entry) {
-    if (entry.type === 'Wand') {
-        return entry.item.meta.efpc5 || '';
-    }
-    else if (entry.type === 'Item in hand') {
-        return entry.item.meta.iteminhanddescription || '';
-    }
-    else if (entry.type === "Accessory") {
-        return entry.item.meta.accessorydescription || '';
-    }
-
-    return '';
-}
-
 function getunequipableitembonuses() {
     let bonuslist = [];
     let itemlist = getallunequippableitems();
@@ -231,7 +216,7 @@ function getpassivebonusesbyattribute(attribute) {
     const bonuses = getunequipableitembonuses();
 
     return bonuses.reduce((sum, bonus) => {
-        
+
         if (getname(bonus.bonustype, 'standard').toLowerCase() === getname(attribute, 'standard').toLowerCase()) {
             if (Array.isArray(bonus.amt)) {
                 return sum + bonus.amt.reduce((subsum, val) => subsum + parseFloat(val), 0);
@@ -241,4 +226,157 @@ function getpassivebonusesbyattribute(attribute) {
         }
         return sum;
     }, 0);
+}
+
+function getPassiveBonusesBySource(source) {
+    return getunequipableitembonuses()
+        .filter(bonus => bonus.source === source);
+}
+
+function collapsewandattributes(fields) {
+    const totals = {};
+    const contributions = {};
+    const notes = [];
+    const zeroNotes = [];
+    const specials = [];
+
+    fields.forEach(function (field) {
+        if (!field.value) return;
+        field.value.split(',').forEach(function (token) {
+            const entry = token.trim();
+            const m     = entry.match(/^([A-Za-z\s]+?)\s*([+-]\d+)$/);
+            if (m) {
+                const attr = m[1].trim();
+                const val  = parseInt(m[2], 10);
+
+                totals[attr] = (totals[attr] || 0) + val;
+                contributions[attr] = contributions[attr] || {};
+                contributions[attr][field.type] = (contributions[attr][field.type] || 0) + val;
+            }
+            else if (entry.toLowerCase() === 'no effect') {
+                if (field.type === 'core')    notes.push('No Wand Core Effect');
+                if (field.type === 'wood')    notes.push('No Wand Wood Effect');
+                if (field.type === 'quality') notes.push('No Wand Quality Effect');
+            }
+            else {
+                specials.push(entry);
+            }
+        });
+    });
+
+    const lines = [];
+    const negations = [];
+
+    // 1) Special effects first
+    specials.forEach(function (effect) {
+        lines.push('Special Effect: ' + effect);
+    });
+
+    // 2) Numeric totals & zero‐sum negations
+    Object.keys(contributions).forEach(function (attr) {
+        const total = totals[attr] || 0;
+        if (total === 0) {
+            const parts = Object.keys(contributions[attr]).map(function (type) {
+                return type === 'core'    ? 'Wand Core'
+                     : type === 'wood'    ? 'Wand Wood'
+                     : /* quality */        'Wand Quality';
+            });
+            let joined;
+            if (parts.length === 1) {
+                joined = parts[0];
+            } else if (parts.length === 2) {
+                joined = parts.join(' and ');
+            } else {
+                joined = parts.slice(0, -1).join(', ') + ', and ' + parts.slice(-1);
+            }
+            negations.push('Negating ' + joined + ' values for ' + attr + ' (no net effect)');
+        } else {
+            const sign = total > 0 ? '+' : '';
+            lines.push(attr + ' ' + sign + total);
+        }
+    });
+
+    // 3) “No effect” notes
+    if (notes.length) {
+        notes.forEach(function(note) {
+            lines.push(note);
+        });
+    }
+
+    // 4) Zero‐sum negation notes
+    if (negations.length) {
+        negations.forEach(function(note) {
+            lines.push(note);
+        });
+    }
+
+    // prefix each line with a bullet
+    return lines.map(function(line) {
+        return '• ' + line;
+    }).join('\n');
+}
+
+function getequippedtitle(entry) {
+    if (entry.type === 'Wand') {
+        return entry.item.meta.wandname + '\n' +
+            (collapsewandattributes([
+                { type: 'core',    value: entry.item.meta.dqhhs  },
+                { type: 'quality', value: entry.item.meta.oiyq8 },
+                { type: 'wood',    value: entry.item.meta.efpc5 }
+            ]) || '');
+    }
+    else if (entry.type === 'iteminhand') {
+        return entry.item.meta.iteminhanditemname + '\n' +
+            (entry.item.meta.iteminhanddescription || 'No description');
+    }
+    else if (entry.type === 'Accessory') {
+        const name    = entry.item.meta.accessoryname;
+        const desc    = entry.item.meta.accessorydescription || 'No description';
+        const bonuses = getaccessorybonuses(entry);
+        const profile = bonuses.length
+            ? '\n\nBonuses if equipped:\n' + bonuses.join(', ')
+            : '';
+        return name + '\n' + desc + profile;
+    }
+    return '';
+}
+
+function getaccessorybonuses(entry) {
+    const meta = entry.item.meta;
+    const bonusList = [];
+    const types = meta.accessorybonustype || [];
+    const amounts = meta.accessorybonusamt || [];
+    const skillBonuses = meta.accessoryskillbonus || [];
+    const charBonuses = meta.accessorycharacteristicbonus || [];
+    const abilityBonuses = meta.accessoryabilitybonus || [];
+    const subtypeBonuses = meta.accessorysubtypebonus || [];
+
+    for (let i = 0; i < types.length; i++) {
+        let attribute;
+        switch (types[i]) {
+            case 'Skill':
+                attribute = skillBonuses[i];
+                break;
+            case 'Characteristic':
+                attribute = charBonuses[i];
+                break;
+            case 'Ability':
+                attribute = abilityBonuses[i];
+                break;
+            case 'Subtype':
+                attribute = subtypeBonuses[i];
+                break;
+            default:
+                attribute = types[i];
+        }
+        if (!attribute) continue;
+
+        const numAmt = parseFloat(amounts[i]);
+        if (isNaN(numAmt)) continue;
+
+        const sign = numAmt > 0 ? '+' : '';
+        bonusList.push(attribute + ' ' + sign + numAmt);
+    }
+
+    return bonusList; // e.g. [ "Social Skills +1", "Charisma +2" ]
 }
