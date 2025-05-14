@@ -64,54 +64,82 @@ function assign(name, arr) {
 /* ---------- generic getter ---------- */
 async function getDataset(name, url, checkCache = true, forceApi = false) {
   const key = `cache_${name}`;
-  console.log(`[getDataset:${name}] checkCache=${checkCache}, forceApi=${forceApi}`);
+  const networkOnly = Array.isArray(forceloadfromnetwork) &&
+                      forceloadfromnetwork.indexOf(name) !== -1;
+  const skipLocal = forceApi || networkOnly;
 
-  // 1) In-memory: if already loaded into globalThis[name], return it immediately
+  console.log(
+    `[getDataset:${name}] checkCache=${checkCache}, forceApi=${forceApi}, networkOnly=${networkOnly}`
+  );
+
+  // 1) In-memory
   const inMem = globalThis[name];
   if (Array.isArray(inMem) && inMem.length) {
     console.log(`[getDataset:${name}] returned ${inMem.length} from memory`);
     return inMem;
   }
 
-  // 2) LocalStorage cache: only if checkCache && not forceApi
-  if (checkCache && !forceApi) {
-    const entry = getCacheEntry(key);
-    if (entry) {
-      const arr = toArray(entry.data);
-      assign(name, arr);
-      cache_meta.push({ dataset: name, lastcache: new Date(entry.ts) });
-      console.log(`[getDataset:${name}] returned ${arr.length} from localStorage`);
-      return arr;
+  // 2) Local-storage cache
+  if (checkCache && !skipLocal) {
+    try {
+      const raw = localStorage.getItem(key);
+      if (raw) {
+        const { ts, data } = JSON.parse(raw);
+        if (Date.now() - ts < cache_ttl) {
+          const arr = Array.isArray(data) ? data : Object.values(data || {});
+          assign(name, arr);
+          cache_meta.push({ dataset: name, lastcache: new Date(ts) });
+          console.log(`[getDataset:${name}] returned ${arr.length} from localStorage`);
+          return arr;
+        } else {
+          localStorage.removeItem(key);
+          console.log(`[getDataset:${name}] cache expired, removed`);
+        }
+      }
+    } catch (e) {
+      localStorage.removeItem(key);
+      console.warn(`[getDataset:${name}] cache parse error, cleared`, e);
     }
   }
 
-  // 3) Network fetch: first try with HTTP caching allowed
-  let data = await fetchdata(url, /* skipHttpCache= */ false);
-  let arr  = toArray(data);
-
-  // 4) If still empty, force a fresh 200 from origin (bust HTTP cache)
-  if (!arr.length) {
-    console.warn(`[getDataset:${name}] no data from HTTP cache, forcing fresh fetch`);
-    data = await fetchdata(url, /* skipHttpCache= */ true);
-    arr  = toArray(data);
+  // 3) Network fetch (first with skipLocal flag, retry with cache-bust on error)
+  let rawJson;
+  try {
+    rawJson = await fetchjson(url, skipLocal);
+  } catch (err) {
+    console.warn(
+      `[getDataset:${name}] fetch error (${err.message}), retrying with cache-bust`
+    );
+    rawJson = await fetchjson(url, true);
   }
 
-  // Assign into memory and write-through to localStorage
+  // 4) If we did force a network load, remove from forceloadfromnetwork
+  if (networkOnly) {
+    const idx = forceloadfromnetwork.indexOf(name);
+    forceloadfromnetwork.splice(idx, 1);
+    console.log(`[getDataset:${name}] removed ${name} from force-load list`);
+  }
+
+  // 5) Normalize & assign
+  const arr = Array.isArray(rawJson) ? rawJson : Object.values(rawJson || {});
   assign(name, arr);
+
+  // 6) Write-through to localStorage
   try {
     setCacheEntry(key, arr);
   } catch (e) {
-    console.warn(`[getDataset:${name}] couldn’t write to localStorage`, e);
+    console.warn(`[getDataset:${name}] could not write to localStorage`, e);
   }
   cache_meta.push({ dataset: name, lastcache: new Date() });
   console.log(`[getDataset:${name}] fetched ${arr.length} from API`);
 
-  // 5) Validate
+  // 7) Validate
   if (!arr.length) {
     throw new Error(`no ${name} entries`);
   }
   return arr;
 }
+
 
 /* ---------- concrete getters ---------- */
 const getcharacters     = (...a) => getDataset('characters',     'https://charmscheck.com/wp-json/frm/v2/forms/972/entries?page_size=10000', ...a);

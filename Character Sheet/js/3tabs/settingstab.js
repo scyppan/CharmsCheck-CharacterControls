@@ -148,13 +148,21 @@ function loadhistorymini() {
 
 /** clear cache for one dataset */
 function clearcachefor(key) {
+  // 1) remove your localStorage copy
   localStorage.removeItem('cache_' + key);
+  // 2) drop the in-memory copy
   window[key] = undefined;
+  // 3) remove its entry from cache_meta
   if (Array.isArray(cache_meta)) {
     const idx = cache_meta.findIndex(e => e.dataset === key);
     if (idx > -1) cache_meta.splice(idx, 1);
   }
+  // 4) mark it for a fresh network load next time
+  if (forceloadfromnetwork.indexOf(key) === -1) {
+    forceloadfromnetwork.push(key);
+  }
   console.log(`cache cleared for ${key}`);
+  // your mini‐loader (alias for init_cache or similar)
   loadcachemini();
 }
 
