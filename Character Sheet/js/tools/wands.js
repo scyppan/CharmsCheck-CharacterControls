@@ -21,6 +21,7 @@ function matchwand(wandname) {
 
     const target = wandname.toLowerCase().trim();
     // If wands is not an array, convert its values into one.
+    
     let wandlist = Array.isArray(wands) ? wands : Object.values(wands);
     return wandlist.find(wand => wand.meta.wandname.toLowerCase().trim() === target);
 }

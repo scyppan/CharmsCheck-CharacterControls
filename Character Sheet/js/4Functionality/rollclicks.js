@@ -209,6 +209,7 @@ function attachpotionroll(btn) {
             const potionname = btn.dataset.potionname;
             const skill = btn.dataset.skill;
             const threshold = Number(btn.dataset.threshold);
+            let abilityname = getabilityfromskill(skill);
 
             let rollobj = constructrollobj('potion');
             let skillval = getskillvalue(skill);

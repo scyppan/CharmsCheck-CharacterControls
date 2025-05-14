@@ -1,10 +1,18 @@
 // ————— Tab loader remains the same —————
 async function potionstab() {
-    const tabcontent = document.getElementById('tabcontent');
-    tabcontent.textContent = 'Fetching API Data 1/2...';
-    await getpotions(true);
-    tabcontent.textContent = 'Fetching API Data 2/2...';
-    await getbooks(true);
+  const tabcontent = document.getElementById('tabcontent');
+  tabcontent.textContent = 'Fetching API Data 1/11...'; await getpotions(true);
+  tabcontent.textContent = 'Fetching API Data 2/11...'; await gettraits(true);
+  tabcontent.textContent = 'Fetching API Data 3/11...'; await getwands(true);
+  tabcontent.textContent = 'Fetching API Data 4/11...'; await getaccessories(true);
+  tabcontent.textContent = 'Fetching API Data 5/11...'; await getwandwoods(true);
+  tabcontent.textContent = 'Fetching API Data 6/11...'; await getwandcores(true);
+  tabcontent.textContent = 'Fetching API Data 7/11...'; await getwandqualities(true);
+  tabcontent.textContent = 'Fetching API Data 8/11...'; await getitemsinhand(true);
+  tabcontent.textContent = 'Fetching API Data 9/11...'; await getitems(true);
+  tabcontent.textContent = 'Fetching API Data 10/11...'; await getgeneralitems(true);
+  tabcontent.textContent = 'Fetching API Data 11/11...'; await getbooks(true);
+
 
     renderpotionstabui();
     loadfavoritepotions(); // default view
@@ -240,43 +248,71 @@ function renderpotionstabui() {
 }
 
 function createpotionplate(potionname) {
-    // 1) Look up the full potion record
-    const record = Object.values(potions)
-      .find(p => p.meta.potionname === potionname);
-    if (!record) throw new Error(`Potion "${potionname}" not found`);
-  
-    // 2) Pull out data from the API record
-    const desc        = record.meta.qs2u8;
-    const difficulty  = Number(record.meta.potionthreshold);
-    const ingredients = record.meta.potioningredient;
-    const effects     = record.meta.ag82a;
-    const skill       = record.meta.potionskill || '';
-  
-    // 3) Build the button
-    const btn = document.createElement('button');
-    btn.type        = 'button';
-    btn.className   = 'potion-plate';
-    btn.textContent = potionname;
-  
-    // 4) Build tooltip/title
-    const titleLines = [
-      `${potionname} (${difficulty})`,
-      desc
-    ];
-    if (ingredients) titleLines.push(`Ingredients: ${ingredients}`);
-    if (effects)     titleLines.push(`Effects: ${effects}`);
-    btn.title = titleLines.join("\n");
-  
-    // 5) Store metadata in data-attributes
-    btn.dataset.potionname      = potionname;
-    btn.dataset.skill     = skill;
-    btn.dataset.threshold = difficulty.toString();
-  
-    // 6) Attach the roll-listener
-    attachpotionroll(btn);
-  
-    return btn;
-  }  
+  // 1) Look up the full potion record
+  const record = Object.values(potions)
+    .find(p => p.meta.potionname === potionname);
+  if (!record) throw new Error(`Potion "${potionname}" not found`);
+
+  // 2) Pull out all the fields we need, with fallbacks for missing values
+  const name           = record.meta.potionname;
+  const skill          = record.meta.potionskill    || '';
+  const typelabel      = skill === 'Potions'
+                         ? 'Standard Potion'
+                         : 'Alchemical Potion';
+  const difficulty     = Number(record.meta.potionthreshold);
+  let description      = record.meta.qs2u8           || '';
+  let raweffect        = record.meta.potionraweffect || '';
+  let detailedeffect   = record.meta.ag82a           || '';
+  const profs          = Array.isArray(record.meta.potionrequiredproficiencies)
+                         ? record.meta.potionrequiredproficiencies
+                         : [];
+  const ingredients    = Array.isArray(record.meta.potioningredient)
+                         ? record.meta.potioningredient
+                         : [];
+  const brewtime       = record.meta.potionbrewtime  || '';
+
+  // 2a) Default text for missing or trivial fields
+  if (!description.trim() || description.trim() === '.') {
+    description = 'No description';
+  }
+  if (!raweffect.trim() || raweffect.trim() === '.') {
+    raweffect = 'No raw effect';
+  }
+  if (!detailedeffect.trim() || detailedeffect.trim() === '.') {
+    detailedeffect = 'No detailed effect';
+  }
+
+  // 3) Build the button
+  const btn = document.createElement('button');
+  btn.type      = 'button';
+  btn.className = 'potion-plate';
+  btn.textContent = name;
+
+  // 4) Build tooltip/title
+  const proftext = profs.length ? profs.join(', ') : 'None';
+  const ingtext  = ingredients.length ? ingredients.join(', ') : 'DETERMINED BY HEADMASTER';
+
+  const titleText =
+    `${name} (${typelabel} | ${difficulty})\n` +
+    `Proficiencies: ${proftext}\n` +
+    `Ingredients:    ${ingtext}\n` +
+    `Brew Time:      ${brewtime}\n` +
+    `${description}\n\n` +
+    `Raw Effect:\n${raweffect}\n\n` +
+    `${detailedeffect}`;
+
+  btn.title = titleText;
+
+  // 5) Store metadata in data-attributes
+  btn.dataset.potionname = potionname;
+  btn.dataset.skill      = skill;
+  btn.dataset.threshold  = difficulty.toString();
+
+  // 6) Attach the roll-listener
+  attachpotionroll(btn);
+
+  return btn;
+}
 
 function printpotiondescription(btn) {
     console.log(btn.title);
