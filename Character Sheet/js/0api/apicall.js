@@ -66,47 +66,50 @@ async function getDataset(name, url, checkCache = true, forceApi = false) {
   const key = `cache_${name}`;
   console.log(`[getDataset:${name}] checkCache=${checkCache}, forceApi=${forceApi}`);
 
-  // 1) try localStorage cache if allowed and not forced off
+  // 1) In-memory: if already loaded into globalThis[name], return it immediately
+  const inMem = globalThis[name];
+  if (Array.isArray(inMem) && inMem.length) {
+    console.log(`[getDataset:${name}] returned ${inMem.length} from memory`);
+    return inMem;
+  }
+
+  // 2) LocalStorage cache: only if checkCache && not forceApi
   if (checkCache && !forceApi) {
-    let raw = null;
-    try {
-      raw = localStorage.getItem(key);
-      if (raw) {
-        const { ts, data } = JSON.parse(raw);
-        if (Date.now() - ts < cache_ttl) {
-          const arr = Array.isArray(data) ? data : Object.values(data || {});
-          globalThis[name] = arr;
-          eval(`${name} = arr`);
-          cache_meta.push({ dataset: name, lastcache: new Date(ts) });
-          if (arr.length) {
-            console.log(`[getDataset:${name}] returned ${arr.length} from localStorage`);
-            return arr;
-          }
-        } else {
-          localStorage.removeItem(key);
-        }
-      }
-    } catch (e) {
-      localStorage.removeItem(key);
+    const entry = getCacheEntry(key);
+    if (entry) {
+      const arr = toArray(entry.data);
+      assign(name, arr);
+      cache_meta.push({ dataset: name, lastcache: new Date(entry.ts) });
+      console.log(`[getDataset:${name}] returned ${arr.length} from localStorage`);
+      return arr;
     }
   }
 
-  // 2) API fetch (always skip both localStorage cache-check here AND browser HTTP cache)
-  const rawJson = await fetchjson(url, /* skipHttpCache = */ true);
-  const arr = Array.isArray(rawJson) ? rawJson : Object.values(rawJson || {});
-  globalThis[name] = arr;
-  eval(`${name} = arr`);
+  // 3) Network fetch: first try with HTTP caching allowed
+  let data = await fetchdata(url, /* skipHttpCache= */ false);
+  let arr  = toArray(data);
 
-  // write‐through to localStorage
+  // 4) If still empty, force a fresh 200 from origin (bust HTTP cache)
+  if (!arr.length) {
+    console.warn(`[getDataset:${name}] no data from HTTP cache, forcing fresh fetch`);
+    data = await fetchdata(url, /* skipHttpCache= */ true);
+    arr  = toArray(data);
+  }
+
+  // Assign into memory and write-through to localStorage
+  assign(name, arr);
   try {
-    localStorage.setItem(key, JSON.stringify({ ts: Date.now(), data: arr }));
-  } catch (e) { /* ignore quota errors */ }
-
+    setCacheEntry(key, arr);
+  } catch (e) {
+    console.warn(`[getDataset:${name}] couldn’t write to localStorage`, e);
+  }
   cache_meta.push({ dataset: name, lastcache: new Date() });
   console.log(`[getDataset:${name}] fetched ${arr.length} from API`);
 
-  // 3) validate
-  if (!arr.length) throw new Error(`no ${name} entries`);
+  // 5) Validate
+  if (!arr.length) {
+    throw new Error(`no ${name} entries`);
+  }
   return arr;
 }
 

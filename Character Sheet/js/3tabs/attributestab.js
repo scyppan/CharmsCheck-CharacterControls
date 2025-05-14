@@ -10,13 +10,13 @@ async function attributestab() {
   tabcontent.textContent = 'Fetching API Data 7/17...'; await getitemsinhand(true);
   tabcontent.textContent = 'Fetching API Data 8/17...'; await getitems(true);
   tabcontent.textContent = 'Fetching API Data 9/17...'; await getgeneralitems(true);
-  // tabcontent.textContent = 'Fetching API Data 10/17...'; await getcreatures(true);
-  // tabcontent.textContent = 'Fetching API Data 11/17...'; await getcreatureparts(true);
-  // tabcontent.textContent = 'Fetching API Data 12/17...'; await getplants(true);
-  // tabcontent.textContent = 'Fetching API Data 13/17...'; await getplantparts(true);
-  // tabcontent.textContent = 'Fetching API Data 14/17...'; await getpreparations(true);
-  // tabcontent.textContent = 'Fetching API Data 15/17...'; await getfooddrink(true);
-  // tabcontent.textContent = 'Fetching API Data 16/17...'; await getpotions(true);
+  tabcontent.textContent = 'Fetching API Data 10/17...'; await getcreatures(true);
+  tabcontent.textContent = 'Fetching API Data 11/17...'; await getcreatureparts(true);
+  tabcontent.textContent = 'Fetching API Data 12/17...'; await getplants(true);
+  tabcontent.textContent = 'Fetching API Data 13/17...'; await getplantparts(true);
+  tabcontent.textContent = 'Fetching API Data 14/17...'; await getpreparations(true);
+  tabcontent.textContent = 'Fetching API Data 15/17...'; await getfooddrink(true);
+  tabcontent.textContent = 'Fetching API Data 16/17...'; await getpotions(true);
   tabcontent.textContent = 'Fetching API Data 17/17...'; await getbooks(true);
   tabcontent.textContent = '';
 
