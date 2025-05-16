@@ -4,26 +4,26 @@
    Steps: 1) cache → 2) API → 3) throw if still empty
    ===================================================================== */
 
-/* ---------- config ---------- */
-const headers = new Headers();
-headers.append('authorization','Basic Q0E2RS1LUjdaLUtCT0wtTlVYUTp4');
-const requestoptions = { method:'GET', headers, redirect:'follow' };
-
 /* ---------- network helpers ---------- */
 async function fetchjson(url, skipHttpCache = false) {
-  // add a cache-busting query if we really want fresh data
+  // 1) build cache-busting suffix if needed
   const bust = skipHttpCache
     ? (url.includes('?') ? `&_cb=${Date.now()}` : `?_cb=${Date.now()}`)
     : '';
   const fullUrl = url + bust;
 
-  // tell fetch() not to use its built-in HTTP cache when skipHttpCache is true
-  const opts = skipHttpCache
-    ? { ...requestoptions, cache: 'no-store' }
-    : requestoptions;
+  // 2) standalone fetch options
+  const opts = {
+    method: 'GET',
+    redirect: 'follow',
+    cache: skipHttpCache ? 'no-store' : 'default'
+  };
 
+  // 3) perform fetch
   const res = await fetch(fullUrl, opts);
-  if (res.status === 200) return res.json();
+  if (res.status === 200) {
+    return res.json();
+  }
   throw new Error(`HTTP ${res.status}`);
 }
 
@@ -72,11 +72,13 @@ async function getDataset(name, url, checkCache = true, forceApi = false) {
     `[getDataset:${name}] checkCache=${checkCache}, forceApi=${forceApi}, networkOnly=${networkOnly}`
   );
 
-  // 1) In-memory
-  const inMem = globalThis[name];
-  if (Array.isArray(inMem) && inMem.length) {
-    console.log(`[getDataset:${name}] returned ${inMem.length} from memory`);
-    return inMem;
+  // 1) In-memory cache (only if not forcing API)
+  if (!skipLocal) {
+    const inMem = globalThis[name];
+    if (Array.isArray(inMem) && inMem.length) {
+      console.log(`[getDataset:${name}] returned ${inMem.length} from memory`);
+      return inMem;
+    }
   }
 
   // 2) Local-storage cache
@@ -102,7 +104,7 @@ async function getDataset(name, url, checkCache = true, forceApi = false) {
     }
   }
 
-  // 3) Network fetch (first with skipLocal flag, retry with cache-bust on error)
+  // 3) Network fetch (first attempt, retry once with cache-bust on error)
   let rawJson;
   try {
     rawJson = await fetchjson(url, skipLocal);
@@ -110,67 +112,69 @@ async function getDataset(name, url, checkCache = true, forceApi = false) {
     console.warn(
       `[getDataset:${name}] fetch error (${err.message}), retrying with cache-bust`
     );
+    localStorage.removeItem(key);
     rawJson = await fetchjson(url, true);
   }
 
-  // 4) If we did force a network load, remove from forceloadfromnetwork
-  if (networkOnly) {
-    const idx = forceloadfromnetwork.indexOf(name);
-    forceloadfromnetwork.splice(idx, 1);
-    console.log(`[getDataset:${name}] removed ${name} from force-load list`);
+  // 4) If the proxy sent back an error object, purge and throw
+  if (rawJson && rawJson.error) {
+    localStorage.removeItem(key);
+    throw new Error(rawJson.error);
   }
 
-  // 5) Normalize & assign
+  // 5) Normalize & assign into memory
   const arr = Array.isArray(rawJson) ? rawJson : Object.values(rawJson || {});
   assign(name, arr);
 
-  // 6) Write-through to localStorage
-  try {
-    setCacheEntry(key, arr);
-  } catch (e) {
-    console.warn(`[getDataset:${name}] could not write to localStorage`, e);
+  // 6) Write-through to localStorage only on valid, non-empty arrays
+  if (arr.length) {
+    try {
+      localStorage.setItem(key, JSON.stringify({ ts: Date.now(), data: arr }));
+    } catch (e) {
+      console.warn(`[getDataset:${name}] could not write to localStorage`, e);
+    }
   }
+
   cache_meta.push({ dataset: name, lastcache: new Date() });
   console.log(`[getDataset:${name}] fetched ${arr.length} from API`);
 
-  // 7) Validate
+  // 7) Validate final result
   if (!arr.length) {
     throw new Error(`no ${name} entries`);
   }
   return arr;
 }
 
-
 /* ---------- concrete getters ---------- */
-const getcharacters     = (...a) => getDataset('characters',     'https://charmscheck.com/wp-json/frm/v2/forms/972/entries?page_size=10000', ...a);
-const gettraits         = (...a) => getDataset('traits',         'https://charmscheck.com/wp-json/frm/v2/forms/979/entries?page_size=10000', ...a);
-const getaccessories    = (...a) => getDataset('accessories',    'https://charmscheck.com/wp-json/frm/v2/forms/995/entries?page_size=10000', ...a);
-const getwands          = (...a) => getDataset('wands',          'https://charmscheck.com/wp-json/frm/v2/forms/114/entries?page_size=10000', ...a);
-const getwandwoods      = (...a) => getDataset('wandwoods',      'https://charmscheck.com/wp-json/frm/v2/forms/120/entries?page_size=10000', ...a);
-const getwandcores      = (...a) => getDataset('wandcores',      'https://charmscheck.com/wp-json/frm/v2/forms/116/entries?page_size=10000', ...a);
-const getwandqualities  = (...a) => getDataset('wandqualities',  'https://charmscheck.com/wp-json/frm/v2/forms/124/entries?page_size=10000', ...a);
-const getspells         = (...a) => getDataset('spells',         'https://charmscheck.com/wp-json/frm/v2/forms/191/entries?page_size=10000', ...a);
-const getbooks          = (...a) => getDataset('books',          'https://charmscheck.com/wp-json/frm/v2/forms/8/entries?page_size=10000',   ...a);
-const getschools        = (...a) => getDataset('schools',        'https://charmscheck.com/wp-json/frm/v2/forms/3/entries?page_size=10000',   ...a);
-const getproficiencies  = (...a) => getDataset('proficiencies',  'https://charmscheck.com/wp-json/frm/v2/forms/944/entries?page_size=10000', ...a);
-const getpotions        = (...a) => getDataset('potions',        'https://charmscheck.com/wp-json/frm/v2/forms/34/entries?page_size=10000',  ...a);
-const getnamedcreatures = (...a) => getDataset('namedcreatures', 'https://charmscheck.com/wp-json/frm/v2/forms/170/entries?page_size=10000', ...a);
-const getitems          = (...a) => getDataset('items',          'https://charmscheck.com/wp-json/frm/v2/forms/964/entries?page_size=10000', ...a);
-const getitemsinhand    = (...a) => getDataset('itemsinhand',    'https://charmscheck.com/wp-json/frm/v2/forms/1085/entries?page_size=10000',...a);
-const getgeneralitems   = (...a) => getDataset('generalitems',   'https://charmscheck.com/wp-json/frm/v2/forms/126/entries?page_size=10000',...a);
-const getcreatures      = (...a) => getDataset('creatures',      'https://charmscheck.com/wp-json/frm/v2/forms/48/entries?page_size=10000',  ...a);
-const getcreatureparts  = (...a) => getDataset('creatureparts',  'https://charmscheck.com/wp-json/frm/v2/forms/53/entries?page_size=10000',  ...a);
-const getplants         = (...a) => getDataset('plants',         'https://charmscheck.com/wp-json/frm/v2/forms/2/entries?page_size=10000',   ...a);
-const getplantparts     = (...a) => getDataset('plantparts',     'https://charmscheck.com/wp-json/frm/v2/forms/43/entries?page_size=10000',  ...a);
-const getpreparations   = (...a) => getDataset('preparations',   'https://charmscheck.com/wp-json/frm/v2/forms/908/entries?page_size=10000', ...a);
-const getfooddrink      = (...a) => getDataset('fooddrink',      'https://charmscheck.com/wp-json/frm/v2/forms/67/entries?page_size=10000',  ...a);
+const getcharacters     = (...a) => getDataset('characters',     'https://charmscheck.com/wp-admin/admin-ajax.php?action=get_form_data&form=972',  ...a);
+const gettraits         = (...a) => getDataset('traits',         'https://charmscheck.com/wp-admin/admin-ajax.php?action=get_form_data&form=979',  ...a);
+const getaccessories    = (...a) => getDataset('accessories',    'https://charmscheck.com/wp-admin/admin-ajax.php?action=get_form_data&form=995',  ...a);
+const getwands          = (...a) => getDataset('wands',          'https://charmscheck.com/wp-admin/admin-ajax.php?action=get_form_data&form=114',  ...a);
+const getwandwoods      = (...a) => getDataset('wandwoods',      'https://charmscheck.com/wp-admin/admin-ajax.php?action=get_form_data&form=120',  ...a);
+const getwandcores      = (...a) => getDataset('wandcores',      'https://charmscheck.com/wp-admin/admin-ajax.php?action=get_form_data&form=116',  ...a);
+const getwandqualities  = (...a) => getDataset('wandqualities',  'https://charmscheck.com/wp-admin/admin-ajax.php?action=get_form_data&form=124',  ...a);
+const getspells         = (...a) => getDataset('spells',         'https://charmscheck.com/wp-admin/admin-ajax.php?action=get_form_data&form=191',  ...a);
+const getbooks          = (...a) => getDataset('books',          'https://charmscheck.com/wp-admin/admin-ajax.php?action=get_form_data&form=8',    ...a);
+const getschools        = (...a) => getDataset('schools',        'https://charmscheck.com/wp-admin/admin-ajax.php?action=get_form_data&form=3',    ...a);
+const getproficiencies  = (...a) => getDataset('proficiencies',  'https://charmscheck.com/wp-admin/admin-ajax.php?action=get_form_data&form=944',  ...a);
+const getpotions        = (...a) => getDataset('potions',        'https://charmscheck.com/wp-admin/admin-ajax.php?action=get_form_data&form=34',   ...a);
+const getnamedcreatures = (...a) => getDataset('namedcreatures', 'https://charmscheck.com/wp-admin/admin-ajax.php?action=get_form_data&form=170',  ...a);
+const getitems          = (...a) => getDataset('items',          'https://charmscheck.com/wp-admin/admin-ajax.php?action=get_form_data&form=964',  ...a);
+const getitemsinhand    = (...a) => getDataset('itemsinhand',    'https://charmscheck.com/wp-admin/admin-ajax.php?action=get_form_data&form=1085', ...a);
+const getgeneralitems   = (...a) => getDataset('generalitems',   'https://charmscheck.com/wp-admin/admin-ajax.php?action=get_form_data&form=126',  ...a);
+const getcreatures      = (...a) => getDataset('creatures',      'https://charmscheck.com/wp-admin/admin-ajax.php?action=get_form_data&form=48',   ...a);
+const getcreatureparts  = (...a) => getDataset('creatureparts',  'https://charmscheck.com/wp-admin/admin-ajax.php?action=get_form_data&form=53',   ...a);
+const getplants         = (...a) => getDataset('plants',         'https://charmscheck.com/wp-admin/admin-ajax.php?action=get_form_data&form=2',    ...a);
+const getplantparts     = (...a) => getDataset('plantparts',     'https://charmscheck.com/wp-admin/admin-ajax.php?action=get_form_data&form=43',   ...a);
+const getpreparations   = (...a) => getDataset('preparations',   'https://charmscheck.com/wp-admin/admin-ajax.php?action=get_form_data&form=908',  ...a);
+const getfooddrink      = (...a) => getDataset('fooddrink',      'https://charmscheck.com/wp-admin/admin-ajax.php?action=get_form_data&form=67',   ...a);
 
 async function forcefetchapi(key) {
-  console.log("FORCEFETCHAPI");
+  console.log("FORCEFETCHAPI for", key);
   const fnName = 'get' + key;            // e.g. "gettraits"
   let fn;
   try {
-    fn = eval(fnName);                   // pick it up from your script’s scope
+    fn = eval(fnName);
   } catch (e) {
     console.error(`No function named ${fnName}()`);
     return;
@@ -179,11 +183,44 @@ async function forcefetchapi(key) {
     console.error(`${fnName} is not a function`);
     return;
   }
+
+  const cacheKey = `cache_${key}`;
+
+  // 1) Purge old cache
   try {
-    // (false = skip cache read, true = force API)
+    localStorage.removeItem(cacheKey);
+  } catch (e) {
+    console.warn(`Could not remove ${cacheKey} from localStorage`, e);
+  }
+  // Purge in-memory as well
+  if (Array.isArray(globalThis[key])) {
+    delete globalThis[key];
+  }
+
+  try {
+    // 2) Force a fresh API fetch
     const data = await fn(false, true);
-    console.log(`${fnName} fetched from API`, data);
+
+    // 3) Validate we got an array back
+    if (!Array.isArray(data)) {
+      throw new Error(`Expected array, got ${typeof data}`);
+    }
+
+    // 4) Re-assign into memory
+    assign(key, data);
+
+    // 5) Re-cache on localStorage
+    try {
+      setCacheEntry(cacheKey, data);
+    } catch (e) {
+      console.warn(`Could not write ${cacheKey} to localStorage`, e);
+    }
+
+    console.log(`${fnName} force-fetched and cached ${data.length} items`);
+    return data;
+
   } catch (err) {
-    console.error(`Error fetching ${fnName}()`, err);
+    console.error(`Error force fetching ${fnName}():`, err);
+    throw err;
   }
 }
