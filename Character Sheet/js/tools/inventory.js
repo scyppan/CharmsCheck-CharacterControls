@@ -194,18 +194,22 @@ function getunequipableitembonuses() {
         if (item.type == "General") {
             const generalitem = item.item;
 
-            const bonuslen = generalitem.meta.generalitempassiveabilitytype.length;
+            if (generalitem.meta.generalitempassiveabilitytype) {
+                const bonuslen = generalitem.meta.generalitempassiveabilitytype.length || 0;
 
-            for (let i = 0; i < bonuslen; i++) {
-                bonuslist.push({
-                    source: generalitem.meta.generalitemname,
-                    bonustype: generalitem.meta.generalitempassiveabilitybonus[i] ||
-                        generalitem.meta.generalitempassiveskillbonus[i] ||
-                        generalitem.meta.generalitempassivecharacteristicbonus[i] ||
-                        generalitem.meta.generalitempassivesubtypebonus[i] || "none",
-                    amt: generalitem.meta.generalitempassivebonusamt
-                });
+                for (let i = 0; i < bonuslen; i++) {
+                    bonuslist.push({
+                        source: generalitem.meta.generalitemname,
+                        bonustype: generalitem.meta.generalitempassiveabilitybonus[i] ||
+                            generalitem.meta.generalitempassiveskillbonus[i] ||
+                            generalitem.meta.generalitempassivecharacteristicbonus[i] ||
+                            generalitem.meta.generalitempassivesubtypebonus[i] || "none",
+                        amt: generalitem.meta.generalitempassivebonusamt
+                    });
+                }
             }
+
+
 
         }
     });
@@ -244,18 +248,18 @@ function collapsewandattributes(fields) {
         if (!field.value) return;
         field.value.split(',').forEach(function (token) {
             const entry = token.trim();
-            const m     = entry.match(/^([A-Za-z\s]+?)\s*([+-]\d+)$/);
+            const m = entry.match(/^([A-Za-z\s]+?)\s*([+-]\d+)$/);
             if (m) {
                 const attr = m[1].trim();
-                const val  = parseInt(m[2], 10);
+                const val = parseInt(m[2], 10);
 
                 totals[attr] = (totals[attr] || 0) + val;
                 contributions[attr] = contributions[attr] || {};
                 contributions[attr][field.type] = (contributions[attr][field.type] || 0) + val;
             }
             else if (entry.toLowerCase() === 'no effect') {
-                if (field.type === 'core')    notes.push('No Wand Core Effect');
-                if (field.type === 'wood')    notes.push('No Wand Wood Effect');
+                if (field.type === 'core') notes.push('No Wand Core Effect');
+                if (field.type === 'wood') notes.push('No Wand Wood Effect');
                 if (field.type === 'quality') notes.push('No Wand Quality Effect');
             }
             else {
@@ -277,9 +281,9 @@ function collapsewandattributes(fields) {
         const total = totals[attr] || 0;
         if (total === 0) {
             const parts = Object.keys(contributions[attr]).map(function (type) {
-                return type === 'core'    ? 'Wand Core'
-                     : type === 'wood'    ? 'Wand Wood'
-                     : /* quality */        'Wand Quality';
+                return type === 'core' ? 'Wand Core'
+                    : type === 'wood' ? 'Wand Wood'
+                        : /* quality */        'Wand Quality';
             });
             let joined;
             if (parts.length === 1) {
@@ -298,20 +302,20 @@ function collapsewandattributes(fields) {
 
     // 3) “No effect” notes
     if (notes.length) {
-        notes.forEach(function(note) {
+        notes.forEach(function (note) {
             lines.push(note);
         });
     }
 
     // 4) Zero‐sum negation notes
     if (negations.length) {
-        negations.forEach(function(note) {
+        negations.forEach(function (note) {
             lines.push(note);
         });
     }
 
     // prefix each line with a bullet
-    return lines.map(function(line) {
+    return lines.map(function (line) {
         return '• ' + line;
     }).join('\n');
 }
@@ -320,9 +324,9 @@ function getequippedtitle(entry) {
     if (entry.type === 'Wand') {
         return entry.item.meta.wandname + '\n' +
             (collapsewandattributes([
-                { type: 'core',    value: entry.item.meta.dqhhs  },
+                { type: 'core', value: entry.item.meta.dqhhs },
                 { type: 'quality', value: entry.item.meta.oiyq8 },
-                { type: 'wood',    value: entry.item.meta.efpc5 }
+                { type: 'wood', value: entry.item.meta.efpc5 }
             ]) || '');
     }
     else if (entry.type === 'iteminhand') {
@@ -330,8 +334,8 @@ function getequippedtitle(entry) {
             (entry.item.meta.iteminhanddescription || 'No description');
     }
     else if (entry.type === 'Accessory') {
-        const name    = entry.item.meta.accessoryname;
-        const desc    = entry.item.meta.accessorydescription || 'No description';
+        const name = entry.item.meta.accessoryname;
+        const desc = entry.item.meta.accessorydescription || 'No description';
         const bonuses = getaccessorybonuses(entry);
         const profile = bonuses.length
             ? '\n\nBonuses if equipped:\n' + bonuses.join(', ')
