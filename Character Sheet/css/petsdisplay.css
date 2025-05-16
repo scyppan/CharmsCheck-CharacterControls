@@ -55,11 +55,12 @@
   .pet-plate {
     display: inline-block;
     background-color: #e0f7f1;
-    border: 2px solid #25755a;
+    border: 1px solid #2e0404;
     border-radius: 12px;
-    padding: 0.25em .5em;
-    margin: 0.25em;
-    font-size: .85rem;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 7px;
+    padding-right: 7px;
     font-family: inherit;
     color: #25755a;
     cursor: pointer;

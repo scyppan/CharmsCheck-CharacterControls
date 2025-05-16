@@ -88,10 +88,12 @@
   .inventory-plate {
     display: inline-block;
     background-color: rgba(216, 219, 242, 0.87);  
-    border: 2px solid rgba(77, 81, 107, 0.87); 
+    border: 1px solid #2e0404;
     border-radius: 12px;
-    padding: 0.25em 0.5em;
-    margin: 0.25em;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 7px;
+    padding-right: 7px;
     font-family: inherit;
     color: rgba(77, 81, 107, 0.87); 
     cursor: pointer;
