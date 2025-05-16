@@ -64,6 +64,11 @@ function assign(name, arr) {
 /* ---------- generic getter ---------- */
 async function getDataset(name, url, checkCache = true, forceApi = false) {
   const key = `cache_${name}`;
+
+  if (forceApi) {
+    url = url + (url.includes('?') ? '&' : '?') + 'bust=1';
+  }
+  
   const networkOnly = Array.isArray(forceloadfromnetwork) &&
                       forceloadfromnetwork.indexOf(name) !== -1;
   const skipLocal = forceApi || networkOnly;
