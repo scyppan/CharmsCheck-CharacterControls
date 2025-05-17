@@ -166,8 +166,8 @@ function attachproficiencyroll(btn) {
         // 2) Construct the roll object
         let rollobj = constructrollobj('proficiency');
         let skillval = getskillvalue(skill);
-        let abilityName = getabilityfromskill(skill);
-        let abilityval = getabilityvalue(abilityName);
+        let abilityname = getabilityfromskill(skill);
+        let abilityval = getabilityvalue(abilityname);
         let abilitytotal = abilityval.base;
 
         rollobj.dice = randbetween(1, 10);

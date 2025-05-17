@@ -17,17 +17,14 @@ function getcompleteproficiencieslist() {
 
 function getknownproficiencies() {
     const arr = [];
-    const names = currentchar.meta.proficiencyname || [];
+    const names = currentchar.meta.d8eus || [];
     for (let i = 0; i < names.length; i++) {
         arr.push({
             proficiencyname: names[i],
-            skill: getname(currentchar.meta.s71z0[i], 'standard'),
-            difficulty: Number(currentchar.meta.ipjf3[i]),
-            prereqs: currentchar.meta.nt3s3[i],
-            itemreqs: currentchar.meta.aiwl3[i],
-            yields: currentchar.meta['53wtd'][i],
-            description: currentchar.meta.e3usn[i],
-            source: currentchar.meta.proficiencylearnedfrom[i] || ''
+            skill: getname(currentchar.meta.uy6mc[i], 'standard'),
+            difficulty: Number(currentchar.meta.rxufg[i]),
+            source: currentchar.meta.proficiencylearnedfrom[i] || '',
+            favorite: currentchar.meta.vlrjq[i]
         });
     }
     return arr;
@@ -67,4 +64,4 @@ function getallproficienciesfrombooks() {
     });
 
     return arr;
-}  
+}
