@@ -30,7 +30,7 @@ function createContentArea() {
 }
 
 function createTabs(tabColumn, content) {
-  const iconbase = 'https://raw.githubusercontent.com/scyppan/CharmsCheck-CharacterControls/Character-Controls-25/Character%20Sheet/icons';
+const iconbase = 'https://cdn.jsdelivr.net/gh/scyppan/CharmsCheck-CharacterControls@Character-Controls-25/Character%20Sheet/icons/';
   const pages = [
     { name: "Overview", icon: "overview.svg" },
     { name: "Attributes", icon: "attributes.svg" },
