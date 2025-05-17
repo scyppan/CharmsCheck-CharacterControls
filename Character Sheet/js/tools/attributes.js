@@ -156,46 +156,31 @@ function getattrbvalfromaccessories(attrb) {
 
 function getabilitybuys() {
     return [
-        currentchar.meta['d2nab'], //initbuy1
-        currentchar.meta['4rgqv'], //initbuy2
-        currentchar.meta['zfyou'], //year1
-        currentchar.meta['b466d'], //year2
-        currentchar.meta['7xk5s'], //year3
-        currentchar.meta['4p7kz'], //year4
-        currentchar.meta['od098'], //year5
-        currentchar.meta['g00g3'], //year6
-        currentchar.meta['p0o5p'] //year7
-    ];
+        currentchar.meta['d2nab'], // initbuy1
+        currentchar.meta['4rgqv'], // initbuy2
+        currentchar.meta['zfyou'], // year1
+        currentchar.meta['b466d'], // year2
+        currentchar.meta['7xk5s'], // year3
+        currentchar.meta['4p7kz'], // year4
+        currentchar.meta['od098'], // year5
+        currentchar.meta['g00g3'], // year6
+        currentchar.meta['p0o5p']  // year7
+    ].filter(Boolean);
 }
 
 function getskillbuys() {
     return [
-        getname(currentchar.meta['tu70t'], 'standard'),
-        getname(currentchar.meta['295yh'], 'standard'),
-        getname(currentchar.meta['yy3sy'], 'standard'),
-        getname(currentchar.meta['fe1et'], 'standard'),
-        getname(currentchar.meta['olvkl'], 'standard'),
-        getname(currentchar.meta['pxh6z'], 'standard'),
-        getname(currentchar.meta['o4rd8'], 'standard'),
-        getname(currentchar.meta['mp181'], 'standard'),
-        getname(currentchar.meta['y6x1n'], 'standard'),
-        getname(currentchar.meta['lbg6a'], 'standard'),
-        getname(currentchar.meta['by0y'], 'standard'),
-        getname(currentchar.meta['ws3kt'], 'standard'),
-        getname(currentchar.meta['38wnu'], 'standard'),
-        getname(currentchar.meta['fxzo'], 'standard'),
-        getname(currentchar.meta['kfo7o'], 'standard'),
-        getname(currentchar.meta['dbc3s'], 'standard'),
-        getname(currentchar.meta['f3ef7'], 'standard'),
-    ];
+        'tu70t', '295yh', 'yy3sy', 'fe1et', 'olvkl', 'pxh6z',
+        'o4rd8', 'mp181', 'y6x1n', 'lbg6a', 'by0y', 'ws3kt',
+        '38wnu', 'fxzo', 'kfo7o', 'dbc3s', 'f3ef7'
+    ].map(key => getname(currentchar.meta[key], 'standard'))
+     .filter(Boolean);
 }
 
 function geteminencebuys() {
-    if(currentchar.meta['ixbnr']){
-    return currentchar.meta['ixbnr'].map(name => getname(name, 'standard'));
-    }else{
-        return [];
-    }
+    return Array.isArray(currentchar.meta['ixbnr'])
+        ? currentchar.meta['ixbnr'].map(name => getname(name, 'standard')).filter(Boolean)
+        : [];
 }
 
 function getcorecourses() {
