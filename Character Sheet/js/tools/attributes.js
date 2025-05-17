@@ -173,7 +173,9 @@ function getskillbuys() {
         'tu70t', '295yh', 'yy3sy', 'fe1et', 'olvkl', 'pxh6z',
         'o4rd8', 'mp181', 'y6x1n', 'lbg6a', 'by0y', 'ws3kt',
         '38wnu', 'fxzo', 'kfo7o', 'dbc3s', 'f3ef7'
-    ].map(key => getname(currentchar.meta[key], 'standard'))
+    ].map(key => currentchar.meta[key])
+     .filter(val => val !== undefined && val !== null && val !== '')
+     .map(val => getname(val, 'standard'))
      .filter(Boolean);
 }
 
