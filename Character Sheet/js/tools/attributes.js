@@ -305,7 +305,7 @@ function getabilityfromskill(skill) {
 function gettotalsubtypebonus(rollobj) {
     return getsubtypebonusesfromtraits()
       .reduce((sum, bonus) => {
-        return bonus.subtype === rollobj.subtype
+        return bonus.subtype.toLowerCase() === rollobj.subtype.toLowerCase()
           ? sum + bonus.amt
           : sum;
       }, 0);
