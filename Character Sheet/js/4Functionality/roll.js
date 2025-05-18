@@ -79,7 +79,7 @@ function getrollresult(rollobj) {
             rollobj.total =
                 rollobj.dice + rollobj.ability + rollobj.skill +
                 rollobj.wand + rollobj.iteminhand +
-                rollobj.accessories + rollobj.inventory;
+                rollobj.accessories + rollobj.inventory+rollobj.trait;
             break;
         case "proficiency":
             rollobj.total =
