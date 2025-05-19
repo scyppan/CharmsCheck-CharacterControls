@@ -35,7 +35,7 @@ function overviewtab() {
   let charnamea = document.createElement('a');
   charnamea.target = '_blank'; // Open in new tab
   charnamespan.textContent = "Name:";
-  charnamea.href = `https://charmscheck.com/charcreate23/?frm_action=edit&entry=${currentchar.id}#`;
+  charnamea.href = `https://charmscheck.com/character-creator-25/?frm_action=edit&entry=${currentchar.id}#`;
   charnamea.textContent = currentchar.name;
   charnamea.title = "Click to edit this character in a new window. Note, you will have to refresh this page for changes to show.";
   charnameli.appendChild(charnamespan);

@@ -1,3 +1,5 @@
+let initloadup=true;
+
 //=====================
 //Setup Functions
 //=====================
@@ -73,13 +75,13 @@ function assignelements() {
   electives5=document.getElementById("frm_field_7629_container");
   electives6=document.getElementById("frm_field_7637_container");
   electives7=document.getElementById("frm_field_7644_container");
-  electives1.style="display:none"; 
-  electives2.style="display:none";
-  electives3.style="display:none";
-  electives4.style="display:none";
-  electives5.style="display:none";
-  electives6.style="display:none";
-  electives7.style="display:none";
+//   electives1.style="display:none"; 
+//   electives2.style="display:none";
+//   electives3.style="display:none";
+//   electives4.style="display:none";
+//   electives5.style="display:none";
+//   electives6.style="display:none";
+//   electives7.style="display:none";
   electivedesc1 = document.getElementById("frm_desc_field_electives1");
   electivedesc2 = document.getElementById("frm_desc_field_electives2");
   electivedesc3 = document.getElementById("frm_desc_field_electives3");
@@ -136,7 +138,7 @@ function setrandparental(){
 	if(!wealth.value){wealth.value=randbetween(1,10);}
 	if(!permissiveness.value){permissiveness.value=randbetween(1,10);}
 }
-function setallelectiveupdatefunctions(){
+function setallelectiveupdatefunctions(){console.log("it fired");
 	setelectiveupdatefunctionsforoneyear(electives.year1);
 	setelectiveupdatefunctionsforoneyear(electives.year2);
 	setelectiveupdatefunctionsforoneyear(electives.year3);
@@ -206,15 +208,18 @@ function schoolchanged(){
 	console.log("School changed! Do Stuff");
 }
 function electivechanged(){
+	console.log("electivechanged");
 	checkallelectivelimits();
 }
-function electivesetchanged(){
-	
-	setTimeout(function(){
-	assignelectivecheckboxes();
-	setelectivelimitdesc();
-	setallelectiveupdatefunctions();
-	},100);
+function electivesetchanged() {
+	console.log("elective set changed", initloadup);
+	if (!initloadup) {
+		setTimeout(function () {
+			assignelectivecheckboxes();
+			setelectivelimitdesc();
+			setallelectiveupdatefunctions();
+		}, 100);
+	}
 }
 //=====================
 //Traits
@@ -315,7 +320,7 @@ function assignelectivecheckboxes(){
 	for(let i=1;i<=7;i++){
 		let boxes=[];
 		for(let j=0;j<18;j++){
-			let boxname=`field_electives${i}-${j}`;
+			let boxname=`field_electives${i}--${j}`;
 			let thisbox=document.getElementById(boxname);
 			if (thisbox != null && thisbox != undefined && thisbox.value != null && thisbox.value != "") { boxes.push(thisbox); thisbox.checked = false; }
 		}//end of inner for
@@ -355,7 +360,7 @@ function getelectivelimittxt(year){
 	if(val==0){return "Elective limit reached!";}
 	else{return `Pick ${val} more`;}
 }
-function buildmutationobservers(){
+function buildmutationobservers(){console.log("building mutation observers");
 	mo1=new MutationObserver(entries => {electivesetchanged();});
 	mo1.observe(electiveset1, {childList:true});	
 	
@@ -543,42 +548,43 @@ function checkspecialskippeddays(day, month, year){
 		gregoriandesc.style="display:none";
 	}
 }
-function validateWholeNumericInput(id, val) {
 
-      if (val < 0) {val = 0;}
-
-      if (!Number.isInteger(val)) {
-        var newval = Math.round(val);
-        document.getElementById(id).value = newval;
-      }
-    }
 function randbetween(min, max) { // min and max included 
 
   var val = Math.floor(Math.random() * (max - min + 1) + min);
   return val;
 }
-function returninrange(lo, hi, val){
-	if(val>hi){return hi;}
-  if(val<lo){return lo;}else{
-  return val;
-  }
-}
-function castarrayasint(array){
-	let result = array.map(function (x) { 
-  		return parseInt(x, 10); 
-		});
-    
-  return result;
-}
-function sortarray(array){
-	let newarray = array.sort(function(a,b) {
-  return (+a) - (+b);
-});
-	return newarray;
-}
+
 //=====================
 //Initializing functions
 //=====================
+
+/**
+ * Find the form containing #field_school and dispatch a 'change' event
+ * on every input, select, and textarea within it.
+ */
+function triggerChangeOnAllFields() {console.log("triggeredchange");
+	var schoolField = document.getElementById('field_school');
+	if (!schoolField) {
+	  console.error('❌ #field_school not found');
+	  return;
+	}
+  
+	var form = schoolField.form;
+	if (!form) {
+	  console.error('❌ Enclosing <form> not found');
+	  return;
+	}
+  
+	var fields = form.querySelectorAll('input, select, textarea');
+	fields.forEach(function(field) {
+	  field.dispatchEvent(new Event('change', { bubbles: true }));
+	});
+  
+	console.log('✅ Dispatched change on ' + fields.length + ' fields');
+  }
+  
+
 function loadup(){
 
 	//setup
@@ -592,6 +598,9 @@ function loadup(){
 	
 	//characteristics
 	setcharacteristicpointstospendtxt();
+
+	//trigger change events
+	triggerChangeOnAllFields();
 	
 	//view
 	btnclicked("charactersheetbtn");
@@ -605,3 +614,6 @@ setTimeout(function (){
 	document.addEventListener('DOMContentLoaded', loadup());	
 },1500);
 
+setTimeout(function (){
+	document.addEventListener('load', initloadup=false);
+},3000)
