@@ -203,6 +203,7 @@ function createwoundminiwindow(btn) {
 
   overlay.append(btnbar, createWoundsSummarySection(), container);
   btn.appendChild(overlay);
+ document.addEventListener('click', handleOutsideWoundClick); // ✅ Add listener here
 
   
   overviewSection.append(
@@ -347,3 +348,15 @@ function addHistoryEntry(type, amtStr, heal) {
   p.textContent = `${type}: ${amtStr} – heal: ${heal} – ${ts}`;
   histContent.appendChild(p);
 }
+
+function handleOutsideWoundClick(e) {
+  const overlay = document.querySelector('.wound-overlay');
+  if (!overlay) return;
+
+  const woundsButton = document.querySelector('div[title="Wounds"]');
+  if (!woundsButton.contains(e.target)) {
+    overlay.classList.add('hidden');
+    document.removeEventListener('click', handleOutsideWoundClick);
+  }
+}
+
