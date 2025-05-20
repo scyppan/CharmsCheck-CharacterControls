@@ -64,7 +64,7 @@ function overviewtab() {
 
   // Add placeholder demographics
   demographicsList.appendChild(charnameli);
-  demographicsList.appendChild(createDemoItem('Canon:', currentchar.meta.s4ee3));
+  demographicsList.appendChild(createDemoItem('Canon:', currentchar.meta.s4ee3 || "No"));
   demographicsList.appendChild(createDemoItem('Birthdate:', createBirthdate()));
   demographicsList.appendChild(createDemoItem('School:', currentchar.meta.school));
   demographicsList.appendChild(createDemoItem('Eminence Points:', eminencePoints));
