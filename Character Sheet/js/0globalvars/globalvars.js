@@ -51,4 +51,3 @@ let totallightwounds=0;
 
 let forceloadfromnetwork=[];
 
-var outsideListenerActive = false; //for wound tracker window

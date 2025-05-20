@@ -204,12 +204,6 @@ function createwoundminiwindow(btn) {
   overlay.append(btnbar, createWoundsSummarySection(), container);
   btn.appendChild(overlay);
 
-  if (!outsideListenerActive) {
-    document.addEventListener('click', handleOutsideWoundClick);
-    outsideListenerActive = true;
-  }
-
-
   overviewSection.append(
     createInjuryBreakdownSection(),
     createHistorySection()
@@ -353,14 +347,22 @@ function addHistoryEntry(type, amtStr, heal) {
   histContent.appendChild(p);
 }
 
-function handleOutsideWoundClick(e) {
+function handleWoundOverlayClick(e) {
   var overlay = document.querySelector('.wound-overlay');
-  if (!overlay) return;
+  if (!overlay || overlay.classList.contains('hidden')) return;
 
-  // only act if overlay is visible and click is outside it
-  if (!overlay.classList.contains('hidden') && !overlay.contains(e.target)) {
+  var woundsButton = document.querySelector('div[title="Wounds"]');
+  var textModal = document.getElementById('text-modal');
+  var rollModal = document.getElementById('roll-modal');
+
+  if (
+    !overlay.contains(e.target) &&
+    !woundsButton.contains(e.target) &&
+    !(textModal && textModal.contains(e.target)) &&
+    !(rollModal && rollModal.contains(e.target))
+  ) {
     overlay.classList.add('hidden');
-    document.removeEventListener('click', handleOutsideWoundClick);
-    outsideListenerActive = false;
   }
 }
+
+document.addEventListener('click', handleWoundOverlayClick);
