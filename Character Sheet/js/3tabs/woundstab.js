@@ -203,9 +203,13 @@ function createwoundminiwindow(btn) {
 
   overlay.append(btnbar, createWoundsSummarySection(), container);
   btn.appendChild(overlay);
- document.addEventListener('click', handleOutsideWoundClick); // ✅ Add listener here
 
-  
+  if (!outsideListenerActive) {
+    document.addEventListener('click', handleOutsideWoundClick);
+    outsideListenerActive = true;
+  }
+
+
   overviewSection.append(
     createInjuryBreakdownSection(),
     createHistorySection()
@@ -216,15 +220,15 @@ function createwoundminiwindow(btn) {
 
 const createInjuryActionTable = () => {
   const injuryTypes = [
-    'Cuts/Scratches','Abrasions/Scrapes','Slashes/Gashes',
-    'Punctures/Piercing','Gouges','Burns','Disease/Toxic',
-    'Blunt force/Crushing','Despairing/Depressing',
-    'Terror/Anxiety-inducing','Sanity-shaking',
-    'Eruption/Explosion','Vital'
+    'Cuts/Scratches', 'Abrasions/Scrapes', 'Slashes/Gashes',
+    'Punctures/Piercing', 'Gouges', 'Burns', 'Disease/Toxic',
+    'Blunt force/Crushing', 'Despairing/Depressing',
+    'Terror/Anxiety-inducing', 'Sanity-shaking',
+    'Eruption/Explosion', 'Vital'
   ];
-  const levels = ['Heavy','Medium','Light'];
+  const levels = ['Heavy', 'Medium', 'Light'];
   const codeMap = { Heavy: 'H', Medium: 'M', Light: 'L' };
-  const lightUnits = { H: 3, M: 3*3, L: 1 }; 
+  const lightUnits = { H: 3, M: 3 * 3, L: 1 };
   // Note: 1M = 3L, 1H = 2M = 6L
 
   const table = document.createElement('table');
@@ -290,7 +294,7 @@ function attachWoundHandler(button, type, amtStr, lightDelta) {
     // 3) parse severity & amount
     const code = amtStr.slice(-1); // 'H'|'M'|'L'
     const severity = { H: 'Heavy', M: 'Medium', L: 'Light' }[code];
-    const amount   = Math.abs(parseInt(amtStr, 10));
+    const amount = Math.abs(parseInt(amtStr, 10));
 
     // 4) decide event type
     const isHeal = lightDelta < 0;
@@ -333,7 +337,7 @@ function attachWoundHandler(button, type, amtStr, lightDelta) {
 
 function updateWoundsSummary() {
   const totals = normalizeWounds(totallightwounds);
-  ['heavy','medium','light'].forEach(level => {
+  ['heavy', 'medium', 'light'].forEach(level => {
     document
       .querySelectorAll(`.wt-count[data-level="${level}"]`)
       .forEach(span => span.textContent = totals[level]);
@@ -350,13 +354,14 @@ function addHistoryEntry(type, amtStr, heal) {
 }
 
 function handleOutsideWoundClick(e) {
-  const overlay = document.querySelector('.wound-overlay');
+  var overlay = document.querySelector('.wound-overlay');
   if (!overlay) return;
 
-  const woundsButton = document.querySelector('div[title="Wounds"]');
-  if (!woundsButton.contains(e.target)) {
+  // only act if overlay is visible and click is outside it
+  if (!overlay.classList.contains('hidden') && !overlay.contains(e.target)) {
     overlay.classList.add('hidden');
     document.removeEventListener('click', handleOutsideWoundClick);
+    outsideListenerActive = false;
   }
 }
 
