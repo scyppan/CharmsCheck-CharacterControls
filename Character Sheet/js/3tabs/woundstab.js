@@ -364,4 +364,3 @@ function handleOutsideWoundClick(e) {
     outsideListenerActive = false;
   }
 }
-
