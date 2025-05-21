@@ -14,7 +14,7 @@ function getrollresult(rollobj) {
         case "defense":
         case "transfiguration":
             rollobj.total =
-                rollobj.dice + rollobj.ability +
+                rollobj.dice + rollobj.ability + rollobj.skill +
                 rollobj.wand + rollobj.iteminhand +
                 rollobj.accessories + rollobj.inventory;
             break;
