@@ -43,11 +43,11 @@
   padding: 20px;
 }
 
-.btn {
+tabcontent.btn {
   color: #706958 !important;
 }
 
-button {
+tabcontent.button {
   font-size: 12px !important;
   font-weight: normal !important;
   padding-left: 7px !important;
