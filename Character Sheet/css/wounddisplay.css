@@ -115,19 +115,19 @@ div[title="Wounds"] {
     box-shadow: 0 0 0 3px rgba(211,47,47,0.4) !important;
   }
   
-  /* showTextModal lower-left, muted-red theme */
-  #text-modal {
+  div[title="Wounds"] .wound-overlay {
+    font-size:12px;
     position: fixed;
-    bottom: 1rem;
-    left:   1rem;
-    width:  300px;
-    background: #9c7272;
-    border:     1px solid #e8bebe;
-    border-radius: 8px;
-    box-shadow:    0 2px 8px rgba(0,0,0,0.2);
-    padding: 0.5rem 1rem 1rem;
-    font-family: sans-serif;
-    z-index: 1001;
+    top: 50%;
+    left: 15%; 
+    transform: translateY(-50%);
+    width: 50%;
+    height: 80vh;
+    background: #ccbaba;
+    box-shadow: -2px 0 8px rgba(0,0,0,0.3);
+    padding: 7px;
+    overflow-y: auto;
+    z-index: 1000;
   }
   
   /* Minimized state hides content */
