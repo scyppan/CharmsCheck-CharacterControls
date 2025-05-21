@@ -5,20 +5,20 @@
 }
 
 #potiontabbuttonbar button {
-  background-color: rgba(74, 56, 77, 0.87);  /* #4a384d */
-  color: rgba(225, 211, 227, 0.87);           /* #e1d3e3 */
-  padding: 3px;
-  border: none;
+  background-color: rgba(74, 56, 77, 0.87) !important;  /* #4a384d */
+  color: rgba(225, 211, 227, 0.87) !important;           /* #e1d3e3 */
+  padding: 3px !important;
+  border: none !important;
 }
 
 #potiontabbuttonbar button:hover {
-  background-color: rgba(94, 78, 95, 0.87);   /* slightly lighter */
-  cursor: pointer;
+  background-color: rgba(94, 78, 95, 0.87) !important;   /* slightly lighter */
+  cursor: pointer !important;
 }
 
 #potiontabbuttonbar button.active {
-  background-color: rgba(225, 211, 227, 0.87); /* #e1d3e3 */
-  color: rgba(74, 56, 77, 0.87);               /* #4a384d */
+  background-color: rgba(225, 211, 227, 0.87) !important; /* #e1d3e3 */
+  color: rgba(74, 56, 77, 0.87) !important;               /* #4a384d */
 }
 
   

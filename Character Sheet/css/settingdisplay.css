@@ -5,22 +5,21 @@
 }
 
 #settingstabbuttonbar button {
-  background-color: rgba(51, 51, 51, 0.87);   /* deep grey #333333 */
-  color: rgba(204, 204, 204, 0.87);            /* light grey #cccccc */
-  padding: 3px;
-  border: none;
+  background-color: rgba(51, 51, 51, 0.87) !important;   /* deep grey #333333 */
+  color: rgba(204, 204, 204, 0.87) !important;            /* light grey #cccccc */
+  padding: 3px !important;
+  border: none !important;
 }
 
 #settingstabbuttonbar button:hover {
-  background-color: rgba(71, 71, 71, 0.87);    /* slightly lighter deep grey */
-  cursor: pointer;
+  background-color: rgba(71, 71, 71, 0.87) !important;    /* slightly lighter deep grey */
+  cursor: pointer !important;
 }
 
 #settingstabbuttonbar button.active {
-  background-color: rgba(204, 204, 204, 0.87); /* light grey */
-  color: rgba(51, 51, 51, 0.87);               /* deep grey */
+  background-color: rgba(204, 204, 204, 0.87) !important; /* light grey */
+  color: rgba(51, 51, 51, 0.87) !important;               /* deep grey */
 }
-
 
 /* cache & history panes */
 #cacheminiwindow,
@@ -50,14 +49,14 @@
 
 /* fetch/clear buttons */
 #settingsminiwindow li button {
-  padding: 3px;
-  border: 1px solid #bbb;
-  background: rgba(51, 51, 51, 0.87); 
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background 0.2s;
+  padding: 3px !important;
+  border: 1px solid #bbb !important;
+  background: rgba(51, 51, 51, 0.87) !important; 
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  transition: background 0.2s !important;
 }
 
 #settingsminiwindow li button:hover {
-  background: rgba(82, 80, 80, 0.87); 
+  background: rgba(82, 80, 80, 0.87) !important; 
 }

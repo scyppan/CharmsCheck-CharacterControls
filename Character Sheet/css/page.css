@@ -9,21 +9,21 @@ body{
 }
 
 .btn {
-    display: inline-flex;     /* so button shrinks to its text */
-    flex: 0 0 auto;           /* don't grow or shrink to fill space */
-    align-self: flex-start;   /* don't stretch vertically in the column */
-    width: auto;              /* override any 100% width rules */
-    min-width: 35px;          /* optional minimum size */
+    display: inline-flex !important;     /* so button shrinks to its text */
+    flex: 0 0 auto !important;           /* don't grow or shrink to fill space */
+    align-self: flex-start !important;   /* don't stretch vertically in the column */
+    width: auto !important;              /* override any 100% width rules */
+    min-width: 35px !important;          /* optional minimum size */
     
-    align-items: center;
-    justify-content: center;
+    align-items: center !important;
+    justify-content: center !important;
   
-    border: 1px solid grey;
-    border-radius: 12px;
-    margin: 3px;
-    padding: 0 7px;
-    box-sizing: border-box;
-    cursor: pointer;
+    border: 1px solid grey !important;
+    border-radius: 12px !important;
+    margin: 3px !important;
+    padding: 0 7px !important;
+    box-sizing: border-box !important;
+    cursor: pointer !important;
   }
   
   a {

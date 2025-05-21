@@ -15,14 +15,14 @@
   }
   
   #pettabbuttonbar button:hover {
-    background: #e0e0e0;
-    cursor: pointer;
+    background: #e0e0e0 !important;
+    cursor: pointer !important; 
   }
   
   #pettabbuttonbar button.active {
-    background: #333;
-    color: #fff;
-    border-color: #333;
+    background: #333 !important;
+    color: #fff !important;
+    border-color: #333 !important;
   }
   
   /* =======================

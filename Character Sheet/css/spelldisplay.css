@@ -8,18 +8,18 @@
   }
 
   #spelltabbuttonbar button {
-    background-color: rgba(66, 82, 70, 0.87);
-    color: rgba(204, 218, 207, 0.87);
-    padding: 3px;
+    background-color: rgba(66, 82, 70, 0.87) !important;
+    color: rgba(204, 218, 207, 0.87) !important;
+    padding: 3px !important;
   }
   
   #spelltabbuttonbar button.active {
-    background-color: rgba(204, 218, 207, 0.87);
-    color: rgba(66, 82, 70, 0.87);
+    background-color: rgba(204, 218, 207, 0.87) !important;
+    color: rgba(66, 82, 70, 0.87) !important;
   }
 
   #spelltabbuttonbar button:hover {
-    background-color: rgba(80, 95, 84, 0.87);
+    background-color: rgba(80, 95, 84, 0.87) !important;
   }
   
   /* =======================

@@ -44,16 +44,16 @@
 }
 
 .btn {
-  color: #706958;
+  color: #706958 !important;
 }
 
 button {
-  font-size: 12px;
-  font-weight: normal;
-  padding-left: 7px;
-  padding-right: 7px;
-  padding-top: 3px;
-  padding-bottom: 0px;
+  font-size: 12px !important;
+  font-weight: normal !important;
+  padding-left: 7px !important;
+  padding-right: 7px !important;
+  padding-top: 3px !important;
+  padding-bottom: 0px !important;
 }
 
 span{

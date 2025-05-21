@@ -9,25 +9,25 @@
 
 /* Top-level category buttons */
 #relationshiptabbuttonbar button {
-    padding: 0.4rem 0.8rem;
-    background-color: #fff9cc;
-    color: #b38f00;
-    border: 1px solid #b38f00;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    transition: background-color 0.2s ease, border-color 0.2s ease;
+    padding: 0.4rem 0.8rem !important;
+    background-color: #fff9cc !important;
+    color: #b38f00 !important;
+    border: 1px solid #b38f00 !important;
+    border-radius: 5px !important;
+    cursor: pointer !important;
+    font-weight: bold !important;
+    transition: background-color 0.2s ease, border-color 0.2s ease !important;
 }
 
 #relationshiptabbuttonbar button:hover {
-    background-color: #fff2a8;
-    border-color: #ccaa00;
+    background-color: #fff2a8 !important;
+    border-color: #ccaa00 !important;
 }
 
 #relationshiptabbuttonbar button.active {
-    background-color: #ffe066;
-    color: #5c4a00;
-    border-color: #b38f00;
+    background-color: #ffe066 !important;
+    color: #5c4a00 !important;
+    border-color: #b38f00 !important;
 }
 
 /* Category section (collapsible) */

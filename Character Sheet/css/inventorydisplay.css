@@ -5,20 +5,20 @@
 }
 
 #inventorytabbuttonbar button {
-  background-color: rgba(77, 81, 107, 0.87);  /* #4d516b */
-  color: rgba(216, 219, 242, 0.87);           /* #d8dbf2 */
-  padding: 3px;
-  border: none;
+  background-color: rgba(77, 81, 107, 0.87) !important;  /* #4d516b */
+  color: rgba(216, 219, 242, 0.87)!important;           /* #d8dbf2 */
+  padding: 3px !important;
+  border: none !important;
 }
 
 #inventorytabbuttonbar button:hover {
-  background-color: rgba(97, 101, 127, 0.87); /* slightly lighter */
+  background-color: rgba(97, 101, 127, 0.87)!important; /* slightly lighter */
   cursor: pointer;
 }
 
 #inventorytabbuttonbar button.active {
-  background-color: rgba(216, 219, 242, 0.87); /* #d8dbf2 */
-  color: rgba(77, 81, 107, 0.87);               /* #4d516b */
+  background-color: rgba(216, 219, 242, 0.87)!important; /* #d8dbf2 */
+  color: rgba(77, 81, 107, 0.87)!important;               /* #4d516b */
 }
   
   

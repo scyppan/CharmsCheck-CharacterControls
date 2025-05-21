@@ -63,7 +63,7 @@ const iconbase = 'https://cdn.jsdelivr.net/gh/scyppan/CharmsCheck-CharacterContr
 function tabclick(tabname) {
 
   let tabcontent = document.getElementById('tabcontent');
-  tabcontent.innerHTML = ``;
+  if(!tabname=="Wounds") {tabcontent.innerHTML = ``;}
 
   switch (tabname) {
     case "Overview":
@@ -100,6 +100,4 @@ function tabclick(tabname) {
       tabcontent.innerHTML = `<h2>${tabname}</h2><p>Placeholder content for ${tabname}.</p>`;
       break;
   }
-
-
 }

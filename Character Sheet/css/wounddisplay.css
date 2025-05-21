@@ -72,47 +72,47 @@ div[title="Wounds"] {
   
   /* —— Red motif for the top-bar buttons —— */
   .wt-btnbar button {
-    margin: 3px;
-    background-color: #928585;
-    color: #FFF;
-    border-radius: 4px;
-    padding: 3px;
-    font-size: 11px;
-    font-weight: normal;
-    cursor: pointer;
-    transition: background-color 0.2s, border-color 0.2s;
+    margin: 3px !important;
+    background-color: #928585 !important;
+    color: #FFF !important;
+    border-radius: 4px !important;
+    padding: 3px !important;
+    font-size: 11px !important;
+    font-weight: normal !important;
+    cursor: pointer !important;
+    transition: background-color 0.2s, border-color 0.2s !important;
   }
   .wt-btnbar button:hover {
-    background-color: #796d6d;
+    background-color: #796d6d !important;
   }
   .wt-btnbar button:active {
-    background-color: #5c4f4f;
+    background-color: #5c4f4f !important;
   }
   .wt-btnbar button:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(211,47,47,0.4);
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(211,47,47,0.4) !important;
   }
   
   /* —— Red motif for table buttons, with 3px margin —— */
   .wt-action-table button {
-    margin: 3px;
-    background-color: #928585;
-    color: #FFF;
-    border-radius: 4px;
-    padding: 3px;
-    cursor: pointer;
-    transition: background-color 0.2s, border-color 0.2s;
+    margin: 3px !important;
+    background-color: #928585 !important;
+    color: #FFF !important;
+    border-radius: 4px !important;
+    padding: 3px !important;
+    cursor: pointer !important;
+    transition: background-color 0.2s, border-color 0.2s !important;
   }
   .wt-action-table button:hover {
-    background-color: #796d6d;
+    background-color: #796d6d !important;
   }
   .wt-action-table button:active {
-    background-color: #5c4f4f;
+    background-color: #5c4f4f !important;
   }
 
   .wt-action-table button:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(211,47,47,0.4);
+    outline: none !important;
+    box-shadow: 0 0 0 3px rgba(211,47,47,0.4) !important;
   }
   
   /* showTextModal lower-left, muted-red theme */
