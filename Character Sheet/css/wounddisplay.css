@@ -157,15 +157,15 @@ h6 {
   text-align: left;
 }
 
-.wt-effect{
-    padding-left: 3px;
+.wt-effect {
+  padding-left: 3px;
   padding-right: 3px;
   padding-bottom: 1px;
   padding-top: 1px;
   margin-right: 12px;
 }
 
-.wt-turns{
+.wt-turns {
   display: inline-block;
   padding-left: 3px;
   padding-right: 3px;
@@ -187,9 +187,9 @@ h6 {
 }
 
 /* static labels needn’t be editable */
-.unit-label{
+.unit-label {
   user-select: none;
   pointer-events: none;
   cursor: not-allowed !important;
-  
+
 }

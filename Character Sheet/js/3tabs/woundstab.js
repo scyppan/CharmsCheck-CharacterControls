@@ -31,7 +31,7 @@ function createWoundsSummarySection() {
   const left = document.createElement('div'); left.className = 'wt-half wt-left';
   const h6 = document.createElement('h6'); h6.textContent = 'Total Wounds';
   const ul = document.createElement('ul');
-  ['Heavy','Medium','Light'].forEach(l => {
+  ['Heavy', 'Medium', 'Light'].forEach(l => {
     const li = document.createElement('li');
     const label = document.createElement('span'); label.className = 'wt-label';
     label.textContent = `${l} wounds: `;
@@ -87,7 +87,14 @@ function createEffectItem(effect = '', turns = 0, val = 0) {
   const del = document.createElement('button'); del.textContent = '−';
   del.addEventListener('click', () => removeEffectItem(li));
 
+
+  spEf.tabIndex = 0;
+  spTu.tabIndex = 0;
+  spVa.tabIndex = 0;
+  lblVal.tabIndex = 0;
+
   li.append(spEf, spTu, lblTurns, spVa, lblVal, del);
+
   return li;
 }
 
@@ -108,7 +115,6 @@ function removeEffectItem(li) {
   console.log('removeEffectItem invoked');
   li.remove();
 }
-
 
 function createInjuryBreakdownSection() {
   const section = document.createElement('div');
