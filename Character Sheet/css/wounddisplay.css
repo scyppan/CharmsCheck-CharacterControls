@@ -264,11 +264,44 @@ h6 {
   padding-left: 0px !important; 
 }
 
+.wt-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;      /* delicate spacing */
+}
+
+/* lay out each <li> into exactly six “cells” */
 #wt-effects-list li {
- 
+  display: grid;
+  grid-template-columns:
+    2fr      /* 1. effect (editable) */
+    1fr      /* 2. turns remaining (editable) */
+    auto     /* 3. “Turns” label (static) */
+    1fr      /* 4. amount (editable) */
+    auto     /* 5. “Amount” label (static) */
+    auto;    /* 6. delete button */
+  
   justify-content: flex-start;
   text-align: left;
   display: flex;
   align-items: center;
   gap: 17px;       /* betwixt columns */
+}
+
+
+
+/* ensure editable spans are roomy */
+.wt-effect,
+.wt-turns,
+.wt-val {
+  display: inline-block;
+  min-width: 3rem;
+  padding: 0.25rem;
+}
+
+/* static labels needn’t be editable */
+.unit-label,
+.amount-label {
+  user-select: none;
+  pointer-events: none;
 }
