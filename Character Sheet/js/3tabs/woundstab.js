@@ -102,11 +102,18 @@ function genEditableSpan(cls, txt) {
   const sp = document.createElement('span');
   sp.className = cls;
   sp.textContent = txt;
-  sp.tabIndex = 0;                 // focusable
-  sp.contentEditable = true;       // always accepts keystrokes
+  sp.tabIndex = 0;
+  sp.contentEditable = true;
+
+  sp.addEventListener('focus', () => {
+    const range = document.createRange();
+    range.selectNodeContents(sp);
+    const sel = window.getSelection();
+    sel.removeAllRanges();
+    sel.addRange(range);
+  });
 
   sp.addEventListener('blur', () => {
-    sp.contentEditable = true;     // remain editable
     console.log('edited', cls, '→', sp.textContent);
   });
 
