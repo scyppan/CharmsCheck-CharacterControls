@@ -1,194 +1,204 @@
 /* make the button‐container a positioning context */
 div[title="Wounds"] {
-    position: relative;
-  }
-  
-  /* overlay as a child of the button container */
-  div[title="Wounds"] .wound-overlay {
-    font-size:12px;
-    position: fixed;
-    top: 50%;
-    left: 85px; 
-    transform: translateY(-50%);
-    width: 85vw;
-    height: 80vh;
-    background: #ccbaba;
-    box-shadow: -2px 0 8px rgba(0,0,0,0.3);
-    padding: 7px;
-    overflow-y: auto;
-    z-index: 1000;
-  }
+  position: relative;
+}
 
-  .wound-overlay table{
-    padding:3px !important;
-  }
+/* overlay as a child of the button container */
+div[title="Wounds"] .wound-overlay {
+  font-size: 12px;
+  position: fixed;
+  top: 50%;
+  left: 85px;
   
-  /* breathing room after the Injury Type column */
-  .wt-injuries-table th:first-child,
-  .wt-injuries-table td:first-child {
-    padding-right: 1.15rem;
-  }
-  
-  /* push the history details down */
-  .wt-history {
-    margin-top: 17px;
-    background-color: #928585;
-  }
-  
-  /* zebra-stripe the injury table */
-  .wt-injuries-table tbody tr:nth-child(even) {
-    background-color: #928585;
-  }
-  .wt-injuries-table tbody tr:nth-child(odd) {
-    background-color: #ccbaba;
-  }
-  
-  /* center heavy/medium/light columns */
-  .wt-injuries-table th:nth-child(n+2),
-  .wt-injuries-table td:nth-child(n+2) {
-    text-align: center;
-  }
-  
-  /* thick border under the header row */
-  .wt-injuries-table thead th {
-    border-bottom: 3px solid #333;
-  }
-  
-  /* collapse borders on the injury table */
-  .wt-injuries-table {
-    border-collapse: collapse;
-  }
-  
-  /* clear borders on the action table */
-  .wt-action-table {
-    border-collapse: collapse;
-    margin-top:7px; 
-  }
-  .wt-action-table th,
-  .wt-action-table td {
-    border: 1px solid #888;
-    padding: 3px;
-  }
-  
-  /* —— Red motif for the top-bar buttons —— */
-  .wt-btnbar button {
-    margin: 3px !important;
-    background-color: #928585 !important;
-    color: #FFF !important;
-    border-radius: 4px !important;
-    padding: 3px !important;
-    font-size: 11px !important;
-    font-weight: normal !important;
-    cursor: pointer !important;
-    transition: background-color 0.2s, border-color 0.2s !important;
-  }
-  .wt-btnbar button:hover {
-    background-color: #796d6d !important;
-  }
-  .wt-btnbar button:active {
-    background-color: #5c4f4f !important;
-  }
-  .wt-btnbar button:focus {
-    outline: none !important;
-    box-shadow: 0 0 0 3px rgba(211,47,47,0.4) !important;
-  }
-  
-  /* —— Red motif for table buttons, with 3px margin —— */
-  .wt-action-table button {
-    margin: 3px !important;
-    background-color: #928585 !important;
-    color: #FFF !important;
-    border-radius: 4px !important;
-    padding: 3px !important;
-    cursor: pointer !important;
-    transition: background-color 0.2s, border-color 0.2s !important;
-  }
-  .wt-action-table button:hover {
-    background-color: #796d6d !important;
-  }
-  .wt-action-table button:active {
-    background-color: #5c4f4f !important;
-  }
+  background: #ccbaba;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.3);
+  padding: 7px;
+  overflow-y: auto;
+  z-index: 1000;
+}
 
-  .wt-action-table button:focus {
-    outline: none !important;
-    box-shadow: 0 0 0 3px rgba(211,47,47,0.4) !important;
-  }
-  
-  div[title="Wounds"] .wound-overlay {
-    font-size:12px;
-    position: fixed;
-    top: 50%;
-    left: 15%; 
-    transform: translateY(-50%);
-    width: 50%;
-    height: 80vh;
-    background: #ccbaba;
-    box-shadow: -2px 0 8px rgba(0,0,0,0.3);
-    padding: 7px;
-    overflow-y: auto;
-    z-index: 1000;
-  }
-  
-  /* Minimized state hides content */
-  #text-modal.minimized .text-content,
-  #text-modal.minimized ul {
-    display: none;
-  }
-  
-  /* Toggle button */
-  #text-modal .text-toggle {
-    position: absolute;
-    top:    0.3rem;
-    right:  0.5rem;
-    width:  1.25rem;
-    height: 1.25rem;
-    border: none;
-    border-radius: 4px;
-    background: #cabdbd;
-    cursor: pointer;
-    font-size: 1rem;
-    line-height: 1;
-    transition: background-color 0.2s;
-  }
-  #text-modal .text-toggle:hover {
-    background: #644d4d;
-    color: #e0c4c4;
-  }
+.wt-injuries-table{
+  width: 100%
+}
 
-  #text-modal .text-toggle:focus {
-    outline: none;
-    box-shadow: 0 0 0 2px rgba(200,100,100,0.6);
-  }
-  
-  /* Content list */
-  #text-modal ul {
-    margin: 1.5rem 0 0 0;
-    padding: 0;
-    list-style: none;
-  }
-  #text-modal ul li {
-    margin-bottom: 0.5rem;
-    padding: 0.25rem;
-    border-radius: 4px;
-  }
-  
-  /* Damage vs Heal coloring */
-  #text-modal ul li.text-damage {
-    background: #f8e1e1;
-    color: rgb(110, 80, 80);
-  }
-  #text-modal ul li.text-heal {
-    background: #bccfbc;
-    color: rgb(59, 71, 59);
-  }
-  
+/* breathing room after the Injury Type column */
+.wt-injuries-table th:first-child,
+.wt-injuries-table td:first-child {  
+padding-right: 1.15rem;
+}
+
+/* push the history details down */
+.wt-history {
+  margin-top: 13px;
+  background-color: #e9dbdb1f;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+}
+
+/* zebra-stripe the injury table */
+.wt-injuries-table tbody tr:nth-child(even) {
+  background-color: #928585;
+}
+
+.wt-injuries-table tbody tr:nth-child(odd) {
+  background-color: #ccbaba;
+}
+
+/* center heavy/medium/light columns */
+.wt-injuries-table th:nth-child(n+2),
+.wt-injuries-table td:nth-child(n+2) {
+  text-align: center;
+}
+
+/* thick border under the header row */
+.wt-injuries-table thead th {
+  border-bottom: 3px solid #333;
+}
+
+/* collapse borders on the injury table */
+.wt-injuries-table {
+  border-collapse: collapse;
+}
+
+/* clear borders on the action table */
+.wt-action-table {
+  border-collapse: collapse;
+  margin-top: 7px;
+}
+
+.wt-action-table th,
+.wt-action-table td {
+  border: 1px solid #888;
+  padding: 3px;
+}
+
+/* —— Red motif for the top-bar buttons —— */
+.wt-btnbar button {
+  margin: 3px !important;
+  background-color: #928585 !important;
+  color: #FFF !important;
+  border-radius: 4px !important;
+  padding: 3px !important;
+  font-size: 11px !important;
+  font-weight: normal !important;
+  cursor: pointer !important;
+  transition: background-color 0.2s, border-color 0.2s !important;
+}
+
+.wt-btnbar button:hover {
+  background-color: #796d6d !important;
+}
+
+.wt-btnbar button:active {
+  background-color: #5c4f4f !important;
+}
+
+.wt-btnbar button:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.4) !important;
+}
+
+/* —— Red motif for table buttons, with 3px margin —— */
+.wt-action-table button {
+  margin: 3px !important;
+  background-color: #928585 !important;
+  color: #FFF !important;
+  border-radius: 4px !important;
+  padding: 3px !important;
+  cursor: pointer !important;
+  transition: background-color 0.2s, border-color 0.2s !important;
+}
+
+.wt-action-table button:hover {
+  background-color: #796d6d !important;
+}
+
+.wt-action-table button:active {
+  background-color: #5c4f4f !important;
+}
+
+.wt-action-table button:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.4) !important;
+}
+
+div[title="Wounds"] .wound-overlay {
+  font-size: 12px;
+  position: fixed;
+  top: 50%;
+  left: 15%;
+  transform: translateY(-50%);
+  width: 50%;
+  height: 80vh;
+  background: #ccbaba;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.3);
+  padding: 7px;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+/* Minimized state hides content */
+#text-modal.minimized .text-content,
+#text-modal.minimized ul {
+  display: none;
+}
+
+/* Toggle button */
+#text-modal .text-toggle {
+  position: absolute;
+  top: 0.3rem;
+  right: 0.5rem;
+  width: 1.25rem;
+  height: 1.25rem;
+  border: none;
+  border-radius: 4px;
+  background: #cabdbd;
+  cursor: pointer;
+  font-size: 1rem;
+  line-height: 1;
+  transition: background-color 0.2s;
+}
+
+#text-modal .text-toggle:hover {
+  background: #644d4d;
+  color: #e0c4c4;
+}
+
+#text-modal .text-toggle:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px rgba(200, 100, 100, 0.6);
+}
+
+/* Content list */
+#text-modal ul {
+  margin: 1.5rem 0 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+#text-modal ul li {
+  margin-bottom: 0.5rem;
+  padding: 0.25rem;
+  border-radius: 4px;
+}
+
+/* Damage vs Heal coloring */
+#text-modal ul li.text-damage {
+  background: #f8e1e1;
+  color: rgb(110, 80, 80);
+}
+
+#text-modal ul li.text-heal {
+  background: #bccfbc;
+  color: rgb(59, 71, 59);
+}
+
 /* ── Fully collapse panel but leave toggle visible ───────────────────── */
 #text-modal.minimized {
   background: transparent !important;
-  border: none           !important;
-  box-shadow: none       !important;
-  padding: 0             !important;
+  border: none !important;
+  box-shadow: none !important;
+  padding: 0 !important;
 }
 
 /* ── Hide all inner content ─────────────────────────────────────────── */
@@ -199,41 +209,66 @@ div[title="Wounds"] {
 
 /* ── Pin the toggle to the viewport’s LOWER-LEFT corner ───────────── */
 #text-modal.minimized .text-toggle {
-    position: fixed   !important;
-    top:      auto    !important;
-    bottom:   1rem    !important;
-    left:     1rem    !important;
-    right:    auto    !important;
-    transform:none    !important;
+  position: fixed !important;
+  top: auto !important;
+  bottom: 1rem !important;
+  left: 1rem !important;
+  right: auto !important;
+  transform: none !important;
 }
 
 #text-modal .text-toggle {
-    transition:
-      transform 1s ease,
-      top       1s ease,
-      right     1s ease,
-      bottom    1s ease,
-      left      1s ease;
-  }
-  
-  /* expanded state: top-right, no rotation */
-  #text-modal:not(.minimized) .text-toggle {
-    transform: rotate(0deg);
-    top:      0.3rem    !important;
-    right:    0.5rem    !important;
-    bottom:   auto      !important;
-    left:     auto      !important;
-  }
-  
-  /* minimized state: lower-left, full rotation */
-  #text-modal.minimized .text-toggle {
-    transform: rotate(360deg);
-    top:      auto      !important;
-    right:    auto      !important;
-    bottom:   1rem      !important;
-    left:     1rem      !important;
-  }
+  transition:
+    transform 1s ease,
+    top 1s ease,
+    right 1s ease,
+    bottom 1s ease,
+    left 1s ease;
+}
 
-  h6{
-    margin: 3px;
-  }
+/* expanded state: top-right, no rotation */
+#text-modal:not(.minimized) .text-toggle {
+  transform: rotate(0deg);
+  top: 0.3rem !important;
+  right: 0.5rem !important;
+  bottom: auto !important;
+  left: auto !important;
+}
+
+/* minimized state: lower-left, full rotation */
+#text-modal.minimized .text-toggle {
+  transform: rotate(360deg);
+  top: auto !important;
+  right: auto !important;
+  bottom: 1rem !important;
+  left: 1rem !important;
+}
+
+h6 {
+  margin: 3px;
+}
+
+.wt-outer {
+  display: flex;
+  
+  align-items: flex-start;
+}
+
+.wt-half {
+  flex: 1;          /* each half claims equal share */
+  min-width: 0;     /* prevent overflow */
+  width: 100%;
+}
+
+#wt-effects-list{
+  padding-left: 0px !important; 
+}
+
+#wt-effects-list li {
+ 
+  justify-content: flex-start;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  gap: 17px;       /* betwixt columns */
+}

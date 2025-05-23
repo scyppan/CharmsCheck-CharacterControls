@@ -56,6 +56,8 @@ function overviewtab() {
       }
     }
 
+    if(currentchar.meta.dead =="Yes"){charnamea.textContent += ' (dead)';}
+
     // 3. Optional: force next fetch to skip HTTP cache
     sessionStorage.setItem('force_fresh_api', 'true');
 

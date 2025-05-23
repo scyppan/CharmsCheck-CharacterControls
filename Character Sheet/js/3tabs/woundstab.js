@@ -21,36 +21,87 @@ function renderwoundstabui() {
   addSection.appendChild(createInjuryActionTable());
 }
 
+// ——— Section: summary & effects ———
 function createWoundsSummarySection() {
-  const section = document.createElement('div');
-  const h6 = document.createElement('h6');
-  h6.textContent = 'Total Wounds';
+  console.log('createWoundsSummarySection invoked');
 
+  const outer = document.createElement('div');
+  outer.className = 'wt-outer';
+
+  // left: wounds summary
+  const left = document.createElement('div');
+  left.className = 'wt-half wt-left';
+  const h6 = document.createElement('h6'); h6.textContent = 'Total Wounds';
   const ul = document.createElement('ul');
-
-  ['Heavy', 'Medium', 'Light'].forEach(level => {
+  ['Heavy','Medium','Light'].forEach(l => {
     const li = document.createElement('li');
-
-    // label for the type
-    const spanType = document.createElement('span');
-    spanType.className = 'wt-label';
-    spanType.textContent = `${level} wounds: `;
-
-    // span for the number, with an easy selector
-    const spanCount = document.createElement('span');
-    spanCount.className = 'wt-count';
-    spanCount.dataset.level = level.toLowerCase();
-    spanCount.textContent = '0';
-
-    li.append(spanType, spanCount);
-    ul.appendChild(li);
+    const label = document.createElement('span'); label.className = 'wt-label';
+    label.textContent = `${l} wounds: `;
+    const count = document.createElement('span'); count.className = 'wt-count';
+    count.dataset.level = l.toLowerCase(); count.textContent = '0';
+    li.append(label, count); ul.append(li);
   });
+  const note = document.createElement('p'); note.innerHTML = '<em>Note: 7 heavy wounds kills a human.</em>';
+  left.append(h6, ul, note);
 
-  const note = document.createElement('p');
-  note.innerHTML = '<em>Note: 7 heavy wounds kills a human.</em>';
+  // right: effects
+  const right = document.createElement('div'); right.className = 'wt-half wt-right';
+  const effects = document.createElement('div'); effects.id = 'wt-effects';
+  const eh6 = document.createElement('h6'); eh6.textContent = 'Current Effects';
+  const addBtn = document.createElement('button');
+  addBtn.id = 'wt-add-effect-btn';
+  addBtn.textContent = '+';
+  addBtn.addEventListener('click', handleAddEffect);
+  const list = document.createElement('ul'); list.id = 'wt-effects-list';
 
-  section.append(h6, ul, note);
-  return section;
+  const rightheaderspan=document.createElement('span');
+  rightheaderspan.appendChild(eh6, addBtn);
+  effects.append(list);
+  right.append(effects);
+
+  outer.append(left, right);
+  return outer;
+}
+
+// ——— Handlers ———
+function handleAddEffect() {
+  console.log('handleAddEffect invoked');
+  const list = document.getElementById('wt-effects-list');
+  if (!list) return console.warn('Effects list not found');
+  const item = createEffectItem();
+  list.append(item);
+}
+
+function createEffectItem(effect = '', turns = 0, val = 0) {
+  console.log('createEffectItem:', effect, turns, val);
+  const li = document.createElement('li');
+  const spEf = genEditableSpan('wt-effect', effect || 'new effect');
+  const spTu = genEditableSpan('wt-turns', turns);
+  const spVa = genEditableSpan('wt-val', val);
+  const del = document.createElement('button');
+  del.textContent = '-';
+  del.addEventListener('click', () => removeEffectItem(li));
+  li.append(spEf, spTu, spVa, del);
+  return li;
+}
+
+// helper for inline editing spans
+function genEditableSpan(cls, txt) {
+  const sp = document.createElement('span');
+  sp.className = cls; sp.textContent = txt;
+  sp.addEventListener('click', () => {
+    sp.contentEditable = true; sp.focus();
+    sp.addEventListener('blur', () => {
+      sp.contentEditable = false;
+      console.log('edited', cls, '→', sp.textContent);
+    }, { once: true });
+  });
+  return sp;
+}
+
+function removeEffectItem(li) {
+  console.log('removeEffectItem');
+  li.remove();
 }
 
 function createInjuryBreakdownSection() {
