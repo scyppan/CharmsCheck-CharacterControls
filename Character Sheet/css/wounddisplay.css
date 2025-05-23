@@ -19,8 +19,15 @@ div[title="Wounds"] .wound-overlay {
   z-index: 1000;
 }
 
+
+.wt-injuries {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .wt-injuries-table {
-  width: 100%;
+  width: 65%;
 }
 
 /* breathing room after the Injury Type column */

@@ -100,14 +100,16 @@ function createEffectItem(effect = '', turns = 0, val = 0) {
 
 function genEditableSpan(cls, txt) {
   const sp = document.createElement('span');
-  sp.className = cls; sp.textContent = txt;
-  sp.addEventListener('click', () => {
-    sp.contentEditable = true; sp.focus();
-    sp.addEventListener('blur', () => {
-      sp.contentEditable = false;
-      console.log('edited', cls, '->', sp.textContent);
-    }, { once: true });
+  sp.className = cls;
+  sp.textContent = txt;
+  sp.tabIndex = 0;                 // focusable
+  sp.contentEditable = true;       // always accepts keystrokes
+
+  sp.addEventListener('blur', () => {
+    sp.contentEditable = true;     // remain editable
+    console.log('edited', cls, '→', sp.textContent);
   });
+
   return sp;
 }
 
