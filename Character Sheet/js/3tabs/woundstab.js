@@ -70,8 +70,7 @@ function handleAddEffect() {
 
 function createEffectItem(effect = '', turns = 0, val = 0) {
   console.log('createEffectItem invoked');
-  const li = document.createElement('li');
-  li.className = 'wt-effect-item';
+  const li = document.createElement('li'); li.className = 'wt-effect-item';
 
   // 1. Effect
   const spEf = genEditableSpan('wt-effect', effect || 'new effect');
@@ -82,14 +81,12 @@ function createEffectItem(effect = '', turns = 0, val = 0) {
   lblTurns.textContent = 'Turns';
   // 4. Amount
   const spVa = genEditableSpan('wt-val', val);
-  // 5. static "Amount"
-  const lblVal = document.createElement('span'); lblVal.className = 'amount-label';
-  lblVal.textContent = 'Amount';
+  // 5. editable "Amount"
+  const lblVal = genEditableSpan('amount-label', 'Amount');
   // 6. delete button
   const del = document.createElement('button'); del.textContent = '−';
   del.addEventListener('click', () => removeEffectItem(li));
 
-  // assemble in grid order
   li.append(spEf, spTu, lblTurns, spVa, lblVal, del);
   return li;
 }
