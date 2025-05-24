@@ -29,7 +29,6 @@ async function fetchjson(url, skipHttpCache = false) {
 
 const fetchdata = (url, skipHttpCache = false) => fetchjson(url, skipHttpCache);
 
-
 /* ---------- cache helpers ---------- */
 function getCacheEntry(key) {
   try {
