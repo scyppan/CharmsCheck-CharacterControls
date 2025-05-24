@@ -6,6 +6,7 @@
   /* children start at left */
   border: 3px solid #615e4c;
   border-radius: 3px;
+  margin-top: 13px;
 }
 
 .charsheet-tabs {
