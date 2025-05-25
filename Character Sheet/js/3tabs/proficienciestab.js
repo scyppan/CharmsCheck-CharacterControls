@@ -214,6 +214,7 @@ function createproficiencyplate(proficiencyname) {
     btn.className   = 'proficiency-plate';
     btn.textContent = proficiencyname;
     btn.title='This record not found in the database.';
+    return btn;
     }
 
     const desc       = record.meta.e3usn;
