@@ -44,7 +44,7 @@ async function getDataset(key) {
         datasetinfo[key].assignedfrom = "db";
         let data = fetchfresh(formId);
         setCacheEntry(key, data);
-        
+        return data;
     } else {
         console.log("getting cached data");
         const cache = getCacheEntry(`cache_${key}`);
