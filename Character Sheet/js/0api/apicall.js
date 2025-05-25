@@ -119,28 +119,28 @@ async function checkdblastupdated(formid) {
     return last_updated;
 }
 
-const getcharacters      = async () => globalThis.characters      = characters      = await getDataset('characters');
-const gettraits          = async () => globalThis.traits          = traits          = await getDataset('traits');
-const getaccessories     = async () => globalThis.accessories     = accessories     = await getDataset('accessories');
-const getwands           = async () => globalThis.wands           = wands           = await getDataset('wands');
-const getwandwoods       = async () => globalThis.wandwoods       = wandwoods       = await getDataset('wandwoods');
-const getwandcores       = async () => globalThis.wandcores       = wandcores       = await getDataset('wandcores');
-const getwandqualities   = async () => globalThis.wandqualities   = wandqualities   = await getDataset('wandqualities');
-const getspells          = async () => globalThis.spells          = spells          = await getDataset('spells');
-const getbooks           = async () => globalThis.books           = books           = await getDataset('books');
-const getschools         = async () => globalThis.schools         = schools         = await getDataset('schools');
-const getproficiencies   = async () => globalThis.proficiencies   = proficiencies   = await getDataset('proficiencies');
-const getpotions         = async () => globalThis.potions         = potions         = await getDataset('potions');
-const getnamedcreatures  = async () => globalThis.namedcreatures  = namedcreatures  = await getDataset('namedcreatures');
-const getitems           = async () => globalThis.items           = items           = await getDataset('items');
-const getitemsinhand     = async () => globalThis.itemsinhand     = itemsinhand     = await getDataset('itemsinhand');
-const getgeneralitems    = async () => globalThis.generalitems    = generalitems    = await getDataset('generalitems');
-const getcreatures       = async () => globalThis.creatures       = creatures       = await getDataset('creatures');
-const getcreatureparts   = async () => globalThis.creatureparts   = creatureparts   = await getDataset('creatureparts');
-const getplants          = async () => globalThis.plants          = plants          = await getDataset('plants');
-const getplantparts      = async () => globalThis.plantparts      = plantparts      = await getDataset('plantparts');
-const getpreparations    = async () => globalThis.preparations    = preparations    = await getDataset('preparations');
-const getfooddrink       = async () => globalThis.fooddrink       = fooddrink       = await getDataset('fooddrink');
+const getcharacters      = async () => characters      = characters      = await getDataset('characters');
+const gettraits          = async () => traits          = traits          = await getDataset('traits');
+const getaccessories     = async () => accessories     = accessories     = await getDataset('accessories');
+const getwands           = async () => wands           = wands           = await getDataset('wands');
+const getwandwoods       = async () => wandwoods       = wandwoods       = await getDataset('wandwoods');
+const getwandcores       = async () => wandcores       = wandcores       = await getDataset('wandcores');
+const getwandqualities   = async () => wandqualities   = wandqualities   = await getDataset('wandqualities');
+const getspells          = async () => spells          = spells          = await getDataset('spells');
+const getbooks           = async () => books           = books           = await getDataset('books');
+const getschools         = async () => schools         = schools         = await getDataset('schools');
+const getproficiencies   = async () => proficiencies   = proficiencies   = await getDataset('proficiencies');
+const getpotions         = async () => potions         = potions         = await getDataset('potions');
+const getnamedcreatures  = async () => namedcreatures  = namedcreatures  = await getDataset('namedcreatures');
+const getitems           = async () => items           = items           = await getDataset('items');
+const getitemsinhand     = async () => itemsinhand     = itemsinhand     = await getDataset('itemsinhand');
+const getgeneralitems    = async () => generalitems    = generalitems    = await getDataset('generalitems');
+const getcreatures       = async () => creatures       = creatures       = await getDataset('creatures');
+const getcreatureparts   = async () => creatureparts   = creatureparts   = await getDataset('creatureparts');
+const getplants          = async () => plants          = plants          = await getDataset('plants');
+const getplantparts      = async () => plantparts      = plantparts      = await getDataset('plantparts');
+const getpreparations    = async () => preparations    = preparations    = await getDataset('preparations');
+const getfooddrink       = async () => fooddrink       = fooddrink       = await getDataset('fooddrink');
 
 
 // await fetchfresh(8);
