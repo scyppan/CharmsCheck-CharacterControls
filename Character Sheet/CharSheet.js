@@ -29,8 +29,9 @@ async function initApp() {
 	];
 	const js = [
 	  //'js/0globalvars/globalvars.js',
-	  //'js/0api/cache.js','js/0api/loadgiflogic.js',
-	  'js/0api/idleloader.js','js/0api/apicall.js',
+	  //'js/0api/cache.js','js/0api/idleloader.js'
+	  'js/0api/loadgiflogic.js',
+	  ,'js/0api/apicall.js',
 	  'js/0tools/tools.js',
 	  'js/1htmlelements/searchbox.js','js/1htmlelements/charsheetsetup.js',
 	  'js/2loadchar/loadchar.js',
