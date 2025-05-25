@@ -1,3 +1,9 @@
+/* ========================================================================
+   abstracted dataset fetch/cache module — WITH VERBOSE LOGGING
+   (requires: cache_ttl, cache_meta, and your `let`-globals declared elsewhere)
+   Steps: 1) cache → 2) API → 3) throw if still empty
+   ===================================================================== */
+
 /* ---------- network helpers ---------- */
 async function fetchjson(url, skipHttpCache = false) {
   // 1) build cache-busting suffix if needed
@@ -21,7 +27,28 @@ async function fetchjson(url, skipHttpCache = false) {
   throw new Error(`HTTP ${res.status}`);
 }
 
+<<<<<<< HEAD
 const fetchdata = (url, skipHttpCache = false) => fetchjson(url, skipHttpCache);
+
+/* ---------- cache helpers ---------- */
+function getCacheEntry(key) {
+  try {
+    const raw = localStorage.getItem(key);
+    if (!raw) return null;
+    const { ts, data } = JSON.parse(raw);
+    if (Date.now() - ts < cache_ttl) return { ts, data };
+    localStorage.removeItem(key);
+  } catch (e) {
+    localStorage.removeItem(key);
+  }
+  return null;
+}
+
+function setCacheEntry(key, data) {
+  try {
+    localStorage.setItem(key, JSON.stringify({ ts: Date.now(), data }));
+  } catch (e) {}
+}
 
 /* ---------- normaliser ---------- */
 function toArray(raw) {
@@ -35,21 +62,91 @@ function assign(name, arr) {
 }
 
 /* ---------- generic getter ---------- */
-async function getDataset(name, url, checkCache = false, forceApi = false) {
-  console.log(`[getDataset:${name}] fetching from API`);
-  const rawJson = await fetchjson(url, true);
+async function getDataset(name, url, checkCache = true, forceApi = false) {
+  const key = `cache_${name}`;
 
+  if (forceApi) {
+    url = url + (url.includes('?') ? '&' : '?') + 'bust=1';
+  }
+  
+  const networkOnly = Array.isArray(forceloadfromnetwork) &&
+                      forceloadfromnetwork.indexOf(name) !== -1;
+  const skipLocal = forceApi || networkOnly;
+
+  console.log(
+    `[getDataset:${name}] checkCache=${checkCache}, forceApi=${forceApi}, networkOnly=${networkOnly}`
+  );
+
+  // 1) In-memory cache (only if not forcing API)
+  if (!skipLocal) {
+    const inMem = globalThis[name];
+    if (Array.isArray(inMem) && inMem.length) {
+      console.log(`[getDataset:${name}] returned ${inMem.length} from memory`);
+      return inMem;
+    }
+  }
+
+  // 2) Local-storage cache
+  if (checkCache && !skipLocal) {
+    try {
+      const raw = localStorage.getItem(key);
+      if (raw) {
+        const { ts, data } = JSON.parse(raw);
+        if (Date.now() - ts < cache_ttl) {
+          const arr = Array.isArray(data) ? data : Object.values(data || {});
+          assign(name, arr);
+          cache_meta.push({ dataset: name, lastcache: new Date(ts) });
+          console.log(`[getDataset:${name}] returned ${arr.length} from localStorage`);
+          return arr;
+        } else {
+          localStorage.removeItem(key);
+          console.log(`[getDataset:${name}] cache expired, removed`);
+        }
+      }
+    } catch (e) {
+      localStorage.removeItem(key);
+      console.warn(`[getDataset:${name}] cache parse error, cleared`, e);
+    }
+  }
+
+  // 3) Network fetch (first attempt, retry once with cache-bust on error)
+  let rawJson;
+  try {
+    rawJson = await fetchjson(url, skipLocal);
+  } catch (err) {
+    console.warn(
+      `[getDataset:${name}] fetch error (${err.message}), retrying with cache-bust`
+    );
+    localStorage.removeItem(key);
+    rawJson = await fetchjson(url, true);
+  }
+
+  // 4) If the proxy sent back an error object, purge and throw
   if (rawJson && rawJson.error) {
+    localStorage.removeItem(key);
     throw new Error(rawJson.error);
   }
 
+  // 5) Normalize & assign into memory
   const arr = Array.isArray(rawJson) ? rawJson : Object.values(rawJson || {});
   assign(name, arr);
 
+  // 6) Write-through to localStorage only on valid, non-empty arrays
+  if (arr.length) {
+    try {
+      localStorage.setItem(key, JSON.stringify({ ts: Date.now(), data: arr }));
+    } catch (e) {
+      console.warn(`[getDataset:${name}] could not write to localStorage`, e);
+    }
+  }
+
+  cache_meta.push({ dataset: name, lastcache: new Date() });
+  console.log(`[getDataset:${name}] fetched ${arr.length} from API`);
+
+  // 7) Validate final result
   if (!arr.length) {
     throw new Error(`no ${name} entries`);
   }
-
   return arr;
 }
 
@@ -76,3 +173,83 @@ const getplants         = (...a) => getDataset('plants',         'https://charms
 const getplantparts     = (...a) => getDataset('plantparts',     'https://charmscheck.com/wp-admin/admin-ajax.php?action=get_form_data&form=43',   ...a);
 const getpreparations   = (...a) => getDataset('preparations',   'https://charmscheck.com/wp-admin/admin-ajax.php?action=get_form_data&form=908',  ...a);
 const getfooddrink      = (...a) => getDataset('fooddrink',      'https://charmscheck.com/wp-admin/admin-ajax.php?action=get_form_data&form=67',   ...a);
+
+async function forcefetchapi(key) {
+  console.log("FORCEFETCHAPI for", key);
+  const fnName = 'get' + key;            // e.g. "gettraits"
+  let fn;
+  try {
+    fn = eval(fnName);
+  } catch (e) {
+    console.error(`No function named ${fnName}()`);
+    return;
+  }
+  if (typeof fn !== 'function') {
+    console.error(`${fnName} is not a function`);
+    return;
+  }
+
+  const cacheKey = `cache_${key}`;
+
+  // 1) Purge old cache
+  try {
+    localStorage.removeItem(cacheKey);
+  } catch (e) {
+    console.warn(`Could not remove ${cacheKey} from localStorage`, e);
+  }
+  // Purge in-memory as well
+  if (Array.isArray(globalThis[key])) {
+    delete globalThis[key];
+  }
+
+  try {
+    // 2) Force a fresh API fetch
+    const data = await fn(false, true);
+
+    // 3) Validate we got an array back
+    if (!Array.isArray(data)) {
+      throw new Error(`Expected array, got ${typeof data}`);
+    }
+
+    // 4) Re-assign into memory
+    assign(key, data);
+
+    // 5) Re-cache on localStorage
+    try {
+      setCacheEntry(cacheKey, data);
+    } catch (e) {
+      console.warn(`Could not write ${cacheKey} to localStorage`, e);
+    }
+
+    console.log(`${fnName} force-fetched and cached ${data.length} items`);
+    return data;
+
+  } catch (err) {
+    console.error(`Error force fetching ${fnName}():`, err);
+    throw err;
+  }
+}
+=======
+const getcharacters      = async () => characters      = characters      = await fetchdata('/wp-admin/admin-ajax.php?action=get_form_data&form=972');
+const gettraits          = async () => traits          = traits          = await fetchdata('/wp-admin/admin-ajax.php?action=get_form_data&form=979');
+const getaccessories     = async () => accessories     = accessories     = await fetchdata('/wp-admin/admin-ajax.php?action=get_form_data&form=995');
+const getwands           = async () => wands           = wands           = await fetchdata('/wp-admin/admin-ajax.php?action=get_form_data&form=114');
+const getwandwoods       = async () => wandwoods       = wandwoods       = await fetchdata('/wp-admin/admin-ajax.php?action=get_form_data&form=120');
+const getwandcores       = async () => wandcores       = wandcores       = await fetchdata('/wp-admin/admin-ajax.php?action=get_form_data&form=116');
+const getwandqualities   = async () => wandqualities   = wandqualities   = await fetchdata('/wp-admin/admin-ajax.php?action=get_form_data&form=124');
+const getspells          = async () => spells          = spells          = await fetchdata('/wp-admin/admin-ajax.php?action=get_form_data&form=191');
+const getbooks           = async () => books           = books           = await fetchdata('/wp-admin/admin-ajax.php?action=get_form_data&form=8');
+const getschools         = async () => schools         = schools         = await fetchdata('/wp-admin/admin-ajax.php?action=get_form_data&form=3');
+const getproficiencies   = async () => proficiencies   = proficiencies   = await fetchdata('/wp-admin/admin-ajax.php?action=get_form_data&form=944');
+const getpotions         = async () => potions         = potions         = await fetchdata('/wp-admin/admin-ajax.php?action=get_form_data&form=34');
+const getnamedcreatures  = async () => namedcreatures  = namedcreatures  = await fetchdata('/wp-admin/admin-ajax.php?action=get_form_data&form=170');
+const getitems           = async () => items           = items           = await fetchdata('/wp-admin/admin-ajax.php?action=get_form_data&form=964');
+const getitemsinhand     = async () => itemsinhand     = itemsinhand     = await fetchdata('/wp-admin/admin-ajax.php?action=get_form_data&form=1085');
+const getgeneralitems    = async () => generalitems    = generalitems    = await fetchdata('/wp-admin/admin-ajax.php?action=get_form_data&form=126');
+const getcreatures       = async () => creatures       = creatures       = await fetchdata('/wp-admin/admin-ajax.php?action=get_form_data&form=48');
+const getcreatureparts   = async () => creatureparts   = creatureparts   = await fetchdata('/wp-admin/admin-ajax.php?action=get_form_data&form=53');
+const getplants          = async () => plants          = plants          = await fetchdata('/wp-admin/admin-ajax.php?action=get_form_data&form=2');
+const getplantparts      = async () => plantparts      = plantparts      = await fetchdata('/wp-admin/admin-ajax.php?action=get_form_data&form=43');
+const getpreparations    = async () => preparations    = preparations    = await fetchdata('/wp-admin/admin-ajax.php?action=get_form_data&form=908');
+const getfooddrink       = async () => fooddrink       = fooddrink       = await fetchdata('/wp-admin/admin-ajax.php?action=get_form_data&form=67');
+>>>>>>> parent of 29fb7dc (bug fixing)
