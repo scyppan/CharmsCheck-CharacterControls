@@ -24,40 +24,52 @@ const datasetinfo = {
 };
 
 async function getDataset(key) {
-    console.log(key);
-    //check when db was last updated
-    const formId = datasetinfo[key].formId;
-    const dblastupdated = await checkdblastupdated(formId);
+  const formId = datasetinfo[key];
+  const cachems = datasetinfo[key].lastcache || 0;
 
-    //check when data was last assigned
-    //check last assignment origin
-    //check when data was last cached
-    let lastdbcheck = datasetinfo[key].lastdbcheck;
-    let lastassigned = datasetinfo[key].lastassigned;
-    let assignedfrom = datasetinfo[key].assignedfrom;
-    let lastcache = datasetinfo[key].lastcache;
+  // fetch and parse WP’s last‐update
+  const dbstr = await checkdblastupdated(formId);
+  const dbms  = parse_wp_ts(dbstr);
 
-    //dblastupdated is newest
-    if (new Date(dblastupdated).getTime() > lastassigned) {
-        console.log("getting fresh data");
-        datasetinfo[key].lastassigned = new Date(dblastupdated).getTime();
-        datasetinfo[key].assignedfrom = "db";
-        let data = fetchfresh(formId);
-        setCacheEntry(key, data);
-        return data;
-    } else {
-        console.log("getting cached data");
-        const cache = getCacheEntry(`cache_${key}`);
-        
-        if (cache) {
-            datasetinfo[key].lastassigned = cache.ts;
-            datasetinfo[key].assignedfrom = 'cache';
-            return cache.data;
-        }
-        datasetinfo[key].lastassigned = Date.now();
-        datasetinfo[key].assignedfrom = 'db';
-        return fetchfresh(datasetinfo[key].formId);
-    }
+  // 1) DB is freshest → refetch
+  if (dbms > datadate && dbms > cachems) {
+    const data = await fetchfresh(formId);
+    setCacheEntry(key, data);
+    datasetinfo[key].lastcache = Date.now();
+    return data;
+  }
+
+  // 2) Cache is fresher than hardcode → use cache
+  if (cachems > datadate) {
+    return getCacheEntry(key);
+  }
+
+  // 3) Otherwise → fall back to baked‐in default
+  return null;
+}
+
+const parse_wp_ts = ts => Date.parse(ts.replace(' ', 'T') + 'Z');
+
+async function compare_hardcode_dblastupdate(formid) {
+  const dbstr = await checkdblastupdated(formid);        // e.g. '2025-05-24 01:23:47'
+  const dbms  = parse_wp_ts(dbstr);
+
+  if (dbms > datadate) return 'db';
+  if (dbms < datadate) return 'hardcode';
+  return 'identical';
+}
+
+async function compare_cache_dblastupdate(formid) {
+  const key = Object.keys(datasetinfo).find(k => datasetinfo[k].formId === formid);
+  if (!key) throw new Error(`unknown formid: ${formid}`);
+
+  const dbms    = parse_wp_ts(datasetinfo[key].dblastupdated ?? await checkdblastupdated(formid));
+  const cachems = datasetinfo[key].lastcache ?? 0;
+
+  if (!cachems)        return 'nocache';
+  if (cachems > dbms)  return 'cache';
+  if (cachems < dbms)  return 'db';
+  return 'identical';
 }
 
 function getCacheEntry(cacheKey) {
@@ -96,7 +108,7 @@ function setCacheEntry(key, data) {
 
 }
 
-async function fetchformdata(formId, bust = false) {
+async function fetchformdata(formId, bust = true) {
     const params = new URLSearchParams({ action: 'get_form_data', form: formId });
     if (bust) params.append('bust', '1');
     const res = await fetch(`/wp-admin/admin-ajax.php?${params}`, {
@@ -128,29 +140,28 @@ async function checkdblastupdated(formid) {
   return last_updated;
 }
 
-const getcharacters = async () => characters = characters = await getDataset('characters');
-const gettraits = async () => traits = traits = await getDataset('traits');
-const getaccessories = async () => accessories = accessories = await getDataset('accessories');
-const getwands = async () => wands = wands = await getDataset('wands');
-const getwandwoods = async () => wandwoods = wandwoods = await getDataset('wandwoods');
-const getwandcores = async () => wandcores = wandcores = await getDataset('wandcores');
-const getwandqualities = async () => wandqualities = wandqualities = await getDataset('wandqualities');
-const getspells = async () => spells = spells = await getDataset('spells');
-const getbooks = async () => books = books = await getDataset('books');
-const getschools = async () => schools = schools = await getDataset('schools');
-const getproficiencies = async () => proficiencies = proficiencies = await getDataset('proficiencies');
-const getpotions = async () => potions = potions = await getDataset('potions');
-const getnamedcreatures = async () => namedcreatures = namedcreatures = await getDataset('namedcreatures');
-const getitems = async () => items = items = await getDataset('items');
-const getitemsinhand = async () => itemsinhand = itemsinhand = await getDataset('itemsinhand');
-const getgeneralitems = async () => generalitems = generalitems = await getDataset('generalitems');
-const getcreatures = async () => creatures = creatures = await getDataset('creatures');
-const getcreatureparts = async () => creatureparts = creatureparts = await getDataset('creatureparts');
-const getplants = async () => plants = plants = await getDataset('plants');
-const getplantparts = async () => plantparts = plantparts = await getDataset('plantparts');
-const getpreparations = async () => preparations = preparations = await getDataset('preparations');
-const getfooddrink = async () => fooddrink = fooddrink = await getDataset('fooddrink');
-
+const getcharacters       = async ()=>{const d=await getDataset('characters');       return d==null?characters:       (characters=d)};
+const gettraits           = async ()=>{const d=await getDataset('traits');           return d==null?traits:           (traits=d)};
+const getaccessories      = async ()=>{const d=await getDataset('accessories');      return d==null?accessories:      (accessories=d)};
+const getwands            = async ()=>{const d=await getDataset('wands');            return d==null?wands:            (wands=d)};
+const getwandwoods        = async ()=>{const d=await getDataset('wandwoods');        return d==null?wandwoods:        (wandwoods=d)};
+const getwandcores        = async ()=>{const d=await getDataset('wandcores');        return d==null?wandcores:        (wandcores=d)};
+const getwandqualities    = async ()=>{const d=await getDataset('wandqualities');    return d==null?wandqualities:    (wandqualities=d)};
+const getspells           = async ()=>{const d=await getDataset('spells');           return d==null?spells:           (spells=d)};
+const getbooks            = async ()=>{const d=await getDataset('books');            return d==null?books:            (books=d)};
+const getschools          = async ()=>{const d=await getDataset('schools');          return d==null?schools:          (schools=d)};
+const getproficiencies    = async ()=>{const d=await getDataset('proficiencies');    return d==null?proficiencies:    (proficiencies=d)};
+const getpotions          = async ()=>{const d=await getDataset('potions');          return d==null?potions:          (potions=d)};
+const getnamedcreatures   = async ()=>{const d=await getDataset('namedcreatures');   return d==null?namedcreatures:   (namedcreatures=d)};
+const getitems            = async ()=>{const d=await getDataset('items');            return d==null?items:            (items=d)};
+const getitemsinhand      = async ()=>{const d=await getDataset('itemsinhand');      return d==null?itemsinhand:      (itemsinhand=d)};
+const getgeneralitems     = async ()=>{const d=await getDataset('generalitems');     return d==null?generalitems:     (generalitems=d)};
+const getcreatures        = async ()=>{const d=await getDataset('creatures');        return d==null?creatures:        (creatures=d)};
+const getcreatureparts    = async ()=>{const d=await getDataset('creatureparts');    return d==null?creatureparts:    (creatureparts=d)};
+const getplants           = async ()=>{const d=await getDataset('plants');           return d==null?plants:           (plants=d)};
+const getplantparts       = async ()=>{const d=await getDataset('plantparts');       return d==null?plantparts:       (plantparts=d)};
+const getpreparations     = async ()=>{const d=await getDataset('preparations');     return d==null?preparations:     (preparations=d)};
+const getfooddrink        = async ()=>{const d=await getDataset('fooddrink');        return d==null?fooddrink:        (fooddrink=d)};
 
 // await fetchfresh(8);
 // await checkdblastupdated(8);
