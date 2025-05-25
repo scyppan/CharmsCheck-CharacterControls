@@ -106,6 +106,7 @@ async function fetchfresh(formid) {
 }
 
 async function checkdblastupdated(formid) {
+    console.log("form id is", formid);
   const key = Object.keys(datasetinfo).find(k => datasetinfo[k].formId === formid);
   if (!key) throw new Error(`Unknown formid: ${formid}`);
 
