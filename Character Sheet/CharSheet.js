@@ -11,13 +11,13 @@ async function initApp() {
 	document.getElementById('charsheetmain').classList.remove('hidden');
 	searchbox.focus();
   
-	init_cache();
+	//init_cache();
 	//startidlefetchsequence();
 	createCharacterSheet();
   }
   
   async function initCharmsCheckLoader() {
-	const version = 'a25.5.19.001';
+	const version = 'a25.5.25.012';
 	const subDir  = 'Character%20Sheet/';
 	const base    = `https://cdn.jsdelivr.net/gh/scyppan/CharmsCheck-CharacterControls@${version}/${subDir}`;
   
@@ -28,8 +28,9 @@ async function initApp() {
 	  'css/relationshipdisplay.css','css/settingdisplay.css','css/rolldisplay.css', 'css/wounddisplay.css'
 	];
 	const js = [
-	  'js/0globalvars/globalvars.js',
-	  'js/0api/cache.js','js/0api/loadgiflogic.js','js/0api/idleloader.js','js/0api/apicall.js',
+	  //'js/0globalvars/globalvars.js',
+	  //'js/0api/cache.js','js/0api/loadgiflogic.js',
+	  'js/0api/idleloader.js','js/0api/apicall.js',
 	  'js/0tools/tools.js',
 	  'js/1htmlelements/searchbox.js','js/1htmlelements/charsheetsetup.js',
 	  'js/2loadchar/loadchar.js',

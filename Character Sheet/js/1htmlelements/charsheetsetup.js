@@ -1,4 +1,5 @@
 function createCharacterSheet() {
+  console.log("creating character sheet");
   const container = createContainer();
   const tabColumn = createTabColumn();
   const content = createContentArea();

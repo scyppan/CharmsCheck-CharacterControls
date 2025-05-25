@@ -195,4 +195,3 @@ function maketraitplate(trait) {
   plate.title = gettraitdescription(trait);
   return plate;
 }
-
