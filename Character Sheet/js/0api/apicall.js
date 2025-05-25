@@ -5,30 +5,27 @@ async function fetchdata(url) {
   return res.json();
 }
 
-// generic getter by form ID
-const getdataset = id =>
-  fetchdata(`/wp-admin/admin-ajax.php?action=get_form_data&form=${id}`);
-
-// concrete getters
-const getcharacters     = () => getdataset(972);
-const gettraits         = () => getdataset(979);
-const getaccessories    = () => getdataset(995);
-const getwands          = () => getdataset(114);
-const getwandwoods      = () => getdataset(120);
-const getwandcores      = () => getdataset(116);
-const getwandqualities  = () => getdataset(124);
-const getspells         = () => getdataset(191);
-const getbooks          = () => getdataset(8);
-const getschools        = () => getdataset(3);
-const getproficiencies  = () => getdataset(944);
-const getpotions        = () => getdataset(34);
-const getnamedcreatures = () => getdataset(170);
-const getitems          = () => getdataset(964);
-const getitemsinhand    = () => getdataset(1085);
-const getgeneralitems   = () => getdataset(126);
-const getcreatures      = () => getdataset(48);
-const getcreatureparts  = () => getdataset(53);
-const getplants         = () => getdataset(2);
-const getplantparts     = () => getdataset(43);
-const getpreparations   = () => getdataset(908);
-const getfooddrink      = () => getdataset(67);
+async function loaddata() {
+  characters      = await fetchdata('/wp-admin/admin-ajax.php?action=get_form_data&form=972');
+  traits          = await fetchdata('/wp-admin/admin-ajax.php?action=get_form_data&form=979');
+  accessories     = await fetchdata('/wp-admin/admin-ajax.php?action=get_form_data&form=995');
+  wands           = await fetchdata('/wp-admin/admin-ajax.php?action=get_form_data&form=114');
+  wandwoods       = await fetchdata('/wp-admin/admin-ajax.php?action=get_form_data&form=120');
+  wandcores       = await fetchdata('/wp-admin/admin-ajax.php?action=get_form_data&form=116');
+  wandqualities   = await fetchdata('/wp-admin/admin-ajax.php?action=get_form_data&form=124');
+  spells          = await fetchdata('/wp-admin/admin-ajax.php?action=get_form_data&form=191');
+  books           = await fetchdata('/wp-admin/admin-ajax.php?action=get_form_data&form=8');
+  schools         = await fetchdata('/wp-admin/admin-ajax.php?action=get_form_data&form=3');
+  proficiencies   = await fetchdata('/wp-admin/admin-ajax.php?action=get_form_data&form=944');
+  potions         = await fetchdata('/wp-admin/admin-ajax.php?action=get_form_data&form=34');
+  namedcreatures  = await fetchdata('/wp-admin/admin-ajax.php?action=get_form_data&form=170');
+  items           = await fetchdata('/wp-admin/admin-ajax.php?action=get_form_data&form=964');
+  itemsinhand     = await fetchdata('/wp-admin/admin-ajax.php?action=get_form_data&form=1085');
+  generalitems    = await fetchdata('/wp-admin/admin-ajax.php?action=get_form_data&form=126');
+  creatures       = await fetchdata('/wp-admin/admin-ajax.php?action=get_form_data&form=48');
+  creatureparts   = await fetchdata('/wp-admin/admin-ajax.php?action=get_form_data&form=53');
+  plants          = await fetchdata('/wp-admin/admin-ajax.php?action=get_form_data&form=2');
+  plantparts      = await fetchdata('/wp-admin/admin-ajax.php?action=get_form_data&form=43');
+  preparations    = await fetchdata('/wp-admin/admin-ajax.php?action=get_form_data&form=908');
+  fooddrink       = await fetchdata('/wp-admin/admin-ajax.php?action=get_form_data&form=67');
+}
