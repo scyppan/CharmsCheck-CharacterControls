@@ -24,7 +24,7 @@ const datasetinfo = {
 };
 
 async function getDataset(key) {
-  const formId = datasetinfo[key];
+  const formId = datasetinfo[key].formid;
   const cachems = datasetinfo[key].lastcache || 0;
 
   // fetch and parse WP’s last‐update
@@ -123,7 +123,7 @@ async function fetchfresh(formid) {
     return findata;
 }
 
-async function checkdblastupdated(formid) {
+async function checkdblastupdated(formid) {console.log("formid=" + formid);
   const key = Object.keys(datasetinfo).find(k => datasetinfo[k].formId === formid);
   if (!key) throw new Error(`Unknown formid: ${formid}`);
 
