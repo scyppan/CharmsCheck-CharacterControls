@@ -26,7 +26,7 @@ const datasetinfo = {
 async function getDataset(key) {
     console.log(key);
     //check when db was last updated
-    const formId = datasetinfo[key].formid;
+    const formId = datasetinfo[key].formId;
     const dblastupdated = await checkdblastupdated(formId);
 
     //check when data was last assigned
