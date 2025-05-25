@@ -1,23 +1,23 @@
 async function attributestab() {
 
   const tabcontent = document.getElementById('tabcontent');
-  tabcontent.textContent = 'Fetching API Data 1/17...'; await gettraits(true);
-  tabcontent.textContent = 'Fetching API Data 2/17...'; await getwands(true);
-  tabcontent.textContent = 'Fetching API Data 3/17...'; await getaccessories(true);
-  tabcontent.textContent = 'Fetching API Data 4/17...'; await getwandwoods(true);
-  tabcontent.textContent = 'Fetching API Data 5/17...'; await getwandcores(true);
-  tabcontent.textContent = 'Fetching API Data 6/17...'; await getwandqualities(true);
-  tabcontent.textContent = 'Fetching API Data 7/17...'; await getitemsinhand(true);
-  tabcontent.textContent = 'Fetching API Data 8/17...'; await getitems(true);
-  tabcontent.textContent = 'Fetching API Data 9/17...'; await getgeneralitems(true);
-  tabcontent.textContent = 'Fetching API Data 10/17...'; await getcreatures(true);
-  tabcontent.textContent = 'Fetching API Data 11/17...'; await getcreatureparts(true);
-  tabcontent.textContent = 'Fetching API Data 12/17...'; await getplants(true);
-  tabcontent.textContent = 'Fetching API Data 13/17...'; await getplantparts(true);
-  tabcontent.textContent = 'Fetching API Data 14/17...'; await getpreparations(true);
-  tabcontent.textContent = 'Fetching API Data 15/17...'; await getfooddrink(true);
-  tabcontent.textContent = 'Fetching API Data 16/17...'; await getpotions(true);
-  tabcontent.textContent = 'Fetching API Data 17/17...'; await getbooks(true);
+  tabcontent.textContent = 'First-time loading may require several minutes.\nFetching API Data 1/17...'; await gettraits(true);
+  tabcontent.textContent = 'First-time loading may require several minutes.\nFetching API Data 2/17...'; await getwands(true);
+  tabcontent.textContent = 'First-time loading may require several minutes.\nFetching API Data 3/17...'; await getaccessories(true);
+  tabcontent.textContent = 'First-time loading may require several minutes.\nFetching API Data 4/17...'; await getwandwoods(true);
+  tabcontent.textContent = 'First-time loading may require several minutes.\nFetching API Data 5/17...'; await getwandcores(true);
+  tabcontent.textContent = 'First-time loading may require several minutes.\nFetching API Data 6/17...'; await getwandqualities(true);
+  tabcontent.textContent = 'First-time loading may require several minutes.\nFetching API Data 7/17...'; await getitemsinhand(true);
+  tabcontent.textContent = 'First-time loading may require several minutes.\nFetching API Data 8/17...'; await getitems(true);
+  tabcontent.textContent = 'First-time loading may require several minutes.\nFetching API Data 9/17...'; await getgeneralitems(true);
+  tabcontent.textContent = 'First-time loading may require several minutes.\nFetching API Data 10/17...'; await getcreatures(true);
+  tabcontent.textContent = 'First-time loading may require several minutes.\nFetching API Data 11/17...'; await getcreatureparts(true);
+  tabcontent.textContent = 'First-time loading may require several minutes.\nFetching API Data 12/17...'; await getplants(true);
+  tabcontent.textContent = 'First-time loading may require several minutes.\nFetching API Data 13/17...'; await getplantparts(true);
+  tabcontent.textContent = 'First-time loading may require several minutes.\nFetching API Data 14/17...'; await getpreparations(true);
+  tabcontent.textContent = 'First-time loading may require several minutes.\nFetching API Data 15/17...'; await getfooddrink(true);
+  tabcontent.textContent = 'First-time loading may require several minutes.\nFetching API Data 16/17...'; await getpotions(true);
+  tabcontent.textContent = 'First-time loading may require several minutes.\nFetching API Data 17/17...'; await getbooks(true);
   tabcontent.textContent = '';
 
 
