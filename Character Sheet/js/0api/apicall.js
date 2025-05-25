@@ -24,7 +24,7 @@ const datasetinfo = {
 };
 
 async function getDataset(key) {
-  const formId = datasetinfo[key].formid;console.log(datasetinfo[key], key);
+  const formId = datasetinfo[key].formId;console.log(datasetinfo[key], key);
   const cachems = datasetinfo[key].lastcache || 0;
 
   // fetch and parse WP’s last‐update
