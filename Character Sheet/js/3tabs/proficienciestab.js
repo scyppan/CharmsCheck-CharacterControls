@@ -207,7 +207,14 @@ function renderproficienciestabui() {
 function createproficiencyplate(proficiencyname) {
     const record = Object.values(proficiencies)
         .find(p => p.meta.proficiencyname === proficiencyname);
-    if (!record) throw new Error(`Proficiency "${proficiencyname}" not found`);
+
+
+    if (!record) {
+        const btn = document.createElement('button');
+    btn.className   = 'proficiency-plate';
+    btn.textContent = proficiencyname;
+    btn.title='This record not found in the database.';
+    }
 
     const desc       = record.meta.e3usn;
     const skill      = getname(record.meta.s71z0, 'standard');
