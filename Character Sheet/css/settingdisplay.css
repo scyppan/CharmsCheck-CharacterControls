@@ -1,0 +1,62 @@
+#settingstabbuttonbar {
+  display: flex;
+  gap: 0.5em;
+  margin-bottom: 1em;
+}
+
+#settingstabbuttonbar button {
+  background-color: rgba(51, 51, 51, 0.87) !important;   /* deep grey #333333 */
+  color: rgba(204, 204, 204, 0.87) !important;            /* light grey #cccccc */
+  padding: 3px !important;
+  border: none !important;
+}
+
+#settingstabbuttonbar button:hover {
+  background-color: rgba(71, 71, 71, 0.87) !important;    /* slightly lighter deep grey */
+  cursor: pointer !important;
+}
+
+#settingstabbuttonbar button.active {
+  background-color: rgba(204, 204, 204, 0.87) !important; /* light grey */
+  color: rgba(51, 51, 51, 0.87) !important;               /* deep grey */
+}
+
+/* cache & history panes */
+#cacheminiwindow,
+#historyminiwindow {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 1rem;
+  min-height: 200px;
+  overflow-y: auto;
+}
+
+/* list styling */
+#settingsminiwindow {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#settingsminiwindow li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+#settingsminiwindow li span {
+  flex: 1;
+}
+
+/* fetch/clear buttons */
+#settingsminiwindow li button {
+  padding: 3px !important;
+  border: 1px solid #bbb !important;
+  background: rgba(51, 51, 51, 0.87) !important; 
+  border-radius: 4px !important;
+  cursor: pointer !important;
+  transition: background 0.2s !important;
+}
+
+#settingsminiwindow li button:hover {
+  background: rgba(82, 80, 80, 0.87) !important; 
+}

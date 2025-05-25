@@ -1,0 +1,114 @@
+#inventorytabbuttonbar {
+  display: flex;
+  gap: 0.5em;
+  margin-bottom: 1em;
+}
+
+#inventorytabbuttonbar button {
+  background-color: rgba(77, 81, 107, 0.87) !important;  /* #4d516b */
+  color: rgba(216, 219, 242, 0.87)!important;           /* #d8dbf2 */
+  padding: 3px !important;
+  border: none !important;
+}
+
+#inventorytabbuttonbar button:hover {
+  background-color: rgba(97, 101, 127, 0.87)!important; /* slightly lighter */
+  cursor: pointer;
+}
+
+#inventorytabbuttonbar button.active {
+  background-color: rgba(216, 219, 242, 0.87)!important; /* #d8dbf2 */
+  color: rgba(77, 81, 107, 0.87)!important;               /* #4d516b */
+}
+  
+  
+  /* =======================
+     Equipment section
+     ======================= */
+  .equipment-section {
+    margin-bottom: 1.5em;
+  }
+  
+  .equipment-section h3 {
+    margin: 0 0 0.5em;
+    font-size: 1.1rem;
+    font-weight: bold;
+  }
+  
+  .equipment-line {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0.5em;
+  }
+  
+  .equipment-line span.inventory-plate {
+    margin-left: 0.5em;
+  }
+  
+  
+  /* =======================
+     Category (details) styling
+     ======================= */
+  .inventory-category {
+    margin-bottom: 1em;
+    border-radius: 4px;
+    padding: 0.5em;
+  }
+  
+  .inventory-category summary {
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  /* Category-specific backgrounds */
+  .inventory-category.equipped        { background: rgba( 67, 102,  67, 0.15); }
+  .inventory-category.unequipped      { background: rgba(112,  67,  67, 0.15); }
+  .inventory-category.general-items   { background: rgba( 73,  77, 112, 0.15); }
+  .inventory-category.creatures       { background: rgba(129,  46,  46, 0.15); }
+  .inventory-category.plants          { background: rgba(133,  63, 136, 0.15); }
+  .inventory-category.preparations    { background: rgba( 73, 102, 102, 0.15); }
+  .inventory-category.creature-parts  { background: rgba(102,  73, 112, 0.15); }
+  .inventory-category.plant-parts     { background: rgba( 56, 112,  67, 0.15); }
+  .inventory-category.food-drinks     { background: rgba(112, 102,  67, 0.15); }
+  .inventory-category.potions         { background: rgba( 77, 112,  73, 0.15); }
+  .inventory-category.books           { background: rgba(102,  67, 112, 0.15); }
+  
+  
+  /* =======================
+     Item list styling
+     ======================= */
+  .item-list {
+    margin-left: 1em;
+    line-height: 1.4;
+  }
+  
+  /* =======================
+     Inventory-plate styling
+     ======================= */
+  .inventory-plate {
+    display: inline-block;
+    background-color: rgba(216, 219, 242, 0.87);  
+    border: 1px solid #2e0404;
+    border-radius: 12px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 7px;
+    padding-right: 7px;
+    font-family: inherit;
+    color: rgba(77, 81, 107, 0.87); 
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    user-select: none;
+  }
+  
+  .inventory-plate:hover {
+    background-color: rgba(87, 91, 116, 0.87); 
+    color: rgba(216, 219, 242, 0.87);  
+    border-color: rgba(216, 219, 242, 0.87);  
+  }
+
+  .inventory-plate[title] {
+    white-space: pre-wrap;
+  }
+  

@@ -1,0 +1,6 @@
+You need to remake items such that all items exist in one form. That includes all the subtypes like creature parts and general items and food/drinks. Everything. 
+
+Once you do, the scripts in rollclick.js need to be updated to check for passive bonuses. 
+
+Items should have a toggle for passive bonus or bonus only when used
+If bonus only when used, you should have to click the button of the item to get that bonus. 

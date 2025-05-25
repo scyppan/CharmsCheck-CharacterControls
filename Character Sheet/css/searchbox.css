@@ -1,0 +1,92 @@
+#searchbox{
+    width: 85%;
+    background-color: rgba(190, 224, 171, 0.2);
+    padding: 8px;
+    font-size: 14px;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s; 
+    flex: 1;
+}
+
+#charsheetmain {
+  display: flex;
+  align-items: baseline;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.gear-wrapper {
+  position: relative;
+  cursor: pointer;
+}
+
+#gear-modal {
+  position: absolute;
+  width: 150px;
+  background: #434945;
+  color: #fff;
+  border: 1px solid #ccc;
+  padding: 4px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  border-radius: 4px;
+}
+
+
+#gear-modal button {
+  display: block;
+  width: 100%;
+  padding: 8px;
+  margin: 0;
+  border: none;
+  background: #f5f5f5;
+  text-align: left;
+  cursor: pointer;
+  font: inherit;
+}
+
+#gear-modal button:hover {
+  background: #e0e0e0;
+}
+
+#searchbox:focus{
+    outline: none;
+    border-color: #888;
+}
+  
+ .searchbox-wrapper {
+    position: relative;
+     display: flex;
+    align-items: center;
+  flex: 1;
+ }
+  
+ #suggestions {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 6px;
+    z-index: 999;
+    width: 45%;
+    min-height: 25px;
+  }
+  
+  .suggestion {
+    display: block;
+    width: 100%;
+    box-sizing: border-box;
+    cursor: pointer;
+    padding: 4px;
+    margin: 3px;
+    list-style-type: none;
+    background-color: rgba(190, 224, 171, 0.45);
+    border-radius: 7px;
+  }  
+  
+  .suggestion:hover {
+    background-color: #f0f0f0;
+  }
+  

@@ -1,0 +1,91 @@
+/* =======================
+   Tab-bar styling
+   ======================= */
+   #pettabbuttonbar {
+    display: flex;
+    gap: 0.5em;
+    margin-bottom: 1em;
+    background-color: rgba(224, 202, 171, 0.5);
+    color: #333;
+  }
+  
+  #pettabbuttonbar.active {
+    background-color: rgba(73, 65, 54, 0.87);
+    color: #e7dcdc;
+  }
+  
+  #pettabbuttonbar button:hover {
+    background: #e0e0e0 !important;
+    cursor: pointer !important; 
+  }
+  
+  #pettabbuttonbar button.active {
+    background: #333 !important;
+    color: #fff !important;
+    border-color: #333 !important;
+  }
+  
+  /* =======================
+     Section (details) colors
+     ======================= */
+  .pet-category.favorites { background: rgba( 67,102, 67, 0.15); }
+  .pet-category.byspecies { background: rgba( 73, 77,112, 0.15); }
+  .pet-category.bybook    { background: rgba(129, 46, 46, 0.15); }
+  
+  .pet-category {
+    margin-bottom: 1em;
+    border-radius: 4px;
+    padding: 0.5em;
+  }
+  
+  .pet-category summary {
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .difficulty-group {
+    margin-top: 1em;
+  }
+  
+  .pet-item {
+    margin-left: 1em;
+    line-height: 1.4;
+  }
+  
+  .pet-plate {
+    display: inline-block;
+    background-color: #e0f7f1;
+    border: 1px solid #2e0404;
+    border-radius: 12px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 7px;
+    padding-right: 7px;
+    font-family: inherit;
+    color: #25755a;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    user-select: none;
+  }
+  
+  .pet-plate:hover {
+    background-color: #25755a;
+    color: #e0f7f1;
+    border-color: #e0f7f1;
+  }
+  
+  .pet-plate:active {
+    background-color: #ddd;
+    border-color: #aaa;
+  }
+  
+  .pet-plate:focus {
+    outline: 2px solid #007acc;
+    outline-offset: 2px;
+  }
+  
+  .pet-plate[title] {
+    white-space: pre-wrap;
+  }
+  

@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg"
+     width="24"
+     height="24"
+     stroke="black"
+     fill="none"
+     stroke-width="2"
+     viewBox="0 0 24 24">
+
+  <!-- Curved lid -->
+  <path d="M3 9 Q12 3, 21 9" />
+  
+  <!-- Chest body (rectangle) -->
+  <path d="M3 9v9h18v-9z" />
+  
+  <!-- Simple lock -->
+  <rect x="11" y="12" width="2" height="2"/>
+  
+</svg>

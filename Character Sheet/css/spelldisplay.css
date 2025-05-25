@@ -1,0 +1,91 @@
+/* =======================
+   Tab‐bar styling
+   ======================= */
+   #spelltabbuttonbar {
+    display: flex;
+    gap: 0.5em;
+    margin-bottom: 1em;
+  }
+
+  #spelltabbuttonbar button {
+    background-color: rgba(66, 82, 70, 0.87) !important;
+    color: rgba(204, 218, 207, 0.87) !important;
+    padding: 3px !important;
+  }
+  
+  #spelltabbuttonbar button.active {
+    background-color: rgba(204, 218, 207, 0.87) !important;
+    color: rgba(66, 82, 70, 0.87) !important;
+  }
+
+  #spelltabbuttonbar button:hover {
+    background-color: rgba(80, 95, 84, 0.87) !important;
+  }
+  
+  /* =======================
+     Section (details) colors
+     ======================= */
+  .spell-category.favorites  { background: rgba( 67,102, 67, 0.15); }
+  .spell-category.byskill    { background: rgba( 73, 77,112, 0.15); }
+  .spell-category.bybook     { background: rgba(129, 46, 46, 0.15); }
+  .spell-category.bysubtype  { background: rgba(133, 63,136, 0.15); }
+  
+  .spell-category {
+    margin-bottom: 1em;
+    border-radius: 4px;
+    padding: 0.5em;
+  }
+  
+  .spell-category summary {
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .difficulty-group {
+    margin-top: 1em;
+  }
+  
+  .spell-item {
+    margin-left: 1em;
+    line-height: 1.4;
+  }
+  
+  .spell-plate {
+    display: inline-block;
+    background-color: #d8b8b8;
+    border: 1px solid #2e0404;
+    border-radius: 12px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 7px;
+    padding-right: 7px;
+    margin: 7px;
+    font-size: 12px;
+    font-family: inherit;
+    color: #2e0404;
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    user-select: none;
+  }
+  
+  .spell-plate:hover {
+    background-color: #2e0404;
+    color: #d8b8b8;
+    border-color: #d8b8b8;
+  }
+  
+  .spell-plate:active {
+    background-color: #ddd;
+    border-color: #aaa;
+  }
+  
+  .spell-plate:focus {
+    outline: 2px solid #007acc;
+    outline-offset: 2px;
+  }
+  
+  .spell-plate[title] {
+    white-space: pre-wrap;
+  }
+  

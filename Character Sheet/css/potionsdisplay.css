@@ -1,0 +1,73 @@
+#potiontabbuttonbar {
+  display: flex;
+  gap: 0.5em;
+  margin-bottom: 1em;
+}
+
+#potiontabbuttonbar button {
+  background-color: rgba(74, 56, 77, 0.87) !important;  /* #4a384d */
+  color: rgba(225, 211, 227, 0.87) !important;           /* #e1d3e3 */
+  padding: 3px !important;
+  border: none !important;
+}
+
+#potiontabbuttonbar button:hover {
+  background-color: rgba(94, 78, 95, 0.87) !important;   /* slightly lighter */
+  cursor: pointer !important;
+}
+
+#potiontabbuttonbar button.active {
+  background-color: rgba(225, 211, 227, 0.87) !important; /* #e1d3e3 */
+  color: rgba(74, 56, 77, 0.87) !important;               /* #4a384d */
+}
+
+  
+  /* =======================
+     Section (details) colors
+     ======================= */
+  .potion-category.favorites    { background: rgba( 67,102, 67, 0.15); }
+  .potion-category.bydifficulty { background: rgba( 73, 77,112, 0.15); }
+  .potion-category.bybook       { background: rgba(129, 46, 46, 0.15); }
+  
+  .potion-category {
+    margin-bottom: 1em;
+    border-radius: 4px;
+    padding: 0.5em;
+  }
+  
+  .potion-category summary {
+    font-weight: bold;
+    cursor: pointer;
+  }
+  
+  .difficulty-group {
+    margin-top: 1em;
+  }
+  
+  .potion-plate {
+    display: inline-block;
+    background-color: rgba(225, 211, 227, 0.87);   
+    border: 1px solid #2e0404;
+    border-radius: 12px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    padding-left: 7px;
+    padding-right: 7px;
+    font-family: inherit;
+    color: rgba(74, 56, 77, 0.87);
+    cursor: pointer;
+    text-align: center;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+    user-select: none;
+  }
+  
+  .potion-plate:hover {
+    background-color: rgba(74, 56, 77, 0.87);
+    color: rgba(225, 211, 227, 0.87);   
+    border-color: rgba(225, 211, 227, 0.87);   
+  }
+
+  .potion-plate[title] {
+    white-space: pre-wrap;
+  }
+  

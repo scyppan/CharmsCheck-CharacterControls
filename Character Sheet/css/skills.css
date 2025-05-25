@@ -1,0 +1,68 @@
+/* The parent container that holds all four quadrants */
+#quadrant {
+    display: grid !important;
+    grid-template-rows: 1fr 1fr !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px !important;
+    width: 100% !important;
+    max-width: 1200px !important;
+    height: 80vh !important;
+    margin: 0 auto !important;
+}
+
+/* Shared styling for each quadrant */
+#upperleft,
+#upperright,
+#lowerleft,
+#lowerright {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.bottomability {
+    margin-top: 12px !important;
+}
+
+.rollheaders {
+    background-color: #e7dccc !important;
+    border-top: 1px solid #999 !important;
+    border-bottom: 1px solid #999 !important;
+    font-weight: bold !important;
+    text-align: left !important;
+    display: flex !important;
+    align-items: center !important;
+    padding: 7px !important;
+    margin-top: 7px !important;
+}
+
+.ability {
+    background-color: #dbc178 !important;
+}
+
+.ability:hover {
+    background-color: #566c76 !important;
+}
+
+.skill {
+    background-color: #e0d8bd !important;
+}
+
+.skill:hover {
+    background-color: #bdd4d2 !important;
+}
+
+.characteristic {
+    background-color: #bcdba8 !important;
+}
+
+.characteristic:hover {
+    background-color: #66745d !important;
+}
+
+.parental {
+    background-color: #e2b0b0 !important;
+}
+
+.parental:hover {
+    background-color: #705c5c !important;
+}

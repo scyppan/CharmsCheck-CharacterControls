@@ -1,0 +1,88 @@
+/* Button bar */
+#relationshiptabbuttonbar {
+    margin-bottom: 1rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    background-color: transparent;
+}
+
+/* Top-level category buttons */
+#relationshiptabbuttonbar button {
+    padding: 0.4rem 0.8rem !important;
+    background-color: #fff9cc !important;
+    color: #b38f00 !important;
+    border: 1px solid #b38f00 !important;
+    border-radius: 5px !important;
+    cursor: pointer !important;
+    font-weight: bold !important;
+    transition: background-color 0.2s ease, border-color 0.2s ease !important;
+}
+
+#relationshiptabbuttonbar button:hover {
+    background-color: #fff2a8 !important;
+    border-color: #ccaa00 !important;
+}
+
+#relationshiptabbuttonbar button.active {
+    background-color: #ffe066 !important;
+    color: #5c4a00 !important;
+    border-color: #b38f00 !important;
+}
+
+/* Category section (collapsible) */
+.relationship-category {
+    
+    background-color: transparent;
+    margin-bottom: 1rem;
+    padding: 0.5rem;
+}
+
+/* Summary label */
+.relationship-category summary {
+    font-weight: bold;
+    font-size: 1rem;
+    color: #b38f00;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+}
+
+/* Flex list of names */
+.relationship-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    background-color: transparent;
+}
+
+/* Relationship name buttons */
+.relationship-plate {
+    background-color: #d3cc9b;
+    color: #58490c;
+    border: 1px solid #b38f00;
+    border-radius: 6px;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.9rem;
+    cursor: default;
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.relationship-plate:hover {
+    background-color: #fff2a8;
+    border-color: #ccaa00;
+}
+
+.relationship-name {
+    font-weight: bold;
+}
+
+.relationship-note {
+    display: block;
+    font-size: 0.8em;
+    color: #5c4a00;   /* dark yellow text */
+    margin-top: 0.15em;
+}

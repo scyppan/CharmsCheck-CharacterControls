@@ -1,0 +1,208 @@
+/* make the button‐container a positioning context */
+div[title="Wounds"] {
+  position: relative;
+}
+
+/* overlay as a child of the button container */
+div[title="Wounds"] .wound-overlay {
+  font-size: 12px;
+  position: fixed;
+  top: 50%;
+  left: 15%;
+  transform: translateY(-50%);
+  width: 80%;
+  height: 80vh;
+  background: #ccbaba;
+  box-shadow: -2px 0 8px rgba(0, 0, 0, 0.3);
+  padding: 7px;
+  overflow-y: auto;
+  z-index: 1000;
+}
+
+
+.wt-injuries {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.wt-injuries-table {
+  width: 65%;
+}
+
+/* breathing room after the Injury Type column */
+.wt-injuries-table th:first-child,
+.wt-injuries-table td:first-child {
+  padding-right: 1.15rem;
+}
+
+/* push the history details down */
+.wt-history {
+  margin-top: 13px;
+  background-color: #e9dbdb1f;
+  border-top: 1px solid gray;
+  border-bottom: 1px solid gray;
+}
+
+/* zebra-stripe the injury table */
+.wt-injuries-table tbody tr:nth-child(even) {
+  background-color: #928585;
+}
+
+.wt-injuries-table tbody tr:nth-child(odd) {
+  background-color: #ccbaba;
+}
+
+/* center heavy/medium/light columns */
+.wt-injuries-table th:nth-child(n+2),
+.wt-injuries-table td:nth-child(n+2) {
+  text-align: center;
+}
+
+/* thick border under the header row */
+.wt-injuries-table thead th {
+  border-bottom: 3px solid #333;
+}
+
+/* collapse borders on the injury table */
+.wt-injuries-table {
+  border-collapse: collapse;
+}
+
+/* clear borders on the action table */
+.wt-action-table {
+  border-collapse: collapse;
+  margin-top: 7px;
+}
+
+.wt-action-table th,
+.wt-action-table td {
+  border: 1px solid #888;
+  padding: 3px;
+}
+
+/* —— Red motif for the top-bar buttons —— */
+.wt-btnbar button {
+  margin: 3px !important;
+  background-color: #928585 !important;
+  color: #FFF !important;
+  border-radius: 4px !important;
+  padding: 3px !important;
+  font-size: 11px !important;
+  font-weight: normal !important;
+  cursor: pointer !important;
+  transition: background-color 0.2s, border-color 0.2s !important;
+}
+
+.wt-btnbar button:hover {
+  background-color: #796d6d !important;
+}
+
+.wt-btnbar button:active {
+  background-color: #5c4f4f !important;
+}
+
+.wt-btnbar button:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.4) !important;
+}
+
+/* —— Red motif for table buttons, with 3px margin —— */
+.wt-action-table button {
+  margin: 3px !important;
+  background-color: #928585 !important;
+  color: #FFF !important;
+  border-radius: 4px !important;
+  padding: 3px !important;
+  cursor: pointer !important;
+  transition: background-color 0.2s, border-color 0.2s !important;
+}
+
+.wt-action-table button:hover {
+  background-color: #796d6d !important;
+}
+
+.wt-action-table button:active {
+  background-color: #5c4f4f !important;
+}
+
+.wt-action-table button:focus {
+  outline: none !important;
+  box-shadow: 0 0 0 3px rgba(211, 47, 47, 0.4) !important;
+}
+
+h6 {
+  margin: 3px;
+}
+
+.wt-outer {
+  display: flex;
+  align-items: flex-start;
+}
+
+.wt-half {
+  flex: 1;
+  min-width: 0;
+  width: 100%;
+}
+
+#wt-effects-list {
+  padding-left: 0 !important;
+}
+
+.wt-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* lay out each <li> into exactly six “cells” */
+#wt-effects-list li {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+}
+
+.wt-effect {
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-bottom: 1px;
+  padding-top: 1px;
+  margin-right: 12px;
+}
+
+.wt-turns {
+  display: inline-block;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-bottom: 1px;
+  padding-top: 1px;
+  margin-right: 3px;
+}
+
+.wt-val {
+  display: inline-block;
+  margin-left: 7px;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-bottom: 1px;
+  padding-top: 1px;
+  margin-right: 3px;
+}
+
+.amount-label{
+  display: inline-block;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-bottom: 1px;
+  padding-top: 1px;
+}
+
+/* static labels needn’t be editable */
+.unit-label {
+  user-select: none;
+  pointer-events: none;
+  cursor: not-allowed !important;
+
+}

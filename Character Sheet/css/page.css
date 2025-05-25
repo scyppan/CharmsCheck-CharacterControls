@@ -1,0 +1,38 @@
+body{
+    background-color: rgba(224, 202, 171, 0.5);
+    font-family: 'Pangolin', cursive;
+    color: #2c2c2c;
+}
+
+.hidden{
+    display:none !important;
+}
+
+.btn {
+    display: inline-flex !important;     /* so button shrinks to its text */
+    flex: 0 0 auto !important;           /* don't grow or shrink to fill space */
+    align-self: flex-start !important;   /* don't stretch vertically in the column */
+    width: auto !important;              /* override any 100% width rules */
+    min-width: 35px !important;          /* optional minimum size */
+    
+    align-items: center !important;
+    justify-content: center !important;
+  
+    border: 1px solid grey !important;
+    border-radius: 12px !important;
+    margin: 3px !important;
+    padding: 0 7px !important;
+    box-sizing: border-box !important;
+    cursor: pointer !important;
+  }
+  
+  a {
+    text-decoration: none;
+    color: inherit; /* or use a specific color like #2c2c2c */
+  }
+
+  a:hover{
+    color: #454b69;
+    font-weight: bold;
+  }
+
