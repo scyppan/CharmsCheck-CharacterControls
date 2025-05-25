@@ -38,7 +38,7 @@ async function getDataset(key) {
     let lastcache = datasetinfo[key].lastcache;
 
     //dblastupdated is newest
-    if (new Date(dblastupdated.getTime()) > lastassigned) {
+    if (new Date(dblastupdated).getTime() > lastassigned) {
         datasetinfo[key].lastassigned = new Date(dblastupdated).getTime();
         datasetinfo[key].assignedfrom = "db";
         return fetchfresh(formid);
