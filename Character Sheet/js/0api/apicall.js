@@ -106,17 +106,19 @@ async function fetchfresh(formid) {
 }
 
 async function checkdblastupdated(formid) {
+  const key = Object.keys(datasetinfo).find(k => datasetinfo[k].formId === formid);
+  if (!key) throw new Error(`Unknown formid: ${formid}`);
 
-    const res = await fetch(
-        `/wp-admin/admin-ajax.php?action=get_form_last_update&form=${formid}`
-    );
-    if (!res.ok) throw new Error(`HTTP ${res.status}`);
-    const { last_updated } = await res.json();
+  const res = await fetch(
+    `/wp-admin/admin-ajax.php?action=get_form_last_update&form=${formid}`
+  );
+  if (!res.ok) throw new Error(`HTTP ${res.status}`);
+  const { last_updated } = await res.json();
 
-    datasetinfo[key].lastdbcheck = Date.now();
-    datasetinfo[key].dblastupdated = last_updated;
+  datasetinfo[key].lastdbcheck = Date.now();
+  datasetinfo[key].dblastupdated = last_updated;
 
-    return last_updated;
+  return last_updated;
 }
 
 const getcharacters = async () => characters = characters = await getDataset('characters');
