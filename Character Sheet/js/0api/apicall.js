@@ -42,7 +42,9 @@ async function getDataset(key) {
         console.log("getting fresh data");
         datasetinfo[key].lastassigned = new Date(dblastupdated).getTime();
         datasetinfo[key].assignedfrom = "db";
-        return fetchfresh(formId);
+        let data = fetchfresh(formId);
+        setCacheEntry(key, data);
+        
     } else {
         console.log("getting cached data");
         const cache = getCacheEntry(`cache_${key}`);
@@ -89,6 +91,7 @@ function setCacheEntry(key, data) {
         if (datasetinfo[name]) {
             datasetinfo[name].lastcache = ts;
         }
+        console.log(key + "data cached");
     } catch (e) { }
 
 }
