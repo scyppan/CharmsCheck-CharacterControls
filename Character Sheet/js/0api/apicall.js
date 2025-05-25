@@ -41,7 +41,7 @@ async function getDataset(key) {
     if (new Date(dblastupdated).getTime() > lastassigned) {
         datasetinfo[key].lastassigned = new Date(dblastupdated).getTime();
         datasetinfo[key].assignedfrom = "db";
-        return fetchfresh(formid);
+        return fetchfresh(formId);
     } else {
         const cache = getCacheEntry(`cache_${key}`);
         if (cache) {
