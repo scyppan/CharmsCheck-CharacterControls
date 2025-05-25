@@ -39,11 +39,14 @@ async function getDataset(key) {
 
     //dblastupdated is newest
     if (new Date(dblastupdated).getTime() > lastassigned) {
+        console.log("getting fresh data");
         datasetinfo[key].lastassigned = new Date(dblastupdated).getTime();
         datasetinfo[key].assignedfrom = "db";
         return fetchfresh(formId);
     } else {
+        console.log("getting cached data");
         const cache = getCacheEntry(`cache_${key}`);
+        
         if (cache) {
             datasetinfo[key].lastassigned = cache.ts;
             datasetinfo[key].assignedfrom = 'cache';
@@ -106,7 +109,6 @@ async function fetchfresh(formid) {
 }
 
 async function checkdblastupdated(formid) {
-    console.log("form id is", formid);
   const key = Object.keys(datasetinfo).find(k => datasetinfo[k].formId === formid);
   if (!key) throw new Error(`Unknown formid: ${formid}`);
 
@@ -119,6 +121,7 @@ async function checkdblastupdated(formid) {
   datasetinfo[key].lastdbcheck = Date.now();
   datasetinfo[key].dblastupdated = last_updated;
 
+  console.log(key + ' ' + formid + ' dblast updated: ' + last_updated);
   return last_updated;
 }
 
