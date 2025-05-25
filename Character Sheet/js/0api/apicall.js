@@ -1,231 +1,147 @@
-/* ========================================================================
-   abstracted dataset fetch/cache module — WITH VERBOSE LOGGING
-   (requires: cache_ttl, cache_meta, and your `let`-globals declared elsewhere)
-   Steps: 1) cache → 2) API → 3) throw if still empty
-   ===================================================================== */
+const datasetinfo = {
+    characters: { formId: 972, lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null },
+    traits: { formId: 979, lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null },
+    accessories: { formId: 995, lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null },
+    wands: { formId: 114, lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null },
+    wandwoods: { formId: 120, lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null },
+    wandcores: { formId: 116, lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null },
+    wandqualities: { formId: 124, lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null },
+    spells: { formId: 191, lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null },
+    books: { formId: 8, lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null },
+    schools: { formId: 3, lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null },
+    proficiencies: { formId: 944, lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null },
+    potions: { formId: 34, lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null },
+    namedcreatures: { formId: 170, lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null },
+    items: { formId: 964, lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null },
+    itemsinhand: { formId: 1085, lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null },
+    generalitems: { formId: 126, lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null },
+    creatures: { formId: 48, lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null },
+    creatureparts: { formId: 53, lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null },
+    plants: { formId: 2, lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null },
+    plantparts: { formId: 43, lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null },
+    preparations: { formId: 908, lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null },
+    fooddrink: { formId: 67, lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null },
+};
 
-/* ---------- network helpers ---------- */
-async function fetchjson(url, skipHttpCache = false) {
-  // 1) build cache-busting suffix if needed
-  const bust = skipHttpCache
-    ? (url.includes('?') ? `&_cb=${Date.now()}` : `?_cb=${Date.now()}`)
-    : '';
-  const fullUrl = url + bust;
+async function getDataset(key) {
 
-  // 2) standalone fetch options
-  const opts = {
-    method: 'GET',
-    redirect: 'follow',
-    cache: skipHttpCache ? 'no-store' : 'default'
-  };
+    //check when db was last updated
+    const formId = datasetinfo[key].formid;
+    const dblastupdated = await checkdblastupdated(formId);
 
-  // 3) perform fetch
-  const res = await fetch(fullUrl, opts);
-  if (res.status === 200) {
-    return res.json();
-  }
-  throw new Error(`HTTP ${res.status}`);
+    //check when data was last assigned
+    //check last assignment origin
+    //check when data was last cached
+    let lastdbcheck = datasetinfo[key].lastdbcheck;
+    let lastassigned = datasetinfo[key].lastassigned;
+    let assignedfrom = datasetinfo[key].assignedfrom;
+    let lastcache = datasetinfo[key].lastcache;
+
+    //dblastupdated is newest
+    if (new Date(dblastupdated.getTime()) > lastassigned) {
+        datasetinfo[key].lastassigned = new Date(dblastupdated).getTime();
+        datasetinfo[key].assignedfrom = "db";
+        return fetchfresh(formid);
+    } else {
+        const cache = getCacheEntry(`cache_${key}`);
+        if (cache) {
+            datasetinfo[key].lastassigned = cache.ts;
+            datasetinfo[key].assignedfrom = 'cache';
+            return cache.data;
+        }
+        datasetinfo[key].lastassigned = Date.now();
+        datasetinfo[key].assignedfrom = 'db';
+        return fetchfresh(datasetinfo[key].formId);
+    }
 }
 
-const fetchdata = (url, skipHttpCache = false) => fetchjson(url, skipHttpCache);
-
-
-/* ---------- cache helpers ---------- */
-function getCacheEntry(key) {
-  try {
-    const raw = localStorage.getItem(key);
-    if (!raw) return null;
-    const { ts, data } = JSON.parse(raw);
-    if (Date.now() - ts < cache_ttl) return { ts, data };
-    localStorage.removeItem(key);
-  } catch (e) {
-    localStorage.removeItem(key);
-  }
-  return null;
+function getCacheEntry(cacheKey) {
+    try {
+        const raw = localStorage.getItem(cacheKey);
+        if (!raw) return null;
+        const { ts, data } = JSON.parse(raw);
+        if (Date.now() - ts < cache_ttl) {
+            // update datasetinfo
+            const key = cacheKey.replace(/^cache_/, '');
+            if (datasetinfo[key]) {
+                datasetinfo[key].lastassigned = Date.now();
+                datasetinfo[key].assignedfrom = 'cache';
+                datasetinfo[key].lastcache = ts;
+            }
+            return { ts, data };
+        }
+        localStorage.removeItem(cacheKey);
+    } catch (e) {
+        localStorage.removeItem(cacheKey);
+    }
+    return null;
 }
 
 function setCacheEntry(key, data) {
-  try {
-    localStorage.setItem(key, JSON.stringify({ ts: Date.now(), data }));
-  } catch (e) {}
-}
 
-/* ---------- normaliser ---------- */
-function toArray(raw) {
-  return Array.isArray(raw) ? raw : Object.values(raw || {});
-}
-
-/* ---------- assign both globalThis & lexical ---------- */
-function assign(name, arr) {
-  globalThis[name] = arr;
-  try { eval(`${name} = arr`); } catch {}
-}
-
-/* ---------- generic getter ---------- */
-async function getDataset(name, url, checkCache = true, forceApi = false) {
-  const key = `cache_${name}`;
-
-  if (forceApi) {
-    url = url + (url.includes('?') ? '&' : '?') + 'bust=1';
-  }
-  
-  const networkOnly = Array.isArray(forceloadfromnetwork) &&
-                      forceloadfromnetwork.indexOf(name) !== -1;
-  const skipLocal = forceApi || networkOnly;
-
-  console.log(
-    `[getDataset:${name}] checkCache=${checkCache}, forceApi=${forceApi}, networkOnly=${networkOnly}`
-  );
-
-  // 1) In-memory cache (only if not forcing API)
-  if (!skipLocal) {
-    const inMem = globalThis[name];
-    if (Array.isArray(inMem) && inMem.length) {
-      console.log(`[getDataset:${name}] returned ${inMem.length} from memory`);
-      return inMem;
-    }
-  }
-
-  // 2) Local-storage cache
-  if (checkCache && !skipLocal) {
     try {
-      const raw = localStorage.getItem(key);
-      if (raw) {
-        const { ts, data } = JSON.parse(raw);
-        if (Date.now() - ts < cache_ttl) {
-          const arr = Array.isArray(data) ? data : Object.values(data || {});
-          assign(name, arr);
-          cache_meta.push({ dataset: name, lastcache: new Date(ts) });
-          console.log(`[getDataset:${name}] returned ${arr.length} from localStorage`);
-          return arr;
-        } else {
-          localStorage.removeItem(key);
-          console.log(`[getDataset:${name}] cache expired, removed`);
+        const ts = Date.now();
+        localStorage.setItem(key, JSON.stringify({ ts, data }));
+        const name = key.replace(/^cache_/, '');
+        if (datasetinfo[name]) {
+            datasetinfo[name].lastcache = ts;
         }
-      }
-    } catch (e) {
-      localStorage.removeItem(key);
-      console.warn(`[getDataset:${name}] cache parse error, cleared`, e);
-    }
-  }
+    } catch (e) { }
 
-  // 3) Network fetch (first attempt, retry once with cache-bust on error)
-  let rawJson;
-  try {
-    rawJson = await fetchjson(url, skipLocal);
-  } catch (err) {
-    console.warn(
-      `[getDataset:${name}] fetch error (${err.message}), retrying with cache-bust`
+}
+
+async function fetchformdata(formId, bust = false) {
+    const params = new URLSearchParams({ action: 'get_form_data', form: formId });
+    if (bust) params.append('bust', '1');
+    const res = await fetch(`/wp-admin/admin-ajax.php?${params}`, {
+        credentials: 'same-origin'
+    });
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    return res.json();
+}
+
+async function fetchfresh(formid) {
+    const findata = await fetchformdata(formid, true);
+    return findata;
+}
+
+async function checkdblastupdated(formid) {
+
+    const res = await fetch(
+        `/wp-admin/admin-ajax.php?action=get_form_last_update&form=${formid}`
     );
-    localStorage.removeItem(key);
-    rawJson = await fetchjson(url, true);
-  }
+    if (!res.ok) throw new Error(`HTTP ${res.status}`);
+    const { last_updated } = await res.json();
 
-  // 4) If the proxy sent back an error object, purge and throw
-  if (rawJson && rawJson.error) {
-    localStorage.removeItem(key);
-    throw new Error(rawJson.error);
-  }
+    datasetinfo[key].lastdbcheck = Date.now();
+    datasetinfo[key].dblastupdated = last_updated;
 
-  // 5) Normalize & assign into memory
-  const arr = Array.isArray(rawJson) ? rawJson : Object.values(rawJson || {});
-  assign(name, arr);
-
-  // 6) Write-through to localStorage only on valid, non-empty arrays
-  if (arr.length) {
-    try {
-      localStorage.setItem(key, JSON.stringify({ ts: Date.now(), data: arr }));
-    } catch (e) {
-      console.warn(`[getDataset:${name}] could not write to localStorage`, e);
-    }
-  }
-
-  cache_meta.push({ dataset: name, lastcache: new Date() });
-  console.log(`[getDataset:${name}] fetched ${arr.length} from API`);
-
-  // 7) Validate final result
-  if (!arr.length) {
-    throw new Error(`no ${name} entries`);
-  }
-  return arr;
+    return last_updated;
 }
 
-/* ---------- concrete getters ---------- */
-const getcharacters     = (...a) => getDataset('characters',     'https://charmscheck.com/wp-admin/admin-ajax.php?action=get_form_data&form=972',  ...a);
-const gettraits         = (...a) => getDataset('traits',         'https://charmscheck.com/wp-admin/admin-ajax.php?action=get_form_data&form=979',  ...a);
-const getaccessories    = (...a) => getDataset('accessories',    'https://charmscheck.com/wp-admin/admin-ajax.php?action=get_form_data&form=995',  ...a);
-const getwands          = (...a) => getDataset('wands',          'https://charmscheck.com/wp-admin/admin-ajax.php?action=get_form_data&form=114',  ...a);
-const getwandwoods      = (...a) => getDataset('wandwoods',      'https://charmscheck.com/wp-admin/admin-ajax.php?action=get_form_data&form=120',  ...a);
-const getwandcores      = (...a) => getDataset('wandcores',      'https://charmscheck.com/wp-admin/admin-ajax.php?action=get_form_data&form=116',  ...a);
-const getwandqualities  = (...a) => getDataset('wandqualities',  'https://charmscheck.com/wp-admin/admin-ajax.php?action=get_form_data&form=124',  ...a);
-const getspells         = (...a) => getDataset('spells',         'https://charmscheck.com/wp-admin/admin-ajax.php?action=get_form_data&form=191',  ...a);
-const getbooks          = (...a) => getDataset('books',          'https://charmscheck.com/wp-admin/admin-ajax.php?action=get_form_data&form=8',    ...a);
-const getschools        = (...a) => getDataset('schools',        'https://charmscheck.com/wp-admin/admin-ajax.php?action=get_form_data&form=3',    ...a);
-const getproficiencies  = (...a) => getDataset('proficiencies',  'https://charmscheck.com/wp-admin/admin-ajax.php?action=get_form_data&form=944',  ...a);
-const getpotions        = (...a) => getDataset('potions',        'https://charmscheck.com/wp-admin/admin-ajax.php?action=get_form_data&form=34',   ...a);
-const getnamedcreatures = (...a) => getDataset('namedcreatures', 'https://charmscheck.com/wp-admin/admin-ajax.php?action=get_form_data&form=170',  ...a);
-const getitems          = (...a) => getDataset('items',          'https://charmscheck.com/wp-admin/admin-ajax.php?action=get_form_data&form=964',  ...a);
-const getitemsinhand    = (...a) => getDataset('itemsinhand',    'https://charmscheck.com/wp-admin/admin-ajax.php?action=get_form_data&form=1085', ...a);
-const getgeneralitems   = (...a) => getDataset('generalitems',   'https://charmscheck.com/wp-admin/admin-ajax.php?action=get_form_data&form=126',  ...a);
-const getcreatures      = (...a) => getDataset('creatures',      'https://charmscheck.com/wp-admin/admin-ajax.php?action=get_form_data&form=48',   ...a);
-const getcreatureparts  = (...a) => getDataset('creatureparts',  'https://charmscheck.com/wp-admin/admin-ajax.php?action=get_form_data&form=53',   ...a);
-const getplants         = (...a) => getDataset('plants',         'https://charmscheck.com/wp-admin/admin-ajax.php?action=get_form_data&form=2',    ...a);
-const getplantparts     = (...a) => getDataset('plantparts',     'https://charmscheck.com/wp-admin/admin-ajax.php?action=get_form_data&form=43',   ...a);
-const getpreparations   = (...a) => getDataset('preparations',   'https://charmscheck.com/wp-admin/admin-ajax.php?action=get_form_data&form=908',  ...a);
-const getfooddrink      = (...a) => getDataset('fooddrink',      'https://charmscheck.com/wp-admin/admin-ajax.php?action=get_form_data&form=67',   ...a);
+const getcharacters      = async () => globalThis.characters      = characters      = await getDataset('characters');
+const gettraits          = async () => globalThis.traits          = traits          = await getDataset('traits');
+const getaccessories     = async () => globalThis.accessories     = accessories     = await getDataset('accessories');
+const getwands           = async () => globalThis.wands           = wands           = await getDataset('wands');
+const getwandwoods       = async () => globalThis.wandwoods       = wandwoods       = await getDataset('wandwoods');
+const getwandcores       = async () => globalThis.wandcores       = wandcores       = await getDataset('wandcores');
+const getwandqualities   = async () => globalThis.wandqualities   = wandqualities   = await getDataset('wandqualities');
+const getspells          = async () => globalThis.spells          = spells          = await getDataset('spells');
+const getbooks           = async () => globalThis.books           = books           = await getDataset('books');
+const getschools         = async () => globalThis.schools         = schools         = await getDataset('schools');
+const getproficiencies   = async () => globalThis.proficiencies   = proficiencies   = await getDataset('proficiencies');
+const getpotions         = async () => globalThis.potions         = potions         = await getDataset('potions');
+const getnamedcreatures  = async () => globalThis.namedcreatures  = namedcreatures  = await getDataset('namedcreatures');
+const getitems           = async () => globalThis.items           = items           = await getDataset('items');
+const getitemsinhand     = async () => globalThis.itemsinhand     = itemsinhand     = await getDataset('itemsinhand');
+const getgeneralitems    = async () => globalThis.generalitems    = generalitems    = await getDataset('generalitems');
+const getcreatures       = async () => globalThis.creatures       = creatures       = await getDataset('creatures');
+const getcreatureparts   = async () => globalThis.creatureparts   = creatureparts   = await getDataset('creatureparts');
+const getplants          = async () => globalThis.plants          = plants          = await getDataset('plants');
+const getplantparts      = async () => globalThis.plantparts      = plantparts      = await getDataset('plantparts');
+const getpreparations    = async () => globalThis.preparations    = preparations    = await getDataset('preparations');
+const getfooddrink       = async () => globalThis.fooddrink       = fooddrink       = await getDataset('fooddrink');
 
-async function forcefetchapi(key) {
-  console.log("FORCEFETCHAPI for", key);
-  const fnName = 'get' + key;            // e.g. "gettraits"
-  let fn;
-  try {
-    fn = eval(fnName);
-  } catch (e) {
-    console.error(`No function named ${fnName}()`);
-    return;
-  }
-  if (typeof fn !== 'function') {
-    console.error(`${fnName} is not a function`);
-    return;
-  }
 
-  const cacheKey = `cache_${key}`;
-
-  // 1) Purge old cache
-  try {
-    localStorage.removeItem(cacheKey);
-  } catch (e) {
-    console.warn(`Could not remove ${cacheKey} from localStorage`, e);
-  }
-  // Purge in-memory as well
-  if (Array.isArray(globalThis[key])) {
-    delete globalThis[key];
-  }
-
-  try {
-    // 2) Force a fresh API fetch
-    const data = await fn(false, true);
-
-    // 3) Validate we got an array back
-    if (!Array.isArray(data)) {
-      throw new Error(`Expected array, got ${typeof data}`);
-    }
-
-    // 4) Re-assign into memory
-    assign(key, data);
-
-    // 5) Re-cache on localStorage
-    try {
-      setCacheEntry(cacheKey, data);
-    } catch (e) {
-      console.warn(`Could not write ${cacheKey} to localStorage`, e);
-    }
-
-    console.log(`${fnName} force-fetched and cached ${data.length} items`);
-    return data;
-
-  } catch (err) {
-    console.error(`Error force fetching ${fnName}():`, err);
-    throw err;
-  }
-}
+// await fetchfresh(8);
+// await checkdblastupdated(8);
