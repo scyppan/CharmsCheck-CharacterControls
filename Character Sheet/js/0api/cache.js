@@ -138,10 +138,7 @@ async function init_cache(forceApi = false) {
     if (forceApi || !loadedFromCache || current == null || isEmpty) {
       console.warn(`fetching fresh ${key} (forceApi=${forceApi})…`);
       try {
-        // first: load from network
-        console.log(window);
-        const data = await window[fn](false, forceApi);
-
+        
         // reject single‐string or error payloads
         if (
           Array.isArray(data) &&
