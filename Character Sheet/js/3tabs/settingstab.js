@@ -1,5 +1,3 @@
-// settings.js
-
 // list of datasets to inspect/clear
 const cacheDatasets = ['characters',
   'traits', 'accessories', 'wands', 'wandwoods', 'wandcores', 'wandqualities',
@@ -12,7 +10,7 @@ async function settingstab() {
   const tabcontent = document.getElementById('tabcontent');
   tabcontent.textContent = 'Loading settings…';
   rendersettingstabui();
-  loadcachemini();                   // default view
+  loadhistorymini();
   activateSettingTab('btnhistory');
 }
 
@@ -45,10 +43,6 @@ function activateSettingTab(tabId) {
   document.getElementById('historyminiwindow').style.display = (tabId === 'btnhistory') ? '' : 'none';
 }
 
-/**
- * Displays each cache dataset with timestamp (if any)
- * and the number of items currently loaded in the corresponding global variable.
- */
 function loadcachemini() {
   const container = document.getElementById('cacheminiwindow');
   container.textContent = '';

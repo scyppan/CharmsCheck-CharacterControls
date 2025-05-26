@@ -204,5 +204,123 @@ h6 {
   user-select: none;
   pointer-events: none;
   cursor: not-allowed !important;
-
 }
+
+  /* showTextModal lower-left, muted-red theme */
+  #text-modal {
+    position: fixed;
+    bottom: 1rem;
+    left:   1rem;
+    width:  300px;
+    background: #9c7272;
+    border:     1px solid #e8bebe;
+    border-radius: 8px;
+    box-shadow:    0 2px 8px rgba(0,0,0,0.2);
+    padding: 0.5rem 1rem 1rem;
+    font-family: sans-serif;
+    z-index: 1001;
+  }
+  
+  /* Minimized state hides content */
+  #text-modal.minimized .text-content,
+  #text-modal.minimized ul {
+    display: none;
+  }
+  
+  /* Toggle button */
+  #text-modal .text-toggle {
+    position: absolute;
+    top:    0.3rem;
+    right:  0.5rem;
+    width:  1.25rem;
+    height: 1.25rem;
+    border: none;
+    border-radius: 4px;
+    background: #cabdbd;
+    cursor: pointer;
+    font-size: 1rem;
+    line-height: 1;
+    transition: background-color 0.2s;
+  }
+  #text-modal .text-toggle:hover {
+    background: #644d4d;
+    color: #e0c4c4;
+  }
+
+  #text-modal .text-toggle:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(200,100,100,0.6);
+  }
+  
+  /* Content list */
+  #text-modal ul {
+    margin: 1.5rem 0 0 0;
+    padding: 0;
+    list-style: none;
+  }
+  #text-modal ul li {
+    margin-bottom: 0.5rem;
+    padding: 0.25rem;
+    border-radius: 4px;
+  }
+  
+  /* Damage vs Heal coloring */
+  #text-modal ul li.text-damage {
+    background: #f8e1e1;
+    color: rgb(110, 80, 80);
+  }
+  #text-modal ul li.text-heal {
+    background: #bccfbc;
+    color: rgb(59, 71, 59);
+  }
+  
+/* ── Fully collapse panel but leave toggle visible ───────────────────── */
+#text-modal.minimized {
+  background: transparent !important;
+  border: none           !important;
+  box-shadow: none       !important;
+  padding: 0             !important;
+}
+
+/* ── Hide all inner content ─────────────────────────────────────────── */
+#text-modal.minimized .text-content,
+#text-modal.minimized ul {
+  display: none !important;
+}
+
+/* ── Pin the toggle to the viewport’s LOWER-LEFT corner ───────────── */
+#text-modal.minimized .text-toggle {
+    position: fixed   !important;
+    top:      auto    !important;
+    bottom:   1rem    !important;
+    left:     1rem    !important;
+    right:    auto    !important;
+    transform:none    !important;
+}
+
+#text-modal .text-toggle {
+    transition:
+      transform 1s ease,
+      top       1s ease,
+      right     1s ease,
+      bottom    1s ease,
+      left      1s ease;
+  }
+  
+  /* expanded state: top-right, no rotation */
+  #text-modal:not(.minimized) .text-toggle {
+    transform: rotate(0deg);
+    top:      0.3rem    !important;
+    right:    0.5rem    !important;
+    bottom:   auto      !important;
+    left:     auto      !important;
+  }
+  
+  /* minimized state: lower-left, full rotation */
+  #text-modal.minimized .text-toggle {
+    transform: rotate(360deg);
+    top:      auto      !important;
+    right:    auto      !important;
+    bottom:   1rem      !important;
+    left:     1rem      !important;
+  }
