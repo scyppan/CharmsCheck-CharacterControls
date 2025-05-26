@@ -53348,4253 +53348,12030 @@ let spells=[
   }
 ];
 
-let proficiencies=[
-  {
+let proficiencies={
+  "77n03": {
     "id": "13223",
     "item_key": "77n03",
-    "meta": []
+    "name": "Left Hand Stirring Rule",
+    "meta": {
+      "proficiencyname": "Left Hand Stirring Rule",
+      "s71z0": "Potions",
+      "e3usn": "This proficiency is particularly important for certain complex potions. If the potion in question requires this proficiency, the potion description will indicate so."
+    }
   },
-  {
+  "qn82": {
     "id": "13225",
     "item_key": "qn82",
-    "meta": []
+    "name": "Sulawesi Cave Painting Ritual",
+    "meta": {
+      "proficiencyname": "Sulawesi Cave Painting Ritual",
+      "s71z0": "Magical Creatures",
+      "ipjf3": "20",
+      "pm37m": "Temporary Control",
+      "e3usn": "By drawing a specific creature in this style (on a tablet or other hard service), you gain temporary (one-time) control of that creature. It will follow the drawer’s directions very closely for a period of about one hour. However, the creature will then be impervious to this ritual for the rest of its life."
+    }
   },
-  {
+  "6gans": {
     "id": "13435",
     "item_key": "6gans",
-    "meta": []
+    "name": "Treasure Hunter",
+    "meta": {
+      "proficiencyname": "Treasure Hunter",
+      "s71z0": "Magical Creatures",
+      "ipjf3": "19",
+      "pm37m": "Training",
+      "pn177": "Niffler",
+      "e3usn": "Nifflers can be trained to search for and retrieve treasure, even underground, and are good at avoiding magical traps."
+    }
   },
-  {
+  "qnfu": {
     "id": "13457",
     "item_key": "qnfu",
-    "meta": []
+    "name": "Stealth",
+    "meta": {
+      "proficiencyname": "Stealth",
+      "kv517": "British",
+      "s71z0": "Magical Creatures",
+      "ipjf3": "9",
+      "pm37m": "Training",
+      "pn177": "Demiguise",
+      "e3usn": "Demiguise can be instructed to turn invisible on command before carefully taking an action without costing the demiguise its action."
+    }
   },
-  {
+  "cq8na": {
     "id": "13460",
     "item_key": "cq8na",
-    "meta": []
+    "name": "Cut Demiguise Hair",
+    "meta": {
+      "proficiencyname": "Cut Demiguise Hair",
+      "s71z0": "Magical Creatures",
+      "pm37m": "Part Extraction",
+      "pn177": "Demiguise",
+      "vwkm2": "Demiguise Hair",
+      "e3usn": "Demiguise will allow owner to cut it's hair. This hair can be woven into an invisibility cloak. Though this could take a while and using the entire hide would be faster. Also, can be turned into Tincture of Demiguise which is a key component in some invisibility and perception potions.",
+      "e3usn-value": "<p>Demiguise will allow owner to cut it's hair. This hair can be woven into an invisibility cloak. Though this could take a while and using the entire hide would be faster. Also, can be turned into Tincture of Demiguise which is a key component in some invisibility and perception potions.</p>"
+    }
   },
-  {
+  "5tvub": {
     "id": "13461",
     "item_key": "5tvub",
-    "meta": []
+    "name": "Precognitive sight",
+    "meta": {
+      "proficiencyname": "Precognitive sight",
+      "s71z0": "Magical Creatures",
+      "pm37m": "Training",
+      "pn177": "Demiguise",
+      "e3usn": "Demiguise can predict the future on command. Can be used to sense danger before it occurs or other things. However, this works on probability meaning the future sight isn't perfect.",
+      "e3usn-value": "<p>Demiguise can predict the future on command. Can be used to sense danger before it occurs or other things. However, this works on probability meaning the future sight isn't perfect.</p>"
+    }
   },
-  {
+  "ob2g8": {
     "id": "13462",
     "item_key": "ob2g8",
-    "meta": []
+    "name": "Avoid Precognitive Sight",
+    "meta": {
+      "proficiencyname": "Avoid Precognitive Sight",
+      "s71z0": "Magical Creatures",
+      "pm37m": "Tame",
+      "pn177": "Demiguise",
+      "e3usn": "Understanding the Demiguise ability of future sight and how it works on probability. Experienced individuals can take random and unlikely actions to trick the Demiguise.",
+      "e3usn-value": "<p>Understanding the Demiguise ability of future sight and how it works on probability. Experienced individuals can take random and unlikely actions to trick the Demiguise.</p>"
+    }
   },
-  {
+  "hv7io": {
     "id": "13463",
     "item_key": "hv7io",
-    "meta": []
+    "name": "See Demiguise",
+    "meta": {
+      "proficiencyname": "See Demiguise",
+      "s71z0": "Magical Creatures",
+      "pm37m": "Tame",
+      "pn177": "Demiguise",
+      "e3usn": "The trained eye can somewhat notice the Demiguise even when invisible.",
+      "e3usn-value": "<p>The trained eye can somewhat notice the Demiguise even when invisible.</p>"
+    }
   },
-  {
+  "lersg": {
     "id": "13558",
     "item_key": "lersg",
-    "meta": []
+    "name": "Conjunctivitis Pus Extraction",
+    "meta": {
+      "proficiencyname": "Conjunctivitis Pus Extraction",
+      "s71z0": "Potions",
+      "ipjf3": "5",
+      "f2ux5": {
+        "form": "961",
+        "i16832": {
+          "53wtd": "Conjunctivitis Pus"
+        }
+      },
+      "53wtd": [
+        "Conjunctivitis Pus"
+      ],
+      "e3usn": "The puss from the eye of a human with conjunctivitis can be extracted."
+    }
   },
-  {
+  "al9cu": {
     "id": "13742",
     "item_key": "al9cu",
-    "meta": []
+    "name": "Egyptian Inscription: Passing of the Dead",
+    "meta": {
+      "proficiencyname": "Egyptian Inscription: Passing of the Dead",
+      "s71z0": "History",
+      "ipjf3": "25",
+      "e3usn": "Using this inscription, one can force a spirit to pass onto permanently. It must be inscribed in the general area around which the spirit was first laid to rest."
+    }
   },
-  {
+  "rq773": {
     "id": "13747",
     "item_key": "rq773",
-    "meta": []
+    "name": "Cure for Jaundice using Dandelions",
+    "meta": {
+      "proficiencyname": "Cure for Jaundice using Dandelions",
+      "kv517": "Egyptian",
+      "s71z0": "Herbology",
+      "ipjf3": "3",
+      "e5ltj": "Cure",
+      "iw2jn": "Dandelion",
+      "e3usn": "This simple remedy can be used to immediately and completely cure jaundice."
+    }
   },
-  {
+  "sfw5q": {
     "id": "13750",
     "item_key": "sfw5q",
-    "meta": []
+    "name": "Greek Moon Ritual",
+    "meta": {
+      "proficiencyname": "Greek Moon Ritual",
+      "kv517": "Greek",
+      "s71z0": "Astronomy",
+      "ipjf3": "15",
+      "e3usn": "This ritual can be used to very slightly slow the movement of the moon when properly performed. This moon slowing ritual temporarily staves off death for approximately five minutes before the moon returns to its normal movement. Once properly performed, the moon cannot be slowed again for approximately one month (and it will fractionally speed itself up to compensate for its lost ground). \r\n\r\nWhile the ritual is in effect, no one will die."
+    }
   },
-  {
+  "7n89l": {
     "id": "13761",
     "item_key": "7n89l",
-    "meta": []
+    "name": "Erichtho's Resurrection",
+    "meta": {
+      "proficiencyname": "Erichtho's Resurrection",
+      "kv517": "Roman",
+      "s71z0": "History",
+      "ipjf3": "25",
+      "6hlo5": {
+        "form": "960",
+        "i13766": {
+          "aiwl3": "Rabid Dog Spittal"
+        }
+      },
+      "aiwl3": [
+        "Rabid Dog Spittal"
+      ],
+      "e3usn": "This Ancient Roman tradition allows one to temporarily reanimate a corpse for approximately 15 minutes. The ritual must be performed using the spittle from a rabid dog."
+    }
   },
-  {
+  "qnlry": {
     "id": "13827",
     "item_key": "qnlry",
-    "meta": []
+    "name": "Guard",
+    "meta": {
+      "proficiencyname": "Guard",
+      "kv517": "Greek",
+      "s71z0": "Magical Creatures",
+      "ipjf3": "26",
+      "pm37m": "Training",
+      "pn177": "Griffin",
+      "e3usn": "Like the Sphinx, the creature can be trained to guard treasure, a location, or an entrance. Once the command is given, it will remain on-site, attacking all who approach aside from its master. Higher rolls during training will allow the creature to be taught to discern friend from foe. Meaning it will ignore those individuals the trainer shows as an ally beforehand."
+    }
   },
-  {
+  "fgs1c": {
     "id": "13828",
     "item_key": "fgs1c",
-    "meta": []
+    "name": "Griffin Flight",
+    "meta": {
+      "proficiencyname": "Griffin Flight",
+      "s71z0": "Magical Creatures",
+      "ipjf3": "20",
+      "pm37m": "Training",
+      "pn177": "Griffin",
+      "e3usn": "Can ride on the creatures back."
+    }
   },
-  {
+  "7smqo": {
     "id": "13829",
     "item_key": "7smqo",
-    "meta": []
+    "name": "Hippogriff Flight",
+    "meta": {
+      "proficiencyname": "Hippogriff Flight",
+      "s71z0": "Magical Creatures",
+      "ipjf3": "12",
+      "pm37m": "Training",
+      "pn177": "Hippogriff",
+      "e3usn": "Can fly on creature back."
+    }
   },
-  {
+  "3tttt": {
     "id": "13862",
     "item_key": "3tttt",
-    "meta": []
+    "name": "Mayan Calculation of the Synodic Month",
+    "meta": {
+      "proficiencyname": "Mayan Calculation of the Synodic Month",
+      "kv517": "Mayan",
+      "s71z0": "Astronomy",
+      "ipjf3": "12",
+      "e3usn": "Through a complex calculation of the exact position of the moon within its monthly cycle, the astronomer can detect ways to minimize the damage friendly humans or creatures take in battle. As such, any friendly creature (including humans) take -2L wounds less damage anytime they succumb to damage in a battle for the remainder of this battle."
+    }
   },
-  {
+  "eb4dz": {
     "id": "13863",
     "item_key": "eb4dz",
-    "meta": []
+    "name": "Ptolemaic Calculation of the Synodic Month",
+    "meta": {
+      "proficiencyname": "Ptolemaic Calculation of the Synodic Month",
+      "kv517": "Greek",
+      "s71z0": "Astronomy",
+      "ipjf3": "7",
+      "e3usn": "Through a complex calculation of the exact position of the moon within its monthly cycle, the astronomer can detect ways to minimize the damage friendly humans or creatures take in battle. As such, any friendly creature (including humans) take -1L wound less damage anytime they succumb to damage in a battle for the remainder of this battle."
+    }
   },
-  {
+  "nb9sg": {
     "id": "13864",
     "item_key": "nb9sg",
-    "meta": []
+    "name": "Mayan Calculation of the Solar Year",
+    "meta": {
+      "proficiencyname": "Mayan Calculation of the Solar Year",
+      "kv517": "Mayan",
+      "s71z0": "Astronomy",
+      "ipjf3": "10",
+      "e3usn": "This calculation allows the astronomer to provide a +2 bonus to power and a +3 bonus to willpower for the remainder of the day to all friendly creatures (including humans)."
+    }
   },
-  {
+  "7kp66": {
     "id": "13866",
     "item_key": "7kp66",
-    "meta": []
+    "name": "Spanish Calculation of the Solar Year",
+    "meta": {
+      "proficiencyname": "Spanish Calculation of the Solar Year",
+      "kv517": "Spanish",
+      "s71z0": "Astronomy",
+      "ipjf3": "5",
+      "e3usn": "This calculation allows the astronomer to provide a +1 bonus to power and a +2 bonus to willpower for the remainder of the day to all friendly creatures (including humans)."
+    }
   },
-  {
+  "p88s": {
     "id": "13867",
     "item_key": "p88s",
-    "meta": []
+    "name": "Proleptic Julian Calendar",
+    "meta": {
+      "proficiencyname": "Proleptic Julian Calendar",
+      "kv517": "Roman",
+      "s71z0": "History",
+      "ipjf3": "10",
+      "e3usn": "Through an examination of the events preceding approximately 8 AD, the historian can have a deeper sense of the timeline of events during this period. As such, utilizing this proficiency provides both a +1 bonus to astronomy checks and a +3 bonus to history checks for the next day."
+    }
   },
-  {
+  "p617p": {
     "id": "13868",
     "item_key": "p617p",
-    "meta": []
+    "name": "Proleptic Gregorian Calendar",
+    "meta": {
+      "proficiencyname": "Proleptic Gregorian Calendar",
+      "kv517": "Roman",
+      "s71z0": "History",
+      "ipjf3": "15",
+      "e3usn": "Through an examination of the events preceding approximately 8 AD, the historian can have a deeper sense of the timeline of events during this period. As such, utilizing this proficiency provides both a +3 bonus to astronomy checks and a +5 bonus to history checks for the next day."
+    }
   },
-  {
+  "icgvw": {
     "id": "13869",
     "item_key": "icgvw",
-    "meta": []
+    "name": "Mayan Long Count Calendar",
+    "meta": {
+      "proficiencyname": "Mayan Long Count Calendar",
+      "kv517": "Mayan",
+      "s71z0": "Astronomy",
+      "ipjf3": "5",
+      "e3usn": "Utilization of this long count calendar allows the astronomer to provide bonuses to any friendly creatures (including humans) to divination (+1) and charisma (+3) for the rest of the day."
+    }
   },
-  {
+  "pszf7": {
     "id": "13870",
     "item_key": "pszf7",
-    "meta": []
+    "name": "Tzolk'in Calendar",
+    "meta": {
+      "proficiencyname": "Tzolk'in Calendar",
+      "kv517": "Mayan",
+      "s71z0": "Astronomy",
+      "ipjf3": "7",
+      "e3usn": "Utilization of the Tzolk'in Calendar allows the astronomer to provide +2 bonuses to potions and herbology for the rest of the day."
+    }
   },
-  {
+  "89nyf": {
     "id": "13871",
     "item_key": "89nyf",
-    "meta": []
+    "name": "Utilization of the Haab' Calendar",
+    "meta": {
+      "proficiencyname": "Utilization of the Haab' Calendar",
+      "kv517": "Mayan",
+      "s71z0": "Astronomy",
+      "ipjf3": "12",
+      "e3usn": "Utilization of this calendar allows the astronomer to provide a +1 bonus to Arithmancy and Ancient Runes for the rest of the day."
+    }
   },
-  {
+  "kv36n": {
     "id": "14124",
     "item_key": "kv36n",
-    "meta": []
+    "name": "Olmec Era Possession",
+    "meta": {
+      "proficiencyname": "Olmec Era Possession",
+      "kv517": "Mayan",
+      "s71z0": "History",
+      "ipjf3": "30",
+      "6hlo5": {
+        "form": "960",
+        "i14123": {
+          "aiwl3": "Morning Glory Seeds"
+        }
+      },
+      "aiwl3": [
+        "Morning Glory Seeds"
+      ],
+      "e3usn": "This proficiency requires that one have morning glories (or their seeds) in their possession. After consuming the morning glory seeds and waiting 30 minutes, the user conjures an image in their mind of the one they wish to possess. Even over vast distances, they will temporarily possess this being for approximately 5 minutes. The target's sense of self-preservation will still be intact and the bond will break if the target senses they are in grave danger. \r\n\r\nTarget rolls Mental Fortitude to resist this control."
+    }
   },
-  {
+  "neb9x": {
     "id": "14128",
     "item_key": "neb9x",
-    "meta": []
+    "name": "Olmec Era Conjuration",
+    "meta": {
+      "proficiencyname": "Olmec Era Conjuration",
+      "kv517": "Mayan",
+      "s71z0": "History",
+      "ipjf3": "3",
+      "e3usn": "This Mayan ritual involves the direct ingestion of Agarin. The result is the conjuration of three sprite-like creatures that each cause 1L wound of cutting damage per attack. Each has a heavy wound capacity of 1. These are conjured within one turn and can begin attacking immediately. They may be reconjured once all initial sprites have died."
+    }
   },
-  {
+  "jbczq": {
     "id": "15978",
     "item_key": "jbczq",
-    "meta": []
+    "name": "jbczq",
+    "meta": {
+      "proficiencyname": "Extraction of Neem Bark from Neem",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Neem",
+      "f2ux5": {
+        "form": "961",
+        "i15977": {
+          "53wtd": "Neem Bark"
+        }
+      },
+      "53wtd": [
+        "Neem Bark"
+      ]
+    }
   },
-  {
+  "y8wn1": {
     "id": "15980",
     "item_key": "y8wn1",
-    "meta": []
+    "name": "y8wn1",
+    "meta": {
+      "proficiencyname": "Extraction of Moonseeds from Moonseed",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Moonseed",
+      "f2ux5": {
+        "form": "961",
+        "i15979": {
+          "53wtd": "Moonseeds"
+        }
+      },
+      "53wtd": [
+        "Moonseeds"
+      ]
+    }
   },
-  {
+  "9herb": {
     "id": "15982",
     "item_key": "9herb",
-    "meta": []
+    "name": "9herb",
+    "meta": {
+      "proficiencyname": "Extraction of Leaves of Wormwood from Wormwood",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Wormwood",
+      "f2ux5": {
+        "form": "961",
+        "i15981": {
+          "53wtd": "Leaves of Wormwood"
+        }
+      },
+      "53wtd": [
+        "Leaves of Wormwood"
+      ]
+    }
   },
-  {
+  "n1ntf": {
     "id": "15984",
     "item_key": "n1ntf",
-    "meta": []
+    "name": "n1ntf",
+    "meta": {
+      "proficiencyname": "Extraction of Witch's Ganglion Heart Bulb from Witch's Ganglion",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Witch's Ganglion",
+      "f2ux5": {
+        "form": "961",
+        "i15983": {
+          "53wtd": "Witch's Ganglion Heart Bulb"
+        }
+      },
+      "53wtd": [
+        "Witch's Ganglion Heart Bulb"
+      ]
+    }
   },
-  {
+  "d2886": {
     "id": "15986",
     "item_key": "d2886",
-    "meta": []
+    "name": "d2886",
+    "meta": {
+      "proficiencyname": "Extraction of Wiggentree Bark from Wiggentree",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Wiggentree",
+      "f2ux5": {
+        "form": "961",
+        "i15985": {
+          "53wtd": "Wiggentree Bark"
+        }
+      },
+      "53wtd": [
+        "Wiggentree Bark"
+      ]
+    }
   },
-  {
+  "45kxn": {
     "id": "15988",
     "item_key": "45kxn",
-    "meta": []
+    "name": "45kxn",
+    "meta": {
+      "proficiencyname": "Extraction of Pungous Onion Secretion from Pungous Onion",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Pungous Onion",
+      "f2ux5": {
+        "form": "961",
+        "i15987": {
+          "53wtd": "Pungous Onion Secretion"
+        }
+      },
+      "53wtd": [
+        "Pungous Onion Secretion"
+      ]
+    }
   },
-  {
+  "2flln": {
     "id": "15990",
     "item_key": "2flln",
-    "meta": []
+    "name": "2flln",
+    "meta": {
+      "proficiencyname": "Extraction of Welwitschia Gasses from Welwitschia",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Welwitschia",
+      "f2ux5": {
+        "form": "961",
+        "i15989": {
+          "53wtd": "Welwitschia Gasses"
+        }
+      },
+      "53wtd": [
+        "Welwitschia Gasses"
+      ]
+    }
   },
-  {
+  "fjdib": {
     "id": "15992",
     "item_key": "fjdib",
-    "meta": []
+    "name": "fjdib",
+    "meta": {
+      "proficiencyname": "Extraction of Valerian Root from Valerian",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Valerian",
+      "f2ux5": {
+        "form": "961",
+        "i15991": {
+          "53wtd": "Valerian Root"
+        }
+      },
+      "53wtd": [
+        "Valerian Root"
+      ]
+    }
   },
-  {
+  "uwu73": {
     "id": "15994",
     "item_key": "uwu73",
-    "meta": []
+    "name": "uwu73",
+    "meta": {
+      "proficiencyname": "Extraction of Tormentil Extract from Tormentil",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Tormentil",
+      "f2ux5": {
+        "form": "961",
+        "i15993": {
+          "53wtd": "Tormentil Extract"
+        }
+      },
+      "53wtd": [
+        "Tormentil Extract"
+      ]
+    }
   },
-  {
+  "nozzd": {
     "id": "15996",
     "item_key": "nozzd",
-    "meta": []
+    "name": "nozzd",
+    "meta": {
+      "proficiencyname": "Extraction of Snowdrop Bulb from Snowdrop",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Snowdrop",
+      "f2ux5": {
+        "form": "961",
+        "i15995": {
+          "53wtd": "Snowdrop Bulb"
+        }
+      },
+      "53wtd": [
+        "Snowdrop Bulb"
+      ]
+    }
   },
-  {
+  "3peso": {
     "id": "15998",
     "item_key": "3peso",
-    "meta": []
+    "name": "3peso",
+    "meta": {
+      "proficiencyname": "Extraction of Rose Bud from Rose",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Rose",
+      "f2ux5": {
+        "form": "961",
+        "i15997": {
+          "53wtd": "Rose Bud"
+        }
+      },
+      "53wtd": [
+        "Rose Bud"
+      ]
+    }
   },
-  {
+  "78zb1": {
     "id": "16000",
     "item_key": "78zb1",
-    "meta": []
+    "name": "78zb1",
+    "meta": {
+      "proficiencyname": "Extraction of Nettle Leaves from Nettle",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Nettle",
+      "f2ux5": {
+        "form": "961",
+        "i15999": {
+          "53wtd": "Nettle Leaves"
+        }
+      },
+      "53wtd": [
+        "Nettle Leaves"
+      ]
+    }
   },
-  {
+  "ukoe1": {
     "id": "16002",
     "item_key": "ukoe1",
-    "meta": []
+    "name": "ukoe1",
+    "meta": {
+      "proficiencyname": "Extraction of Morning Glory Seeds from Morning Glory",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Morning Glory",
+      "f2ux5": {
+        "form": "961",
+        "i16001": {
+          "53wtd": "Morning Glory Seeds"
+        }
+      },
+      "53wtd": [
+        "Morning Glory Seeds"
+      ]
+    }
   },
-  {
+  "tw5nx": {
     "id": "16004",
     "item_key": "tw5nx",
-    "meta": []
+    "name": "tw5nx",
+    "meta": {
+      "proficiencyname": "Extraction of Moondew Flowers from Moondew",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Moondew",
+      "f2ux5": {
+        "form": "961",
+        "i16003": {
+          "53wtd": "Moondew Flowers"
+        }
+      },
+      "53wtd": [
+        "Moondew Flowers"
+      ]
+    }
   },
-  {
+  "rusmq": {
     "id": "16006",
     "item_key": "rusmq",
-    "meta": []
+    "name": "rusmq",
+    "meta": {
+      "proficiencyname": "Extraction of Lavender Flowers from Lavender",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Lavender",
+      "f2ux5": {
+        "form": "961",
+        "i16005": {
+          "53wtd": "Lavender Flowers"
+        }
+      },
+      "53wtd": [
+        "Lavender Flowers"
+      ]
+    }
   },
-  {
+  "l8fi8": {
     "id": "16008",
     "item_key": "l8fi8",
-    "meta": []
+    "name": "l8fi8",
+    "meta": {
+      "proficiencyname": "Extraction of Lady's Mantle Seeds from Lady's Mantle",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Lady's Mantle",
+      "f2ux5": {
+        "form": "961",
+        "i16007": {
+          "53wtd": "Lady's Mantle Seeds"
+        }
+      },
+      "53wtd": [
+        "Lady's Mantle Seeds"
+      ]
+    }
   },
-  {
+  "5uqtg": {
     "id": "16010",
     "item_key": "5uqtg",
-    "meta": []
+    "name": "5uqtg",
+    "meta": {
+      "proficiencyname": "Extraction of Clump of Gillyweed from Gillyweed",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Gillyweed",
+      "f2ux5": {
+        "form": "961",
+        "i16009": {
+          "53wtd": "Clump of Gillyweed"
+        }
+      },
+      "53wtd": [
+        "Clump of Gillyweed"
+      ]
+    }
   },
-  {
+  "pwcww": {
     "id": "16012",
     "item_key": "pwcww",
-    "meta": []
+    "name": "pwcww",
+    "meta": {
+      "proficiencyname": "Extraction of Fire Seed Embers from Fire Seed Bush",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Fire Seed Bush",
+      "f2ux5": {
+        "form": "961",
+        "i16011": {
+          "53wtd": "Fire Seed Embers"
+        }
+      },
+      "53wtd": [
+        "Fire Seed Embers"
+      ]
+    }
   },
-  {
+  "mobou": {
     "id": "16014",
     "item_key": "mobou",
-    "meta": []
+    "name": "mobou",
+    "meta": {
+      "proficiencyname": "Extraction of Daisy Flowers from Daisy",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Daisy",
+      "f2ux5": {
+        "form": "961",
+        "i16013": {
+          "53wtd": "Daisy Flowers"
+        }
+      },
+      "53wtd": [
+        "Daisy Flowers"
+      ]
+    }
   },
-  {
+  "8l0qk": {
     "id": "16016",
     "item_key": "8l0qk",
-    "meta": []
+    "name": "8l0qk",
+    "meta": {
+      "proficiencyname": "Extraction of A Centaury Stem from Centaury",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Centaury",
+      "f2ux5": {
+        "form": "961",
+        "i16015": {
+          "53wtd": "A Centaury Stem"
+        }
+      },
+      "53wtd": [
+        "A Centaury Stem"
+      ]
+    }
   },
-  {
+  "gau9k": {
     "id": "16018",
     "item_key": "gau9k",
-    "meta": []
+    "name": "gau9k",
+    "meta": {
+      "proficiencyname": "Extraction of Bouncing Bulb Vines from Bouncing Bulb",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Bouncing Bulb",
+      "f2ux5": {
+        "form": "961",
+        "i16017": {
+          "53wtd": "Bouncing Bulb Vines"
+        }
+      },
+      "53wtd": [
+        "Bouncing Bulb Vines"
+      ]
+    }
   },
-  {
+  "x6rgg": {
     "id": "16020",
     "item_key": "x6rgg",
-    "meta": []
+    "name": "x6rgg",
+    "meta": {
+      "proficiencyname": "Extraction of Bloodroot Flower from Bloodroot",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Bloodroot",
+      "f2ux5": {
+        "form": "961",
+        "i16019": {
+          "53wtd": "Bloodroot Flower"
+        }
+      },
+      "53wtd": [
+        "Bloodroot Flower"
+      ]
+    }
   },
-  {
+  "f6i6z": {
     "id": "16022",
     "item_key": "f6i6z",
-    "meta": []
+    "name": "f6i6z",
+    "meta": {
+      "proficiencyname": "Extraction of Blackthorn Berries from Blackthorn",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Blackthorn",
+      "f2ux5": {
+        "form": "961",
+        "i16021": {
+          "53wtd": "Blackthorn Berries"
+        }
+      },
+      "53wtd": [
+        "Blackthorn Berries"
+      ]
+    }
   },
-  {
+  "x07s8": {
     "id": "16024",
     "item_key": "x07s8",
-    "meta": []
+    "name": "x07s8",
+    "meta": {
+      "proficiencyname": "Extraction of Apples from Apple Tree",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Apple Tree",
+      "f2ux5": {
+        "form": "961",
+        "i16023": {
+          "53wtd": "Apples"
+        }
+      },
+      "53wtd": [
+        "Apples"
+      ]
+    }
   },
-  {
+  "wqfe9": {
     "id": "16026",
     "item_key": "wqfe9",
-    "meta": []
+    "name": "wqfe9",
+    "meta": {
+      "proficiencyname": "Extraction of Yarrow Flowers from Yarrow",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Yarrow",
+      "f2ux5": {
+        "form": "961",
+        "i16025": {
+          "53wtd": "Yarrow Flowers"
+        }
+      },
+      "53wtd": [
+        "Yarrow Flowers"
+      ]
+    }
   },
-  {
+  "6lagm": {
     "id": "16028",
     "item_key": "6lagm",
-    "meta": []
+    "name": "6lagm",
+    "meta": {
+      "proficiencyname": "Extraction of Wolfsbane Flowers from Wolfsbane",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Wolfsbane",
+      "f2ux5": {
+        "form": "961",
+        "i16027": {
+          "53wtd": "Wolfsbane Flowers"
+        }
+      },
+      "53wtd": [
+        "Wolfsbane Flowers"
+      ]
+    }
   },
-  {
+  "tdq5o": {
     "id": "16030",
     "item_key": "tdq5o",
-    "meta": []
+    "name": "tdq5o",
+    "meta": {
+      "proficiencyname": "Extraction of Whole Thorn Apples from Thorn Apple",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Thorn Apple",
+      "f2ux5": {
+        "form": "961",
+        "i16029": {
+          "53wtd": "Whole Thorn Apples"
+        }
+      },
+      "53wtd": [
+        "Whole Thorn Apples"
+      ]
+    }
   },
-  {
+  "zin0l": {
     "id": "16032",
     "item_key": "zin0l",
-    "meta": []
+    "name": "zin0l",
+    "meta": {
+      "proficiencyname": "Extraction of Whole Cloves from Cloves",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Cloves",
+      "f2ux5": {
+        "form": "961",
+        "i16031": {
+          "53wtd": "Whole Cloves"
+        }
+      },
+      "53wtd": [
+        "Whole Cloves"
+      ]
+    }
   },
-  {
+  "zlt65": {
     "id": "16034",
     "item_key": "zlt65",
-    "meta": []
+    "name": "zlt65",
+    "meta": {
+      "proficiencyname": "Extraction of Wartcaps from Wartcap",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Wartcap",
+      "f2ux5": {
+        "form": "961",
+        "i16033": {
+          "53wtd": "Wartcaps"
+        }
+      },
+      "53wtd": [
+        "Wartcaps"
+      ]
+    }
   },
-  {
+  "shpmo": {
     "id": "16036",
     "item_key": "shpmo",
-    "meta": []
+    "name": "shpmo",
+    "meta": {
+      "proficiencyname": "Extraction of Vervain Fluid from Vervain",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Vervain",
+      "f2ux5": {
+        "form": "961",
+        "i16035": {
+          "53wtd": "Vervain Fluid"
+        }
+      },
+      "53wtd": [
+        "Vervain Fluid"
+      ]
+    }
   },
-  {
+  "fl5ii": {
     "id": "16038",
     "item_key": "fl5ii",
-    "meta": []
+    "name": "fl5ii",
+    "meta": {
+      "proficiencyname": "Extraction of Venomous Tentacula Venom from Venomous Tentacula",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Venomous Tentacula",
+      "f2ux5": {
+        "form": "961",
+        "i16037": {
+          "53wtd": "Venomous Tentacula Venom"
+        }
+      },
+      "53wtd": [
+        "Venomous Tentacula Venom"
+      ]
+    }
   },
-  {
+  "eyuox": {
     "id": "16040",
     "item_key": "eyuox",
-    "meta": []
+    "name": "eyuox",
+    "meta": {
+      "proficiencyname": "Extraction of Turmeric Roots from Turmeric",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Turmeric",
+      "f2ux5": {
+        "form": "961",
+        "i16039": {
+          "53wtd": "Turmeric Roots"
+        }
+      },
+      "53wtd": [
+        "Turmeric Roots"
+      ]
+    }
   },
-  {
+  "mtv9y": {
     "id": "16042",
     "item_key": "mtv9y",
-    "meta": []
+    "name": "mtv9y",
+    "meta": {
+      "proficiencyname": "Extraction of Toad Eating Plant Roots from Toad Eating Plant",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Toad Eating Plant",
+      "f2ux5": {
+        "form": "961",
+        "i16041": {
+          "53wtd": "Toad Eating Plant Roots"
+        }
+      },
+      "53wtd": [
+        "Toad Eating Plant Roots"
+      ]
+    }
   },
-  {
+  "4h3fy": {
     "id": "16044",
     "item_key": "4h3fy",
-    "meta": []
+    "name": "4h3fy",
+    "meta": {
+      "proficiencyname": "Extraction of Thistle Spine from Thistle",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Thistle",
+      "f2ux5": {
+        "form": "961",
+        "i16043": {
+          "53wtd": "Thistle Spine"
+        }
+      },
+      "53wtd": [
+        "Thistle Spine"
+      ]
+    }
   },
-  {
+  "pmsan": {
     "id": "16046",
     "item_key": "pmsan",
-    "meta": []
+    "name": "pmsan",
+    "meta": {
+      "proficiencyname": "Extraction of Thaumatagoria Petal from Thaumatagoria",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Thaumatagoria",
+      "f2ux5": {
+        "form": "961",
+        "i16045": {
+          "53wtd": "Thaumatagoria Petal"
+        }
+      },
+      "53wtd": [
+        "Thaumatagoria Petal"
+      ]
+    }
   },
-  {
+  "43bi9": {
     "id": "16048",
     "item_key": "43bi9",
-    "meta": []
+    "name": "43bi9",
+    "meta": {
+      "proficiencyname": "Extraction of Sugar Shrub Oil from Sugar Shrub",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Sugar Shrub",
+      "f2ux5": {
+        "form": "961",
+        "i16047": {
+          "53wtd": "Sugar Shrub Oil"
+        }
+      },
+      "53wtd": [
+        "Sugar Shrub Oil"
+      ]
+    }
   },
-  {
+  "bgqud": {
     "id": "16050",
     "item_key": "bgqud",
-    "meta": []
+    "name": "bgqud",
+    "meta": {
+      "proficiencyname": "Extraction of Star Grasses from Star Grass",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Star Grass",
+      "f2ux5": {
+        "form": "961",
+        "i16049": {
+          "53wtd": "Star Grasses"
+        }
+      },
+      "53wtd": [
+        "Star Grasses"
+      ]
+    }
   },
-  {
+  "ytlq2": {
     "id": "16052",
     "item_key": "ytlq2",
-    "meta": []
+    "name": "ytlq2",
+    "meta": {
+      "proficiencyname": "Extraction of St John's Flower from St. John's-Wort",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "St. John's-Wort",
+      "f2ux5": {
+        "form": "961",
+        "i16051": {
+          "53wtd": "St John's Flower"
+        }
+      },
+      "53wtd": [
+        "St John's Flower"
+      ]
+    }
   },
-  {
+  "viev1": {
     "id": "16054",
     "item_key": "viev1",
-    "meta": []
+    "name": "viev1",
+    "meta": {
+      "proficiencyname": "Extraction of Spleenwort Petals from Spleenwort",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Spleenwort",
+      "f2ux5": {
+        "form": "961",
+        "i16053": {
+          "53wtd": "Spleenwort Petals"
+        }
+      },
+      "53wtd": [
+        "Spleenwort Petals"
+      ]
+    }
   },
-  {
+  "odarg": {
     "id": "16056",
     "item_key": "odarg",
-    "meta": []
+    "name": "odarg",
+    "meta": {
+      "proficiencyname": "Extraction of Spikey Bush Thorns from Spikey Bush",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Spikey Bush",
+      "f2ux5": {
+        "form": "961",
+        "i16055": {
+          "53wtd": "Spikey Bush Thorns"
+        }
+      },
+      "53wtd": [
+        "Spikey Bush Thorns"
+      ]
+    }
   },
-  {
+  "z5ugw": {
     "id": "16058",
     "item_key": "z5ugw",
-    "meta": []
+    "name": "z5ugw",
+    "meta": {
+      "proficiencyname": "Extraction of Spattergroit Spore Sac from Spattergroit",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Spattergroit",
+      "f2ux5": {
+        "form": "961",
+        "i16057": {
+          "53wtd": "Spattergroit Spore Sac"
+        }
+      },
+      "53wtd": [
+        "Spattergroit Spore Sac"
+      ]
+    }
   },
-  {
+  "swfyw": {
     "id": "16060",
     "item_key": "swfyw",
-    "meta": []
+    "name": "swfyw",
+    "meta": {
+      "proficiencyname": "Extraction of Soy Plant Leaves from Soy",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Soy",
+      "f2ux5": {
+        "form": "961",
+        "i16059": {
+          "53wtd": "Soy Plant Leaves"
+        }
+      },
+      "53wtd": [
+        "Soy Plant Leaves"
+      ]
+    }
   },
-  {
+  "4fdre": {
     "id": "16062",
     "item_key": "4fdre",
-    "meta": []
+    "name": "4fdre",
+    "meta": {
+      "proficiencyname": "Extraction of Sopophorous Bean from Sopophorous Plant",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Sopophorous Plant",
+      "f2ux5": {
+        "form": "961",
+        "i16061": {
+          "53wtd": "Sopophorous Bean"
+        }
+      },
+      "53wtd": [
+        "Sopophorous Bean"
+      ]
+    }
   },
-  {
+  "9yud9": {
     "id": "16064",
     "item_key": "9yud9",
-    "meta": []
+    "name": "9yud9",
+    "meta": {
+      "proficiencyname": "Extraction of Sneezewort Pollen from Sneezewort",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Sneezewort",
+      "f2ux5": {
+        "form": "961",
+        "i16063": {
+          "53wtd": "Sneezewort Pollen"
+        }
+      },
+      "53wtd": [
+        "Sneezewort Pollen"
+      ]
+    }
   },
-  {
+  "xgyr3": {
     "id": "16066",
     "item_key": "xgyr3",
-    "meta": []
+    "name": "xgyr3",
+    "meta": {
+      "proficiencyname": "Extraction of Snarfalump Jawbone from Snarfalump",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Snarfalump",
+      "f2ux5": {
+        "form": "961",
+        "i16065": {
+          "53wtd": "Snarfalump Jawbone"
+        }
+      },
+      "53wtd": [
+        "Snarfalump Jawbone"
+      ]
+    }
   },
-  {
+  "6cqio": {
     "id": "16068",
     "item_key": "6cqio",
-    "meta": []
+    "name": "6cqio",
+    "meta": {
+      "proficiencyname": "Extraction of Silverweed Flowers from Silverweed",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Silverweed",
+      "f2ux5": {
+        "form": "961",
+        "i16067": {
+          "53wtd": "Silverweed Flowers"
+        }
+      },
+      "53wtd": [
+        "Silverweed Flowers"
+      ]
+    }
   },
-  {
+  "zx1ui": {
     "id": "16070",
     "item_key": "zx1ui",
-    "meta": []
+    "name": "zx1ui",
+    "meta": {
+      "proficiencyname": "Extraction of Silver Leaves from Silver Leaf Tree",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Silver Leaf Tree",
+      "f2ux5": {
+        "form": "961",
+        "i16069": {
+          "53wtd": "Silver Leaves"
+        }
+      },
+      "53wtd": [
+        "Silver Leaves"
+      ]
+    }
   },
-  {
+  "qt3ls": {
     "id": "16072",
     "item_key": "qt3ls",
-    "meta": []
+    "name": "qt3ls",
+    "meta": {
+      "proficiencyname": "Extraction of Shrivelfigs from Shrivelfig",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Shrivelfig",
+      "f2ux5": {
+        "form": "961",
+        "i16071": {
+          "53wtd": "Shrivelfigs"
+        }
+      },
+      "53wtd": [
+        "Shrivelfigs"
+      ]
+    }
   },
-  {
+  "7l42s": {
     "id": "16074",
     "item_key": "7l42s",
-    "meta": []
+    "name": "7l42s",
+    "meta": {
+      "proficiencyname": "Extraction of Shaved Aspen Tree Bark from Aspen Tree",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Aspen Tree",
+      "f2ux5": {
+        "form": "961",
+        "i16073": {
+          "53wtd": "Shaved Aspen Tree Bark"
+        }
+      },
+      "53wtd": [
+        "Shaved Aspen Tree Bark"
+      ]
+    }
   },
-  {
+  "jt9gg": {
     "id": "16076",
     "item_key": "jt9gg",
-    "meta": []
+    "name": "jt9gg",
+    "meta": {
+      "proficiencyname": "Extraction of Severed Death Caps Heads from Death Cap",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Death Cap",
+      "f2ux5": {
+        "form": "961",
+        "i16075": {
+          "53wtd": "Severed Death Caps Heads"
+        }
+      },
+      "53wtd": [
+        "Severed Death Caps Heads"
+      ]
+    }
   },
-  {
+  "j8u3a": {
     "id": "16078",
     "item_key": "j8u3a",
-    "meta": []
+    "name": "j8u3a",
+    "meta": {
+      "proficiencyname": "Extraction of Sea Lavander Flowers from Sea Lavender",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Sea Lavender",
+      "f2ux5": {
+        "form": "961",
+        "i16077": {
+          "53wtd": "Sea Lavander Flowers"
+        }
+      },
+      "53wtd": [
+        "Sea Lavander Flowers"
+      ]
+    }
   },
-  {
+  "u70tv": {
     "id": "16080",
     "item_key": "u70tv",
-    "meta": []
+    "name": "u70tv",
+    "meta": {
+      "proficiencyname": "Extraction of Sage Root from Sage",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Sage",
+      "f2ux5": {
+        "form": "961",
+        "i16079": {
+          "53wtd": "Sage Root"
+        }
+      },
+      "53wtd": [
+        "Sage Root"
+      ]
+    }
   },
-  {
+  "uizx8": {
     "id": "16082",
     "item_key": "uizx8",
-    "meta": []
+    "name": "uizx8",
+    "meta": {
+      "proficiencyname": "Extraction of Rosemary Needles from Rosemary",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Rosemary",
+      "f2ux5": {
+        "form": "961",
+        "i16081": {
+          "53wtd": "Rosemary Needles"
+        }
+      },
+      "53wtd": [
+        "Rosemary Needles"
+      ]
+    }
   },
-  {
+  "yzsa4": {
     "id": "16084",
     "item_key": "yzsa4",
-    "meta": []
+    "name": "yzsa4",
+    "meta": {
+      "proficiencyname": "Extraction of Roots of Bitterroot from Bitterroot",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Bitterroot",
+      "f2ux5": {
+        "form": "961",
+        "i16083": {
+          "53wtd": "Roots of Bitterroot"
+        }
+      },
+      "53wtd": [
+        "Roots of Bitterroot"
+      ]
+    }
   },
-  {
+  "y776": {
     "id": "16086",
     "item_key": "y776",
-    "meta": []
+    "name": "y776",
+    "meta": {
+      "proficiencyname": "Extraction of Red Ti Plant Leaves from Red Ti Plant",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Red Ti Plant",
+      "f2ux5": {
+        "form": "961",
+        "i16085": {
+          "53wtd": "Red Ti Plant Leaves"
+        }
+      },
+      "53wtd": [
+        "Red Ti Plant Leaves"
+      ]
+    }
   },
-  {
+  "96a0c": {
     "id": "16088",
     "item_key": "96a0c",
-    "meta": []
+    "name": "96a0c",
+    "meta": {
+      "proficiencyname": "Extraction of Puffapods from Puffapod",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Puffapod",
+      "f2ux5": {
+        "form": "961",
+        "i16087": {
+          "53wtd": "Puffapods"
+        }
+      },
+      "53wtd": [
+        "Puffapods"
+      ]
+    }
   },
-  {
+  "5qqop": {
     "id": "16090",
     "item_key": "5qqop",
-    "meta": []
+    "name": "5qqop",
+    "meta": {
+      "proficiencyname": "Extraction of Polypody Leaves from Polypody",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Polypody",
+      "f2ux5": {
+        "form": "961",
+        "i16089": {
+          "53wtd": "Polypody Leaves"
+        }
+      },
+      "53wtd": [
+        "Polypody Leaves"
+      ]
+    }
   },
-  {
+  "wn6xb": {
     "id": "16092",
     "item_key": "wn6xb",
-    "meta": []
+    "name": "wn6xb",
+    "meta": {
+      "proficiencyname": "Extraction of Peppermint Oil from Peppermint",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Peppermint",
+      "f2ux5": {
+        "form": "961",
+        "i16091": {
+          "53wtd": "Peppermint Oil"
+        }
+      },
+      "53wtd": [
+        "Peppermint Oil"
+      ]
+    }
   },
-  {
+  "laj8b": {
     "id": "16094",
     "item_key": "laj8b",
-    "meta": []
+    "name": "laj8b",
+    "meta": {
+      "proficiencyname": "Extraction of Peony Flowers from Peony",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Peony",
+      "f2ux5": {
+        "form": "961",
+        "i16093": {
+          "53wtd": "Peony Flowers"
+        }
+      },
+      "53wtd": [
+        "Peony Flowers"
+      ]
+    }
   },
-  {
+  "yqgqh": {
     "id": "16096",
     "item_key": "yqgqh",
-    "meta": []
+    "name": "yqgqh",
+    "meta": {
+      "proficiencyname": "Extraction of Parsley Leaves from Parsley",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Parsley",
+      "f2ux5": {
+        "form": "961",
+        "i16095": {
+          "53wtd": "Parsley Leaves"
+        }
+      },
+      "53wtd": [
+        "Parsley Leaves"
+      ]
+    }
   },
-  {
+  "s105": {
     "id": "16098",
     "item_key": "s105",
-    "meta": []
+    "name": "s105",
+    "meta": {
+      "proficiencyname": "Extraction of Oregano Leaves from Oregano",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Oregano",
+      "f2ux5": {
+        "form": "961",
+        "i16097": {
+          "53wtd": "Oregano Leaves"
+        }
+      },
+      "53wtd": [
+        "Oregano Leaves"
+      ]
+    }
   },
-  {
+  "5xun8": {
     "id": "16100",
     "item_key": "5xun8",
-    "meta": []
+    "name": "5xun8",
+    "meta": {
+      "proficiencyname": "Extraction of Orchid Flowers from Orchid",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Orchid",
+      "f2ux5": {
+        "form": "961",
+        "i16099": {
+          "53wtd": "Orchid Flowers"
+        }
+      },
+      "53wtd": [
+        "Orchid Flowers"
+      ]
+    }
   },
-  {
+  "zcw49": {
     "id": "16102",
     "item_key": "zcw49",
-    "meta": []
+    "name": "zcw49",
+    "meta": {
+      "proficiencyname": "Extraction of Oozy Substance from the Pod of a Pritcher's Porritch from Pritcher's Porritch",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Pritcher's Porritch",
+      "f2ux5": {
+        "form": "961",
+        "i16101": {
+          "53wtd": "Oozy Substance from the Pod of a Pritcher's Porritch"
+        }
+      },
+      "53wtd": [
+        "Oozy Substance from the Pod of a Pritcher's Porritch"
+      ]
+    }
   },
-  {
+  "zj1ed": {
     "id": "16104",
     "item_key": "zj1ed",
-    "meta": []
+    "name": "zj1ed",
+    "meta": {
+      "proficiencyname": "Extraction of Nightshade Peppers from Nightshade",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Nightshade",
+      "f2ux5": {
+        "form": "961",
+        "i16103": {
+          "53wtd": "Nightshade Peppers"
+        }
+      },
+      "53wtd": [
+        "Nightshade Peppers"
+      ]
+    }
   },
-  {
+  "ns7qn": {
     "id": "16106",
     "item_key": "ns7qn",
-    "meta": []
+    "name": "ns7qn",
+    "meta": {
+      "proficiencyname": "Extraction of Motherwort Leaves from Motherwort",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Motherwort",
+      "f2ux5": {
+        "form": "961",
+        "i16105": {
+          "53wtd": "Motherwort Leaves"
+        }
+      },
+      "53wtd": [
+        "Motherwort Leaves"
+      ]
+    }
   },
-  {
+  "oxlrt": {
     "id": "16108",
     "item_key": "oxlrt",
-    "meta": []
+    "name": "oxlrt",
+    "meta": {
+      "proficiencyname": "Extraction of Moly Bulbs from Moly",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Moly",
+      "f2ux5": {
+        "form": "961",
+        "i16107": {
+          "53wtd": "Moly Bulbs"
+        }
+      },
+      "53wtd": [
+        "Moly Bulbs"
+      ]
+    }
   },
-  {
+  "wz1ww": {
     "id": "16110",
     "item_key": "wz1ww",
-    "meta": []
+    "name": "wz1ww",
+    "meta": {
+      "proficiencyname": "Extraction of Mistletoe Berries from Mistletoe",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Mistletoe",
+      "f2ux5": {
+        "form": "961",
+        "i16109": {
+          "53wtd": "Mistletoe Berries"
+        }
+      },
+      "53wtd": [
+        "Mistletoe Berries"
+      ]
+    }
   },
-  {
+  "9p1da": {
     "id": "16112",
     "item_key": "9p1da",
-    "meta": []
+    "name": "9p1da",
+    "meta": {
+      "proficiencyname": "Extraction of Minted Oils from Mint",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Mint",
+      "f2ux5": {
+        "form": "961",
+        "i16111": {
+          "53wtd": "Minted Oils"
+        }
+      },
+      "53wtd": [
+        "Minted Oils"
+      ]
+    }
   },
-  {
+  "yvvt0": {
     "id": "16114",
     "item_key": "yvvt0",
-    "meta": []
+    "name": "yvvt0",
+    "meta": {
+      "proficiencyname": "Extraction of Mimbletonia Stinksap from Mimbulus Mimbletonia",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Mimbulus Mimbletonia",
+      "f2ux5": {
+        "form": "961",
+        "i16113": {
+          "53wtd": "Mimbletonia Stinksap"
+        }
+      },
+      "53wtd": [
+        "Mimbletonia Stinksap"
+      ]
+    }
   },
-  {
+  "wcvgc": {
     "id": "16116",
     "item_key": "wcvgc",
-    "meta": []
+    "name": "wcvgc",
+    "meta": {
+      "proficiencyname": "Extraction of Milk of the Poppy from Poppy Plant",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Poppy Plant",
+      "f2ux5": {
+        "form": "961",
+        "i16115": {
+          "53wtd": "Milk of the Poppy"
+        }
+      },
+      "53wtd": [
+        "Milk of the Poppy"
+      ]
+    }
   },
-  {
+  "x0qia": {
     "id": "16118",
     "item_key": "x0qia",
-    "meta": []
+    "name": "x0qia",
+    "meta": {
+      "proficiencyname": "Extraction of Mercurialis Annua Flowers from Mercurialis Annua",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Mercurialis Annua",
+      "f2ux5": {
+        "form": "961",
+        "i16117": {
+          "53wtd": "Mercurialis Annua Flowers"
+        }
+      },
+      "53wtd": [
+        "Mercurialis Annua Flowers"
+      ]
+    }
   },
-  {
+  "zaxxc": {
     "id": "16120",
     "item_key": "zaxxc",
-    "meta": []
+    "name": "zaxxc",
+    "meta": {
+      "proficiencyname": "Extraction of Mayflower Petals from Mayflower",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Mayflower",
+      "f2ux5": {
+        "form": "961",
+        "i16119": {
+          "53wtd": "Mayflower Petals"
+        }
+      },
+      "53wtd": [
+        "Mayflower Petals"
+      ]
+    }
   },
-  {
+  "mcyat": {
     "id": "16122",
     "item_key": "mcyat",
-    "meta": []
+    "name": "mcyat",
+    "meta": {
+      "proficiencyname": "Extraction of Manjistha Roots from Manjistha",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Manjistha",
+      "f2ux5": {
+        "form": "961",
+        "i16121": {
+          "53wtd": "Manjistha Roots"
+        }
+      },
+      "53wtd": [
+        "Manjistha Roots"
+      ]
+    }
   },
-  {
+  "2chno": {
     "id": "16124",
     "item_key": "2chno",
-    "meta": []
+    "name": "2chno",
+    "meta": {
+      "proficiencyname": "Extraction of Mandrake Root from Mandrake",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Mandrake",
+      "f2ux5": {
+        "form": "961",
+        "i16123": {
+          "53wtd": "Mandrake Root"
+        }
+      },
+      "53wtd": [
+        "Mandrake Root"
+      ]
+    }
   },
-  {
+  "s6abw": {
     "id": "16126",
     "item_key": "s6abw",
-    "meta": []
+    "name": "s6abw",
+    "meta": {
+      "proficiencyname": "Extraction of Mallowsweet Cuttings from Mallowsweet",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Mallowsweet",
+      "f2ux5": {
+        "form": "961",
+        "i16125": {
+          "53wtd": "Mallowsweet Cuttings"
+        }
+      },
+      "53wtd": [
+        "Mallowsweet Cuttings"
+      ]
+    }
   },
-  {
+  "g2hba": {
     "id": "16128",
     "item_key": "g2hba",
-    "meta": []
+    "name": "g2hba",
+    "meta": {
+      "proficiencyname": "Extraction of Maguey Sweet Sap from Maguey",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Maguey",
+      "f2ux5": {
+        "form": "961",
+        "i16127": {
+          "53wtd": "Maguey Sweet Sap"
+        }
+      },
+      "53wtd": [
+        "Maguey Sweet Sap"
+      ]
+    }
   },
-  {
+  "6wovy": {
     "id": "16130",
     "item_key": "6wovy",
-    "meta": []
+    "name": "6wovy",
+    "meta": {
+      "proficiencyname": "Extraction of Lovage Flowers from Lovage",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Lovage",
+      "f2ux5": {
+        "form": "961",
+        "i16129": {
+          "53wtd": "Lovage Flowers"
+        }
+      },
+      "53wtd": [
+        "Lovage Flowers"
+      ]
+    }
   },
-  {
+  "ucw70": {
     "id": "16132",
     "item_key": "ucw70",
-    "meta": []
+    "name": "ucw70",
+    "meta": {
+      "proficiencyname": "Extraction of Ling Ovaries from Ling",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Ling",
+      "f2ux5": {
+        "form": "961",
+        "i16131": {
+          "53wtd": "Ling Ovaries"
+        }
+      },
+      "53wtd": [
+        "Ling Ovaries"
+      ]
+    }
   },
-  {
+  "hyywf": {
     "id": "16134",
     "item_key": "hyywf",
-    "meta": []
+    "name": "hyywf",
+    "meta": {
+      "proficiencyname": "Extraction of Lily Bulbs from Lily",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Lily",
+      "f2ux5": {
+        "form": "961",
+        "i16133": {
+          "53wtd": "Lily Bulbs"
+        }
+      },
+      "53wtd": [
+        "Lily Bulbs"
+      ]
+    }
   },
-  {
+  "4q98c": {
     "id": "16136",
     "item_key": "4q98c",
-    "meta": []
+    "name": "4q98c",
+    "meta": {
+      "proficiencyname": "Extraction of Lemons from Lemon Tree",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Lemon Tree",
+      "f2ux5": {
+        "form": "961",
+        "i16135": {
+          "53wtd": "Lemons"
+        }
+      },
+      "53wtd": [
+        "Lemons"
+      ]
+    }
   },
-  {
+  "ktzdu": {
     "id": "16138",
     "item_key": "ktzdu",
-    "meta": []
+    "name": "ktzdu",
+    "meta": {
+      "proficiencyname": "Extraction of Lemongrass Blades from Lemongrass",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Lemongrass",
+      "f2ux5": {
+        "form": "961",
+        "i16137": {
+          "53wtd": "Lemongrass Blades"
+        }
+      },
+      "53wtd": [
+        "Lemongrass Blades"
+      ]
+    }
   },
-  {
+  "eash1": {
     "id": "16140",
     "item_key": "eash1",
-    "meta": []
+    "name": "eash1",
+    "meta": {
+      "proficiencyname": "Extraction of Leaves of Scurvy Grass from Scurvy Grass",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Scurvy Grass",
+      "f2ux5": {
+        "form": "961",
+        "i16139": {
+          "53wtd": "Leaves of Scurvy Grass"
+        }
+      },
+      "53wtd": [
+        "Leaves of Scurvy Grass"
+      ]
+    }
   },
-  {
+  "lyvy1": {
     "id": "16142",
     "item_key": "lyvy1",
-    "meta": []
+    "name": "lyvy1",
+    "meta": {
+      "proficiencyname": "Extraction of Leaves of Hemlock from Hemlock",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Hemlock",
+      "f2ux5": {
+        "form": "961",
+        "i16141": {
+          "53wtd": "Leaves of Hemlock"
+        }
+      },
+      "53wtd": [
+        "Leaves of Hemlock"
+      ]
+    }
   },
-  {
+  "uxlwz": {
     "id": "16144",
     "item_key": "uxlwz",
-    "meta": []
+    "name": "uxlwz",
+    "meta": {
+      "proficiencyname": "Extraction of Leaves of Aloe Vera from Aloe Vera",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Aloe Vera",
+      "f2ux5": {
+        "form": "961",
+        "i16143": {
+          "53wtd": "Leaves of Aloe Vera"
+        }
+      },
+      "53wtd": [
+        "Leaves of Aloe Vera"
+      ]
+    }
   },
-  {
+  "fen0f": {
     "id": "16146",
     "item_key": "fen0f",
-    "meta": []
+    "name": "fen0f",
+    "meta": {
+      "proficiencyname": "Extraction of Knotgrass Knots from Knotgrass",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Knotgrass",
+      "f2ux5": {
+        "form": "961",
+        "i16145": {
+          "53wtd": "Knotgrass Knots"
+        }
+      },
+      "53wtd": [
+        "Knotgrass Knots"
+      ]
+    }
   },
-  {
+  "z5tyw": {
     "id": "16148",
     "item_key": "z5tyw",
-    "meta": []
+    "name": "z5tyw",
+    "meta": {
+      "proficiencyname": "Extraction of Kelp Blades from Kelp",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Kelp",
+      "f2ux5": {
+        "form": "961",
+        "i16147": {
+          "53wtd": "Kelp Blades"
+        }
+      },
+      "53wtd": [
+        "Kelp Blades"
+      ]
+    }
   },
-  {
+  "kd6kh": {
     "id": "16150",
     "item_key": "kd6kh",
-    "meta": []
+    "name": "kd6kh",
+    "meta": {
+      "proficiencyname": "Extraction of Jewelweed Gasses from Jewelweed",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Jewelweed",
+      "f2ux5": {
+        "form": "961",
+        "i16149": {
+          "53wtd": "Jewelweed Gasses"
+        }
+      },
+      "53wtd": [
+        "Jewelweed Gasses"
+      ]
+    }
   },
-  {
+  "31ikk": {
     "id": "16152",
     "item_key": "31ikk",
-    "meta": []
+    "name": "31ikk",
+    "meta": {
+      "proficiencyname": "Extraction of Isolated Squill Bulbs from Squill",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Squill",
+      "f2ux5": {
+        "form": "961",
+        "i16151": {
+          "53wtd": "Isolated Squill Bulbs"
+        }
+      },
+      "53wtd": [
+        "Isolated Squill Bulbs"
+      ]
+    }
   },
-  {
+  "5nud5": {
     "id": "16154",
     "item_key": "5nud5",
-    "meta": []
+    "name": "Extraction of Infected Bamboo Plant Stem from Bamboo",
+    "meta": {
+      "proficiencyname": "Extraction of Infected Bamboo Plant Stem from Bamboo",
+      "s71z0": "Herbology",
+      "ipjf3": "10",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Bamboo",
+      "f2ux5": {
+        "form": "961",
+        "i16153": {
+          "53wtd": "Infected Bamboo Plant Stem"
+        }
+      },
+      "53wtd": [
+        "Infected Bamboo Plant Stem"
+      ]
+    }
   },
-  {
+  "pn7fb": {
     "id": "16156",
     "item_key": "pn7fb",
-    "meta": []
+    "name": "pn7fb",
+    "meta": {
+      "proficiencyname": "Extraction of Hydrangea Flowers from Hydrangea",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Hydrangea",
+      "f2ux5": {
+        "form": "961",
+        "i16155": {
+          "53wtd": "Hydrangea Flowers"
+        }
+      },
+      "53wtd": [
+        "Hydrangea Flowers"
+      ]
+    }
   },
-  {
+  "ewzrm": {
     "id": "16158",
     "item_key": "ewzrm",
-    "meta": []
+    "name": "ewzrm",
+    "meta": {
+      "proficiencyname": "Extraction of Horseradish Roots from Horseradish ",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Horseradish ",
+      "f2ux5": {
+        "form": "961",
+        "i16157": {
+          "53wtd": "Horseradish Roots"
+        }
+      },
+      "53wtd": [
+        "Horseradish Roots"
+      ]
+    }
   },
-  {
+  "qc6bn": {
     "id": "16160",
     "item_key": "qc6bn",
-    "meta": []
+    "name": "qc6bn",
+    "meta": {
+      "proficiencyname": "Extraction of Henna Oil from Henna",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Henna",
+      "f2ux5": {
+        "form": "961",
+        "i16159": {
+          "53wtd": "Henna Oil"
+        }
+      },
+      "53wtd": [
+        "Henna Oil"
+      ]
+    }
   },
-  {
+  "uemon": {
     "id": "16162",
     "item_key": "uemon",
-    "meta": []
+    "name": "uemon",
+    "meta": {
+      "proficiencyname": "Extraction of Hellebore Sap from Hellebore",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Hellebore",
+      "f2ux5": {
+        "form": "961",
+        "i16161": {
+          "53wtd": "Hellebore Sap"
+        }
+      },
+      "53wtd": [
+        "Hellebore Sap"
+      ]
+    }
   },
-  {
+  "ogfui": {
     "id": "16164",
     "item_key": "ogfui",
-    "meta": []
+    "name": "ogfui",
+    "meta": {
+      "proficiencyname": "Extraction of Gurdyroot Bulbs from Gurdyroot",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Gurdyroot",
+      "f2ux5": {
+        "form": "961",
+        "i16163": {
+          "53wtd": "Gurdyroot Bulbs"
+        }
+      },
+      "53wtd": [
+        "Gurdyroot Bulbs"
+      ]
+    }
   },
-  {
+  "4prpy": {
     "id": "16166",
     "item_key": "4prpy",
-    "meta": []
+    "name": "4prpy",
+    "meta": {
+      "proficiencyname": "Extraction of Greenheart Bark from Greenheart",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Greenheart",
+      "f2ux5": {
+        "form": "961",
+        "i16165": {
+          "53wtd": "Greenheart Bark"
+        }
+      },
+      "53wtd": [
+        "Greenheart Bark"
+      ]
+    }
   },
-  {
+  "bxf17": {
     "id": "16168",
     "item_key": "bxf17",
-    "meta": []
+    "name": "bxf17",
+    "meta": {
+      "proficiencyname": "Extraction of Green Ti Plant Leaves from Green Ti Plant",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Green Ti Plant",
+      "f2ux5": {
+        "form": "961",
+        "i16167": {
+          "53wtd": "Green Ti Plant Leaves"
+        }
+      },
+      "53wtd": [
+        "Green Ti Plant Leaves"
+      ]
+    }
   },
-  {
+  "2qtpr": {
     "id": "16170",
     "item_key": "2qtpr",
-    "meta": []
+    "name": "2qtpr",
+    "meta": {
+      "proficiencyname": "Extraction of Goosegrass Blades from Goosegrass",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Goosegrass",
+      "f2ux5": {
+        "form": "961",
+        "i16169": {
+          "53wtd": "Goosegrass Blades"
+        }
+      },
+      "53wtd": [
+        "Goosegrass Blades"
+      ]
+    }
   },
-  {
+  "a09kk": {
     "id": "16172",
     "item_key": "a09kk",
-    "meta": []
+    "name": "a09kk",
+    "meta": {
+      "proficiencyname": "Extraction of Gloops of Lakeweed from Lake weed",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Lake weed",
+      "f2ux5": {
+        "form": "961",
+        "i16171": {
+          "53wtd": "Gloops of Lakeweed"
+        }
+      },
+      "53wtd": [
+        "Gloops of Lakeweed"
+      ]
+    }
   },
-  {
+  "cy7pe": {
     "id": "16174",
     "item_key": "cy7pe",
-    "meta": []
+    "name": "cy7pe",
+    "meta": {
+      "proficiencyname": "Extraction of Gleaming Leaves of Niffler's Fancy from Niffler's Fancy",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Niffler's Fancy",
+      "f2ux5": {
+        "form": "961",
+        "i16173": {
+          "53wtd": "Gleaming Leaves of Niffler's Fancy"
+        }
+      },
+      "53wtd": [
+        "Gleaming Leaves of Niffler's Fancy"
+      ]
+    }
   },
-  {
+  "570dz": {
     "id": "16176",
     "item_key": "570dz",
-    "meta": []
+    "name": "570dz",
+    "meta": {
+      "proficiencyname": "Extraction of Ginger Root from Ginger",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Ginger",
+      "f2ux5": {
+        "form": "961",
+        "i16175": {
+          "53wtd": "Ginger Root"
+        }
+      },
+      "53wtd": [
+        "Ginger Root"
+      ]
+    }
   },
-  {
+  "lt0zs": {
     "id": "16178",
     "item_key": "lt0zs",
-    "meta": []
+    "name": "lt0zs",
+    "meta": {
+      "proficiencyname": "Extraction of Germander Leaves from Germander",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Germander",
+      "f2ux5": {
+        "form": "961",
+        "i16177": {
+          "53wtd": "Germander Leaves"
+        }
+      },
+      "53wtd": [
+        "Germander Leaves"
+      ]
+    }
   },
-  {
+  "fdzuq": {
     "id": "16180",
     "item_key": "fdzuq",
-    "meta": []
+    "name": "fdzuq",
+    "meta": {
+      "proficiencyname": "Extraction of Garlic Clove from Garlic",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Garlic",
+      "f2ux5": {
+        "form": "961",
+        "i16179": {
+          "53wtd": "Garlic Clove"
+        }
+      },
+      "53wtd": [
+        "Garlic Clove"
+      ]
+    }
   },
-  {
+  "c4jus": {
     "id": "16182",
     "item_key": "c4jus",
-    "meta": []
+    "name": "c4jus",
+    "meta": {
+      "proficiencyname": "Extraction of Foxglove Bulbs from Foxglove",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Foxglove",
+      "f2ux5": {
+        "form": "961",
+        "i16181": {
+          "53wtd": "Foxglove Bulbs"
+        }
+      },
+      "53wtd": [
+        "Foxglove Bulbs"
+      ]
+    }
   },
-  {
+  "y4dtu": {
     "id": "16184",
     "item_key": "y4dtu",
-    "meta": []
+    "name": "y4dtu",
+    "meta": {
+      "proficiencyname": "Extraction of Formerly Leaping Toadstools from Leaping Toadstool",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Leaping Toadstool",
+      "f2ux5": {
+        "form": "961",
+        "i16183": {
+          "53wtd": "Formerly Leaping Toadstools"
+        }
+      },
+      "53wtd": [
+        "Formerly Leaping Toadstools"
+      ]
+    }
   },
-  {
+  "sqiq6": {
     "id": "16186",
     "item_key": "sqiq6",
-    "meta": []
+    "name": "sqiq6",
+    "meta": {
+      "proficiencyname": "Extraction of Fluxweed Stems from Fluxweed",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Fluxweed",
+      "f2ux5": {
+        "form": "961",
+        "i16185": {
+          "53wtd": "Fluxweed Stems"
+        }
+      },
+      "53wtd": [
+        "Fluxweed Stems"
+      ]
+    }
   },
-  {
+  "zwy7r": {
     "id": "16188",
     "item_key": "zwy7r",
-    "meta": []
+    "name": "zwy7r",
+    "meta": {
+      "proficiencyname": "Extraction of Flitterbloom Tentacles from Flitterbloom",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Flitterbloom",
+      "f2ux5": {
+        "form": "961",
+        "i16187": {
+          "53wtd": "Flitterbloom Tentacles"
+        }
+      },
+      "53wtd": [
+        "Flitterbloom Tentacles"
+      ]
+    }
   },
-  {
+  "t8baz": {
     "id": "16190",
     "item_key": "t8baz",
-    "meta": []
+    "name": "t8baz",
+    "meta": {
+      "proficiencyname": "Extraction of Figs from Fig Tree",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Fig Tree",
+      "f2ux5": {
+        "form": "961",
+        "i16189": {
+          "53wtd": "Figs"
+        }
+      },
+      "53wtd": [
+        "Figs"
+      ]
+    }
   },
-  {
+  "u614m": {
     "id": "16192",
     "item_key": "u614m",
-    "meta": []
+    "name": "u614m",
+    "meta": {
+      "proficiencyname": "Extraction of Fanged Geranium Fangs from Fanged Geranium",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Fanged Geranium",
+      "f2ux5": {
+        "form": "961",
+        "i16191": {
+          "53wtd": "Fanged Geranium Fangs"
+        }
+      },
+      "53wtd": [
+        "Fanged Geranium Fangs"
+      ]
+    }
   },
-  {
+  "7ycz9": {
     "id": "16194",
     "item_key": "7ycz9",
-    "meta": []
+    "name": "7ycz9",
+    "meta": {
+      "proficiencyname": "Extraction of Dried Seaweed from Seaweed",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Seaweed",
+      "f2ux5": {
+        "form": "961",
+        "i16193": {
+          "53wtd": "Dried Seaweed"
+        }
+      },
+      "53wtd": [
+        "Dried Seaweed"
+      ]
+    }
   },
-  {
+  "z00as": {
     "id": "16196",
     "item_key": "z00as",
-    "meta": []
+    "name": "z00as",
+    "meta": {
+      "proficiencyname": "Extraction of Dogbane Leaves from Dogbane",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Dogbane",
+      "f2ux5": {
+        "form": "961",
+        "i16195": {
+          "53wtd": "Dogbane Leaves"
+        }
+      },
+      "53wtd": [
+        "Dogbane Leaves"
+      ]
+    }
   },
-  {
+  "ryqqt": {
     "id": "16198",
     "item_key": "ryqqt",
-    "meta": []
+    "name": "ryqqt",
+    "meta": {
+      "proficiencyname": "Extraction of Dittany Stems from Dittany",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Dittany",
+      "f2ux5": {
+        "form": "961",
+        "i16197": {
+          "53wtd": "Dittany Stems"
+        }
+      },
+      "53wtd": [
+        "Dittany Stems"
+      ]
+    }
   },
-  {
+  "29kf7": {
     "id": "16200",
     "item_key": "29kf7",
-    "meta": []
+    "name": "29kf7",
+    "meta": {
+      "proficiencyname": "Extraction of Devil's Snare Vine from Devil's Snare",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Devil's Snare",
+      "f2ux5": {
+        "form": "961",
+        "i16199": {
+          "53wtd": "Devil's Snare Vine"
+        }
+      },
+      "53wtd": [
+        "Devil's Snare Vine"
+      ]
+    }
   },
-  {
+  "1hoa4": {
     "id": "16202",
     "item_key": "1hoa4",
-    "meta": []
+    "name": "1hoa4",
+    "meta": {
+      "proficiencyname": "Extraction of Datura Leaves from Datura",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Datura",
+      "f2ux5": {
+        "form": "961",
+        "i16201": {
+          "53wtd": "Datura Leaves"
+        }
+      },
+      "53wtd": [
+        "Datura Leaves"
+      ]
+    }
   },
-  {
+  "h8xym": {
     "id": "16204",
     "item_key": "h8xym",
-    "meta": []
+    "name": "h8xym",
+    "meta": {
+      "proficiencyname": "Extraction of Dandelion Petals from Dandelion",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Dandelion",
+      "f2ux5": {
+        "form": "961",
+        "i16203": {
+          "53wtd": "Dandelion Petals"
+        }
+      },
+      "53wtd": [
+        "Dandelion Petals"
+      ]
+    }
   },
-  {
+  "cdd5o": {
     "id": "16206",
     "item_key": "cdd5o",
-    "meta": []
+    "name": "cdd5o",
+    "meta": {
+      "proficiencyname": "Extraction of Cut Thyme Herb from Thyme",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Thyme",
+      "f2ux5": {
+        "form": "961",
+        "i16205": {
+          "53wtd": "Cut Thyme Herb"
+        }
+      },
+      "53wtd": [
+        "Cut Thyme Herb"
+      ]
+    }
   },
-  {
+  "h3ux4": {
     "id": "16208",
     "item_key": "h3ux4",
-    "meta": []
+    "name": "h3ux4",
+    "meta": {
+      "proficiencyname": "Extraction of Cowbane Flowers from Cowbane",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Cowbane",
+      "f2ux5": {
+        "form": "961",
+        "i16207": {
+          "53wtd": "Cowbane Flowers"
+        }
+      },
+      "53wtd": [
+        "Cowbane Flowers"
+      ]
+    }
   },
-  {
+  "2dult": {
     "id": "16210",
     "item_key": "2dult",
-    "meta": []
+    "name": "2dult",
+    "meta": {
+      "proficiencyname": "Extraction of Cornflower Petals from Cornflower",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Cornflower",
+      "f2ux5": {
+        "form": "961",
+        "i16209": {
+          "53wtd": "Cornflower Petals"
+        }
+      },
+      "53wtd": [
+        "Cornflower Petals"
+      ]
+    }
   },
-  {
+  "t2npi": {
     "id": "16212",
     "item_key": "t2npi",
-    "meta": []
+    "name": "t2npi",
+    "meta": {
+      "proficiencyname": "Extraction of Coneflower Petals from Coneflower",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Coneflower",
+      "f2ux5": {
+        "form": "961",
+        "i16211": {
+          "53wtd": "Coneflower Petals"
+        }
+      },
+      "53wtd": [
+        "Coneflower Petals"
+      ]
+    }
   },
-  {
+  "4e58m": {
     "id": "16214",
     "item_key": "4e58m",
-    "meta": []
+    "name": "4e58m",
+    "meta": {
+      "proficiencyname": "Extraction of Common Rue Cuttings from Common Rue",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Common Rue",
+      "f2ux5": {
+        "form": "961",
+        "i16213": {
+          "53wtd": "Common Rue Cuttings"
+        }
+      },
+      "53wtd": [
+        "Common Rue Cuttings"
+      ]
+    }
   },
-  {
+  "jhla2": {
     "id": "16216",
     "item_key": "jhla2",
-    "meta": []
+    "name": "jhla2",
+    "meta": {
+      "proficiencyname": "Extraction of Common Mushroom Caps from Common Mushrooms",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Common Mushrooms",
+      "f2ux5": {
+        "form": "961",
+        "i16215": {
+          "53wtd": "Common Mushroom Caps"
+        }
+      },
+      "53wtd": [
+        "Common Mushroom Caps"
+      ]
+    }
   },
-  {
+  "4s7hq": {
     "id": "16218",
     "item_key": "4s7hq",
-    "meta": []
+    "name": "4s7hq",
+    "meta": {
+      "proficiencyname": "Extraction of Common Cabbage Leaves from Common Cabbage",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Common Cabbage",
+      "f2ux5": {
+        "form": "961",
+        "i16217": {
+          "53wtd": "Common Cabbage Leaves"
+        }
+      },
+      "53wtd": [
+        "Common Cabbage Leaves"
+      ]
+    }
   },
-  {
+  "lib1i": {
     "id": "16220",
     "item_key": "lib1i",
-    "meta": []
+    "name": "lib1i",
+    "meta": {
+      "proficiencyname": "Extraction of Coffee Bean from Coffee Plant",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Coffee Plant",
+      "f2ux5": {
+        "form": "961",
+        "i16219": {
+          "53wtd": "Coffee Bean"
+        }
+      },
+      "53wtd": [
+        "Coffee Bean"
+      ]
+    }
   },
-  {
+  "yu3u6": {
     "id": "16222",
     "item_key": "yu3u6",
-    "meta": []
+    "name": "yu3u6",
+    "meta": {
+      "proficiencyname": "Extraction of Cobra Lily Tongues from Cobra Lily",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Cobra Lily",
+      "f2ux5": {
+        "form": "961",
+        "i16221": {
+          "53wtd": "Cobra Lily Tongues"
+        }
+      },
+      "53wtd": [
+        "Cobra Lily Tongues"
+      ]
+    }
   },
-  {
+  "i67gg": {
     "id": "16224",
     "item_key": "i67gg",
-    "meta": []
+    "name": "i67gg",
+    "meta": {
+      "proficiencyname": "Extraction of Cinquefoil Flowers from Cinquefoil",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Cinquefoil",
+      "f2ux5": {
+        "form": "961",
+        "i16223": {
+          "53wtd": "Cinquefoil Flowers"
+        }
+      },
+      "53wtd": [
+        "Cinquefoil Flowers"
+      ]
+    }
   },
-  {
+  "fp39s": {
     "id": "16226",
     "item_key": "fp39s",
-    "meta": []
+    "name": "fp39s",
+    "meta": {
+      "proficiencyname": "Extraction of Cinnamon Bark from Cinnamon",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Cinnamon",
+      "f2ux5": {
+        "form": "961",
+        "i16225": {
+          "53wtd": "Cinnamon Bark"
+        }
+      },
+      "53wtd": [
+        "Cinnamon Bark"
+      ]
+    }
   },
-  {
+  "d43tb": {
     "id": "16228",
     "item_key": "d43tb",
-    "meta": []
+    "name": "d43tb",
+    "meta": {
+      "proficiencyname": "Extraction of Chinese Chomping Cabbage Leaves from Chinese Chomping Cabbage",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Chinese Chomping Cabbage",
+      "f2ux5": {
+        "form": "961",
+        "i16227": {
+          "53wtd": "Chinese Chomping Cabbage Leaves"
+        }
+      },
+      "53wtd": [
+        "Chinese Chomping Cabbage Leaves"
+      ]
+    }
   },
-  {
+  "z7gj2": {
     "id": "16230",
     "item_key": "z7gj2",
-    "meta": []
+    "name": "z7gj2",
+    "meta": {
+      "proficiencyname": "Extraction of Chili Pepper from Chili Pepper Plant",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Chili Pepper Plant",
+      "f2ux5": {
+        "form": "961",
+        "i16229": {
+          "53wtd": "Chili Pepper"
+        }
+      },
+      "53wtd": [
+        "Chili Pepper"
+      ]
+    }
   },
-  {
+  "9fvk3": {
     "id": "16232",
     "item_key": "9fvk3",
-    "meta": []
+    "name": "9fvk3",
+    "meta": {
+      "proficiencyname": "Extraction of Cherries from Cherry Tree",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Cherry Tree",
+      "f2ux5": {
+        "form": "961",
+        "i16231": {
+          "53wtd": "Cherries"
+        }
+      },
+      "53wtd": [
+        "Cherries"
+      ]
+    }
   },
-  {
+  "2fd8p": {
     "id": "16234",
     "item_key": "2fd8p",
-    "meta": []
+    "name": "2fd8p",
+    "meta": {
+      "proficiencyname": "Extraction of Chelidonium Secretion from Chelidonium",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Chelidonium",
+      "f2ux5": {
+        "form": "961",
+        "i16233": {
+          "53wtd": "Chelidonium Secretion"
+        }
+      },
+      "53wtd": [
+        "Chelidonium Secretion"
+      ]
+    }
   },
-  {
+  "1ugi0": {
     "id": "16236",
     "item_key": "1ugi0",
-    "meta": []
+    "name": "1ugi0",
+    "meta": {
+      "proficiencyname": "Extraction of Cedarwood Bark from Cedarwood",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Cedarwood",
+      "f2ux5": {
+        "form": "961",
+        "i16235": {
+          "53wtd": "Cedarwood Bark"
+        }
+      },
+      "53wtd": [
+        "Cedarwood Bark"
+      ]
+    }
   },
-  {
+  "b3b58": {
     "id": "16238",
     "item_key": "b3b58",
-    "meta": []
+    "name": "b3b58",
+    "meta": {
+      "proficiencyname": "Extraction of Cayenne Pepper from Cayenne",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Cayenne",
+      "f2ux5": {
+        "form": "961",
+        "i16237": {
+          "53wtd": "Cayenne Pepper"
+        }
+      },
+      "53wtd": [
+        "Cayenne Pepper"
+      ]
+    }
   },
-  {
+  "e55w2": {
     "id": "16240",
     "item_key": "e55w2",
-    "meta": []
+    "name": "e55w2",
+    "meta": {
+      "proficiencyname": "Extraction of Bursting Mushroom Caps from Bursting Mushrooms",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Bursting Mushrooms",
+      "f2ux5": {
+        "form": "961",
+        "i16239": {
+          "53wtd": "Bursting Mushroom Caps"
+        }
+      },
+      "53wtd": [
+        "Bursting Mushroom Caps"
+      ]
+    }
   },
-  {
+  "56ckx": {
     "id": "16242",
     "item_key": "56ckx",
-    "meta": []
+    "name": "56ckx",
+    "meta": {
+      "proficiencyname": "Extraction of Bulrush Fibers from Bulrush",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Bulrush",
+      "f2ux5": {
+        "form": "961",
+        "i16241": {
+          "53wtd": "Bulrush Fibers"
+        }
+      },
+      "53wtd": [
+        "Bulrush Fibers"
+      ]
+    }
   },
-  {
+  "gn38d": {
     "id": "16244",
     "item_key": "gn38d",
-    "meta": []
+    "name": "gn38d",
+    "meta": {
+      "proficiencyname": "Extraction of Bulbadox Leaves from Bulbadox",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Bulbadox",
+      "f2ux5": {
+        "form": "961",
+        "i16243": {
+          "53wtd": "Bulbadox Leaves"
+        }
+      },
+      "53wtd": [
+        "Bulbadox Leaves"
+      ]
+    }
   },
-  {
+  "5cwx1": {
     "id": "16246",
     "item_key": "5cwx1",
-    "meta": []
+    "name": "5cwx1",
+    "meta": {
+      "proficiencyname": "Extraction of Borage Flowers from Borage",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Borage",
+      "f2ux5": {
+        "form": "961",
+        "i16245": {
+          "53wtd": "Borage Flowers"
+        }
+      },
+      "53wtd": [
+        "Borage Flowers"
+      ]
+    }
   },
-  {
+  "5p5s1": {
     "id": "16248",
     "item_key": "5p5s1",
-    "meta": []
+    "name": "5p5s1",
+    "meta": {
+      "proficiencyname": "Extraction of Boomberries from Boomberry",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Boomberry",
+      "f2ux5": {
+        "form": "961",
+        "i16247": {
+          "53wtd": "Boomberries"
+        }
+      },
+      "53wtd": [
+        "Boomberries"
+      ]
+    }
   },
-  {
+  "ymnhu": {
     "id": "16250",
     "item_key": "ymnhu",
-    "meta": []
+    "name": "ymnhu",
+    "meta": {
+      "proficiencyname": "Extraction of Bobotuber Pus from Bobotuber",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Bobotuber",
+      "f2ux5": {
+        "form": "961",
+        "i16249": {
+          "53wtd": "Bobotuber Pus"
+        }
+      },
+      "53wtd": [
+        "Bobotuber Pus"
+      ]
+    }
   },
-  {
+  "p245d": {
     "id": "16252",
     "item_key": "p245d",
-    "meta": []
+    "name": "p245d",
+    "meta": {
+      "proficiencyname": "Extraction of Bloomed Umbrella Flower Bulb from Umbrella Flower",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Umbrella Flower",
+      "f2ux5": {
+        "form": "961",
+        "i16251": {
+          "53wtd": "Bloomed Umbrella Flower Bulb"
+        }
+      },
+      "53wtd": [
+        "Bloomed Umbrella Flower Bulb"
+      ]
+    }
   },
-  {
+  "osnki": {
     "id": "16254",
     "item_key": "osnki",
-    "meta": []
+    "name": "osnki",
+    "meta": {
+      "proficiencyname": "Extraction of Betony Roots from Betony",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Betony",
+      "f2ux5": {
+        "form": "961",
+        "i16253": {
+          "53wtd": "Betony Roots"
+        }
+      },
+      "53wtd": [
+        "Betony Roots"
+      ]
+    }
   },
-  {
+  "kt923": {
     "id": "16256",
     "item_key": "kt923",
-    "meta": []
+    "name": "kt923",
+    "meta": {
+      "proficiencyname": "Extraction of Bell Peppers from Capsicum",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Capsicum",
+      "f2ux5": {
+        "form": "961",
+        "i16255": {
+          "53wtd": "Bell Peppers"
+        }
+      },
+      "53wtd": [
+        "Bell Peppers"
+      ]
+    }
   },
-  {
+  "ye22d": {
     "id": "16258",
     "item_key": "ye22d",
-    "meta": []
+    "name": "ye22d",
+    "meta": {
+      "proficiencyname": "Extraction of Begonia Flower Petals from Begonia",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Begonia",
+      "f2ux5": {
+        "form": "961",
+        "i16257": {
+          "53wtd": "Begonia Flower Petals"
+        }
+      },
+      "53wtd": [
+        "Begonia Flower Petals"
+      ]
+    }
   },
-  {
+  "6m9jp": {
     "id": "16260",
     "item_key": "6m9jp",
-    "meta": []
+    "name": "6m9jp",
+    "meta": {
+      "proficiencyname": "Extraction of Beech Barks from Beech Tree",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Beech Tree",
+      "f2ux5": {
+        "form": "961",
+        "i16259": {
+          "53wtd": "Beech Barks"
+        }
+      },
+      "53wtd": [
+        "Beech Barks"
+      ]
+    }
   },
-  {
+  "97ei1": {
     "id": "16262",
     "item_key": "97ei1",
-    "meta": []
+    "name": "97ei1",
+    "meta": {
+      "proficiencyname": "Extraction of Basil Leaves from Basil",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Basil",
+      "f2ux5": {
+        "form": "961",
+        "i16261": {
+          "53wtd": "Basil Leaves"
+        }
+      },
+      "53wtd": [
+        "Basil Leaves"
+      ]
+    }
   },
-  {
+  "48c59": {
     "id": "16264",
     "item_key": "48c59",
-    "meta": []
+    "name": "48c59",
+    "meta": {
+      "proficiencyname": "Extraction of Baneberries from Baneberry",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Baneberry",
+      "f2ux5": {
+        "form": "961",
+        "i16263": {
+          "53wtd": "Baneberries"
+        }
+      },
+      "53wtd": [
+        "Baneberries"
+      ]
+    }
   },
-  {
+  "yzvu1": {
     "id": "16266",
     "item_key": "yzvu1",
-    "meta": []
+    "name": "yzvu1",
+    "meta": {
+      "proficiencyname": "Extraction of Balm Oil from Balm",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Balm",
+      "f2ux5": {
+        "form": "961",
+        "i16265": {
+          "53wtd": "Balm Oil"
+        }
+      },
+      "53wtd": [
+        "Balm Oil"
+      ]
+    }
   },
-  {
+  "50cfe": {
     "id": "16268",
     "item_key": "50cfe",
-    "meta": []
+    "name": "50cfe",
+    "meta": {
+      "proficiencyname": "Extraction of Bacopa Flower Petals from Bacopa",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Bacopa",
+      "f2ux5": {
+        "form": "961",
+        "i16267": {
+          "53wtd": "Bacopa Flower Petals"
+        }
+      },
+      "53wtd": [
+        "Bacopa Flower Petals"
+      ]
+    }
   },
-  {
+  "octiz": {
     "id": "16270",
     "item_key": "octiz",
-    "meta": []
+    "name": "octiz",
+    "meta": {
+      "proficiencyname": "Extraction of Asphodel Roots from Asphodel",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Asphodel",
+      "f2ux5": {
+        "form": "961",
+        "i16269": {
+          "53wtd": "Asphodel Roots"
+        }
+      },
+      "53wtd": [
+        "Asphodel Roots"
+      ]
+    }
   },
-  {
+  "kqb8b": {
     "id": "16272",
     "item_key": "kqb8b",
-    "meta": []
+    "name": "kqb8b",
+    "meta": {
+      "proficiencyname": "Extraction of Ash Tree Leaflets from Ash Tree",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Ash Tree",
+      "f2ux5": {
+        "form": "961",
+        "i16271": {
+          "53wtd": "Ash Tree Leaflets"
+        }
+      },
+      "53wtd": [
+        "Ash Tree Leaflets"
+      ]
+    }
   },
-  {
+  "bj395": {
     "id": "16274",
     "item_key": "bj395",
-    "meta": []
+    "name": "bj395",
+    "meta": {
+      "proficiencyname": "Extraction of Arnica Stems from Arnica",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Arnica",
+      "f2ux5": {
+        "form": "961",
+        "i16273": {
+          "53wtd": "Arnica Stems"
+        }
+      },
+      "53wtd": [
+        "Arnica Stems"
+      ]
+    }
   },
-  {
+  "ybi4z": {
     "id": "16276",
     "item_key": "ybi4z",
-    "meta": []
+    "name": "ybi4z",
+    "meta": {
+      "proficiencyname": "Extraction of Angel's Trumpet Bulbs from Angel's Trumpet",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Angel's Trumpet",
+      "f2ux5": {
+        "form": "961",
+        "i16275": {
+          "53wtd": "Angel's Trumpet Bulbs"
+        }
+      },
+      "53wtd": [
+        "Angel's Trumpet Bulbs"
+      ]
+    }
   },
-  {
+  "j967y": {
     "id": "16278",
     "item_key": "j967y",
-    "meta": []
+    "name": "j967y",
+    "meta": {
+      "proficiencyname": "Extraction of Alihotsy Leaves from Alihotsy",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Alihotsy",
+      "f2ux5": {
+        "form": "961",
+        "i16277": {
+          "53wtd": "Alihotsy Leaves"
+        }
+      },
+      "53wtd": [
+        "Alihotsy Leaves"
+      ]
+    }
   },
-  {
+  "llw0o": {
     "id": "16280",
     "item_key": "llw0o",
-    "meta": []
+    "name": "llw0o",
+    "meta": {
+      "proficiencyname": "Extraction of Agrimonia Flower Petals from Agrimonia",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Agrimonia",
+      "f2ux5": {
+        "form": "961",
+        "i16279": {
+          "53wtd": "Agrimonia Flower Petals"
+        }
+      },
+      "53wtd": [
+        "Agrimonia Flower Petals"
+      ]
+    }
   },
-  {
+  "rnoll": {
     "id": "16282",
     "item_key": "rnoll",
-    "meta": []
+    "name": "rnoll",
+    "meta": {
+      "proficiencyname": "Extraction of Agapanthus Flowerheads from Agapanthus",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Agapanthus",
+      "f2ux5": {
+        "form": "961",
+        "i16281": {
+          "53wtd": "Agapanthus Flowerheads"
+        }
+      },
+      "53wtd": [
+        "Agapanthus Flowerheads"
+      ]
+    }
   },
-  {
+  "2zb1h": {
     "id": "16284",
     "item_key": "2zb1h",
-    "meta": []
+    "name": "2zb1h",
+    "meta": {
+      "proficiencyname": "Extraction of Acacia Tree Thorns from Acacia Tree",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Acacia Tree",
+      "f2ux5": {
+        "form": "961",
+        "i16283": {
+          "53wtd": "Acacia Tree Thorns"
+        }
+      },
+      "53wtd": [
+        "Acacia Tree Thorns"
+      ]
+    }
   },
-  {
+  "4xxet": {
     "id": "16286",
     "item_key": "4xxet",
-    "meta": []
+    "name": "4xxet",
+    "meta": {
+      "proficiencyname": "Extraction of Neem Leaves from Neem",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Neem",
+      "f2ux5": {
+        "form": "961",
+        "i16285": {
+          "53wtd": "Neem Leaves"
+        }
+      },
+      "53wtd": [
+        "Neem Leaves"
+      ]
+    }
   },
-  {
+  "n7b2d": {
     "id": "16288",
     "item_key": "n7b2d",
-    "meta": []
+    "name": "n7b2d",
+    "meta": {
+      "proficiencyname": "Extraction of Moonseed Leaves from Moonseed",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Moonseed",
+      "f2ux5": {
+        "form": "961",
+        "i16287": {
+          "53wtd": "Moonseed Leaves"
+        }
+      },
+      "53wtd": [
+        "Moonseed Leaves"
+      ]
+    }
   },
-  {
+  "4rt2e": {
     "id": "16290",
     "item_key": "4rt2e",
-    "meta": []
+    "name": "4rt2e",
+    "meta": {
+      "proficiencyname": "Extraction of Wormwood Oil from Wormwood",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Wormwood",
+      "f2ux5": {
+        "form": "961",
+        "i16289": {
+          "53wtd": "Wormwood Oil"
+        }
+      },
+      "53wtd": [
+        "Wormwood Oil"
+      ]
+    }
   },
-  {
+  "xnb3t": {
     "id": "16292",
     "item_key": "xnb3t",
-    "meta": []
+    "name": "xnb3t",
+    "meta": {
+      "proficiencyname": "Extraction of Witch's Ganglion Leaves from Witch's Ganglion",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Witch's Ganglion",
+      "f2ux5": {
+        "form": "961",
+        "i16291": {
+          "53wtd": "Witch's Ganglion Leaves"
+        }
+      },
+      "53wtd": [
+        "Witch's Ganglion Leaves"
+      ]
+    }
   },
-  {
+  "64iol": {
     "id": "16294",
     "item_key": "64iol",
-    "meta": []
+    "name": "64iol",
+    "meta": {
+      "proficiencyname": "Extraction of Wiggentree Twigs from Wiggentree",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Wiggentree",
+      "f2ux5": {
+        "form": "961",
+        "i16293": {
+          "53wtd": "Wiggentree Twigs"
+        }
+      },
+      "53wtd": [
+        "Wiggentree Twigs"
+      ]
+    }
   },
-  {
+  "y1ms3": {
     "id": "16296",
     "item_key": "y1ms3",
-    "meta": []
+    "name": "y1ms3",
+    "meta": {
+      "proficiencyname": "Extraction of Whole Pungous Onions from Pungous Onion",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Pungous Onion",
+      "f2ux5": {
+        "form": "961",
+        "i16295": {
+          "53wtd": "Whole Pungous Onions"
+        }
+      },
+      "53wtd": [
+        "Whole Pungous Onions"
+      ]
+    }
   },
-  {
+  "sj92y": {
     "id": "16298",
     "item_key": "sj92y",
-    "meta": []
+    "name": "Extraction of Welwitschia Leaf Oils from Welwitschia",
+    "meta": {
+      "proficiencyname": "Extraction of Welwitschia Leaf Oils from Welwitschia",
+      "s71z0": "Herbology",
+      "ipjf3": "20",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Welwitschia",
+      "f2ux5": {
+        "form": "961",
+        "i16297": {
+          "53wtd": "Welwitschia Leaf Oils"
+        }
+      },
+      "53wtd": [
+        "Welwitschia Leaf Oils"
+      ]
+    }
   },
-  {
+  "blawe": {
     "id": "16300",
     "item_key": "blawe",
-    "meta": []
+    "name": "blawe",
+    "meta": {
+      "proficiencyname": "Extraction of Valerian Sprigs from Valerian",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Valerian",
+      "f2ux5": {
+        "form": "961",
+        "i16299": {
+          "53wtd": "Valerian Sprigs"
+        }
+      },
+      "53wtd": [
+        "Valerian Sprigs"
+      ]
+    }
   },
-  {
+  "w7jlg": {
     "id": "16302",
     "item_key": "w7jlg",
-    "meta": []
+    "name": "w7jlg",
+    "meta": {
+      "proficiencyname": "Extraction of Tormentil Roots from Tormentil",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Tormentil",
+      "f2ux5": {
+        "form": "961",
+        "i16301": {
+          "53wtd": "Tormentil Roots"
+        }
+      },
+      "53wtd": [
+        "Tormentil Roots"
+      ]
+    }
   },
-  {
+  "fnlzq": {
     "id": "16304",
     "item_key": "fnlzq",
-    "meta": []
+    "name": "fnlzq",
+    "meta": {
+      "proficiencyname": "Extraction of Snowdrop Roots from Snowdrop",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Snowdrop",
+      "f2ux5": {
+        "form": "961",
+        "i16303": {
+          "53wtd": "Snowdrop Roots"
+        }
+      },
+      "53wtd": [
+        "Snowdrop Roots"
+      ]
+    }
   },
-  {
+  "sqpvv": {
     "id": "16306",
     "item_key": "sqpvv",
-    "meta": []
+    "name": "sqpvv",
+    "meta": {
+      "proficiencyname": "Extraction of Rose Thorn from Rose",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Rose",
+      "f2ux5": {
+        "form": "961",
+        "i16305": {
+          "53wtd": "Rose Thorn"
+        }
+      },
+      "53wtd": [
+        "Rose Thorn"
+      ]
+    }
   },
-  {
+  "ax2je": {
     "id": "16308",
     "item_key": "ax2je",
-    "meta": []
+    "name": "ax2je",
+    "meta": {
+      "proficiencyname": "Extraction of Nettle Needles from Nettle",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Nettle",
+      "f2ux5": {
+        "form": "961",
+        "i16307": {
+          "53wtd": "Nettle Needles"
+        }
+      },
+      "53wtd": [
+        "Nettle Needles"
+      ]
+    }
   },
-  {
+  "vvzts": {
     "id": "16310",
     "item_key": "vvzts",
-    "meta": []
+    "name": "vvzts",
+    "meta": {
+      "proficiencyname": "Extraction of Morning Glory Nectar from Morning Glory",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Morning Glory",
+      "f2ux5": {
+        "form": "961",
+        "i16309": {
+          "53wtd": "Morning Glory Nectar"
+        }
+      },
+      "53wtd": [
+        "Morning Glory Nectar"
+      ]
+    }
   },
-  {
+  "gb1bh": {
     "id": "16312",
     "item_key": "gb1bh",
-    "meta": []
+    "name": "gb1bh",
+    "meta": {
+      "proficiencyname": "Extraction of Moondew Nectar from Moondew",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Moondew",
+      "f2ux5": {
+        "form": "961",
+        "i16311": {
+          "53wtd": "Moondew Nectar"
+        }
+      },
+      "53wtd": [
+        "Moondew Nectar"
+      ]
+    }
   },
-  {
+  "9cs67": {
     "id": "16314",
     "item_key": "9cs67",
-    "meta": []
+    "name": "9cs67",
+    "meta": {
+      "proficiencyname": "Extraction of Lavender Roots from Lavender",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Lavender",
+      "f2ux5": {
+        "form": "961",
+        "i16313": {
+          "53wtd": "Lavender Roots"
+        }
+      },
+      "53wtd": [
+        "Lavender Roots"
+      ]
+    }
   },
-  {
+  "ef7qh": {
     "id": "16316",
     "item_key": "ef7qh",
-    "meta": []
+    "name": "ef7qh",
+    "meta": {
+      "proficiencyname": "Extraction of Lady's Mantle Leaves from Lady's Mantle",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Lady's Mantle",
+      "f2ux5": {
+        "form": "961",
+        "i16315": {
+          "53wtd": "Lady's Mantle Leaves"
+        }
+      },
+      "53wtd": [
+        "Lady's Mantle Leaves"
+      ]
+    }
   },
-  {
+  "jav60": {
     "id": "16318",
     "item_key": "jav60",
-    "meta": []
+    "name": "jav60",
+    "meta": {
+      "proficiencyname": "Extraction of Gillyweed Slime from Gillyweed",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Gillyweed",
+      "f2ux5": {
+        "form": "961",
+        "i16317": {
+          "53wtd": "Gillyweed Slime"
+        }
+      },
+      "53wtd": [
+        "Gillyweed Slime"
+      ]
+    }
   },
-  {
+  "ix4mb": {
     "id": "16320",
     "item_key": "ix4mb",
-    "meta": []
+    "name": "ix4mb",
+    "meta": {
+      "proficiencyname": "Extraction of Fire Seeds from Fire Seed Bush",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Fire Seed Bush",
+      "f2ux5": {
+        "form": "961",
+        "i16319": {
+          "53wtd": "Fire Seeds"
+        }
+      },
+      "53wtd": [
+        "Fire Seeds"
+      ]
+    }
   },
-  {
+  "l2o7f": {
     "id": "16322",
     "item_key": "l2o7f",
-    "meta": []
+    "name": "l2o7f",
+    "meta": {
+      "proficiencyname": "Extraction of Daisy Roots from Daisy",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Daisy",
+      "f2ux5": {
+        "form": "961",
+        "i16321": {
+          "53wtd": "Daisy Roots"
+        }
+      },
+      "53wtd": [
+        "Daisy Roots"
+      ]
+    }
   },
-  {
+  "p1p4u": {
     "id": "16324",
     "item_key": "p1p4u",
-    "meta": []
+    "name": "p1p4u",
+    "meta": {
+      "proficiencyname": "Extraction of Centaury Flower from Centaury",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Centaury",
+      "f2ux5": {
+        "form": "961",
+        "i16323": {
+          "53wtd": "Centaury Flower"
+        }
+      },
+      "53wtd": [
+        "Centaury Flower"
+      ]
+    }
   },
-  {
+  "2bdox": {
     "id": "16326",
     "item_key": "2bdox",
-    "meta": []
+    "name": "2bdox",
+    "meta": {
+      "proficiencyname": "Extraction of Bouncing Bulbs from Bouncing Bulb",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Bouncing Bulb",
+      "f2ux5": {
+        "form": "961",
+        "i16325": {
+          "53wtd": "Bouncing Bulbs"
+        }
+      },
+      "53wtd": [
+        "Bouncing Bulbs"
+      ]
+    }
   },
-  {
+  "fxex0": {
     "id": "16328",
     "item_key": "fxex0",
-    "meta": []
+    "name": "fxex0",
+    "meta": {
+      "proficiencyname": "Extraction of Bloodroot Roots from Bloodroot",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Bloodroot",
+      "f2ux5": {
+        "form": "961",
+        "i16327": {
+          "53wtd": "Bloodroot Roots"
+        }
+      },
+      "53wtd": [
+        "Bloodroot Roots"
+      ]
+    }
   },
-  {
+  "udyp4": {
     "id": "16330",
     "item_key": "udyp4",
-    "meta": []
+    "name": "udyp4",
+    "meta": {
+      "proficiencyname": "Extraction of Blackthorn Bark from Blackthorn",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Blackthorn",
+      "f2ux5": {
+        "form": "961",
+        "i16329": {
+          "53wtd": "Blackthorn Bark"
+        }
+      },
+      "53wtd": [
+        "Blackthorn Bark"
+      ]
+    }
   },
-  {
+  "6q4vp": {
     "id": "16332",
     "item_key": "6q4vp",
-    "meta": []
+    "name": "6q4vp",
+    "meta": {
+      "proficiencyname": "Extraction of Apple Bark from Apple Tree",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Apple Tree",
+      "f2ux5": {
+        "form": "961",
+        "i16331": {
+          "53wtd": "Apple Bark"
+        }
+      },
+      "53wtd": [
+        "Apple Bark"
+      ]
+    }
   },
-  {
+  "7ifpr": {
     "id": "16334",
     "item_key": "7ifpr",
-    "meta": []
+    "name": "7ifpr",
+    "meta": {
+      "proficiencyname": "Extraction of Neem Seeds from Neem",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Neem",
+      "f2ux5": {
+        "form": "961",
+        "i16333": {
+          "53wtd": "Neem Seeds"
+        }
+      },
+      "53wtd": [
+        "Neem Seeds"
+      ]
+    }
   },
-  {
+  "bu3g8": {
     "id": "16336",
     "item_key": "bu3g8",
-    "meta": []
+    "name": "bu3g8",
+    "meta": {
+      "proficiencyname": "Extraction of Moonseed Vines from Moonseed",
+      "s71z0": "Herbology",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Moonseed",
+      "f2ux5": {
+        "form": "961",
+        "i16335": {
+          "53wtd": "Moonseed Vines"
+        }
+      },
+      "53wtd": [
+        "Moonseed Vines"
+      ]
+    }
   },
-  {
+  "gjsis": {
     "id": "16360",
     "item_key": "gjsis",
-    "meta": []
+    "name": "Water Stride",
+    "meta": {
+      "proficiencyname": "Water Stride",
+      "s71z0": "Magical Creatures",
+      "pm37m": "Training",
+      "pn177": "Kelpie (Default)",
+      "e3usn": "Can ride the creature through bodies of water.",
+      "e3usn-value": "<p>Can ride the creature through bodies of water.</p>"
+    }
   },
-  {
+  "7jqu7": {
     "id": "16361",
     "item_key": "7jqu7",
-    "meta": []
+    "name": "Shapeshift",
+    "meta": {
+      "proficiencyname": "Shapeshift",
+      "s71z0": "Magical Creatures",
+      "pm37m": "Training",
+      "pn177": "Kelpie (Default)",
+      "e3usn": "The creature can change its form, however, parts extracted from anything but its default form can't be used in potions as the change is mostly just cosmetic. Also, size differences will take a penalty.",
+      "e3usn-value": "<p>The creature can change its form, however, parts extracted from anything but its default form can't be used in potions as the change is mostly just cosmetic. Also, size differences will take a penalty.</p>"
+    }
   },
-  {
+  "50beu": {
     "id": "16362",
     "item_key": "50beu",
-    "meta": []
+    "name": "Brush Mane (Kelpie)",
+    "meta": {
+      "proficiencyname": "Brush Mane (Kelpie)",
+      "s71z0": "Magical Creatures",
+      "pm37m": "Part Extraction",
+      "pn177": "Kelpie (Default)",
+      "vwkm2": "Horseform Kelpie Hair",
+      "e3usn": "The owner of a tamed Kelpie can brush their mane to safely acquire the hair.",
+      "e3usn-value": "<p>The owner of a tamed Kelpie can brush their mane to safely acquire the hair.</p>"
+    }
   },
-  {
+  "8fcg8": {
     "id": "16365",
     "item_key": "8fcg8",
-    "meta": []
+    "name": "Change Size",
+    "meta": {
+      "proficiencyname": "Change Size",
+      "s71z0": "Magical Creatures",
+      "pm37m": "Training",
+      "pn177": "Occamy",
+      "e3usn": "The creature can be commanded to change its size when in the open. However, there can be a penalty depending on the size difference.",
+      "e3usn-value": "<p>The creature can be commanded to change its size when in the open. However, there can be a penalty depending on the size difference.</p>"
+    }
   },
-  {
+  "heswb": {
     "id": "16370",
     "item_key": "heswb",
-    "meta": []
+    "name": "Brush Thunderbird",
+    "meta": {
+      "proficiencyname": "Brush Thunderbird",
+      "s71z0": "Magical Creatures",
+      "pm37m": "Part Extraction",
+      "pn177": "Thunderbird",
+      "vwkm2": "Thunderbird's Tail Feather",
+      "e3usn": "Can brush Thunderbird and sometimes extract a tail feather, depending on the roll.",
+      "e3usn-value": "<p>Can brush Thunderbird and sometimes extract a tail feather, depending on the roll.</p>"
+    }
   },
-  {
+  "2d7tc": {
     "id": "16371",
     "item_key": "2d7tc",
-    "meta": []
+    "name": "Flight",
+    "meta": {
+      "proficiencyname": "Flight",
+      "s71z0": "Magical Creatures",
+      "pm37m": "Training",
+      "pn177": "Thunderbird",
+      "e3usn": "Can fly on the Thunderbird. When riding on the Thunderbird, can fly through thunderstorms unaffected.",
+      "e3usn-value": "<p>Can fly on the Thunderbird. When riding on the Thunderbird, can fly through thunderstorms unaffected.</p>"
+    }
   },
-  {
+  "jqeqj": {
     "id": "16372",
     "item_key": "jqeqj",
-    "meta": []
+    "name": "Danger Sense (Alert)",
+    "meta": {
+      "proficiencyname": "Danger Sense (Alert)",
+      "s71z0": "Magical Creatures",
+      "pm37m": "Training",
+      "pn177": "Thunderbird",
+      "e3usn": "If the Thunderbird has a high enough bond with its owner and is nearby, it will not only sense danger for itself but also it's owner. It can be trained to alert the owner when it senses a threat.",
+      "e3usn-value": "<p>If the Thunderbird has a high enough bond with its owner and is nearby, it will not only sense danger for itself but also it's owner. It can be trained to alert the owner when it senses a threat.</p>"
+    }
   },
-  {
+  "non47": {
     "id": "16373",
     "item_key": "non47",
-    "meta": []
+    "name": "Danger Sense (Protect)",
+    "meta": {
+      "proficiencyname": "Danger Sense (Protect)",
+      "s71z0": "Magical Creatures",
+      "pm37m": "Training",
+      "pn177": "Thunderbird",
+      "e3usn": "If the Thunderbird has a high enough bond with its owner and is nearby, it will not only sense danger for itself but also it's owner. It can be trained to protect the owner preemptively when it senses a threat.",
+      "e3usn-value": "<p>If the Thunderbird has a high enough bond with its owner and is nearby, it will not only sense danger for itself but also it's owner. It can be trained to protect the owner preemptively when it senses a threat.</p>"
+    }
   },
-  {
+  "58at3": {
     "id": "16374",
     "item_key": "58at3",
-    "meta": []
+    "name": "Summon Storm",
+    "meta": {
+      "proficiencyname": "Summon Storm",
+      "s71z0": "Magical Creatures",
+      "pm37m": "Training",
+      "pn177": "Thunderbird",
+      "e3usn": "Can summon thunderstorms.",
+      "e3usn-value": "<p>Can summon thunderstorms.</p>"
+    }
   },
-  {
+  "682kf": {
     "id": "16375",
     "item_key": "682kf",
-    "meta": []
+    "name": "Enchanted Rain",
+    "meta": {
+      "proficiencyname": "Enchanted Rain",
+      "s71z0": "Magical Creatures",
+      "pm37m": "Training",
+      "pn177": "Thunderbird",
+      "e3usn": "If given a potion to hold when summoning a storm. Can imbue the rain with the effect of the potion. Must fly directly into the storm with the potion for this to take effect.",
+      "e3usn-value": "<p>If given a potion to hold when summoning a storm. Can imbue the rain with the effect of the potion. Must fly directly into the storm with the potion for this to take effect.</p>"
+    }
   },
-  {
+  "2al0r": {
     "id": "16376",
     "item_key": "2al0r",
-    "meta": []
+    "name": "Thunder Cloak",
+    "meta": {
+      "proficiencyname": "Thunder Cloak",
+      "s71z0": "Magical Creatures",
+      "pm37m": "Training",
+      "pn177": "Thunderbird",
+      "e3usn": "Can cloak itself in lighting, making contact with it even more deadly. Must fly through an active storm to gather the lightning for this to take effect.",
+      "e3usn-value": "<p>Can cloak itself in lighting, making contact with it even more deadly. Must fly through an active storm to gather the lightning for this to take effect.</p>"
+    }
   },
-  {
+  "spzv6": {
     "id": "16377",
     "item_key": "spzv6",
-    "meta": []
+    "name": "Gust of Wind",
+    "meta": {
+      "proficiencyname": "Gust of Wind",
+      "s71z0": "Magical Creatures",
+      "pm37m": "Training",
+      "pn177": "Thunderbird",
+      "e3usn": "Can flap its three pairs of powerful wings to create a gust of wind in the general direction. This wind will be much stronger if a storm is active.",
+      "e3usn-value": "<p>Can flap its three pairs of powerful wings to create a gust of wind in the general direction. This wind will be much stronger if a storm is active.</p>"
+    }
   },
-  {
+  "hqyxn": {
     "id": "16388",
     "item_key": "hqyxn",
-    "meta": []
+    "name": "Phoenix Cry",
+    "meta": {
+      "proficiencyname": "Phoenix Cry",
+      "s71z0": "Magical Creatures",
+      "pm37m": "Training",
+      "pn177": "Phoenix",
+      "e3usn": "Pheonix will cry to produce tears to heal wounds. Can heal up the 2L wounds at a time and even cure fatal poison.",
+      "e3usn-value": "<p>Pheonix will cry to produce tears to heal wounds. Can heal up the 2L wounds at a time and even cure fatal poison.</p>"
+    }
   },
-  {
+  "9z9c": {
     "id": "16389",
     "item_key": "9z9c",
-    "meta": []
+    "name": "Heavy Carry",
+    "meta": {
+      "proficiencyname": "Heavy Carry",
+      "s71z0": "Magical Creatures",
+      "pm37m": "Training",
+      "pn177": "Phoenix",
+      "e3usn": "The Phoenix has immense strength. This allows it to carry very heavy objects and even multiple people at once.",
+      "e3usn-value": "<p>The Phoenix has immense strength. This allows it to carry very heavy objects and even multiple people at once.</p>"
+    }
   },
-  {
+  "1uwcg": {
     "id": "16390",
     "item_key": "1uwcg",
-    "meta": []
+    "name": "Phoenix Song",
+    "meta": {
+      "proficiencyname": "Phoenix Song",
+      "s71z0": "Magical Creatures",
+      "pm37m": "Training",
+      "pn177": "Phoenix",
+      "e3usn": "Pheonix can be taught to sing its soul-touching song on command. Allies who here it will have the brave effect applied, increasing Spirit. Enemies will feel fear.",
+      "e3usn-value": "<p>Pheonix can be taught to sing its soul-touching song on command. Allies who here it will have the brave effect applied, increasing Spirit. Enemies will feel fear.</p>"
+    }
   },
-  {
+  "wzitj": {
     "id": "16391",
     "item_key": "wzitj",
-    "meta": []
+    "name": "Brush Pheonix",
+    "meta": {
+      "proficiencyname": "Brush Pheonix",
+      "s71z0": "Magical Creatures",
+      "pm37m": "Part Extraction",
+      "pn177": "Phoenix",
+      "vwkm2": "Phoenix Feathers",
+      "e3usn": "Brushing the Pheonix will yield Pheonix feathers occasionally.",
+      "e3usn-value": "<p>Brushing the Pheonix will yield Pheonix feathers occasionally.</p>"
+    }
   },
-  {
+  "88tzq": {
     "id": "16392",
     "item_key": "88tzq",
-    "meta": []
+    "name": "Fire Apparition",
+    "meta": {
+      "proficiencyname": "Fire Apparition",
+      "s71z0": "Magical Creatures",
+      "pm37m": "Training",
+      "pn177": "Phoenix",
+      "e3usn": "Can burst into flames and apparate wherever they want. Can also take whoever is touching them to the same location.",
+      "e3usn-value": "<p>Can burst into flames and apparate wherever they want. Can also take whoever is touching them to the same location.</p>"
+    }
   },
-  {
+  "57ka4": {
     "id": "16393",
     "item_key": "57ka4",
-    "meta": []
+    "name": "Flash Fire Growth",
+    "meta": {
+      "proficiencyname": "Flash Fire Growth",
+      "s71z0": "Magical Creatures",
+      "pm37m": "Bond",
+      "pn177": "Phoenix",
+      "e3usn": "Although Pheonixes will age rapidly after dying and resurrecting from their ashes, they can instantly grow to full adulthood if submerged in magical flames by a skilled witch/wizard with a high understanding of their nature and adept at flame conjuration magic.",
+      "e3usn-value": "<p>Although Pheonixes will age rapidly after dying and resurrecting from their ashes, they can instantly grow to full adulthood if submerged in magical flames by a skilled witch/wizard with a high understanding of their nature and adept at flame conjuration magic.</p>"
+    }
   },
-  {
+  "7n0qb": {
     "id": "16394",
     "item_key": "7n0qb",
-    "meta": []
+    "name": "Fire Boost",
+    "meta": {
+      "proficiencyname": "Fire Boost",
+      "s71z0": "Magical Creatures",
+      "pm37m": "Bond",
+      "pn177": "Phoenix",
+      "e3usn": "Pheonixes can have their abilities boosted by magical flames by one who understands their nature and is adept at fire conjuration magic.",
+      "e3usn-value": "<p>Pheonixes can have their abilities boosted by magical flames by one who understands their nature and is adept at fire conjuration magic.</p>"
+    }
   },
-  {
+  "ao28z": {
     "id": "16395",
     "item_key": "ao28z",
-    "meta": []
+    "name": "Fire Resistance",
+    "meta": {
+      "proficiencyname": "Fire Resistance",
+      "s71z0": "Magical Creatures",
+      "pm37m": "Other",
+      "pn177": "Phoenix",
+      "e3usn": "Pheonixes can't be harmed by fires, even magical ones.",
+      "e3usn-value": "<p>Pheonixes can't be harmed by fires, even magical ones.</p>"
+    }
   },
-  {
+  "m8ezx": {
     "id": "16396",
     "item_key": "m8ezx",
-    "meta": []
+    "name": "Status Affliction Immunity",
+    "meta": {
+      "proficiencyname": "Status Affliction Immunity",
+      "s71z0": "Magical Creatures",
+      "pm37m": "Other",
+      "pn177": "Phoenix",
+      "e3usn": "Due to the high healing abilities of Pheonixes, they are immune to poisons, most petrifying spells, and spells and potions that affect one's mental state.",
+      "e3usn-value": "<p>Due to the high healing abilities of Pheonixes, they are immune to poisons, most petrifying spells, and spells and potions that affect one's mental state.</p>"
+    }
   },
-  {
+  "z70ho": {
     "id": "16397",
     "item_key": "z70ho",
-    "meta": []
+    "name": "Quick Heal",
+    "meta": {
+      "proficiencyname": "Quick Heal",
+      "s71z0": "Magical Creatures",
+      "pm37m": "Other",
+      "pn177": "Phoenix",
+      "e3usn": "If allowed time to rest, a Pheonix will recover from wounds automatically. Even severe wounds will be recovered in one night. Because of this, if attempting to subdue a Pheonix, assailants would need to attack relentlessly.",
+      "e3usn-value": "<p>If allowed time to rest, a Pheonix will recover from wounds automatically. Even severe wounds will be recovered in one night. Because of this, if attempting to subdue a Pheonix, assailants would need to attack relentlessly.</p>"
+    }
   },
-  {
+  "9bio0": {
     "id": "16400",
     "item_key": "9bio0",
-    "meta": []
+    "name": "Runespoor Egg Production",
+    "meta": {
+      "proficiencyname": "Runespoor Egg Production",
+      "s71z0": "Magical Creatures",
+      "pm37m": "Care",
+      "pn177": "Runespoor",
+      "e3usn": "If comfortable enough, it may produce an egg. These eggs are unfertilized be default.",
+      "e3usn-value": "<p>If comfortable enough, it may produce an egg. These eggs are unfertilized be default.</p>"
+    }
   },
-  {
+  "vj8j7": {
     "id": "16401",
     "item_key": "vj8j7",
-    "meta": []
+    "name": "Locate Venomous Head",
+    "meta": {
+      "proficiencyname": "Locate Venomous Head",
+      "s71z0": "Magical Creatures",
+      "pm37m": "Identification",
+      "pn177": "Runespoor",
+      "e3usn": "High creatures skill or understanding of this creature can allow one to realize which head is venomous, when encountering it.",
+      "e3usn-value": "<p>High creatures skill or understanding of this creature can allow one to realize which head is venomous, when encountering it.</p>"
+    }
   },
-  {
+  "178v1": {
     "id": "16410",
     "item_key": "178v1",
-    "meta": []
+    "name": "Brush Thestral",
+    "meta": {
+      "proficiencyname": "Brush Thestral",
+      "s71z0": "Magical Creatures",
+      "pm37m": "Part Extraction",
+      "pn177": "Thestral",
+      "vwkm2": "Thestral Tail Hair",
+      "e3usn": "Brushing Thestral can produce tail hairs.",
+      "e3usn-value": "<p>Brushing Thestral can produce tail hairs.</p>"
+    }
   },
-  {
+  "a4wx9": {
     "id": "16411",
     "item_key": "a4wx9",
-    "meta": []
+    "name": "Flight (Thestral)",
+    "meta": {
+      "proficiencyname": "Flight (Thestral)",
+      "s71z0": "Magical Creatures",
+      "ipjf3": "12",
+      "pm37m": "Training",
+      "pn177": "Thestral",
+      "e3usn": "Thestrals are said to fly faster than the fastest brooms and can take their riders to whatever destination they desire even if they only have a general idea of the location.\r\n\r\nMust have tamed the thestral."
+    }
   },
-  {
+  "moa1c": {
     "id": "16412",
     "item_key": "moa1c",
-    "meta": []
+    "name": "Kiss of Death",
+    "meta": {
+      "proficiencyname": "Kiss of Death",
+      "s71z0": "Magical Creatures",
+      "pm37m": "Tame",
+      "pn177": "Thestral",
+      "e3usn": "Thestrals can only be tamed by those that have seen death firsthand. Thestrals will not be visible to those who haven't.",
+      "e3usn-value": "<p>Thestrals can only be tamed by those that have seen death firsthand. Thestrals will not be visible to those who haven't.</p>"
+    }
   },
-  {
+  "xkjyg": {
     "id": "16423",
     "item_key": "xkjyg",
-    "meta": []
+    "name": "Brush Unicorn",
+    "meta": {
+      "proficiencyname": "Brush Unicorn",
+      "s71z0": "Magical Creatures",
+      "pm37m": "Part Extraction",
+      "pn177": "Unicorn",
+      "vwkm2": "Unicorn Tail Hair",
+      "e3usn": "Can obtain unicorn tail hairs and regular hairs by brushing the unicorn.",
+      "e3usn-value": "<p>Can obtain unicorn tail hairs and regular hairs by brushing the unicorn.</p>"
+    }
   },
-  {
+  "cisof": {
     "id": "16424",
     "item_key": "cisof",
-    "meta": []
+    "name": "Maidens Favor",
+    "meta": {
+      "proficiencyname": "Maidens Favor",
+      "s71z0": "Magical Creatures",
+      "pm37m": "Tame",
+      "pn177": "Unicorn",
+      "e3usn": "Adult Unicorns tend to favor witches over wizards.",
+      "e3usn-value": "<p>Adult Unicorns tend to favor witches over wizards.</p>"
+    }
   },
-  {
+  "r71a2": {
     "id": "16425",
     "item_key": "r71a2",
-    "meta": []
+    "name": "Ride (Unicorn)",
+    "meta": {
+      "proficiencyname": "Ride (Unicorn)",
+      "s71z0": "Magical Creatures",
+      "pm37m": "Training",
+      "pn177": "Unicorn"
+    }
   },
-  {
+  "ctxv": {
     "id": "16426",
     "item_key": "ctxv",
-    "meta": []
+    "name": "Ride (Very Large Acromantula)",
+    "meta": {
+      "proficiencyname": "Ride (Very Large Acromantula)",
+      "s71z0": "Magical Creatures",
+      "pm37m": "Training"
+    }
   },
-  {
+  "yvvnk": {
     "id": "16427",
     "item_key": "yvvnk",
-    "meta": []
+    "name": "Ride (Noble Acromantula)",
+    "meta": {
+      "proficiencyname": "Ride (Noble Acromantula)",
+      "s71z0": "Magical Creatures",
+      "pm37m": "Training",
+      "pn177": "Noble Acromantula"
+    }
   },
-  {
+  "2x0np": {
     "id": "16428",
     "item_key": "2x0np",
-    "meta": []
+    "name": "Ride (Clutter Leader)",
+    "meta": {
+      "proficiencyname": "Ride (Clutter Leader)",
+      "s71z0": "Magical Creatures",
+      "pm37m": "Training",
+      "pn177": "Clutter Leader"
+    }
   },
-  {
+  "st9tl": {
     "id": "16429",
     "item_key": "st9tl",
-    "meta": []
+    "name": "Basilisk Breeding",
+    "meta": {
+      "proficiencyname": "Basilisk Breeding",
+      "s71z0": "Magical Creatures",
+      "pm37m": "Breeding",
+      "pn177": "Basilisk",
+      "e3usn": "Can be breed by hatching a chicken egg beneath a toad. Illegal to do so.",
+      "e3usn-value": "<p>Can be breed by hatching a chicken egg beneath a toad. Illegal to do so.</p>"
+    }
   },
-  {
+  "zvq2k": {
     "id": "16430",
     "item_key": "zvq2k",
-    "meta": []
+    "name": "Ride (Basilisk)",
+    "meta": {
+      "proficiencyname": "Ride (Basilisk)",
+      "s71z0": "Magical Creatures",
+      "pm37m": "Training",
+      "pn177": "Basilisk"
+    }
   },
-  {
+  "ly6es": {
     "id": "16431",
     "item_key": "ly6es",
-    "meta": []
+    "name": "Extract Venom (Basilisk)",
+    "meta": {
+      "proficiencyname": "Extract Venom (Basilisk)",
+      "s71z0": "Magical Creatures",
+      "pm37m": "Part Extraction",
+      "pn177": "Basilisk",
+      "vwkm2": "Basilisk Venom"
+    }
   },
-  {
+  "wf3bg": {
     "id": "16432",
     "item_key": "wf3bg",
-    "meta": []
+    "name": "Avoid Gaze",
+    "meta": {
+      "proficiencyname": "Avoid Gaze",
+      "s71z0": "Magical Creatures",
+      "pm37m": "Bond",
+      "pn177": "Basilisk",
+      "e3usn": "Tamed Basilisk will not directly look at its owner. This is passive.",
+      "e3usn-value": "<p>Tamed Basilisk will not directly look at its owner. This is passive.</p>"
+    }
   },
-  {
+  "dzz9v": {
     "id": "16433",
     "item_key": "dzz9v",
-    "meta": []
+    "name": "Protect (Basilisk)",
+    "meta": {
+      "proficiencyname": "Protect (Basilisk)",
+      "s71z0": "Magical Creatures",
+      "pm37m": "Bond",
+      "pn177": "Basilisk",
+      "e3usn": "Basilisk will use its dragonlike hide to protect its owner against attacks. At a high bond level will start to do this automatically without needing to be ordered.",
+      "e3usn-value": "<p>Basilisk will use its dragonlike hide to protect its owner against attacks. At a high bond level will start to do this automatically without needing to be ordered.</p>"
+    }
   },
-  {
+  "hgc5q": {
     "id": "16434",
     "item_key": "hgc5q",
-    "meta": []
+    "name": "Identify Weakness (Basilisk)",
+    "meta": {
+      "proficiencyname": "Identify Weakness (Basilisk)",
+      "s71z0": "Magical Creatures",
+      "pm37m": "Identification",
+      "pn177": "Basilisk",
+      "e3usn": "Able to identify their mortal weakness, which is the crowing of a rooster.",
+      "e3usn-value": "<p>Able to identify their mortal weakness, which is the crowing of a rooster.</p>"
+    }
   },
-  {
+  "vdtw5": {
     "id": "16436",
     "item_key": "vdtw5",
-    "meta": []
+    "name": "Lure Bowtruckle",
+    "meta": {
+      "proficiencyname": "Lure Bowtruckle",
+      "s71z0": "Magical Creatures",
+      "pm37m": "Lure",
+      "pn177": "Bowtruckle",
+      "e3usn": "Offering its favorite food, woodlice or fairy eggs, greatly the success rate of taming it. Works as a great distraction also.",
+      "e3usn-value": "<p>Offering its favorite food, woodlice or fairy eggs, greatly the success rate of taming it. Works as a great distraction also.</p>"
+    }
   },
-  {
+  "ej3sa": {
     "id": "16437",
     "item_key": "ej3sa",
-    "meta": []
+    "name": "Lockpicking",
+    "meta": {
+      "proficiencyname": "Lockpicking",
+      "s71z0": "Magical Creatures",
+      "pm37m": "Training",
+      "pn177": "Bowtruckle"
+    }
   },
-  {
+  "oadsl": {
     "id": "16438",
     "item_key": "oadsl",
-    "meta": []
+    "name": "Pickpocket",
+    "meta": {
+      "proficiencyname": "Pickpocket",
+      "s71z0": "Magical Creatures",
+      "pm37m": "Training",
+      "pn177": "Bowtruckle"
+    }
   },
-  {
+  "zj2dl": {
     "id": "16441",
     "item_key": "zj2dl",
-    "meta": []
+    "name": "Wiggentree Harvest",
+    "meta": {
+      "proficiencyname": "Wiggentree Harvest",
+      "s71z0": "Magical Creatures",
+      "pm37m": "Bond",
+      "pn177": "Bowtruckle",
+      "f2ux5": {
+        "form": "961",
+        "i16439": {
+          "53wtd": "Wiggentree Bark"
+        },
+        "i16440": {
+          "53wtd": "Wiggentree Twigs"
+        }
+      },
+      "53wtd": [
+        "Wiggentree Bark",
+        "Wiggentree Twigs"
+      ],
+      "e3usn": "As most Bowtruckles live in Wiggentrees, gaining the favor of enough of them will allow them to overlook harvesting some wood. The wood alone protects against dark creatures or can be used to craft a wand. The bark is useful in healing potions.",
+      "e3usn-value": "<p>As most Bowtruckles live in Wiggentrees, gaining the favor of enough of them will allow them to overlook harvesting some wood. The wood alone protects against dark creatures or can be used to craft a wand. The bark is useful in healing potions.</p>"
+    }
   },
-  {
+  "do7y": {
     "id": "16442",
     "item_key": "do7y",
-    "meta": []
+    "name": "Attack Pattern (Bowtruckle)",
+    "meta": {
+      "proficiencyname": "Attack Pattern (Bowtruckle)",
+      "s71z0": "Magical Creatures",
+      "pm37m": "Identification",
+      "pn177": "Bowtruckle",
+      "e3usn": "Can predict its attack patterns to an extent.",
+      "e3usn-value": "<p>Can predict its attack patterns to an extent.</p>"
+    }
   },
-  {
+  "ub934": {
     "id": "19396",
     "item_key": "ub934",
-    "meta": []
+    "name": "ub934",
+    "meta": {
+      "proficiencyname": "Charms spellcrafting difficulty 5 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "5",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Charms spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "ttq31": {
     "id": "19397",
     "item_key": "ttq31",
-    "meta": []
+    "name": "ttq31",
+    "meta": {
+      "proficiencyname": "Transfiguration spellcrafting difficulty 5 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "5",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "rqnvc": {
     "id": "19398",
     "item_key": "rqnvc",
-    "meta": []
+    "name": "rqnvc",
+    "meta": {
+      "proficiencyname": "Defense spellcrafting difficulty 5 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "5",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "by1yj": {
     "id": "19399",
     "item_key": "by1yj",
-    "meta": []
+    "name": "by1yj",
+    "meta": {
+      "proficiencyname": "Charms spellcrafting difficulty 7 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "7",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Charms spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "58clm": {
     "id": "19400",
     "item_key": "58clm",
-    "meta": []
+    "name": "58clm",
+    "meta": {
+      "proficiencyname": "Transfiguration spellcrafting difficulty 7 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "7",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "txppb": {
     "id": "19401",
     "item_key": "txppb",
-    "meta": []
+    "name": "txppb",
+    "meta": {
+      "proficiencyname": "Defense spellcrafting difficulty 7 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "10",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "kpg17": {
     "id": "19402",
     "item_key": "kpg17",
-    "meta": []
+    "name": "kpg17",
+    "meta": {
+      "proficiencyname": "Charms spellcrafting difficulty 10 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "12",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Charms spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "mtxv": {
     "id": "19403",
     "item_key": "mtxv",
-    "meta": []
+    "name": "mtxv",
+    "meta": {
+      "proficiencyname": "Transfiguration spellcrafting difficulty 10 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "12",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "4qms2": {
     "id": "19404",
     "item_key": "4qms2",
-    "meta": []
+    "name": "4qms2",
+    "meta": {
+      "proficiencyname": "Defense spellcrafting difficulty 10 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "13",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "8wi69": {
     "id": "19405",
     "item_key": "8wi69",
-    "meta": []
+    "name": "8wi69",
+    "meta": {
+      "proficiencyname": "Charms spellcrafting difficulty 12 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "15",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Charms spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "xon6t": {
     "id": "19406",
     "item_key": "xon6t",
-    "meta": []
+    "name": "xon6t",
+    "meta": {
+      "proficiencyname": "Charms spellcrafting difficulty 13 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "15",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Charms spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "rc3mx": {
     "id": "19407",
     "item_key": "rc3mx",
-    "meta": []
+    "name": "rc3mx",
+    "meta": {
+      "proficiencyname": "Transfiguration spellcrafting difficulty 12 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "15",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "ra65c": {
     "id": "19408",
     "item_key": "ra65c",
-    "meta": []
+    "name": "ra65c",
+    "meta": {
+      "proficiencyname": "Transfiguration spellcrafting difficulty 13 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "15",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "k12mn": {
     "id": "19409",
     "item_key": "k12mn",
-    "meta": []
+    "name": "k12mn",
+    "meta": {
+      "proficiencyname": "Defense spellcrafting difficulty 12 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "17",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "h41xd": {
     "id": "19410",
     "item_key": "h41xd",
-    "meta": []
+    "name": "h41xd",
+    "meta": {
+      "proficiencyname": "Dark Arts spellcrafting difficulty 5 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "17",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Dark Arts spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "fwhq8": {
     "id": "19411",
     "item_key": "fwhq8",
-    "meta": []
+    "name": "fwhq8",
+    "meta": {
+      "proficiencyname": "Charms spellcrafting difficulty 15 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "18",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Charms spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "9z3rh": {
     "id": "19412",
     "item_key": "9z3rh",
-    "meta": []
+    "name": "9z3rh",
+    "meta": {
+      "proficiencyname": "Charms spellcrafting difficulty 17 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "18",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Charms spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "3fpun": {
     "id": "19413",
     "item_key": "3fpun",
-    "meta": []
+    "name": "3fpun",
+    "meta": {
+      "proficiencyname": "Charms spellcrafting difficulty 18 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "18",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Charms spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "lpax1": {
     "id": "19414",
     "item_key": "lpax1",
-    "meta": []
+    "name": "lpax1",
+    "meta": {
+      "proficiencyname": "Transfiguration spellcrafting difficulty 15 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "18",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "s0lnl": {
     "id": "19415",
     "item_key": "s0lnl",
-    "meta": []
+    "name": "s0lnl",
+    "meta": {
+      "proficiencyname": "Transfiguration spellcrafting difficulty 17 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "18",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "mwoti": {
     "id": "19416",
     "item_key": "mwoti",
-    "meta": []
+    "name": "mwoti",
+    "meta": {
+      "proficiencyname": "Transfiguration spellcrafting difficulty 18 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "18",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "yfjg6": {
     "id": "19417",
     "item_key": "yfjg6",
-    "meta": []
+    "name": "yfjg6",
+    "meta": {
+      "proficiencyname": "Defense spellcrafting difficulty 13 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "20",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "2vfm1": {
     "id": "19418",
     "item_key": "2vfm1",
-    "meta": []
+    "name": "2vfm1",
+    "meta": {
+      "proficiencyname": "Dark Arts spellcrafting difficulty 7 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "20",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Dark Arts spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "4u1dh": {
     "id": "19419",
     "item_key": "4u1dh",
-    "meta": []
+    "name": "4u1dh",
+    "meta": {
+      "proficiencyname": "Charms spellcrafting difficulty 20 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "22",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Charms spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "syluj": {
     "id": "19420",
     "item_key": "syluj",
-    "meta": []
+    "name": "syluj",
+    "meta": {
+      "proficiencyname": "Transfiguration spellcrafting difficulty 20 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "22",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "3s6au": {
     "id": "19421",
     "item_key": "3s6au",
-    "meta": []
+    "name": "3s6au",
+    "meta": {
+      "proficiencyname": "Defense spellcrafting difficulty 15 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "23",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "bvmt0": {
     "id": "19422",
     "item_key": "bvmt0",
-    "meta": []
+    "name": "bvmt0",
+    "meta": {
+      "proficiencyname": "Dark Arts spellcrafting difficulty 10 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "23",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Dark Arts spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "du4fu": {
     "id": "19423",
     "item_key": "du4fu",
-    "meta": []
+    "name": "du4fu",
+    "meta": {
+      "proficiencyname": "Charms spellcrafting difficulty 22 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "25",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Charms spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "z2kpr": {
     "id": "19424",
     "item_key": "z2kpr",
-    "meta": []
+    "name": "z2kpr",
+    "meta": {
+      "proficiencyname": "Charms spellcrafting difficulty 23 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "25",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Charms spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "oihyz": {
     "id": "19425",
     "item_key": "oihyz",
-    "meta": []
+    "name": "oihyz",
+    "meta": {
+      "proficiencyname": "Transfiguration spellcrafting difficulty 22 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "25",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "ryo1e": {
     "id": "19426",
     "item_key": "ryo1e",
-    "meta": []
+    "name": "ryo1e",
+    "meta": {
+      "proficiencyname": "Transfiguration spellcrafting difficulty 23 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "25",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "9o4rn": {
     "id": "19427",
     "item_key": "9o4rn",
-    "meta": []
+    "name": "9o4rn",
+    "meta": {
+      "proficiencyname": "Defense spellcrafting difficulty 17 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "25",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "qxmtz": {
     "id": "19428",
     "item_key": "qxmtz",
-    "meta": []
+    "name": "qxmtz",
+    "meta": {
+      "proficiencyname": "Dark Arts spellcrafting difficulty 12 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "25",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Dark Arts spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "y5aod": {
     "id": "19429",
     "item_key": "y5aod",
-    "meta": []
+    "name": "y5aod",
+    "meta": {
+      "proficiencyname": "Charms spellcrafting difficulty 25 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "27",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Charms spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "h5nmk": {
     "id": "19430",
     "item_key": "h5nmk",
-    "meta": []
+    "name": "h5nmk",
+    "meta": {
+      "proficiencyname": "Charms spellcrafting difficulty 27 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "27",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Charms spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "j1jfz": {
     "id": "19431",
     "item_key": "j1jfz",
-    "meta": []
+    "name": "j1jfz",
+    "meta": {
+      "proficiencyname": "Transfiguration spellcrafting difficulty 25 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "27",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "ncb59": {
     "id": "19432",
     "item_key": "ncb59",
-    "meta": []
+    "name": "ncb59",
+    "meta": {
+      "proficiencyname": "Transfiguration spellcrafting difficulty 27 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "27",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "63bef": {
     "id": "19433",
     "item_key": "63bef",
-    "meta": []
+    "name": "63bef",
+    "meta": {
+      "proficiencyname": "Defense spellcrafting difficulty 18 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "27",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "y3axe": {
     "id": "19434",
     "item_key": "y3axe",
-    "meta": []
+    "name": "y3axe",
+    "meta": {
+      "proficiencyname": "Dark Arts spellcrafting difficulty 13 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "27",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Dark Arts spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "42fq3": {
     "id": "19435",
     "item_key": "42fq3",
-    "meta": []
+    "name": "42fq3",
+    "meta": {
+      "proficiencyname": "Charms spellcrafting difficulty 28 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "28",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Charms spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "df2ie": {
     "id": "19436",
     "item_key": "df2ie",
-    "meta": []
+    "name": "df2ie",
+    "meta": {
+      "proficiencyname": "Charms spellcrafting difficulty 29 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "28",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Charms spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "e2boy": {
     "id": "19437",
     "item_key": "e2boy",
-    "meta": []
+    "name": "e2boy",
+    "meta": {
+      "proficiencyname": "Charms spellcrafting difficulty 30 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "28",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Charms spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "gm75o": {
     "id": "19438",
     "item_key": "gm75o",
-    "meta": []
+    "name": "gm75o",
+    "meta": {
+      "proficiencyname": "Transfiguration spellcrafting difficulty 28 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "28",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "4azrn": {
     "id": "19439",
     "item_key": "4azrn",
-    "meta": []
+    "name": "4azrn",
+    "meta": {
+      "proficiencyname": "Transfiguration spellcrafting difficulty 29 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "28",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "vd7uc": {
     "id": "19440",
     "item_key": "vd7uc",
-    "meta": []
+    "name": "vd7uc",
+    "meta": {
+      "proficiencyname": "Transfiguration spellcrafting difficulty 30 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "28",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "2ri57": {
     "id": "19441",
     "item_key": "2ri57",
-    "meta": []
+    "name": "2ri57",
+    "meta": {
+      "proficiencyname": "Defense spellcrafting difficulty 20 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "29",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "268ur": {
     "id": "19442",
     "item_key": "268ur",
-    "meta": []
+    "name": "268ur",
+    "meta": {
+      "proficiencyname": "Dark Arts spellcrafting difficulty 15 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "29",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Dark Arts spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "zfojt": {
     "id": "19443",
     "item_key": "zfojt",
-    "meta": []
+    "name": "zfojt",
+    "meta": {
+      "proficiencyname": "Charms spellcrafting difficulty 31 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "30",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Charms spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "xqltw": {
     "id": "19444",
     "item_key": "xqltw",
-    "meta": []
+    "name": "xqltw",
+    "meta": {
+      "proficiencyname": "Charms spellcrafting difficulty 32 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "30",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Charms spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "bbe85": {
     "id": "19445",
     "item_key": "bbe85",
-    "meta": []
+    "name": "bbe85",
+    "meta": {
+      "proficiencyname": "Charms spellcrafting difficulty 33 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "30",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Charms spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "zcvpv": {
     "id": "19446",
     "item_key": "zcvpv",
-    "meta": []
+    "name": "zcvpv",
+    "meta": {
+      "proficiencyname": "Charms spellcrafting difficulty 34 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "30",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Charms spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "1a7y5": {
     "id": "19447",
     "item_key": "1a7y5",
-    "meta": []
+    "name": "1a7y5",
+    "meta": {
+      "proficiencyname": "Charms spellcrafting difficulty 35 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "30",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Charms spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "qez8r": {
     "id": "19448",
     "item_key": "qez8r",
-    "meta": []
+    "name": "qez8r",
+    "meta": {
+      "proficiencyname": "Transfiguration spellcrafting difficulty 31 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "30",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "a4g3r": {
     "id": "19449",
     "item_key": "a4g3r",
-    "meta": []
+    "name": "a4g3r",
+    "meta": {
+      "proficiencyname": "Transfiguration spellcrafting difficulty 32 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "30",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "7s6wj": {
     "id": "19450",
     "item_key": "7s6wj",
-    "meta": []
+    "name": "7s6wj",
+    "meta": {
+      "proficiencyname": "Transfiguration spellcrafting difficulty 33 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "30",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "7492b": {
     "id": "19451",
     "item_key": "7492b",
-    "meta": []
+    "name": "7492b",
+    "meta": {
+      "proficiencyname": "Transfiguration spellcrafting difficulty 34 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "30",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "tdxyl": {
     "id": "19452",
     "item_key": "tdxyl",
-    "meta": []
+    "name": "tdxyl",
+    "meta": {
+      "proficiencyname": "Transfiguration spellcrafting difficulty 35 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "30",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "1dnje": {
     "id": "19453",
     "item_key": "1dnje",
-    "meta": []
+    "name": "1dnje",
+    "meta": {
+      "proficiencyname": "Defense spellcrafting difficulty 22 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "30",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "5b353": {
     "id": "19454",
     "item_key": "5b353",
-    "meta": []
+    "name": "5b353",
+    "meta": {
+      "proficiencyname": "Dark Arts spellcrafting difficulty 17 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "30",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Dark Arts spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "8voyj": {
     "id": "19455",
     "item_key": "8voyj",
-    "meta": []
+    "name": "8voyj",
+    "meta": {
+      "proficiencyname": "Charms spellcrafting difficulty 36 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "31",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Charms spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "jv1yl": {
     "id": "19456",
     "item_key": "jv1yl",
-    "meta": []
+    "name": "jv1yl",
+    "meta": {
+      "proficiencyname": "Charms spellcrafting difficulty 37 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "31",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Charms spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "w8tfe": {
     "id": "19457",
     "item_key": "w8tfe",
-    "meta": []
+    "name": "w8tfe",
+    "meta": {
+      "proficiencyname": "Charms spellcrafting difficulty 38 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "31",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Charms spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "uutsn": {
     "id": "19458",
     "item_key": "uutsn",
-    "meta": []
+    "name": "uutsn",
+    "meta": {
+      "proficiencyname": "Charms spellcrafting difficulty 40 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "31",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Charms spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "de1a6": {
     "id": "19459",
     "item_key": "de1a6",
-    "meta": []
+    "name": "de1a6",
+    "meta": {
+      "proficiencyname": "Transfiguration spellcrafting difficulty 36 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "31",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "2tt7k": {
     "id": "19460",
     "item_key": "2tt7k",
-    "meta": []
+    "name": "2tt7k",
+    "meta": {
+      "proficiencyname": "Transfiguration spellcrafting difficulty 37 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "31",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "ya0ty": {
     "id": "19461",
     "item_key": "ya0ty",
-    "meta": []
+    "name": "ya0ty",
+    "meta": {
+      "proficiencyname": "Transfiguration spellcrafting difficulty 38 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "31",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "g6s0w": {
     "id": "19462",
     "item_key": "g6s0w",
-    "meta": []
+    "name": "g6s0w",
+    "meta": {
+      "proficiencyname": "Transfiguration spellcrafting difficulty 40 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "31",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "rik4o": {
     "id": "19463",
     "item_key": "rik4o",
-    "meta": []
+    "name": "rik4o",
+    "meta": {
+      "proficiencyname": "Defense spellcrafting difficulty 23 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "31",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "d5yci": {
     "id": "19464",
     "item_key": "d5yci",
-    "meta": []
+    "name": "d5yci",
+    "meta": {
+      "proficiencyname": "Dark Arts spellcrafting difficulty 18 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "31",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Dark Arts spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "2pu1m": {
     "id": "19465",
     "item_key": "2pu1m",
-    "meta": []
+    "name": "2pu1m",
+    "meta": {
+      "proficiencyname": "Charms spellcrafting difficulty 42 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "32",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Charms spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "2mcej": {
     "id": "19466",
     "item_key": "2mcej",
-    "meta": []
+    "name": "2mcej",
+    "meta": {
+      "proficiencyname": "Charms spellcrafting difficulty 44 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "32",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Charms spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "o3zwh": {
     "id": "19467",
     "item_key": "o3zwh",
-    "meta": []
+    "name": "o3zwh",
+    "meta": {
+      "proficiencyname": "Charms spellcrafting difficulty 46 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "32",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Charms spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "g4iyb": {
     "id": "19468",
     "item_key": "g4iyb",
-    "meta": []
+    "name": "g4iyb",
+    "meta": {
+      "proficiencyname": "Charms spellcrafting difficulty 48 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "32",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Charms spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "ke3o0": {
     "id": "19469",
     "item_key": "ke3o0",
-    "meta": []
+    "name": "ke3o0",
+    "meta": {
+      "proficiencyname": "Charms spellcrafting difficulty 50 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "32",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Charms spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "98yml": {
     "id": "19470",
     "item_key": "98yml",
-    "meta": []
+    "name": "98yml",
+    "meta": {
+      "proficiencyname": "Transfiguration spellcrafting difficulty 42 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "32",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "sr87t": {
     "id": "19471",
     "item_key": "sr87t",
-    "meta": []
+    "name": "sr87t",
+    "meta": {
+      "proficiencyname": "Transfiguration spellcrafting difficulty 44 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "32",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "vasw6": {
     "id": "19472",
     "item_key": "vasw6",
-    "meta": []
+    "name": "vasw6",
+    "meta": {
+      "proficiencyname": "Transfiguration spellcrafting difficulty 46 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "32",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "pr987": {
     "id": "19473",
     "item_key": "pr987",
-    "meta": []
+    "name": "pr987",
+    "meta": {
+      "proficiencyname": "Transfiguration spellcrafting difficulty 48 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "32",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "amok8": {
     "id": "19474",
     "item_key": "amok8",
-    "meta": []
+    "name": "amok8",
+    "meta": {
+      "proficiencyname": "Transfiguration spellcrafting difficulty 50 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "32",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "9r2n5": {
     "id": "19475",
     "item_key": "9r2n5",
-    "meta": []
+    "name": "9r2n5",
+    "meta": {
+      "proficiencyname": "Defense spellcrafting difficulty 25 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "33",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "fh62v": {
     "id": "19476",
     "item_key": "fh62v",
-    "meta": []
+    "name": "fh62v",
+    "meta": {
+      "proficiencyname": "Defense spellcrafting difficulty 27 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "33",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "f8179": {
     "id": "19477",
     "item_key": "f8179",
-    "meta": []
+    "name": "f8179",
+    "meta": {
+      "proficiencyname": "Dark Arts spellcrafting difficulty 20 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "33",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Dark Arts spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "n1rpw": {
     "id": "19478",
     "item_key": "n1rpw",
-    "meta": []
+    "name": "n1rpw",
+    "meta": {
+      "proficiencyname": "Defense spellcrafting difficulty 28 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "34",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "1ezlt": {
     "id": "19479",
     "item_key": "1ezlt",
-    "meta": []
+    "name": "1ezlt",
+    "meta": {
+      "proficiencyname": "Defense spellcrafting difficulty 29 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "34",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "k8atm": {
     "id": "19480",
     "item_key": "k8atm",
-    "meta": []
+    "name": "k8atm",
+    "meta": {
+      "proficiencyname": "Dark Arts spellcrafting difficulty 22 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "34",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Dark Arts spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "9u0e7": {
     "id": "19481",
     "item_key": "9u0e7",
-    "meta": []
+    "name": "9u0e7",
+    "meta": {
+      "proficiencyname": "Defense spellcrafting difficulty 30 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "35",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "uuyd0": {
     "id": "19482",
     "item_key": "uuyd0",
-    "meta": []
+    "name": "uuyd0",
+    "meta": {
+      "proficiencyname": "Defense spellcrafting difficulty 31 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "35",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "ob101": {
     "id": "19483",
     "item_key": "ob101",
-    "meta": []
+    "name": "ob101",
+    "meta": {
+      "proficiencyname": "Defense spellcrafting difficulty 32 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "35",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "w25pz": {
     "id": "19484",
     "item_key": "w25pz",
-    "meta": []
+    "name": "w25pz",
+    "meta": {
+      "proficiencyname": "Defense spellcrafting difficulty 33 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "35",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "we1d9": {
     "id": "19485",
     "item_key": "we1d9",
-    "meta": []
+    "name": "we1d9",
+    "meta": {
+      "proficiencyname": "Defense spellcrafting difficulty 34 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "35",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "krbst": {
     "id": "19486",
     "item_key": "krbst",
-    "meta": []
+    "name": "krbst",
+    "meta": {
+      "proficiencyname": "Defense spellcrafting difficulty 35 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "35",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "y4xxh": {
     "id": "19487",
     "item_key": "y4xxh",
-    "meta": []
+    "name": "y4xxh",
+    "meta": {
+      "proficiencyname": "Dark Arts spellcrafting difficulty 23 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "35",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Dark Arts spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "qubpz": {
     "id": "19488",
     "item_key": "qubpz",
-    "meta": []
+    "name": "qubpz",
+    "meta": {
+      "proficiencyname": "Dark Arts spellcrafting difficulty 25 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "35",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Dark Arts spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "sx9ej": {
     "id": "19489",
     "item_key": "sx9ej",
-    "meta": []
+    "name": "sx9ej",
+    "meta": {
+      "proficiencyname": "Defense spellcrafting difficulty 36 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "36",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "jx3lj": {
     "id": "19490",
     "item_key": "jx3lj",
-    "meta": []
+    "name": "jx3lj",
+    "meta": {
+      "proficiencyname": "Defense spellcrafting difficulty 37 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "36",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "yxke0": {
     "id": "19491",
     "item_key": "yxke0",
-    "meta": []
+    "name": "yxke0",
+    "meta": {
+      "proficiencyname": "Dark Arts spellcrafting difficulty 27 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "36",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Dark Arts spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "sehna": {
     "id": "19492",
     "item_key": "sehna",
-    "meta": []
+    "name": "sehna",
+    "meta": {
+      "proficiencyname": "Defense spellcrafting difficulty 38 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "37",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "42eyu": {
     "id": "19493",
     "item_key": "42eyu",
-    "meta": []
+    "name": "42eyu",
+    "meta": {
+      "proficiencyname": "Defense spellcrafting difficulty 40 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "37",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "k7ah0": {
     "id": "19494",
     "item_key": "k7ah0",
-    "meta": []
+    "name": "k7ah0",
+    "meta": {
+      "proficiencyname": "Dark Arts spellcrafting difficulty 28 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "37",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Dark Arts spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "3poy3": {
     "id": "19495",
     "item_key": "3poy3",
-    "meta": []
+    "name": "3poy3",
+    "meta": {
+      "proficiencyname": "Defense spellcrafting difficulty 42 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "38",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "henjt": {
     "id": "19496",
     "item_key": "henjt",
-    "meta": []
+    "name": "henjt",
+    "meta": {
+      "proficiencyname": "Defense spellcrafting difficulty 44 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "38",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "97erp": {
     "id": "19497",
     "item_key": "97erp",
-    "meta": []
+    "name": "97erp",
+    "meta": {
+      "proficiencyname": "Dark Arts spellcrafting difficulty 29 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "38",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Dark Arts spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "95l65": {
     "id": "19498",
     "item_key": "95l65",
-    "meta": []
+    "name": "95l65",
+    "meta": {
+      "proficiencyname": "Defense spellcrafting difficulty 46 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "40",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "7i7an": {
     "id": "19499",
     "item_key": "7i7an",
-    "meta": []
+    "name": "7i7an",
+    "meta": {
+      "proficiencyname": "Defense spellcrafting difficulty 48 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "40",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "3lrk0": {
     "id": "19500",
     "item_key": "3lrk0",
-    "meta": []
+    "name": "3lrk0",
+    "meta": {
+      "proficiencyname": "Defense spellcrafting difficulty 50 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "40",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Transfiguration spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "80tii": {
     "id": "19501",
     "item_key": "80tii",
-    "meta": []
+    "name": "80tii",
+    "meta": {
+      "proficiencyname": "Dark Arts spellcrafting difficulty 30 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "40",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Dark Arts spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "xrffw": {
     "id": "19502",
     "item_key": "xrffw",
-    "meta": []
+    "name": "xrffw",
+    "meta": {
+      "proficiencyname": "Dark Arts spellcrafting difficulty 31 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "42",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Dark Arts spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "a4khq": {
     "id": "19503",
     "item_key": "a4khq",
-    "meta": []
+    "name": "a4khq",
+    "meta": {
+      "proficiencyname": "Dark Arts spellcrafting difficulty 32 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "42",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Dark Arts spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "bsuhi": {
     "id": "19504",
     "item_key": "bsuhi",
-    "meta": []
+    "name": "bsuhi",
+    "meta": {
+      "proficiencyname": "Dark Arts spellcrafting difficulty 33 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "42",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Dark Arts spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "wwphn": {
     "id": "19505",
     "item_key": "wwphn",
-    "meta": []
+    "name": "wwphn",
+    "meta": {
+      "proficiencyname": "Dark Arts spellcrafting difficulty 34 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "42",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Dark Arts spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "7rq71": {
     "id": "19506",
     "item_key": "7rq71",
-    "meta": []
+    "name": "7rq71",
+    "meta": {
+      "proficiencyname": "Dark Arts spellcrafting difficulty 35 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "44",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Dark Arts spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "w55w8": {
     "id": "19507",
     "item_key": "w55w8",
-    "meta": []
+    "name": "w55w8",
+    "meta": {
+      "proficiencyname": "Dark Arts spellcrafting difficulty 36 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "44",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Dark Arts spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "83rcy": {
     "id": "19508",
     "item_key": "83rcy",
-    "meta": []
+    "name": "83rcy",
+    "meta": {
+      "proficiencyname": "Dark Arts spellcrafting difficulty 37 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "44",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Dark Arts spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "teqh8": {
     "id": "19509",
     "item_key": "teqh8",
-    "meta": []
+    "name": "teqh8",
+    "meta": {
+      "proficiencyname": "Dark Arts spellcrafting difficulty 38 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "44",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Dark Arts spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "z66j9": {
     "id": "19510",
     "item_key": "z66j9",
-    "meta": []
+    "name": "z66j9",
+    "meta": {
+      "proficiencyname": "Dark Arts spellcrafting difficulty 40 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "46",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Dark Arts spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "3imta": {
     "id": "19511",
     "item_key": "3imta",
-    "meta": []
+    "name": "3imta",
+    "meta": {
+      "proficiencyname": "Dark Arts spellcrafting difficulty 42 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "46",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Dark Arts spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "taret": {
     "id": "19512",
     "item_key": "taret",
-    "meta": []
+    "name": "taret",
+    "meta": {
+      "proficiencyname": "Dark Arts spellcrafting difficulty 44 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "46",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Dark Arts spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "bmbgi": {
     "id": "19513",
     "item_key": "bmbgi",
-    "meta": []
+    "name": "bmbgi",
+    "meta": {
+      "proficiencyname": "Dark Arts spellcrafting difficulty 46 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "48",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Dark Arts spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "enqgs": {
     "id": "19514",
     "item_key": "enqgs",
-    "meta": []
+    "name": "enqgs",
+    "meta": {
+      "proficiencyname": "Dark Arts spellcrafting difficulty 48 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "48",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Dark Arts spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "hk44x": {
     "id": "19515",
     "item_key": "hk44x",
-    "meta": []
+    "name": "hk44x",
+    "meta": {
+      "proficiencyname": "Dark Arts spellcrafting difficulty 50 in the British tradition",
+      "kv517": "British",
+      "s71z0": "Ancient Runes",
+      "ipjf3": "50",
+      "e3usn": "This is a spellcrafting proficiency allowing the spellcrafter to create a Dark Arts spell (following the British wand-casting tradition) of the difficulty listed. Follow the instructions for spellcrafting carefully for exact instructions on performing the proficiency"
+    }
   },
-  {
+  "rhwqa": {
     "id": "19568",
     "item_key": "rhwqa",
-    "meta": []
+    "name": "Legilimency",
+    "meta": {
+      "proficiencyname": "Legilimency",
+      "kv517": "British",
+      "s71z0": "Arithmancy",
+      "ipjf3": "38",
+      "e3usn": "Allows the practitioner to look into the mind of the target. This is resistable using fortitude, but the resistance roll must be greater than the casters roll. Ties go to the defender.\r\n\r\nThe use of this practice is generally considered highly illegal and immoral with strict penalties. \r\n\r\nSee Legal Note: British Ministries Legislation Banning the Use of Legilimency"
+    }
   },
-  {
+  "5kszd": {
     "id": "19683",
     "item_key": "5kszd",
-    "meta": []
+    "name": "Primitive Numerological Ward",
+    "meta": {
+      "proficiencyname": "Primitive Numerological Ward",
+      "kv517": "British",
+      "s71z0": "Arithmancy",
+      "ipjf3": "5",
+      "e3usn": "Through the use of specific numerical references contained in the text, this will allow the practitioner to magically seal a letter."
+    }
   },
-  {
+  "o5suq": {
     "id": "19684",
     "item_key": "o5suq",
-    "meta": []
+    "name": "Rudimentary Numerological Ward",
+    "meta": {
+      "proficiencyname": "Rudimentary Numerological Ward",
+      "kv517": "British",
+      "s71z0": "Arithmancy",
+      "ipjf3": "7",
+      "e3usn": "Through the use of specific numerical references contained in the text, this will allow the practitioner to magically seal a journal or book."
+    }
   },
-  {
+  "a27t5": {
     "id": "19685",
     "item_key": "a27t5",
-    "meta": []
+    "name": "Numerological Ciphering",
+    "meta": {
+      "proficiencyname": "Numerological Ciphering",
+      "kv517": "British",
+      "s71z0": "Arithmancy",
+      "ipjf3": "15",
+      "e3usn": "When an Arithmancer believes that a seal is numerological in nature, they may attempt this proficiency to crack the numerological code and attempt to break the seal."
+    }
   },
-  {
+  "7lbuv": {
     "id": "19686",
     "item_key": "7lbuv",
-    "meta": []
+    "name": "Improved Numerological Ward",
+    "meta": {
+      "proficiencyname": "Improved Numerological Ward",
+      "kv517": "British",
+      "s71z0": "Arithmancy",
+      "ipjf3": "10",
+      "e3usn": "Through the use of specific numerical references contained inside, this will allow the practitioner to magically seal a box, chest, cabinet, drawer, or other small container."
+    }
   },
-  {
+  "x1h6u": {
     "id": "19687",
     "item_key": "x1h6u",
-    "meta": []
+    "name": "Refined Numerological Ward",
+    "meta": {
+      "proficiencyname": "Refined Numerological Ward",
+      "kv517": "British",
+      "s71z0": "Arithmancy",
+      "ipjf3": "12",
+      "e3usn": "Through the use of specific numerical references contained inside, this will allow the practitioner to magically seal a room."
+    }
   },
-  {
+  "ce7fz": {
     "id": "19688",
     "item_key": "ce7fz",
-    "meta": []
+    "name": "Intricate Numerological Ward",
+    "meta": {
+      "proficiencyname": "Intricate Numerological Ward",
+      "kv517": "British",
+      "s71z0": "Arithmancy",
+      "ipjf3": "13",
+      "e3usn": "Through the use of specific numerical references contained in the building, this will allow the practitioner to magically seal a building."
+    }
   },
-  {
+  "nmz66": {
     "id": "19689",
     "item_key": "nmz66",
-    "meta": []
+    "name": "Elegant Numerological Ward",
+    "meta": {
+      "proficiencyname": "Elegant Numerological Ward",
+      "kv517": "British",
+      "s71z0": "Arithmancy",
+      "ipjf3": "15",
+      "e3usn": "Through the use of specific numerical references contained on the premises, this will allow the practitioner to magically seal a whole address including the grounds."
+    }
   },
-  {
+  "iv69n": {
     "id": "19690",
     "item_key": "iv69n",
-    "meta": []
+    "name": "Sophisticated Numerological Ward",
+    "meta": {
+      "proficiencyname": "Sophisticated Numerological Ward",
+      "kv517": "British",
+      "s71z0": "Arithmancy",
+      "ipjf3": "17",
+      "e3usn": "Through the use of numerological references contained within, this allows the practitioner to magically seal an area (headmaster's discretion regarding size, however this typically involves multiple addresses and may even include something as large as a town or county)."
+    }
   },
-  {
+  "nns5t": {
     "id": "19693",
     "item_key": "nns5t",
-    "meta": []
+    "name": "Detect Magic",
+    "meta": {
+      "proficiencyname": "Detect Magic",
+      "kv517": "British",
+      "s71z0": "Arithmancy",
+      "ipjf3": "5",
+      "e3usn": "This proficiency allows the practitioner to detect if any magical objects, creatures, plants, or places are nearby. Will not detect recent spell casts."
+    }
   },
-  {
+  "74ny7": {
     "id": "19694",
     "item_key": "74ny7",
-    "meta": []
+    "name": "Spell Detection",
+    "meta": {
+      "proficiencyname": "Spell Detection",
+      "kv517": "British",
+      "s71z0": "Arithmancy",
+      "ipjf3": "7",
+      "e3usn": "This allows the practitioner to determine if any spells were recently cast in an area."
+    }
   },
-  {
+  "oorah": {
     "id": "19695",
     "item_key": "oorah",
-    "meta": []
+    "name": "Spell Tracing",
+    "meta": {
+      "proficiencyname": "Spell Tracing",
+      "kv517": "British",
+      "s71z0": "Arithmancy",
+      "ipjf3": "10",
+      "e3usn": "This allows the practitioner to receive hints about which spells have been recently cast in an area. General information may include the skill or subtype. Rarely will the practitioner receive multiple pieces of information. It may also contain information like the refinement of the cast (as in, how high of a value was the cast)."
+    }
   },
-  {
+  "p3plg": {
     "id": "19697",
     "item_key": "p3plg",
-    "meta": []
+    "name": "Curse Tracing",
+    "meta": {
+      "proficiencyname": "Curse Tracing",
+      "kv517": "British",
+      "s71z0": "Arithmancy",
+      "ipjf3": "12",
+      "e3usn": "This allows the practitioner to notice any lingering curses in an area. Typically the practitioner will get a vague sense for the intensity, breadth (how wide an area does this cover), and duration of the curse. For instance, the practitioner may be able to determine that a curse was recently placed and is \"contained\" to this small area. They may alternatively learn that this curse is quite old and rather vast."
+    }
   },
-  {
+  "iva3f": {
     "id": "19700",
     "item_key": "iva3f",
-    "meta": []
+    "name": "Caster Tracing",
+    "meta": {
+      "proficiencyname": "Caster Tracing",
+      "kv517": "British",
+      "s71z0": "Arithmancy",
+      "ipjf3": "13",
+      "e3usn": "This gives the practitioner basic information about who may have cast a given spell that they've detected. This information is typically pretty basic. This will usually include information such as the age of the caster, size, their favored skills or traditions, or possibly a favorite spell. This allows the practitioner to gain insights into who might cast in this particular way."
+    }
   },
-  {
+  "j6cbi": {
     "id": "19701",
     "item_key": "j6cbi",
-    "meta": []
+    "name": "Herbological Interference Detection",
+    "meta": {
+      "proficiencyname": "Herbological Interference Detection",
+      "kv517": "British",
+      "s71z0": "Arithmancy",
+      "ipjf3": "5",
+      "e3usn": "Let's the practitioner know whether a plant has been magically tampered with."
+    }
   },
-  {
+  "lzx9x": {
     "id": "19702",
     "item_key": "lzx9x",
-    "meta": []
+    "name": "Creature Bonding Detection",
+    "meta": {
+      "proficiencyname": "Creature Bonding Detection",
+      "kv517": "British",
+      "s71z0": "Arithmancy",
+      "ipjf3": "7",
+      "e3usn": "Let's the practitioner know whether this creature is bonded to anyone."
+    }
   },
-  {
+  "yn7mi": {
     "id": "19703",
     "item_key": "yn7mi",
-    "meta": []
+    "name": "Awareness of Creature Aggression",
+    "meta": {
+      "proficiencyname": "Awareness of Creature Aggression",
+      "s71z0": "Magical Creatures",
+      "ipjf3": "5",
+      "pm37m": "Other",
+      "e3usn": "Allows the practitioner to determine whether a creature is aggressive. The result will always be a clear \"yes\" or \"no\", but failures provide misinformation or a random answer. For instance, if the practitioner attempts to roll this proficiency and fails, the headmaster will give an answer as to whether the creature is aggressive or not. That answer may be false, however (because of the failed roll). If it is a successful roll, the information can generally be trusted. The headmaster does not need to inform the practitioner as to whether the roll was successful or not."
+    }
   },
-  {
+  "v2l51": {
     "id": "19704",
     "item_key": "v2l51",
-    "meta": []
+    "name": "General Creature Identification",
+    "meta": {
+      "proficiencyname": "General Creature Identification",
+      "kv517": "British",
+      "s71z0": "Magical Creatures",
+      "ipjf3": "7",
+      "pm37m": "Identification",
+      "e3usn": "This proficiency allows the practitioner to identify the species of a creature in question."
+    }
   },
-  {
+  "ifnox": {
     "id": "19705",
     "item_key": "ifnox",
-    "meta": []
+    "name": "Creature Ability Awareness",
+    "meta": {
+      "proficiencyname": "Creature Ability Awareness",
+      "kv517": "British",
+      "s71z0": "Magical Creatures",
+      "ipjf3": "10",
+      "pm37m": "Identification",
+      "e3usn": "This allows the practitioner to get information about the types of abilities a given creature possesses."
+    }
   },
-  {
+  "upwvr": {
     "id": "19706",
     "item_key": "upwvr",
-    "meta": []
+    "name": "Creature Attacks Awareness",
+    "meta": {
+      "proficiencyname": "Creature Attacks Awareness",
+      "kv517": "British",
+      "s71z0": "Magical Creatures",
+      "ipjf3": "12",
+      "pm37m": "Identification",
+      "e3usn": "This allows the practitioner to gain information about the specific kinds of attacks a given creature possesses."
+    }
   },
-  {
+  "tinzt": {
     "id": "19707",
     "item_key": "tinzt",
-    "meta": []
+    "name": "Obfuscated Attack Awareness",
+    "meta": {
+      "proficiencyname": "Obfuscated Attack Awareness",
+      "s71z0": "Magical Creatures",
+      "ipjf3": "15",
+      "pm37m": "Identification",
+      "e3usn": "In some cases, it may be difficult to detect what a creature is doing or whether a creature is having an impact on an individual in a given moment. For instance, a spirit may be causing sanity shaking damage without the wizard realizing they are under attack. This proficiency allows the practitioner to detect what ability and creature may be influencing a situation. It may also aid in identifying lingering influences of creatures on a given area."
+    }
   },
-  {
+  "g4h2x": {
     "id": "19708",
     "item_key": "g4h2x",
-    "meta": []
+    "name": "Awareness of Creature Presence",
+    "meta": {
+      "proficiencyname": "Awareness of Creature Presence",
+      "s71z0": "Magical Creatures",
+      "ipjf3": "10",
+      "pm37m": "Identification",
+      "e3usn": "This allows the practitioner to detect which creatures may be around a given area."
+    }
   },
-  {
+  "zthlf": {
     "id": "19710",
     "item_key": "zthlf",
-    "meta": []
+    "name": "Potion Detection",
+    "meta": {
+      "proficiencyname": "Potion Detection",
+      "kv517": "British",
+      "s71z0": "Arithmancy",
+      "ipjf3": "7",
+      "e3usn": "Allows the practitioner to determine whether a given substance has potions contained within it or is a potion."
+    }
   },
-  {
+  "ekug1": {
     "id": "19711",
     "item_key": "ekug1",
-    "meta": []
+    "name": "Lingering Curse Containment",
+    "meta": {
+      "proficiencyname": "Lingering Curse Containment",
+      "kv517": "British",
+      "s71z0": "Arithmancy",
+      "ipjf3": "20",
+      "e3usn": "Allows the practitioner to utilize mixed approaches to attempt to contain a lingering curse. Any curse containment will affect the distance of spread and rate of spread of a lingering curse to some degree. But it will not destroy the curse and it will not arrest its growth or lifespan permanently."
+    }
   },
-  {
+  "jab2o": {
     "id": "19739",
     "item_key": "jab2o",
-    "meta": []
+    "name": "Preparation and Proper Handling of a Boomberry",
+    "meta": {
+      "proficiencyname": "Preparation and Proper Handling of a Boomberry",
+      "kv517": "British",
+      "s71z0": "Herbology",
+      "ipjf3": "12",
+      "e5ltj": "General",
+      "e3usn": "This proficiency ensures you do not accidentally set off a Boomberry explosion."
+    }
   },
-  {
+  "sc1h0": {
     "id": "19743",
     "item_key": "sc1h0",
-    "meta": []
+    "name": "Boomberry Bomb Creation",
+    "meta": {
+      "proficiencyname": "Boomberry Bomb Creation",
+      "kv517": "British",
+      "s71z0": "Herbology",
+      "ipjf3": "12",
+      "e5ltj": "General",
+      "n1yfm": {
+        "form": "1021",
+        "i19740": {
+          "nt3s3": "Preparation and Proper Handling of a Boomberry"
+        }
+      },
+      "nt3s3": [
+        "Preparation and Proper Handling of a Boomberry"
+      ],
+      "6hlo5": {
+        "form": "960",
+        "i19741": {
+          "aiwl3": "Boomberries"
+        }
+      },
+      "aiwl3": [
+        "Boomberries"
+      ],
+      "f2ux5": {
+        "form": "961",
+        "i19742": {
+          "53wtd": "Boomberry Bomb"
+        }
+      },
+      "53wtd": [
+        "Boomberry Bomb"
+      ],
+      "e3usn": "To create a boomberry bomb, the preparer must have boomberries on hand and have the Preparation and Proper Handling of a Boomberry Bomb expertise. Without this expertise, nothing happens and the bomb will not work.",
+      "e3usn-value": "To create a boomberry bomb, the preparer must have boomberries on hand and have the <strong>Preparation and Proper Handling of a Boomberry Bomb</strong> expertise. Without this expertise, nothing happens and the bomb will not work."
+    }
   },
-  {
+  "mpybt": {
     "id": "20167",
     "item_key": "mpybt",
-    "meta": []
+    "name": "Bulbadox Purfication",
+    "meta": {
+      "proficiencyname": "Bulbadox Purfication",
+      "s71z0": "Herbology",
+      "ipjf3": "17",
+      "e5ltj": "Preparation",
+      "iw2jn": "Bulbadox",
+      "6hlo5": {
+        "form": "960",
+        "i20164": {
+          "aiwl3": "Bulbadox Juice"
+        }
+      },
+      "aiwl3": [
+        "Bulbadox Juice"
+      ],
+      "f2ux5": {
+        "form": "961",
+        "i20165": {
+          "53wtd": "Bulbadox Essence"
+        }
+      },
+      "53wtd": [
+        "Bulbadox Essence"
+      ]
+    }
   },
-  {
+  "rptxa": {
     "id": "20172",
     "item_key": "rptxa",
-    "meta": []
+    "name": "Safe Handling of Bundimum",
+    "meta": {
+      "proficiencyname": "Safe Handling of Bundimum",
+      "kv517": "British",
+      "s71z0": "Magical Creatures",
+      "ipjf3": "10",
+      "pm37m": "Part Extraction",
+      "pn177": "Bundimum",
+      "f2ux5": {
+        "form": "961",
+        "i20171": {
+          "53wtd": "Bundimum Ooze"
+        }
+      },
+      "53wtd": [
+        "Bundimum Ooze"
+      ]
+    }
   },
-  {
+  "p7nlk": {
     "id": "20192",
     "item_key": "p7nlk",
-    "meta": []
+    "name": "Mandrake Handling",
+    "meta": {
+      "proficiencyname": "Mandrake Handling",
+      "kv517": "British",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "e5ltj": "General",
+      "e3usn": "Handling mandrakes is dangerous, but usually not difficult. Critical failures will result in unconsciousness. Failing to attempt the proficiency at all may result in death."
+    }
   },
-  {
+  "k4r0g": {
     "id": "21968",
     "item_key": "k4r0g",
-    "meta": []
+    "name": "k4r0g",
+    "meta": {
+      "proficiencyname": "Acacia Bark Extraction",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Acacia Tree",
+      "3aycs": "Acacia Bark"
+    }
   },
-  {
+  "2na91": {
     "id": "21969",
     "item_key": "2na91",
-    "meta": []
+    "name": "2na91",
+    "meta": {
+      "proficiencyname": "Aconite Flower Petals Extraction",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Wolfsbane",
+      "3aycs": "Aconite Flower Petals"
+    }
   },
-  {
+  "pwins": {
     "id": "21970",
     "item_key": "pwins",
-    "meta": []
+    "name": "pwins",
+    "meta": {
+      "proficiencyname": "Ash Bark Extraction",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Ash Tree",
+      "3aycs": "Ash Bark"
+    }
   },
-  {
+  "sz13s": {
     "id": "21971",
     "item_key": "sz13s",
-    "meta": []
+    "name": "sz13s",
+    "meta": {
+      "proficiencyname": "Bamboo Culm Extraction",
+      "s71z0": "Herbology",
+      "ipjf3": "10",
+      "iw2jn": "Bamboo",
+      "3aycs": "Bamboo Culm"
+    }
   },
-  {
+  "h5vhj": {
     "id": "21972",
     "item_key": "h5vhj",
-    "meta": []
+    "name": "h5vhj",
+    "meta": {
+      "proficiencyname": "Boomberry Leaves Extraction",
+      "s71z0": "Herbology",
+      "ipjf3": "13",
+      "iw2jn": "Boomberry",
+      "3aycs": "Boomberry Leaves"
+    }
   },
-  {
+  "o23c6": {
     "id": "21973",
     "item_key": "o23c6",
-    "meta": []
+    "name": "o23c6",
+    "meta": {
+      "proficiencyname": "Borage Oil Extraction",
+      "s71z0": "Herbology",
+      "ipjf3": "12",
+      "iw2jn": "Borage",
+      "3aycs": "Borage Oil"
+    }
   },
-  {
+  "wsu03": {
     "id": "21974",
     "item_key": "wsu03",
-    "meta": []
+    "name": "wsu03",
+    "meta": {
+      "proficiencyname": "Bulrush Roots Extraction",
+      "s71z0": "Herbology",
+      "ipjf3": "10",
+      "iw2jn": "Bulrush",
+      "3aycs": "Bulrush Roots"
+    }
   },
-  {
+  "rmncj": {
     "id": "21975",
     "item_key": "rmncj",
-    "meta": []
+    "name": "rmncj",
+    "meta": {
+      "proficiencyname": "Chamomile Flowers Extraction",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Scented Mayweed",
+      "3aycs": "Chamomile Flowers"
+    }
   },
-  {
+  "wltv0": {
     "id": "21976",
     "item_key": "wltv0",
-    "meta": []
+    "name": "wltv0",
+    "meta": {
+      "proficiencyname": "Cherry Tree Bark Extraction",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Cherry Tree",
+      "3aycs": "Cherry Tree Bark"
+    }
   },
-  {
+  "pl75l": {
     "id": "21977",
     "item_key": "pl75l",
-    "meta": []
+    "name": "pl75l",
+    "meta": {
+      "proficiencyname": "Creeper Vines Extraction",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Creeper",
+      "3aycs": "Creeper Vines"
+    }
   },
-  {
+  "gx099": {
     "id": "21978",
     "item_key": "gx099",
-    "meta": []
+    "name": "gx099",
+    "meta": {
+      "proficiencyname": "Enchanted Creeper Vines Extraction",
+      "s71z0": "Herbology",
+      "ipjf3": "42",
+      "iw2jn": "Enchanted Creeper",
+      "3aycs": "Enchanted Creeper Vines"
+    }
   },
-  {
+  "1yf8d": {
     "id": "21979",
     "item_key": "1yf8d",
-    "meta": []
+    "name": "1yf8d",
+    "meta": {
+      "proficiencyname": "Flesh of the Fly Amanita Extraction",
+      "s71z0": "Herbology",
+      "ipjf3": "10",
+      "iw2jn": "Fly Amanita",
+      "3aycs": "Flesh of the Fly Amanita"
+    }
   },
-  {
+  "yg0sh": {
     "id": "21980",
     "item_key": "yg0sh",
-    "meta": []
+    "name": "yg0sh",
+    "meta": {
+      "proficiencyname": "Freshly Hanging Mistletoe Extraction",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Mistletoe",
+      "3aycs": "Freshly Hanging Mistletoe"
+    }
   },
-  {
+  "v13td": {
     "id": "21981",
     "item_key": "v13td",
-    "meta": []
+    "name": "v13td",
+    "meta": {
+      "proficiencyname": "Snowdrop Flowers Extraction",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Snowdrop",
+      "3aycs": "Snowdrop Flowers"
+    }
   },
-  {
+  "btqy6": {
     "id": "21982",
     "item_key": "btqy6",
-    "meta": []
+    "name": "btqy6",
+    "meta": {
+      "proficiencyname": "Golden Apples Extraction",
+      "s71z0": "Herbology",
+      "ipjf3": "35",
+      "iw2jn": "Golden Apple Tree",
+      "3aycs": "Golden Apples"
+    }
   },
-  {
+  "5sxfk": {
     "id": "21983",
     "item_key": "5sxfk",
-    "meta": []
+    "name": "5sxfk",
+    "meta": {
+      "proficiencyname": "Henbane Seeds Extraction",
+      "s71z0": "Herbology",
+      "ipjf3": "10",
+      "iw2jn": "Henbane",
+      "3aycs": "Henbane Seeds"
+    }
   },
-  {
+  "42qnf": {
     "id": "21984",
     "item_key": "42qnf",
-    "meta": []
+    "name": "42qnf",
+    "meta": {
+      "proficiencyname": "Moly Stems Extraction",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Moly",
+      "3aycs": "Moly Stems"
+    }
   },
-  {
+  "k0tgd": {
     "id": "21985",
     "item_key": "k0tgd",
-    "meta": []
+    "name": "k0tgd",
+    "meta": {
+      "proficiencyname": "Rose Petals Extraction",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Rose",
+      "3aycs": "Rose Petals"
+    }
   },
-  {
+  "vo9gv": {
     "id": "21986",
     "item_key": "vo9gv",
-    "meta": []
+    "name": "vo9gv",
+    "meta": {
+      "proficiencyname": "Sliced Bursting Mushrooms Extraction",
+      "s71z0": "Herbology",
+      "ipjf3": "15",
+      "iw2jn": "Bursting Mushrooms",
+      "3aycs": "Sliced Bursting Mushrooms"
+    }
   },
-  {
+  "ptjsx": {
     "id": "21987",
     "item_key": "ptjsx",
-    "meta": []
+    "name": "ptjsx",
+    "meta": {
+      "proficiencyname": "Snargaluff Tentacles Extraction",
+      "s71z0": "Herbology",
+      "ipjf3": "15",
+      "iw2jn": "Snargaluff",
+      "3aycs": "Snargaluff Tentacles"
+    }
   },
-  {
+  "582em": {
     "id": "21988",
     "item_key": "582em",
-    "meta": []
+    "name": "582em",
+    "meta": {
+      "proficiencyname": "Extraction of a Whole Harvested Mandrake",
+      "s71z0": "Herbology",
+      "ipjf3": "25",
+      "iw2jn": "Mandrake",
+      "3aycs": "Whole Harvested Mandrake"
+    }
   },
-  {
+  "vyp1z": {
     "id": "22366",
     "item_key": "vyp1z",
-    "meta": []
+    "name": "vyp1z",
+    "meta": {
+      "proficiencyname": "Bursting Mushrooms Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "10",
+      "iw2jn": "Bursting Mushrooms"
+    }
   },
-  {
+  "e91b1": {
     "id": "22367",
     "item_key": "e91b1",
-    "meta": []
+    "name": "e91b1",
+    "meta": {
+      "proficiencyname": "Thorn Apple Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Thorn Apple"
+    }
   },
-  {
+  "ctvd1": {
     "id": "22368",
     "item_key": "ctvd1",
-    "meta": []
+    "name": "ctvd1",
+    "meta": {
+      "proficiencyname": "Lake weed Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Lake weed"
+    }
   },
-  {
+  "l7t8c": {
     "id": "22369",
     "item_key": "l7t8c",
-    "meta": []
+    "name": "l7t8c",
+    "meta": {
+      "proficiencyname": "Leaping Toadstool Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Leaping Toadstool"
+    }
   },
-  {
+  "7n0za": {
     "id": "22370",
     "item_key": "7n0za",
-    "meta": []
+    "name": "7n0za",
+    "meta": {
+      "proficiencyname": "Common Mushrooms Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Common Mushrooms"
+    }
   },
-  {
+  "6wlvi": {
     "id": "22371",
     "item_key": "6wlvi",
-    "meta": []
+    "name": "6wlvi",
+    "meta": {
+      "proficiencyname": "Wartcap Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "10",
+      "iw2jn": "Wartcap"
+    }
   },
-  {
+  "r07f": {
     "id": "22372",
     "item_key": "r07f",
-    "meta": []
+    "name": "r07f",
+    "meta": {
+      "proficiencyname": "Mistletoe Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "12",
+      "iw2jn": "Mistletoe"
+    }
   },
-  {
+  "jtydg": {
     "id": "22373",
     "item_key": "jtydg",
-    "meta": []
+    "name": "jtydg",
+    "meta": {
+      "proficiencyname": "Basil Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Basil"
+    }
   },
-  {
+  "x2asl": {
     "id": "22374",
     "item_key": "x2asl",
-    "meta": []
+    "name": "x2asl",
+    "meta": {
+      "proficiencyname": "Venomous Tentacula Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "15",
+      "iw2jn": "Venomous Tentacula"
+    }
   },
-  {
+  "yqg2w": {
     "id": "22375",
     "item_key": "yqg2w",
-    "meta": []
+    "name": "yqg2w",
+    "meta": {
+      "proficiencyname": "Squill Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Squill"
+    }
   },
-  {
+  "nxszn": {
     "id": "22376",
     "item_key": "nxszn",
-    "meta": []
+    "name": "nxszn",
+    "meta": {
+      "proficiencyname": "Seaweed Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Seaweed"
+    }
   },
-  {
+  "55vnm": {
     "id": "22377",
     "item_key": "55vnm",
-    "meta": []
+    "name": "55vnm",
+    "meta": {
+      "proficiencyname": "Sea Lavender Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Sea Lavender"
+    }
   },
-  {
+  "ci770": {
     "id": "22378",
     "item_key": "ci770",
-    "meta": []
+    "name": "ci770",
+    "meta": {
+      "proficiencyname": "Scurvy Grass Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Scurvy Grass"
+    }
   },
-  {
+  "6kaia": {
     "id": "22379",
     "item_key": "6kaia",
-    "meta": []
+    "name": "6kaia",
+    "meta": {
+      "proficiencyname": "Pungous Onion Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "10",
+      "iw2jn": "Pungous Onion"
+    }
   },
-  {
+  "9j70i": {
     "id": "22380",
     "item_key": "9j70i",
-    "meta": []
+    "name": "9j70i",
+    "meta": {
+      "proficiencyname": "Kelp Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Kelp"
+    }
   },
-  {
+  "xftv2": {
     "id": "22381",
     "item_key": "xftv2",
-    "meta": []
+    "name": "xftv2",
+    "meta": {
+      "proficiencyname": "Gillyweed Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "12",
+      "iw2jn": "Gillyweed"
+    }
   },
-  {
+  "91m8k": {
     "id": "22382",
     "item_key": "91m8k",
-    "meta": []
+    "name": "91m8k",
+    "meta": {
+      "proficiencyname": "Wormwood Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Wormwood"
+    }
   },
-  {
+  "8pcml": {
     "id": "22383",
     "item_key": "8pcml",
-    "meta": []
+    "name": "8pcml",
+    "meta": {
+      "proficiencyname": "Wolfsbane Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Wolfsbane"
+    }
   },
-  {
+  "95nqb": {
     "id": "22384",
     "item_key": "95nqb",
-    "meta": []
+    "name": "95nqb",
+    "meta": {
+      "proficiencyname": "Witch's Ganglion Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "13",
+      "iw2jn": "Witch's Ganglion"
+    }
   },
-  {
+  "bc4ek": {
     "id": "22385",
     "item_key": "bc4ek",
-    "meta": []
+    "name": "bc4ek",
+    "meta": {
+      "proficiencyname": "Spattergroit Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "44",
+      "iw2jn": "Spattergroit"
+    }
   },
-  {
+  "iqrtn": {
     "id": "22386",
     "item_key": "iqrtn",
-    "meta": []
+    "name": "iqrtn",
+    "meta": {
+      "proficiencyname": "Sugar Shrub Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Sugar Shrub"
+    }
   },
-  {
+  "cr0re": {
     "id": "22387",
     "item_key": "cr0re",
-    "meta": []
+    "name": "cr0re",
+    "meta": {
+      "proficiencyname": "Star Grass Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Star Grass"
+    }
   },
-  {
+  "k4h15": {
     "id": "22388",
     "item_key": "k4h15",
-    "meta": []
+    "name": "k4h15",
+    "meta": {
+      "proficiencyname": "St. John's-Wort Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "St. John's-Wort"
+    }
   },
-  {
+  "ia4rq": {
     "id": "22389",
     "item_key": "ia4rq",
-    "meta": []
+    "name": "ia4rq",
+    "meta": {
+      "proficiencyname": "Cloves Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Cloves"
+    }
   },
-  {
+  "cqmie": {
     "id": "22390",
     "item_key": "cqmie",
-    "meta": []
+    "name": "cqmie",
+    "meta": {
+      "proficiencyname": "Spleenwort Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "10",
+      "iw2jn": "Spleenwort"
+    }
   },
-  {
+  "sclg2": {
     "id": "22391",
     "item_key": "sclg2",
-    "meta": []
+    "name": "sclg2",
+    "meta": {
+      "proficiencyname": "Soy Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Soy"
+    }
   },
-  {
+  "a875v": {
     "id": "22392",
     "item_key": "a875v",
-    "meta": []
+    "name": "a875v",
+    "meta": {
+      "proficiencyname": "Sopophorous Plant Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Sopophorous Plant"
+    }
   },
-  {
+  "q4j4f": {
     "id": "22393",
     "item_key": "q4j4f",
-    "meta": []
+    "name": "q4j4f",
+    "meta": {
+      "proficiencyname": "Snowdrop Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Snowdrop"
+    }
   },
-  {
+  "jd4ue": {
     "id": "22394",
     "item_key": "jd4ue",
-    "meta": []
+    "name": "jd4ue",
+    "meta": {
+      "proficiencyname": "Sneezewort Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Sneezewort"
+    }
   },
-  {
+  "ames1": {
     "id": "22395",
     "item_key": "ames1",
-    "meta": []
+    "name": "ames1",
+    "meta": {
+      "proficiencyname": "Snarfalump Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Snarfalump"
+    }
   },
-  {
+  "qrdhe": {
     "id": "22396",
     "item_key": "qrdhe",
-    "meta": []
+    "name": "qrdhe",
+    "meta": {
+      "proficiencyname": "Silverweed Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Silverweed"
+    }
   },
-  {
+  "cwdc5": {
     "id": "22397",
     "item_key": "cwdc5",
-    "meta": []
+    "name": "cwdc5",
+    "meta": {
+      "proficiencyname": "Cinnamon Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Cinnamon"
+    }
   },
-  {
+  "7kln5": {
     "id": "22398",
     "item_key": "7kln5",
-    "meta": []
+    "name": "7kln5",
+    "meta": {
+      "proficiencyname": "Vervain Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Vervain"
+    }
   },
-  {
+  "1khf7": {
     "id": "22399",
     "item_key": "1khf7",
-    "meta": []
+    "name": "1khf7",
+    "meta": {
+      "proficiencyname": "Valerian Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Valerian"
+    }
   },
-  {
+  "5b9np": {
     "id": "22400",
     "item_key": "5b9np",
-    "meta": []
+    "name": "5b9np",
+    "meta": {
+      "proficiencyname": "Turmeric Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Turmeric"
+    }
   },
-  {
+  "wqmc": {
     "id": "22401",
     "item_key": "wqmc",
-    "meta": []
+    "name": "wqmc",
+    "meta": {
+      "proficiencyname": "Tormentil Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Tormentil"
+    }
   },
-  {
+  "k2vfa": {
     "id": "22402",
     "item_key": "k2vfa",
-    "meta": []
+    "name": "k2vfa",
+    "meta": {
+      "proficiencyname": "Toad Eating Plant Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "10",
+      "iw2jn": "Toad Eating Plant"
+    }
   },
-  {
+  "10a9g": {
     "id": "22403",
     "item_key": "10a9g",
-    "meta": []
+    "name": "10a9g",
+    "meta": {
+      "proficiencyname": "Thyme Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Thyme"
+    }
   },
-  {
+  "c29aj": {
     "id": "22404",
     "item_key": "c29aj",
-    "meta": []
+    "name": "c29aj",
+    "meta": {
+      "proficiencyname": "Thistle Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Thistle"
+    }
   },
-  {
+  "grkdc": {
     "id": "22405",
     "item_key": "grkdc",
-    "meta": []
+    "name": "grkdc",
+    "meta": {
+      "proficiencyname": "Thaumatagoria Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "10",
+      "iw2jn": "Thaumatagoria"
+    }
   },
-  {
+  "d3ip8": {
     "id": "22406",
     "item_key": "d3ip8",
-    "meta": []
+    "name": "d3ip8",
+    "meta": {
+      "proficiencyname": "Shrivelfig Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Shrivelfig"
+    }
   },
-  {
+  "9j5vv": {
     "id": "22407",
     "item_key": "9j5vv",
-    "meta": []
+    "name": "9j5vv",
+    "meta": {
+      "proficiencyname": "Sage Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Sage"
+    }
   },
-  {
+  "dbo6u": {
     "id": "22408",
     "item_key": "dbo6u",
-    "meta": []
+    "name": "dbo6u",
+    "meta": {
+      "proficiencyname": "Rosemary Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Rosemary"
+    }
   },
-  {
+  "8ylec": {
     "id": "22409",
     "item_key": "8ylec",
-    "meta": []
+    "name": "8ylec",
+    "meta": {
+      "proficiencyname": "Rose Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Rose"
+    }
   },
-  {
+  "2biug": {
     "id": "22410",
     "item_key": "2biug",
-    "meta": []
+    "name": "2biug",
+    "meta": {
+      "proficiencyname": "Pritcher's Porritch Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "12",
+      "iw2jn": "Pritcher's Porritch"
+    }
   },
-  {
+  "mu16k": {
     "id": "22411",
     "item_key": "mu16k",
-    "meta": []
+    "name": "mu16k",
+    "meta": {
+      "proficiencyname": "Polypody Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Polypody"
+    }
   },
-  {
+  "5zlgx": {
     "id": "22412",
     "item_key": "5zlgx",
-    "meta": []
+    "name": "5zlgx",
+    "meta": {
+      "proficiencyname": "Peppermint Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Peppermint"
+    }
   },
-  {
+  "40i69": {
     "id": "22413",
     "item_key": "40i69",
-    "meta": []
+    "name": "40i69",
+    "meta": {
+      "proficiencyname": "Peony Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Peony"
+    }
   },
-  {
+  "65bc": {
     "id": "22414",
     "item_key": "65bc",
-    "meta": []
+    "name": "65bc",
+    "meta": {
+      "proficiencyname": "Parsley Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Parsley"
+    }
   },
-  {
+  "kakv7": {
     "id": "22415",
     "item_key": "kakv7",
-    "meta": []
+    "name": "kakv7",
+    "meta": {
+      "proficiencyname": "Oregano Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Oregano"
+    }
   },
-  {
+  "lhy6l": {
     "id": "22416",
     "item_key": "lhy6l",
-    "meta": []
+    "name": "lhy6l",
+    "meta": {
+      "proficiencyname": "Orchid Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Orchid"
+    }
   },
-  {
+  "38vcd": {
     "id": "22417",
     "item_key": "38vcd",
-    "meta": []
+    "name": "38vcd",
+    "meta": {
+      "proficiencyname": "Nightshade Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "10",
+      "iw2jn": "Nightshade"
+    }
   },
-  {
+  "4dh7q": {
     "id": "22418",
     "item_key": "4dh7q",
-    "meta": []
+    "name": "4dh7q",
+    "meta": {
+      "proficiencyname": "Niffler's Fancy Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "15",
+      "iw2jn": "Niffler's Fancy"
+    }
   },
-  {
+  "qsp7k": {
     "id": "22419",
     "item_key": "qsp7k",
-    "meta": []
+    "name": "qsp7k",
+    "meta": {
+      "proficiencyname": "Nettle Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Nettle"
+    }
   },
-  {
+  "wc2cu": {
     "id": "22420",
     "item_key": "wc2cu",
-    "meta": []
+    "name": "wc2cu",
+    "meta": {
+      "proficiencyname": "Motherwort Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "10",
+      "iw2jn": "Motherwort"
+    }
   },
-  {
+  "5wwov": {
     "id": "22421",
     "item_key": "5wwov",
-    "meta": []
+    "name": "5wwov",
+    "meta": {
+      "proficiencyname": "Moonseed Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Moonseed"
+    }
   },
-  {
+  "avgx9": {
     "id": "22422",
     "item_key": "avgx9",
-    "meta": []
+    "name": "avgx9",
+    "meta": {
+      "proficiencyname": "Moondew Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Moondew"
+    }
   },
-  {
+  "mjtny": {
     "id": "22423",
     "item_key": "mjtny",
-    "meta": []
+    "name": "mjtny",
+    "meta": {
+      "proficiencyname": "Moly Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "10",
+      "iw2jn": "Moly"
+    }
   },
-  {
+  "jhrsg": {
     "id": "22424",
     "item_key": "jhrsg",
-    "meta": []
+    "name": "jhrsg",
+    "meta": {
+      "proficiencyname": "Mint Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Mint"
+    }
   },
-  {
+  "sh7n3": {
     "id": "22425",
     "item_key": "sh7n3",
-    "meta": []
+    "name": "sh7n3",
+    "meta": {
+      "proficiencyname": "Mercurialis Annua Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "10",
+      "iw2jn": "Mercurialis Annua"
+    }
   },
-  {
+  "dgny6": {
     "id": "22426",
     "item_key": "dgny6",
-    "meta": []
+    "name": "dgny6",
+    "meta": {
+      "proficiencyname": "Mayflower Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "10",
+      "iw2jn": "Mayflower"
+    }
   },
-  {
+  "xdpdd": {
     "id": "22427",
     "item_key": "xdpdd",
-    "meta": []
+    "name": "xdpdd",
+    "meta": {
+      "proficiencyname": "Mallowsweet Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "10",
+      "iw2jn": "Mallowsweet"
+    }
   },
-  {
+  "lj5nv": {
     "id": "22428",
     "item_key": "lj5nv",
-    "meta": []
+    "name": "lj5nv",
+    "meta": {
+      "proficiencyname": "Lovage Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Lovage"
+    }
   },
-  {
+  "y5frc": {
     "id": "22429",
     "item_key": "y5frc",
-    "meta": []
+    "name": "y5frc",
+    "meta": {
+      "proficiencyname": "Ling Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Ling"
+    }
   },
-  {
+  "9xqmr": {
     "id": "22430",
     "item_key": "9xqmr",
-    "meta": []
+    "name": "9xqmr",
+    "meta": {
+      "proficiencyname": "Lily Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Lily"
+    }
   },
-  {
+  "k8qp7": {
     "id": "22431",
     "item_key": "k8qp7",
-    "meta": []
+    "name": "k8qp7",
+    "meta": {
+      "proficiencyname": "Lemongrass Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Lemongrass"
+    }
   },
-  {
+  "qdn9f": {
     "id": "22432",
     "item_key": "qdn9f",
-    "meta": []
+    "name": "qdn9f",
+    "meta": {
+      "proficiencyname": "Lavender Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Lavender"
+    }
   },
-  {
+  "2pklh": {
     "id": "22433",
     "item_key": "2pklh",
-    "meta": []
+    "name": "2pklh",
+    "meta": {
+      "proficiencyname": "Lady's Mantle Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "10",
+      "iw2jn": "Lady's Mantle"
+    }
   },
-  {
+  "qsy2g": {
     "id": "22434",
     "item_key": "qsy2g",
-    "meta": []
+    "name": "qsy2g",
+    "meta": {
+      "proficiencyname": "Knotgrass Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "10",
+      "iw2jn": "Knotgrass"
+    }
   },
-  {
+  "3e8gz": {
     "id": "22435",
     "item_key": "3e8gz",
-    "meta": []
+    "name": "3e8gz",
+    "meta": {
+      "proficiencyname": "Jewelweed Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "10",
+      "iw2jn": "Jewelweed"
+    }
   },
-  {
+  "5oyi3": {
     "id": "22436",
     "item_key": "5oyi3",
-    "meta": []
+    "name": "5oyi3",
+    "meta": {
+      "proficiencyname": "Hydrangea Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "10",
+      "iw2jn": "Hydrangea"
+    }
   },
-  {
+  "7g0eq": {
     "id": "22437",
     "item_key": "7g0eq",
-    "meta": []
+    "name": "7g0eq",
+    "meta": {
+      "proficiencyname": "Henna Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "10",
+      "iw2jn": "Henna"
+    }
   },
-  {
+  "xkry4": {
     "id": "22438",
     "item_key": "xkry4",
-    "meta": []
+    "name": "xkry4",
+    "meta": {
+      "proficiencyname": "Hellebore Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "10",
+      "iw2jn": "Hellebore"
+    }
   },
-  {
+  "nfe29": {
     "id": "22439",
     "item_key": "nfe29",
-    "meta": []
+    "name": "nfe29",
+    "meta": {
+      "proficiencyname": "Gurdyroot Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Gurdyroot"
+    }
   },
-  {
+  "m59ji": {
     "id": "22440",
     "item_key": "m59ji",
-    "meta": []
+    "name": "m59ji",
+    "meta": {
+      "proficiencyname": "Goosegrass Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Goosegrass"
+    }
   },
-  {
+  "w3ycf": {
     "id": "22441",
     "item_key": "w3ycf",
-    "meta": []
+    "name": "w3ycf",
+    "meta": {
+      "proficiencyname": "Germander Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Germander"
+    }
   },
-  {
+  "mw02h": {
     "id": "22442",
     "item_key": "mw02h",
-    "meta": []
+    "name": "mw02h",
+    "meta": {
+      "proficiencyname": "Foxglove Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Foxglove"
+    }
   },
-  {
+  "xqq6t": {
     "id": "22443",
     "item_key": "xqq6t",
-    "meta": []
+    "name": "xqq6t",
+    "meta": {
+      "proficiencyname": "Fluxweed Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Fluxweed"
+    }
   },
-  {
+  "m08fc": {
     "id": "22444",
     "item_key": "m08fc",
-    "meta": []
+    "name": "m08fc",
+    "meta": {
+      "proficiencyname": "Flitterbloom Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Flitterbloom"
+    }
   },
-  {
+  "5n1ja": {
     "id": "22445",
     "item_key": "5n1ja",
-    "meta": []
+    "name": "5n1ja",
+    "meta": {
+      "proficiencyname": "Fanged Geranium Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "12",
+      "iw2jn": "Fanged Geranium"
+    }
   },
-  {
+  "becly": {
     "id": "22446",
     "item_key": "becly",
-    "meta": []
+    "name": "becly",
+    "meta": {
+      "proficiencyname": "Dogbane Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "10",
+      "iw2jn": "Dogbane"
+    }
   },
-  {
+  "u80tb": {
     "id": "22447",
     "item_key": "u80tb",
-    "meta": []
+    "name": "u80tb",
+    "meta": {
+      "proficiencyname": "Dittany Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Dittany"
+    }
   },
-  {
+  "ciqq0": {
     "id": "22448",
     "item_key": "ciqq0",
-    "meta": []
+    "name": "ciqq0",
+    "meta": {
+      "proficiencyname": "Death Cap Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "12",
+      "iw2jn": "Death Cap"
+    }
   },
-  {
+  "nmzpr": {
     "id": "22449",
     "item_key": "nmzpr",
-    "meta": []
+    "name": "nmzpr",
+    "meta": {
+      "proficiencyname": "Daisy Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Daisy"
+    }
   },
-  {
+  "c1rjj": {
     "id": "22450",
     "item_key": "c1rjj",
-    "meta": []
+    "name": "c1rjj",
+    "meta": {
+      "proficiencyname": "Cowbane Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "12",
+      "iw2jn": "Cowbane"
+    }
   },
-  {
+  "am6b1": {
     "id": "22451",
     "item_key": "am6b1",
-    "meta": []
+    "name": "am6b1",
+    "meta": {
+      "proficiencyname": "Coneflower Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Coneflower"
+    }
   },
-  {
+  "1s8fe": {
     "id": "22452",
     "item_key": "1s8fe",
-    "meta": []
+    "name": "1s8fe",
+    "meta": {
+      "proficiencyname": "Common Rue Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Common Rue"
+    }
   },
-  {
+  "wviuo": {
     "id": "22453",
     "item_key": "wviuo",
-    "meta": []
+    "name": "wviuo",
+    "meta": {
+      "proficiencyname": "Cobra Lily Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "10",
+      "iw2jn": "Cobra Lily"
+    }
   },
-  {
+  "xhlfn": {
     "id": "22454",
     "item_key": "xhlfn",
-    "meta": []
+    "name": "xhlfn",
+    "meta": {
+      "proficiencyname": "Chinese Chomping Cabbage Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "13",
+      "iw2jn": "Chinese Chomping Cabbage"
+    }
   },
-  {
+  "i9wbt": {
     "id": "22455",
     "item_key": "i9wbt",
-    "meta": []
+    "name": "i9wbt",
+    "meta": {
+      "proficiencyname": "Chelidonium Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Chelidonium"
+    }
   },
-  {
+  "th6lr": {
     "id": "22456",
     "item_key": "th6lr",
-    "meta": []
+    "name": "th6lr",
+    "meta": {
+      "proficiencyname": "Centaury Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Centaury"
+    }
   },
-  {
+  "tbc72": {
     "id": "22457",
     "item_key": "tbc72",
-    "meta": []
+    "name": "tbc72",
+    "meta": {
+      "proficiencyname": "Bulrush Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Bulrush"
+    }
   },
-  {
+  "vdbuh": {
     "id": "22458",
     "item_key": "vdbuh",
-    "meta": []
+    "name": "vdbuh",
+    "meta": {
+      "proficiencyname": "Bulbadox Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Bulbadox"
+    }
   },
-  {
+  "wcskm": {
     "id": "22459",
     "item_key": "wcskm",
-    "meta": []
+    "name": "wcskm",
+    "meta": {
+      "proficiencyname": "Bouncing Bulb Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Bouncing Bulb"
+    }
   },
-  {
+  "i3oqo": {
     "id": "22460",
     "item_key": "i3oqo",
-    "meta": []
+    "name": "i3oqo",
+    "meta": {
+      "proficiencyname": "Borage Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Borage"
+    }
   },
-  {
+  "kn6ae": {
     "id": "22461",
     "item_key": "kn6ae",
-    "meta": []
+    "name": "kn6ae",
+    "meta": {
+      "proficiencyname": "Boomberry Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "10",
+      "iw2jn": "Boomberry"
+    }
   },
-  {
+  "eelff": {
     "id": "22462",
     "item_key": "eelff",
-    "meta": []
+    "name": "eelff",
+    "meta": {
+      "proficiencyname": "Bobotuber Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "12",
+      "iw2jn": "Bobotuber"
+    }
   },
-  {
+  "jg5yl": {
     "id": "22463",
     "item_key": "jg5yl",
-    "meta": []
+    "name": "jg5yl",
+    "meta": {
+      "proficiencyname": "Bloodroot Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Bloodroot"
+    }
   },
-  {
+  "i9gs2": {
     "id": "22464",
     "item_key": "i9gs2",
-    "meta": []
+    "name": "i9gs2",
+    "meta": {
+      "proficiencyname": "Bitterroot Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Bitterroot"
+    }
   },
-  {
+  "ha66q": {
     "id": "22465",
     "item_key": "ha66q",
-    "meta": []
+    "name": "ha66q",
+    "meta": {
+      "proficiencyname": "Betony Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Betony"
+    }
   },
-  {
+  "37t3r": {
     "id": "22466",
     "item_key": "37t3r",
-    "meta": []
+    "name": "37t3r",
+    "meta": {
+      "proficiencyname": "Begonia Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Begonia"
+    }
   },
-  {
+  "z5ke0": {
     "id": "22467",
     "item_key": "z5ke0",
-    "meta": []
+    "name": "z5ke0",
+    "meta": {
+      "proficiencyname": "Baneberry Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "10",
+      "iw2jn": "Baneberry"
+    }
   },
-  {
+  "vtdgt": {
     "id": "22468",
     "item_key": "vtdgt",
-    "meta": []
+    "name": "vtdgt",
+    "meta": {
+      "proficiencyname": "Bamboo Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Bamboo"
+    }
   },
-  {
+  "ejkz9": {
     "id": "22469",
     "item_key": "ejkz9",
-    "meta": []
+    "name": "ejkz9",
+    "meta": {
+      "proficiencyname": "Balm Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Balm"
+    }
   },
-  {
+  "6g5mh": {
     "id": "22470",
     "item_key": "6g5mh",
-    "meta": []
+    "name": "6g5mh",
+    "meta": {
+      "proficiencyname": "Bacopa Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "12",
+      "iw2jn": "Bacopa"
+    }
   },
-  {
+  "ey887": {
     "id": "22471",
     "item_key": "ey887",
-    "meta": []
+    "name": "ey887",
+    "meta": {
+      "proficiencyname": "Asphodel Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "15",
+      "iw2jn": "Asphodel"
+    }
   },
-  {
+  "e5cxd": {
     "id": "22472",
     "item_key": "e5cxd",
-    "meta": []
+    "name": "e5cxd",
+    "meta": {
+      "proficiencyname": "Arnica Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "13",
+      "iw2jn": "Arnica"
+    }
   },
-  {
+  "ma6x1": {
     "id": "22473",
     "item_key": "ma6x1",
-    "meta": []
+    "name": "ma6x1",
+    "meta": {
+      "proficiencyname": "Angel's Trumpet Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Angel's Trumpet"
+    }
   },
-  {
+  "ci6hh": {
     "id": "22474",
     "item_key": "ci6hh",
-    "meta": []
+    "name": "ci6hh",
+    "meta": {
+      "proficiencyname": "Aloe Vera Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Aloe Vera"
+    }
   },
-  {
+  "mzf12": {
     "id": "22475",
     "item_key": "mzf12",
-    "meta": []
+    "name": "mzf12",
+    "meta": {
+      "proficiencyname": "Alihotsy Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Alihotsy"
+    }
   },
-  {
+  "xpo30": {
     "id": "22476",
     "item_key": "xpo30",
-    "meta": []
+    "name": "xpo30",
+    "meta": {
+      "proficiencyname": "Agrimonia Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "12",
+      "iw2jn": "Agrimonia"
+    }
   },
-  {
+  "o5m3x": {
     "id": "22477",
     "item_key": "o5m3x",
-    "meta": []
+    "name": "o5m3x",
+    "meta": {
+      "proficiencyname": "Agapanthus Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "12",
+      "iw2jn": "Agapanthus"
+    }
   },
-  {
+  "6scwj": {
     "id": "22478",
     "item_key": "6scwj",
-    "meta": []
+    "name": "6scwj",
+    "meta": {
+      "proficiencyname": "Wiggentree Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "29",
+      "iw2jn": "Wiggentree"
+    }
   },
-  {
+  "kmsod": {
     "id": "22479",
     "item_key": "kmsod",
-    "meta": []
+    "name": "kmsod",
+    "meta": {
+      "proficiencyname": "Spikey Bush Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Spikey Bush"
+    }
   },
-  {
+  "oml0w": {
     "id": "22480",
     "item_key": "oml0w",
-    "meta": []
+    "name": "oml0w",
+    "meta": {
+      "proficiencyname": "Garlic Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Garlic"
+    }
   },
-  {
+  "k5776": {
     "id": "22481",
     "item_key": "k5776",
-    "meta": []
+    "name": "k5776",
+    "meta": {
+      "proficiencyname": "Cayenne Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Cayenne"
+    }
   },
-  {
+  "kopat": {
     "id": "22482",
     "item_key": "kopat",
-    "meta": []
+    "name": "kopat",
+    "meta": {
+      "proficiencyname": "Fire Seed Bush Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Fire Seed Bush"
+    }
   },
-  {
+  "dhlua": {
     "id": "22483",
     "item_key": "dhlua",
-    "meta": []
+    "name": "dhlua",
+    "meta": {
+      "proficiencyname": "Cherry Tree Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "17",
+      "iw2jn": "Cherry Tree"
+    }
   },
-  {
+  "dzrgg": {
     "id": "22484",
     "item_key": "dzrgg",
-    "meta": []
+    "name": "dzrgg",
+    "meta": {
+      "proficiencyname": "Cedarwood Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "20",
+      "iw2jn": "Cedarwood"
+    }
   },
-  {
+  "3wzft": {
     "id": "22485",
     "item_key": "3wzft",
-    "meta": []
+    "name": "3wzft",
+    "meta": {
+      "proficiencyname": "Blackthorn Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "22",
+      "iw2jn": "Blackthorn"
+    }
   },
-  {
+  "73bpo": {
     "id": "22486",
     "item_key": "73bpo",
-    "meta": []
+    "name": "73bpo",
+    "meta": {
+      "proficiencyname": "Aspen Tree Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "17",
+      "iw2jn": "Aspen Tree"
+    }
   },
-  {
+  "csr3p": {
     "id": "22487",
     "item_key": "csr3p",
-    "meta": []
+    "name": "csr3p",
+    "meta": {
+      "proficiencyname": "Ash Tree Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "17",
+      "iw2jn": "Ash Tree"
+    }
   },
-  {
+  "lo67t": {
     "id": "22488",
     "item_key": "lo67t",
-    "meta": []
+    "name": "lo67t",
+    "meta": {
+      "proficiencyname": "Apple Tree Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "15",
+      "iw2jn": "Apple Tree"
+    }
   },
-  {
+  "bu1xe": {
     "id": "22489",
     "item_key": "bu1xe",
-    "meta": []
+    "name": "bu1xe",
+    "meta": {
+      "proficiencyname": "Acacia Tree Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "18",
+      "iw2jn": "Acacia Tree"
+    }
   },
-  {
+  "4stn2": {
     "id": "22490",
     "item_key": "4stn2",
-    "meta": []
+    "name": "4stn2",
+    "meta": {
+      "proficiencyname": "Cornflower Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Cornflower"
+    }
   },
-  {
+  "sor03": {
     "id": "22491",
     "item_key": "sor03",
-    "meta": []
+    "name": "sor03",
+    "meta": {
+      "proficiencyname": "Silver Leaf Tree Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "18",
+      "iw2jn": "Silver Leaf Tree"
+    }
   },
-  {
+  "sp4cv": {
     "id": "22492",
     "item_key": "sp4cv",
-    "meta": []
+    "name": "sp4cv",
+    "meta": {
+      "proficiencyname": "Hemlock Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "10",
+      "iw2jn": "Hemlock"
+    }
   },
-  {
+  "xka1r": {
     "id": "22493",
     "item_key": "xka1r",
-    "meta": []
+    "name": "xka1r",
+    "meta": {
+      "proficiencyname": "Puffapod Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Puffapod"
+    }
   },
-  {
+  "98nmc": {
     "id": "22494",
     "item_key": "98nmc",
-    "meta": []
+    "name": "98nmc",
+    "meta": {
+      "proficiencyname": "Mimbulus Mimbletonia Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Mimbulus Mimbletonia"
+    }
   },
-  {
+  "5mn2u": {
     "id": "22495",
     "item_key": "5mn2u",
-    "meta": []
+    "name": "5mn2u",
+    "meta": {
+      "proficiencyname": "Ginger Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Ginger"
+    }
   },
-  {
+  "yw2ur": {
     "id": "22496",
     "item_key": "yw2ur",
-    "meta": []
+    "name": "yw2ur",
+    "meta": {
+      "proficiencyname": "Horseradish Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Horseradish"
+    }
   },
-  {
+  "ze5pj": {
     "id": "22497",
     "item_key": "ze5pj",
-    "meta": []
+    "name": "ze5pj",
+    "meta": {
+      "proficiencyname": "Fig Tree Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "13",
+      "iw2jn": "Fig Tree"
+    }
   },
-  {
+  "sk0o2": {
     "id": "22498",
     "item_key": "sk0o2",
-    "meta": []
+    "name": "sk0o2",
+    "meta": {
+      "proficiencyname": "Common Cabbage Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Common Cabbage"
+    }
   },
-  {
+  "mvyea": {
     "id": "22499",
     "item_key": "mvyea",
-    "meta": []
+    "name": "mvyea",
+    "meta": {
+      "proficiencyname": "Poppy Plant Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Poppy Plant"
+    }
   },
-  {
+  "4o31l": {
     "id": "22500",
     "item_key": "4o31l",
-    "meta": []
+    "name": "4o31l",
+    "meta": {
+      "proficiencyname": "Lemon Tree Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Lemon Tree"
+    }
   },
-  {
+  "ec43": {
     "id": "22501",
     "item_key": "ec43",
-    "meta": []
+    "name": "ec43",
+    "meta": {
+      "proficiencyname": "Coffee Plant Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Coffee Plant"
+    }
   },
-  {
+  "28pgt": {
     "id": "22502",
     "item_key": "28pgt",
-    "meta": []
+    "name": "28pgt",
+    "meta": {
+      "proficiencyname": "Umbrella Flower Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Umbrella Flower"
+    }
   },
-  {
+  "tykxb": {
     "id": "22503",
     "item_key": "tykxb",
-    "meta": []
+    "name": "tykxb",
+    "meta": {
+      "proficiencyname": "Mandrake Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "10",
+      "iw2jn": "Mandrake"
+    }
   },
-  {
+  "5fsrp": {
     "id": "22504",
     "item_key": "5fsrp",
-    "meta": []
+    "name": "5fsrp",
+    "meta": {
+      "proficiencyname": "Dandelion Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Dandelion"
+    }
   },
-  {
+  "vsyza": {
     "id": "22505",
     "item_key": "vsyza",
-    "meta": []
+    "name": "vsyza",
+    "meta": {
+      "proficiencyname": "Beech Tree Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "17",
+      "iw2jn": "Beech Tree"
+    }
   },
-  {
+  "vif6c": {
     "id": "22506",
     "item_key": "vif6c",
-    "meta": []
+    "name": "vif6c",
+    "meta": {
+      "proficiencyname": "Chili Pepper Plant Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Chili Pepper Plant"
+    }
   },
-  {
+  "abamz": {
     "id": "22507",
     "item_key": "abamz",
-    "meta": []
+    "name": "abamz",
+    "meta": {
+      "proficiencyname": "Morning Glory Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Morning Glory"
+    }
   },
-  {
+  "xzxx2": {
     "id": "22508",
     "item_key": "xzxx2",
-    "meta": []
+    "name": "xzxx2",
+    "meta": {
+      "proficiencyname": "Datura Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "12",
+      "iw2jn": "Datura"
+    }
   },
-  {
+  "svq0y": {
     "id": "22509",
     "item_key": "svq0y",
-    "meta": []
+    "name": "svq0y",
+    "meta": {
+      "proficiencyname": "Greenheart Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "18",
+      "iw2jn": "Greenheart"
+    }
   },
-  {
+  "wl222": {
     "id": "22510",
     "item_key": "wl222",
-    "meta": []
+    "name": "wl222",
+    "meta": {
+      "proficiencyname": "Snargaluff Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "12",
+      "iw2jn": "Snargaluff"
+    }
   },
-  {
+  "n4uz": {
     "id": "22511",
     "item_key": "n4uz",
-    "meta": []
+    "name": "n4uz",
+    "meta": {
+      "proficiencyname": "Maguey Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "13",
+      "iw2jn": "Maguey"
+    }
   },
-  {
+  "1lra2": {
     "id": "22512",
     "item_key": "1lra2",
-    "meta": []
+    "name": "1lra2",
+    "meta": {
+      "proficiencyname": "Tyus Moss Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "20",
+      "iw2jn": "Tyus Moss"
+    }
   },
-  {
+  "2wzyt": {
     "id": "22513",
     "item_key": "2wzyt",
-    "meta": []
+    "name": "2wzyt",
+    "meta": {
+      "proficiencyname": "Cinquefoil Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "10",
+      "iw2jn": "Cinquefoil"
+    }
   },
-  {
+  "o210c": {
     "id": "22514",
     "item_key": "o210c",
-    "meta": []
+    "name": "o210c",
+    "meta": {
+      "proficiencyname": "Yarrow Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "10",
+      "iw2jn": "Yarrow"
+    }
   },
-  {
+  "6uxl5": {
     "id": "22515",
     "item_key": "6uxl5",
-    "meta": []
+    "name": "6uxl5",
+    "meta": {
+      "proficiencyname": "Devil's Snare Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "44",
+      "iw2jn": "Devil's Snare"
+    }
   },
-  {
+  "ou86z": {
     "id": "22516",
     "item_key": "ou86z",
-    "meta": []
+    "name": "ou86z",
+    "meta": {
+      "proficiencyname": "Neem Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Neem"
+    }
   },
-  {
+  "sooi4": {
     "id": "22517",
     "item_key": "sooi4",
-    "meta": []
+    "name": "sooi4",
+    "meta": {
+      "proficiencyname": "Welwitschia Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "36",
+      "iw2jn": "Welwitschia"
+    }
   },
-  {
+  "an0w2": {
     "id": "22518",
     "item_key": "an0w2",
-    "meta": []
+    "name": "an0w2",
+    "meta": {
+      "proficiencyname": "Manjistha Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "10",
+      "iw2jn": "Manjistha"
+    }
   },
-  {
+  "i8gd7": {
     "id": "22519",
     "item_key": "i8gd7",
-    "meta": []
+    "name": "i8gd7",
+    "meta": {
+      "proficiencyname": "Red Ti Plant Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Red Ti Plant"
+    }
   },
-  {
+  "iry2l": {
     "id": "22520",
     "item_key": "iry2l",
-    "meta": []
+    "name": "iry2l",
+    "meta": {
+      "proficiencyname": "Green Ti Plant Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Green Ti Plant"
+    }
   },
-  {
+  "1ug4u": {
     "id": "22521",
     "item_key": "1ug4u",
-    "meta": []
+    "name": "1ug4u",
+    "meta": {
+      "proficiencyname": "Creeper Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "18",
+      "iw2jn": "Creeper"
+    }
   },
-  {
+  "d9yn7": {
     "id": "22522",
     "item_key": "d9yn7",
-    "meta": []
+    "name": "d9yn7",
+    "meta": {
+      "proficiencyname": "Enchanted Creeper Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "33",
+      "iw2jn": "Enchanted Creeper"
+    }
   },
-  {
+  "1vjld": {
     "id": "22523",
     "item_key": "1vjld",
-    "meta": []
+    "name": "1vjld",
+    "meta": {
+      "proficiencyname": "Scented Mayweed Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "12",
+      "iw2jn": "Scented Mayweed"
+    }
   },
-  {
+  "ar48r": {
     "id": "22524",
     "item_key": "ar48r",
-    "meta": []
+    "name": "ar48r",
+    "meta": {
+      "proficiencyname": "Capsicum Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Capsicum"
+    }
   },
-  {
+  "yv3lb": {
     "id": "22525",
     "item_key": "yv3lb",
-    "meta": []
+    "name": "yv3lb",
+    "meta": {
+      "proficiencyname": "Henbane Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Henbane"
+    }
   },
-  {
+  "124bw": {
     "id": "22526",
     "item_key": "124bw",
-    "meta": []
+    "name": "124bw",
+    "meta": {
+      "proficiencyname": "Fly Amantia Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Fly Amantia"
+    }
   },
-  {
+  "a41zq": {
     "id": "22527",
     "item_key": "a41zq",
-    "meta": []
+    "name": "a41zq",
+    "meta": {
+      "proficiencyname": "Golden Apple Tree Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "15",
+      "iw2jn": "Golden Apple Tree"
+    }
   },
-  {
+  "xm7u5": {
     "id": "22528",
     "item_key": "xm7u5",
-    "meta": []
+    "name": "xm7u5",
+    "meta": {
+      "proficiencyname": "Henbane Proper Care and Safe Handling",
+      "s71z0": "Herbology",
+      "ipjf3": "7",
+      "iw2jn": "Henbane"
+    }
   },
-  {
+  "qc44r": {
     "id": "22529",
     "item_key": "qc44r",
-    "meta": []
+    "name": "qc44r",
+    "meta": {
+      "proficiencyname": "Escape from Devil's Snare",
+      "s71z0": "Herbology",
+      "ipjf3": "5",
+      "iw2jn": "Devil's Snare"
+    }
   },
-  {
+  "docvp": {
     "id": "22545",
     "item_key": "docvp",
-    "meta": []
+    "name": "docvp",
+    "meta": {
+      "proficiencyname": "Application of a Defense Spell (with threshold 5) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "7",
+      "e3usn": "Allows one to affix the effects of a Defense spell (with a threshold value of 5 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction)."
+    }
   },
-  {
+  "1aypt": {
     "id": "22546",
     "item_key": "1aypt",
-    "meta": []
+    "name": "1aypt",
+    "meta": {
+      "proficiencyname": "Application of a Defense Spell (with threshold 7) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "10",
+      "e3usn": "Allows one to affix the effects of a Defense spell (with a threshold value of 7 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction)."
+    }
   },
-  {
+  "tk7cc": {
     "id": "22547",
     "item_key": "tk7cc",
-    "meta": []
+    "name": "tk7cc",
+    "meta": {
+      "proficiencyname": "Application of a Defense Spell (with threshold 10) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "12",
+      "e3usn": "Allows one to affix the effects of a Defense spell (with a threshold value of 10 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction)."
+    }
   },
-  {
+  "ddti5": {
     "id": "22548",
     "item_key": "ddti5",
-    "meta": []
+    "name": "ddti5",
+    "meta": {
+      "proficiencyname": "Application of a Defense Spell (with threshold 13) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "15",
+      "e3usn": "Allows one to affix the effects of a Defense spell (with a threshold value of 13 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction)."
+    }
   },
-  {
+  "2xktn": {
     "id": "22549",
     "item_key": "2xktn",
-    "meta": []
+    "name": "2xktn",
+    "meta": {
+      "proficiencyname": "Application of a Defense Spell (with threshold 17) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "20",
+      "e3usn": "Allows one to affix the effects of a Defense spell (with a threshold value of 17 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction)."
+    }
   },
-  {
+  "ixpz5": {
     "id": "22550",
     "item_key": "ixpz5",
-    "meta": []
+    "name": "ixpz5",
+    "meta": {
+      "proficiencyname": "Application of a Defense Spell (with threshold 20) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "25",
+      "e3usn": "Allows one to affix the effects of a Defense spell (with a threshold value of 20 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction)."
+    }
   },
-  {
+  "pthgy": {
     "id": "22551",
     "item_key": "pthgy",
-    "meta": []
+    "name": "pthgy",
+    "meta": {
+      "proficiencyname": "Application of a Defense Spell (with threshold 25) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "30",
+      "e3usn": "Allows one to affix the effects of a Defense spell (with a threshold value of 25 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction)."
+    }
   },
-  {
+  "t0tdl": {
     "id": "22552",
     "item_key": "t0tdl",
-    "meta": []
+    "name": "t0tdl",
+    "meta": {
+      "proficiencyname": "Application of a Defense Spell (with threshold 35) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "35",
+      "e3usn": "Allows one to affix the effects of a Defense spell (with a threshold value of 35 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction)."
+    }
   },
-  {
+  "hhy63": {
     "id": "22553",
     "item_key": "hhy63",
-    "meta": []
+    "name": "hhy63",
+    "meta": {
+      "proficiencyname": "Application of a Defense Spell (with threshold 40) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "40",
+      "e3usn": "Allows one to affix the effects of a Defense spell (with a threshold value of 40 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction)."
+    }
   },
-  {
+  "qzbvg": {
     "id": "22554",
     "item_key": "qzbvg",
-    "meta": []
+    "name": "qzbvg",
+    "meta": {
+      "proficiencyname": "Application of a Defense Spell (with threshold 50) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "50",
+      "e3usn": "Allows one to affix the effects of a Defense spell (with a threshold value of 50 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction)."
+    }
   },
-  {
+  "kuoej": {
     "id": "22555",
     "item_key": "kuoej",
-    "meta": []
+    "name": "kuoej",
+    "meta": {
+      "proficiencyname": "Application of a Dark Arts Spell (with threshold 5) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "10",
+      "e3usn": "Allows one to affix the effects of a Dark Arts spell (with a threshold value of 5 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction)."
+    }
   },
-  {
+  "ek9gx": {
     "id": "22556",
     "item_key": "ek9gx",
-    "meta": []
+    "name": "ek9gx",
+    "meta": {
+      "proficiencyname": "Application of a Dark Arts Spell (with threshold 7) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "12",
+      "e3usn": "Allows one to affix the effects of a Dark Arts spell (with a threshold value of 7 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction)."
+    }
   },
-  {
+  "csfgr": {
     "id": "22557",
     "item_key": "csfgr",
-    "meta": []
+    "name": "csfgr",
+    "meta": {
+      "proficiencyname": "Application of a Dark Arts Spell (with threshold 10) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "13",
+      "e3usn": "Allows one to affix the effects of a Dark Arts spell (with a threshold value of 10 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction)."
+    }
   },
-  {
+  "68dur": {
     "id": "22558",
     "item_key": "68dur",
-    "meta": []
+    "name": "68dur",
+    "meta": {
+      "proficiencyname": "Application of a Dark Arts Spell (with threshold 13) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "17",
+      "e3usn": "Allows one to affix the effects of a Dark Arts spell (with a threshold value of 13 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction)."
+    }
   },
-  {
+  "mjohl": {
     "id": "22559",
     "item_key": "mjohl",
-    "meta": []
+    "name": "mjohl",
+    "meta": {
+      "proficiencyname": "Application of a Dark Arts Spell (with threshold 17) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "18",
+      "e3usn": "Allows one to affix the effects of a Dark Arts spell (with a threshold value of 17 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction)."
+    }
   },
-  {
+  "ssj4x": {
     "id": "22560",
     "item_key": "ssj4x",
-    "meta": []
+    "name": "ssj4x",
+    "meta": {
+      "proficiencyname": "Application of a Dark Arts Spell (with threshold 20) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "20",
+      "e3usn": "Allows one to affix the effects of a Dark Arts spell (with a threshold value of 20 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction)."
+    }
   },
-  {
+  "shh7m": {
     "id": "22561",
     "item_key": "shh7m",
-    "meta": []
+    "name": "shh7m",
+    "meta": {
+      "proficiencyname": "Application of a Dark Arts Spell (with threshold 25) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "25",
+      "e3usn": "Allows one to affix the effects of a Dark Arts spell (with a threshold value of 25 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction)."
+    }
   },
-  {
+  "x2las": {
     "id": "22562",
     "item_key": "x2las",
-    "meta": []
+    "name": "x2las",
+    "meta": {
+      "proficiencyname": "Application of a Dark Arts Spell (with threshold 35) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "30",
+      "e3usn": "Allows one to affix the effects of a Dark Arts spell (with a threshold value of 35 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction)."
+    }
   },
-  {
+  "s2x0q": {
     "id": "22563",
     "item_key": "s2x0q",
-    "meta": []
+    "name": "s2x0q",
+    "meta": {
+      "proficiencyname": "Application of a Dark Arts Spell (with threshold 40) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "40",
+      "e3usn": "Allows one to affix the effects of a Dark Arts spell (with a threshold value of 40 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction)."
+    }
   },
-  {
+  "n483k": {
     "id": "22564",
     "item_key": "n483k",
-    "meta": []
+    "name": "n483k",
+    "meta": {
+      "proficiencyname": "Application of a Dark Arts Spell (with threshold 50) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "50",
+      "e3usn": "Allows one to affix the effects of a Dark Arts spell (with a threshold value of 50 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction)."
+    }
   },
-  {
+  "ciirp": {
     "id": "22565",
     "item_key": "ciirp",
-    "meta": []
+    "name": "ciirp",
+    "meta": {
+      "proficiencyname": "Application of a Potions Effect (with threshold 5) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "5",
+      "e3usn": "Allows one to affix the effects of a Potions effect (with a threshold value of 5 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "bt8no": {
     "id": "22566",
     "item_key": "bt8no",
-    "meta": []
+    "name": "bt8no",
+    "meta": {
+      "proficiencyname": "Application of a Potions Effect (with threshold 7) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "7",
+      "e3usn": "Allows one to affix the effects of a Potions effect (with a threshold value of 7 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "gjql9": {
     "id": "22567",
     "item_key": "gjql9",
-    "meta": []
+    "name": "gjql9",
+    "meta": {
+      "proficiencyname": "Application of a Potions Effect (with threshold 10) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "10",
+      "e3usn": "Allows one to affix the effects of a Potions effect (with a threshold value of 10 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "apgz2": {
     "id": "22568",
     "item_key": "apgz2",
-    "meta": []
+    "name": "apgz2",
+    "meta": {
+      "proficiencyname": "Application of a Potions Effect (with threshold 13) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "13",
+      "e3usn": "Allows one to affix the effects of a Potions effect (with a threshold value of 13 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "4do80": {
     "id": "22569",
     "item_key": "4do80",
-    "meta": []
+    "name": "4do80",
+    "meta": {
+      "proficiencyname": "Application of a Potions Effect (with threshold 17) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "18",
+      "e3usn": "Allows one to affix the effects of a Potions effect (with a threshold value of 17 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "8ntnk": {
     "id": "22570",
     "item_key": "8ntnk",
-    "meta": []
+    "name": "8ntnk",
+    "meta": {
+      "proficiencyname": "Application of a Potions Effect (with threshold 20) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "20",
+      "e3usn": "Allows one to affix the effects of a Potions effect (with a threshold value of 20 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "g18o1": {
     "id": "22571",
     "item_key": "g18o1",
-    "meta": []
+    "name": "g18o1",
+    "meta": {
+      "proficiencyname": "Application of a Potions Effect (with threshold 25) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "25",
+      "e3usn": "Allows one to affix the effects of a Potions effect (with a threshold value of 25 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "1v1us": {
     "id": "22572",
     "item_key": "1v1us",
-    "meta": []
+    "name": "1v1us",
+    "meta": {
+      "proficiencyname": "Application of a Potions Effect (with threshold 35) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "30",
+      "e3usn": "Allows one to affix the effects of a Potions effect (with a threshold value of 35 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "lnta6": {
     "id": "22573",
     "item_key": "lnta6",
-    "meta": []
+    "name": "lnta6",
+    "meta": {
+      "proficiencyname": "Application of a Potions Effect (with threshold 40) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "40",
+      "e3usn": "Allows one to affix the effects of a Potions effect (with a threshold value of 40 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "1rmfp": {
     "id": "22574",
     "item_key": "1rmfp",
-    "meta": []
+    "name": "1rmfp",
+    "meta": {
+      "proficiencyname": "Application of a Potions Effect (with threshold 50) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "50",
+      "e3usn": "Allows one to affix the effects of a Potions effect (with a threshold value of 50 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "iziu1": {
     "id": "22575",
     "item_key": "iziu1",
-    "meta": []
+    "name": "iziu1",
+    "meta": {
+      "proficiencyname": "Application of a Charms Spell (with threshold 7) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "7",
+      "e3usn": "Allows one to affix the effects of a Charms spell (with a threshold value of 7 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "44jk9": {
     "id": "22576",
     "item_key": "44jk9",
-    "meta": []
+    "name": "44jk9",
+    "meta": {
+      "proficiencyname": "Application of a Charms Spell (with threshold 12) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "12",
+      "e3usn": "Allows one to affix the effects of a Charms spell (with a threshold value of 12 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "ztm2u": {
     "id": "22577",
     "item_key": "ztm2u",
-    "meta": []
+    "name": "ztm2u",
+    "meta": {
+      "proficiencyname": "Application of a Charms Spell (with threshold 15) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "15",
+      "e3usn": "Allows one to affix the effects of a Charms spell (with a threshold value of 15 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "75a4n": {
     "id": "22578",
     "item_key": "75a4n",
-    "meta": []
+    "name": "75a4n",
+    "meta": {
+      "proficiencyname": "Application of a Charms Spell (with threshold 17) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "17",
+      "e3usn": "Allows one to affix the effects of a Charms spell (with a threshold value of 17 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "w2nut": {
     "id": "22579",
     "item_key": "w2nut",
-    "meta": []
+    "name": "w2nut",
+    "meta": {
+      "proficiencyname": "Application of a Charms Spell (with threshold 20) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "20",
+      "e3usn": "Allows one to affix the effects of a Charms spell (with a threshold value of 20 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "b4vtr": {
     "id": "22580",
     "item_key": "b4vtr",
-    "meta": []
+    "name": "b4vtr",
+    "meta": {
+      "proficiencyname": "Application of a Charms Spell (with threshold 25) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "25",
+      "e3usn": "Allows one to affix the effects of a Charms spell (with a threshold value of 25 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "p3vth": {
     "id": "22581",
     "item_key": "p3vth",
-    "meta": []
+    "name": "p3vth",
+    "meta": {
+      "proficiencyname": "Application of a Charms Spell (with threshold 30) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "30",
+      "e3usn": "Allows one to affix the effects of a Charms spell (with a threshold value of 30 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "h63ic": {
     "id": "22582",
     "item_key": "h63ic",
-    "meta": []
+    "name": "h63ic",
+    "meta": {
+      "proficiencyname": "Application of a Charms Spell (with threshold 40) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "40",
+      "e3usn": "Allows one to affix the effects of a Charms spell (with a threshold value of 40 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "glu87": {
     "id": "22583",
     "item_key": "glu87",
-    "meta": []
+    "name": "glu87",
+    "meta": {
+      "proficiencyname": "Application of a Charms Spell (with threshold 45) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "45",
+      "e3usn": "Allows one to affix the effects of a Charms spell (with a threshold value of 45 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "6285b": {
     "id": "22584",
     "item_key": "6285b",
-    "meta": []
+    "name": "6285b",
+    "meta": {
+      "proficiencyname": "Application of a Charms Spell (with threshold 50) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "50",
+      "e3usn": "Allows one to affix the effects of a Charms spell (with a threshold value of 50 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "8p0pr": {
     "id": "22585",
     "item_key": "8p0pr",
-    "meta": []
+    "name": "8p0pr",
+    "meta": {
+      "proficiencyname": "Application of a Transfiguration Spell (with threshold 7) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "7",
+      "e3usn": "Allows one to affix the effects of a Transfiguration spell (with a threshold value of 7 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "psovl": {
     "id": "22586",
     "item_key": "psovl",
-    "meta": []
+    "name": "psovl",
+    "meta": {
+      "proficiencyname": "Application of a Transfiguration Spell (with threshold 12) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "12",
+      "e3usn": "Allows one to affix the effects of a Transfiguration spell (with a threshold value of 12 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "u9ekc": {
     "id": "22587",
     "item_key": "u9ekc",
-    "meta": []
+    "name": "u9ekc",
+    "meta": {
+      "proficiencyname": "Application of a Transfiguration Spell (with threshold 15) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "15",
+      "e3usn": "Allows one to affix the effects of a Transfiguration spell (with a threshold value of 15 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "xg58o": {
     "id": "22588",
     "item_key": "xg58o",
-    "meta": []
+    "name": "xg58o",
+    "meta": {
+      "proficiencyname": "Application of a Transfiguration Spell (with threshold 17) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "17",
+      "e3usn": "Allows one to affix the effects of a Transfiguration spell (with a threshold value of 17 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "hg27l": {
     "id": "22589",
     "item_key": "hg27l",
-    "meta": []
+    "name": "hg27l",
+    "meta": {
+      "proficiencyname": "Application of a Transfiguration Spell (with threshold 20) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "20",
+      "e3usn": "Allows one to affix the effects of a Transfiguration spell (with a threshold value of 20 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "1m7fv": {
     "id": "22590",
     "item_key": "1m7fv",
-    "meta": []
+    "name": "1m7fv",
+    "meta": {
+      "proficiencyname": "Application of a Transfiguration Spell (with threshold 25) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "25",
+      "e3usn": "Allows one to affix the effects of a Transfiguration spell (with a threshold value of 25 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "q826s": {
     "id": "22591",
     "item_key": "q826s",
-    "meta": []
+    "name": "q826s",
+    "meta": {
+      "proficiencyname": "Application of a Transfiguration Spell (with threshold 30) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "30",
+      "e3usn": "Allows one to affix the effects of a Transfiguration spell (with a threshold value of 30 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "p3fex": {
     "id": "22592",
     "item_key": "p3fex",
-    "meta": []
+    "name": "p3fex",
+    "meta": {
+      "proficiencyname": "Application of a Transfiguration Spell (with threshold 40) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "40",
+      "e3usn": "Allows one to affix the effects of a Transfiguration spell (with a threshold value of 40 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "jors2": {
     "id": "22593",
     "item_key": "jors2",
-    "meta": []
+    "name": "jors2",
+    "meta": {
+      "proficiencyname": "Application of a Transfiguration Spell (with threshold 45) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "45",
+      "e3usn": "Allows one to affix the effects of a Transfiguration spell (with a threshold value of 45 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "zfhdj": {
     "id": "22594",
     "item_key": "zfhdj",
-    "meta": []
+    "name": "zfhdj",
+    "meta": {
+      "proficiencyname": "Application of a Transfiguration Spell (with threshold 50) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "50",
+      "e3usn": "Allows one to affix the effects of a Transfiguration spell (with a threshold value of 50 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "vznq9": {
     "id": "22595",
     "item_key": "vznq9",
-    "meta": []
+    "name": "vznq9",
+    "meta": {
+      "proficiencyname": "Application of a Plant Part Effect (with threshold 7) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "7",
+      "e3usn": "Allows one to affix the effects of a Plant Part effect (with a threshold value of 7 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "cg0sw": {
     "id": "22596",
     "item_key": "cg0sw",
-    "meta": []
+    "name": "cg0sw",
+    "meta": {
+      "proficiencyname": "Application of a Plant Part Effect (with threshold 12) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "12",
+      "e3usn": "Allows one to affix the effects of a Plant Part effect (with a threshold value of 12 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "up700": {
     "id": "22597",
     "item_key": "up700",
-    "meta": []
+    "name": "up700",
+    "meta": {
+      "proficiencyname": "Application of a Plant Part Effect (with threshold 15) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "15",
+      "e3usn": "Allows one to affix the effects of a Plant Part effect (with a threshold value of 15 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "6czy1": {
     "id": "22598",
     "item_key": "6czy1",
-    "meta": []
+    "name": "6czy1",
+    "meta": {
+      "proficiencyname": "Application of a Plant Part Effect (with threshold 17) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "17",
+      "e3usn": "Allows one to affix the effects of a Plant Part effect (with a threshold value of 17 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "9fqtj": {
     "id": "22599",
     "item_key": "9fqtj",
-    "meta": []
+    "name": "9fqtj",
+    "meta": {
+      "proficiencyname": "Application of a Plant Part Effect (with threshold 20) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "20",
+      "e3usn": "Allows one to affix the effects of a Plant Part effect (with a threshold value of 20 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "32scx": {
     "id": "22600",
     "item_key": "32scx",
-    "meta": []
+    "name": "32scx",
+    "meta": {
+      "proficiencyname": "Application of a Plant Part Effect (with threshold 25) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "25",
+      "e3usn": "Allows one to affix the effects of a Plant Part effect (with a threshold value of 25 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "rmys8": {
     "id": "22601",
     "item_key": "rmys8",
-    "meta": []
+    "name": "rmys8",
+    "meta": {
+      "proficiencyname": "Application of a Plant Part Effect (with threshold 30) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "30",
+      "e3usn": "Allows one to affix the effects of a Plant Part effect (with a threshold value of 30 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "u52cb": {
     "id": "22602",
     "item_key": "u52cb",
-    "meta": []
+    "name": "u52cb",
+    "meta": {
+      "proficiencyname": "Application of a Plant Part Effect (with threshold 40) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "40",
+      "e3usn": "Allows one to affix the effects of a Plant Part effect (with a threshold value of 40 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "v5ujz": {
     "id": "22603",
     "item_key": "v5ujz",
-    "meta": []
+    "name": "v5ujz",
+    "meta": {
+      "proficiencyname": "Application of a Plant Part Effect (with threshold 45) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "45",
+      "e3usn": "Allows one to affix the effects of a Plant Part effect (with a threshold value of 45 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "dxiuy": {
     "id": "22604",
     "item_key": "dxiuy",
-    "meta": []
+    "name": "dxiuy",
+    "meta": {
+      "proficiencyname": "Application of a Plant Part Effect (with threshold 50) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "50",
+      "e3usn": "Allows one to affix the effects of a Plant Part effect (with a threshold value of 50 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "kt5vn": {
     "id": "22605",
     "item_key": "kt5vn",
-    "meta": []
+    "name": "kt5vn",
+    "meta": {
+      "proficiencyname": "Application of a Creature Part Effect (with threshold 7) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "10",
+      "e3usn": "Allows one to affix the effects of a Creature Part effect (with a threshold value of 7 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "q4c2d": {
     "id": "22606",
     "item_key": "q4c2d",
-    "meta": []
+    "name": "q4c2d",
+    "meta": {
+      "proficiencyname": "Application of a Creature Part Effect (with threshold 12) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "13",
+      "e3usn": "Allows one to affix the effects of a Creature Part effect (with a threshold value of 12 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "ml57b": {
     "id": "22607",
     "item_key": "ml57b",
-    "meta": []
+    "name": "ml57b",
+    "meta": {
+      "proficiencyname": "Application of a Creature Part Effect (with threshold 15) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "17",
+      "e3usn": "Allows one to affix the effects of a Creature Part effect (with a threshold value of 15 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "reqtx": {
     "id": "22608",
     "item_key": "reqtx",
-    "meta": []
+    "name": "reqtx",
+    "meta": {
+      "proficiencyname": "Application of a Creature Part Effect (with threshold 17) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "18",
+      "e3usn": "Allows one to affix the effects of a Creature Part effect (with a threshold value of 17 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "sbhbk": {
     "id": "22609",
     "item_key": "sbhbk",
-    "meta": []
+    "name": "sbhbk",
+    "meta": {
+      "proficiencyname": "Application of a Creature Part Effect (with threshold 20) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "20",
+      "e3usn": "Allows one to affix the effects of a Creature Part effect (with a threshold value of 20 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "gkpo3": {
     "id": "22610",
     "item_key": "gkpo3",
-    "meta": []
+    "name": "gkpo3",
+    "meta": {
+      "proficiencyname": "Application of a Creature Part Effect (with threshold 25) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "27",
+      "e3usn": "Allows one to affix the effects of a Creature Part effect (with a threshold value of 25 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "n89sr": {
     "id": "22611",
     "item_key": "n89sr",
-    "meta": []
+    "name": "n89sr",
+    "meta": {
+      "proficiencyname": "Application of a Creature Part Effect (with threshold 30) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "32",
+      "e3usn": "Allows one to affix the effects of a Creature Part effect (with a threshold value of 30 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "ntag": {
     "id": "22612",
     "item_key": "ntag",
-    "meta": []
+    "name": "ntag",
+    "meta": {
+      "proficiencyname": "Application of a Creature Part Effect (with threshold 40) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "42",
+      "e3usn": "Allows one to affix the effects of a Creature Part effect (with a threshold value of 40 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "8cuma": {
     "id": "22613",
     "item_key": "8cuma",
-    "meta": []
+    "name": "8cuma",
+    "meta": {
+      "proficiencyname": "Application of a Creature Part Effect (with threshold 45) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "46",
+      "e3usn": "Allows one to affix the effects of a Creature Part effect (with a threshold value of 45 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "gooxp": {
     "id": "22614",
     "item_key": "gooxp",
-    "meta": []
+    "name": "gooxp",
+    "meta": {
+      "proficiencyname": "Application of a Creature Part Effect (with threshold 50) to a prepared object",
+      "s71z0": "Artificing",
+      "ipjf3": "50",
+      "e3usn": "Allows one to affix the effects of a Creature Part effect (with a threshold value of 50 or lower) to an object that has been properly preparted for artificing. Failure renders the object permanently unenchantable. Critical failure destroys the object outright (assuming there are no other enchantments protecting the item from destruction). The artificer must have at least a dose of the potion on hand to properly artifice it to an object"
+    }
   },
-  {
+  "ag0wg": {
     "id": "22626",
     "item_key": "ag0wg",
-    "meta": []
+    "name": "Druidic Creature Taming Through Lunar Influence",
+    "meta": {
+      "proficiencyname": "Druidic Creature Taming Through Lunar Influence",
+      "s71z0": "Astronomy",
+      "ipjf3": "5",
+      "e3usn": "By tuning into the druidic interpretations of lunar phases, the player may offer any friendly party a small boost (+2) to any attempts to tame a creature. Does not work for bonding or luring."
+    }
   },
-  {
+  "i1ggh": {
     "id": "22628",
     "item_key": "i1ggh",
-    "meta": []
+    "name": "Arthurian Cosmic Reasoning",
+    "meta": {
+      "proficiencyname": "Arthurian Cosmic Reasoning",
+      "kv517": "British",
+      "s71z0": "Astronomy",
+      "ipjf3": "5",
+      "e3usn": "Through the use of an Arthurian perspective (primarily derived from legendary texts), one can provide a small boost (+2) to any attempts to craft a magical or non-magical weapon including by use of artificing."
+    }
   },
-  {
+  "xe4fs": {
     "id": "22629",
     "item_key": "xe4fs",
-    "meta": []
+    "name": "Pictish Stone Magic",
+    "meta": {
+      "proficiencyname": "Pictish Stone Magic",
+      "s71z0": "Astronomy",
+      "ipjf3": "7",
+      "e3usn": "If any stone is nearby, this practitioner may hold the stone in their hand to determine its cosmic origins (which then can be used to provide a casting boost for the rest of the battle. The player then rolls a 1d4 as the stone tunes into one of the four casting types (Charms, Transfiguration, Dark Arts, or Defense). Whichever number is shown corresponds to which of the four casting types will receive the benefit. Secondly, the practitioner rolls another 1d4 to determine the strength of resonance. 1-4. \r\n\r\nExample if the first d4 roll shows a 2, then the stone will provide a Transfiguration boost. If the second d4 shows a 3, the strength of that boost would be +3. Thus, holding the stone would provide a boost of +3 to Transfiguration.\r\n\r\nThe stone can then be handed to any being (with hands that can hold a rock) and they gain this advantage. The stones resonance will wear off within minutes of the battle ending (or within about 3-5 minutes of non-combat time).",
+      "e3usn-value": "If any stone is nearby, this practitioner may hold the stone in their hand to determine its cosmic origins (which then can be used to provide a casting boost for the rest of the battle. The player then rolls a 1d4 as the stone tunes into one of the four casting types (Charms, Transfiguration, Dark Arts, or Defense). Whichever number is shown corresponds to which of the four casting types will receive the benefit. Secondly, the practitioner rolls another 1d4 to determine the strength of resonance. 1-4. \r\n\r\n<strong>Example</strong> if the first d4 roll shows a 2, then the stone will provide a Transfiguration boost. If the second d4 shows a 3, the strength of that boost would be +3. Thus, holding the stone would provide a boost of +3 to Transfiguration.\r\n\r\nThe stone can then be handed to any being (with hands that can hold a rock) and they gain this advantage. The stones resonance will wear off within minutes of the battle ending (or within about 3-5 minutes of non-combat time)."
+    }
   },
-  {
+  "h5t8s": {
     "id": "22630",
     "item_key": "h5t8s",
-    "meta": []
+    "name": "Saxon Navigation",
+    "meta": {
+      "proficiencyname": "Saxon Navigation",
+      "kv517": "British",
+      "s71z0": "Astronomy",
+      "ipjf3": "17",
+      "e3usn": "When lost, this skill will help one orient themselves to nearby landmarks or potential nearby fruitful directions."
+    }
   },
-  {
+  "kgsm": {
     "id": "22640",
     "item_key": "kgsm",
-    "meta": []
+    "name": "Welsh Bardic Charms",
+    "meta": {
+      "proficiencyname": "Welsh Bardic Charms",
+      "s71z0": "Astronomy",
+      "ipjf3": "10",
+      "6hlo5": {
+        "form": "960",
+        "i22639": {
+          "aiwl3": "Crwth"
+        }
+      },
+      "aiwl3": [
+        "Crwth"
+      ],
+      "e3usn": "By playing the Crwth (which must be on hand) in a particular series of notes, one tunes into certain star-songs from Welsh lore. In so doing, this provides a (+4) boost to any charms casts by anyone in the party (or their immediate allies)."
+    }
   },
-  {
+  "ttwte": {
     "id": "22641",
     "item_key": "ttwte",
-    "meta": []
+    "name": "Irish Faerie Paths",
+    "meta": {
+      "proficiencyname": "Irish Faerie Paths",
+      "kv517": "British",
+      "s71z0": "Astronomy",
+      "ipjf3": "20",
+      "e3usn": "In the moon light, practitioners can detect faint traces of faerie paths that tend to lead to magical sources, artefacts, locations, or other sources of significant magical resonance. This only works at night."
+    }
   },
-  {
+  "eqexa": {
     "id": "22642",
     "item_key": "eqexa",
-    "meta": []
+    "name": "Anglican Elemental Guidance",
+    "meta": {
+      "proficiencyname": "Anglican Elemental Guidance",
+      "kv517": "British",
+      "s71z0": "Astronomy",
+      "ipjf3": "13",
+      "e3usn": "Through the use of a particular Anglican celestial reading, the practitioner may guide others to the precise weaknesses in a spirits defenses. This provides a +3 boost to any spell casts against a spirit."
+    }
   },
-  {
+  "3jaav": {
     "id": "22643",
     "item_key": "3jaav",
-    "meta": []
+    "name": "Jute Elemental Luring",
+    "meta": {
+      "proficiencyname": "Jute Elemental Luring",
+      "kv517": "British",
+      "s71z0": "Astronomy",
+      "ipjf3": "13",
+      "e3usn": "By channeling the moonlight, the practitioner can lure spirits away from an area."
+    }
   },
-  {
+  "bf846": {
     "id": "22644",
     "item_key": "bf846",
-    "meta": []
+    "name": "Mercian Calendrical Planning",
+    "meta": {
+      "proficiencyname": "Mercian Calendrical Planning",
+      "s71z0": "Astronomy",
+      "ipjf3": "7",
+      "e3usn": "The practitioner utilizes their knowledge of Mercian calendars to gain a small advantage in combat (+1 to all spell casts for allies)."
+    }
   },
-  {
+  "2r4fv": {
     "id": "22645",
     "item_key": "2r4fv",
-    "meta": []
+    "name": "Cornish Solar Channeling",
+    "meta": {
+      "proficiencyname": "Cornish Solar Channeling",
+      "s71z0": "Astronomy",
+      "ipjf3": "10",
+      "e3usn": "Through the use of solar resonance, the practitioner can provide a +3 boost for any spell casts involving fire to any ally for the remainder of a battle."
+    }
   },
-  {
+  "3ks20": {
     "id": "22646",
     "item_key": "3ks20",
-    "meta": []
+    "name": "Manx Tidal Connection",
+    "meta": {
+      "proficiencyname": "Manx Tidal Connection",
+      "s71z0": "Astronomy",
+      "ipjf3": "7",
+      "e3usn": "A deep understanding of tidal forces allows this practitioner to provide a +2 bonus to any spellcasts involving water."
+    }
   },
-  {
+  "ya3ti": {
     "id": "22649",
     "item_key": "ya3ti",
-    "meta": []
+    "name": "Bell-Beaker Celestial Rhythming",
+    "meta": {
+      "proficiencyname": "Bell-Beaker Celestial Rhythming",
+      "s71z0": "Astronomy",
+      "ipjf3": "5",
+      "e3usn": "By tapping on nearby materials, the practitioner connects with the rhythms of the universe to provide a boost to fortitude and willpower (+3) for the remainder of combat (or for about 3-5 minutes)."
+    }
   },
-  {
+  "32fad": {
     "id": "22650",
     "item_key": "32fad",
-    "meta": []
+    "name": "Megalithic Solar Alignments",
+    "meta": {
+      "proficiencyname": "Megalithic Solar Alignments",
+      "s71z0": "Astronomy",
+      "ipjf3": "5",
+      "e3usn": "Through the alignment with neolithic Briton megastructures, one can bestow upon all allies a boost to their strength (+5) for the remainder of combat (or 3-5 minutes non-combat)."
+    }
   },
-  {
+  "4u0gz": {
     "id": "22651",
     "item_key": "4u0gz",
-    "meta": []
+    "name": "Celtic Harnessing of Morrigan",
+    "meta": {
+      "proficiencyname": "Celtic Harnessing of Morrigan",
+      "s71z0": "Astronomy",
+      "ipjf3": "22",
+      "e3usn": "A connection with the Astral remnants of Morrigan allow for a +3 bonus to Hex or Curse cast by allies for the duration of a battle (or 3-5 minutes non-combat)"
+    }
   },
-  {
+  "xa5r3": {
     "id": "22652",
     "item_key": "xa5r3",
-    "meta": []
+    "name": "Briton Star Patterning",
+    "meta": {
+      "proficiencyname": "Briton Star Patterning",
+      "kv517": "British",
+      "s71z0": "Astronomy",
+      "ipjf3": "7",
+      "e3usn": "This proficiency allows the practitioner to utilize the star patterns to grant a +1 bonus to agility for the remainder of combat (3-5 minutes non-combat)."
+    }
   },
-  {
+  "rej5t": {
     "id": "22653",
     "item_key": "rej5t",
-    "meta": []
+    "name": "Pictish Symbolism",
+    "meta": {
+      "proficiencyname": "Pictish Symbolism",
+      "s71z0": "History",
+      "ipjf3": "10",
+      "e3usn": "By drawing particular Pictish symbols on a surface or book, one can then cast a curse on that symbol (within 3 minutes) and that curse will resonate from this origin point. The higher the cast, the farther and longer that curse will resonate."
+    }
   },
-  {
+  "j16qd": {
     "id": "22654",
     "item_key": "j16qd",
-    "meta": []
+    "name": "Brythonic Lunar Mysticism",
+    "meta": {
+      "proficiencyname": "Brythonic Lunar Mysticism",
+      "kv517": "British",
+      "s71z0": "Astronomy",
+      "ipjf3": "13",
+      "e3usn": "This proficiency allows the practitioner to connect with horoscopic astronomical circumstances to anticipate the intentions of a single enemy, thereby forcing them to miss their next turn in battle."
+    }
   },
-  {
+  "zbh6d": {
     "id": "22655",
     "item_key": "zbh6d",
-    "meta": []
+    "name": "Brythonic Understanding",
+    "meta": {
+      "proficiencyname": "Brythonic Understanding",
+      "kv517": "British",
+      "s71z0": "Astronomy",
+      "ipjf3": "12",
+      "e3usn": "This proficiency allows the practitioner to determine whether a creature intends to attack."
+    }
   },
-  {
+  "fkdtx": {
     "id": "22656",
     "item_key": "fkdtx",
-    "meta": []
+    "name": "Druidic Harmony",
+    "meta": {
+      "proficiencyname": "Druidic Harmony",
+      "kv517": "British",
+      "s71z0": "Astronomy",
+      "ipjf3": "18",
+      "e3usn": "This approach allows the practitioner to attempt to pacify an aggressive creature. This effect will wear off in approximately 3-5 minutes and the creature may become violent again."
+    }
   },
-  {
+  "e22is": {
     "id": "22657",
     "item_key": "e22is",
-    "meta": []
+    "name": "Celtic Combat Timing",
+    "meta": {
+      "proficiencyname": "Celtic Combat Timing",
+      "kv517": "British",
+      "s71z0": "Astronomy",
+      "ipjf3": "7",
+      "e3usn": "The Celts understanding of time and timing can be utilized to provide a slight advantage in combat of +2 to any counterspell attempts for any allies."
+    }
   },
-  {
+  "ynbg2": {
     "id": "22658",
     "item_key": "ynbg2",
-    "meta": []
+    "name": "Pictish Constellation Myths",
+    "meta": {
+      "proficiencyname": "Pictish Constellation Myths",
+      "kv517": "British",
+      "s71z0": "Astronomy",
+      "ipjf3": "5",
+      "e3usn": "This allows the practitioner to grant allies a +4 advantage to any casts of the mental subtype for the remainder of combat (or 3-5 minutes non-combat)."
+    }
   },
-  {
+  "nep1b": {
     "id": "22659",
     "item_key": "nep1b",
-    "meta": []
+    "name": "Druidic Equinox Perception",
+    "meta": {
+      "proficiencyname": "Druidic Equinox Perception",
+      "kv517": "British",
+      "s71z0": "Astronomy",
+      "ipjf3": "7",
+      "e3usn": "The practitioner providers their allies with a perception bonus of +2 for the remainder of combat (or 3-5 minutes non-combat)."
+    }
   },
-  {
+  "u4y7n": {
     "id": "22660",
     "item_key": "u4y7n",
-    "meta": []
+    "name": "Saxon Star Lore",
+    "meta": {
+      "proficiencyname": "Saxon Star Lore",
+      "kv517": "British",
+      "s71z0": "Astronomy",
+      "ipjf3": "10",
+      "e3usn": "Can only be used during nighttime. When utilized, any allies gain a +2 advantage to any spell cast for the remainder of combat (or 3-5 minutes non-combat)."
+    }
   },
-  {
+  "1pl49": {
     "id": "22661",
     "item_key": "1pl49",
-    "meta": []
+    "name": "Brythonic Celestial Harmony",
+    "meta": {
+      "proficiencyname": "Brythonic Celestial Harmony",
+      "kv517": "British",
+      "s71z0": "Astronomy",
+      "ipjf3": "7",
+      "e3usn": "By aligning with ancient Brythonic star maps, the practitioner may grant a +2 boost to Willpower for allies, drawing upon the balance and harmony revered by the Brythonic tribes. Lasts for the remainder of combat (or 3-5 minutes non-combat)."
+    }
   },
-  {
+  "z6038": {
     "id": "22663",
     "item_key": "z6038",
-    "meta": []
+    "name": "Chinese Comet Calculation",
+    "meta": {
+      "proficiencyname": "Chinese Comet Calculation",
+      "kv517": "Chinese",
+      "s71z0": "Astronomy",
+      "ipjf3": "10",
+      "e3usn": "Through deep calculation of comet mechanics, the practitioner can cause 1H wound of anxiety-related damage to any enemy. This only works one time in the lifetime of each target as they will not be scared a second time."
+    }
   },
-  {
+  "zb97y": {
     "id": "22664",
     "item_key": "zb97y",
-    "meta": []
+    "name": "Manx Sea Patterns",
+    "meta": {
+      "proficiencyname": "Manx Sea Patterns",
+      "kv517": "British",
+      "s71z0": "Astronomy",
+      "ipjf3": "7",
+      "e3usn": "An understanding of historical star-records found on the Isle of Man, the practitioner grants a +3 bonus to Erudition for one hour (max once per day)."
+    }
   },
-  {
+  "l28an": {
     "id": "22665",
     "item_key": "l28an",
-    "meta": []
+    "name": "Welsh Bardic Constellations",
+    "meta": {
+      "proficiencyname": "Welsh Bardic Constellations",
+      "kv517": "British",
+      "s71z0": "Astronomy",
+      "ipjf3": "10",
+      "e3usn": "Drawing inspiration from Welsh bardic tales linked to constellations, this proficiency allows the practitioner to enhance the Charisma and Creativity of allies by +2 found about an hour once per day."
+    }
   },
-  {
+  "6olc2": {
     "id": "22666",
     "item_key": "6olc2",
-    "meta": []
+    "name": "Pictish Astral Beast Lore",
+    "meta": {
+      "proficiencyname": "Pictish Astral Beast Lore",
+      "kv517": "British",
+      "s71z0": "Astronomy",
+      "ipjf3": "17",
+      "e3usn": "Leveraging knowledge of Pictish beast symbols and their relation to star patterns, the practitioner grants all allies +3 to any attacks on any animal or beast (not beings or spirits) for the remainder of combat. Can only be utilized once the creature has attacked."
+    }
   },
-  {
+  "b4lrl": {
     "id": "22667",
     "item_key": "b4lrl",
-    "meta": []
+    "name": "Saxon Runic Starcraft",
+    "meta": {
+      "proficiencyname": "Saxon Runic Starcraft",
+      "kv517": "British",
+      "s71z0": "Astronomy",
+      "ipjf3": "7",
+      "e3usn": "By interpreting Saxon runes under specific star configurations, the practitioner can provide a +2 bonus to any spells of the Shielding\r\nsubtype to any ally for the remainder of combat (3-5 minutes non-combat). Can only be utilized once battle has begun."
+    }
   },
-  {
+  "snfdc": {
     "id": "22668",
     "item_key": "snfdc",
-    "meta": []
+    "name": "Norman Stellar Fortification",
+    "meta": {
+      "proficiencyname": "Norman Stellar Fortification",
+      "kv517": "British",
+      "s71z0": "Astronomy",
+      "ipjf3": "20",
+      "e3usn": "This practice allows the practitioner themselves to absorb 1H wound of damage of any type without suffering any injuries. If the damage that would have been sustained exceeds 1H wound, the practitioner does take this additional damage. In the event that the damage that would have been sustained is less than 1H wound, the damage may be reduced from this stellar fortification successively until a total of 1H wound of total damage has been reached."
+    }
   },
-  {
+  "hlk75": {
     "id": "22669",
     "item_key": "hlk75",
-    "meta": []
+    "name": "Anglican Meteoric Blade Rite",
+    "meta": {
+      "proficiencyname": "Anglican Meteoric Blade Rite",
+      "kv517": "British",
+      "s71z0": "Astronomy",
+      "ipjf3": "18",
+      "e3usn": "This practice doubles any cutting damage (no other damage types) delivered by allies to outsiders for the remainder of battle."
+    }
   },
-  {
+  "zupb0": {
     "id": "22670",
     "item_key": "zupb0",
-    "meta": []
+    "name": "Druidic Calendrical Alignment",
+    "meta": {
+      "proficiencyname": "Druidic Calendrical Alignment",
+      "s71z0": "Astronomy",
+      "ipjf3": "5",
+      "e3usn": "This allows the practitioner to grant a +3 bonus to any Herbological proficiency attempt involving caring for or growing a plant."
+    }
   },
-  {
+  "fonid": {
     "id": "22671",
     "item_key": "fonid",
-    "meta": []
+    "name": "Bell-Beaker Asterism Despondency",
+    "meta": {
+      "proficiencyname": "Bell-Beaker Asterism Despondency",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "30",
+      "e3usn": "An pre-historic practice that involves a form of horoscopic divination that channels the earliest Bell-Beaker understandings of asterisms.  The net result for the target, however, is to experience, paradoxically, a deep sense of depression. The target will suffer 1H wound of depressive damage but will not understand that this practitioner was the cause of that injury."
+    }
   },
-  {
+  "80a2o": {
     "id": "22672",
     "item_key": "80a2o",
-    "meta": []
+    "name": "Gaelic Sun Song",
+    "meta": {
+      "proficiencyname": "Gaelic Sun Song",
+      "kv517": "British",
+      "s71z0": "Astronomy",
+      "ipjf3": "13",
+      "6hlo5": {
+        "form": "960",
+        "i22673": {
+          "aiwl3": "Harp"
+        }
+      },
+      "aiwl3": [
+        "Harp"
+      ],
+      "e3usn": "This proficiency damages all enemies vision in combat causing them to take a -1 penalty to all rolls. Outside of combat, the target will take a -6 penalty to perception for one hour."
+    }
   },
-  {
+  "9407e": {
     "id": "22707",
     "item_key": "9407e",
-    "meta": []
+    "name": "Augury",
+    "meta": {
+      "proficiencyname": "Augury",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "5",
+      "e3usn": "The practitioner gains insights on nearby dangers. The value of this proficiency roll must exceed the set value for the danger itself if one exists. Else, the headmaster sets the necessary value for successful detection of the threat."
+    }
   },
-  {
+  "5zwuz": {
     "id": "22708",
     "item_key": "5zwuz",
-    "meta": []
+    "name": "Ogham Stave Writing",
+    "meta": {
+      "proficiencyname": "Ogham Stave Writing",
+      "kv517": "British",
+      "s71z0": "History",
+      "ipjf3": "23",
+      "e3usn": "The practitioner writes these staves in dirt, mud, or sand. This allows the diviner to see future individuals or creatures that may intend to appear in this area in the future. If no dirt, mud, or sand is available, this proficiency cannot be utilized."
+    }
   },
-  {
+  "z11qs": {
     "id": "22709",
     "item_key": "z11qs",
-    "meta": []
+    "name": "Basic Leacanach",
+    "meta": {
+      "proficiencyname": "Basic Leacanach",
+      "kv517": "Mesopotamian",
+      "s71z0": "Divination",
+      "ipjf3": "34",
+      "e3usn": "By dripping oil, water, or any other fluid into other fluids, a the practitioner can heal 1H wound of any type of damage caused by hexes, jinxes, curses, or poisons. Once per day per target.",
+      "e3usn-value": "<p>By dripping oil, water, or any other fluid into other fluids, a the practitioner can heal 1H wound of any type of damage caused by hexes, jinxes, curses, or poisons. Once per day per target.</p>",
+      "61l9a": "Also called Lecanomancy. From Greek lekane “basin,” lecanomancy reads ripples, oil‑slicks, or floating objects in a shallow dish of water. Babylonian seers used it to unmask hidden guilt; medieval magi prized it for discovering thieves and sorcerous afflictions.",
+      "61l9a-value": "<p>Also called Lecanomancy. From Greek <em data-start=\"88\" data-end=\"96\" data-is-only-node=\"\">lekane</em> “basin,” lecanomancy reads ripples, oil‑slicks, or floating objects in a shallow dish of water. Babylonian seers used it to unmask hidden guilt; medieval magi prized it for discovering thieves and sorcerous afflictions.</p>"
+    }
   },
-  {
+  "hpwsz": {
     "id": "22710",
     "item_key": "hpwsz",
-    "meta": []
+    "name": "Palmistry",
+    "meta": {
+      "proficiencyname": "Palmistry",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "5",
+      "e3usn": "Through the use of palmistry, the practitioner may (once per play session) complete a palm reading for another character granting detailed knowledge of their true path. At any point in that play session, the receiver of the reading may reroll one roll of their choosing taking whichever of the two results they prefer. ",
+      "e3usn-value": "<p>Through the use of palmistry, the practitioner may (once per play session) complete a palm reading for another character granting detailed knowledge of their true path. At any point in that play session, the receiver of the reading may reroll one roll of their choosing taking whichever of the two results they prefer. </p>",
+      "61l9a": "From Vedic sages through Hellenistic mystics to Romani caravans, seers have parsed the palmar creases—life‑line, fate‑line, and mounts of Venus and Luna—to limn temperament, longevity, and the ebb of fortune.",
+      "61l9a-value": "<p>From Vedic sages through Hellenistic mystics to Romani caravans, seers have parsed the palmar creases—life‑line, fate‑line, and mounts of Venus and Luna—to limn temperament, longevity, and the ebb of fortune.</p>"
+    }
   },
-  {
+  "la0sf": {
     "id": "22711",
     "item_key": "la0sf",
-    "meta": []
+    "name": "Tasseography",
+    "meta": {
+      "proficiencyname": "Tasseography",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "5",
+      "e3usn": "Tasseography involves reading tea leaves. When the practitioner attempts Tasseography, They will see some combination of symbols which the headmaster selects to indicate something about the drinker of the tea. To use tasseography, you must convince another to drink the tea and give you the cup. Doing this will allow you to read more about their intentions, motivations, needs, sorrows, or preferences. ",
+      "e3usn-value": "<p>Tasseography involves reading tea leaves. When the practitioner attempts Tasseography, They will see some combination of symbols which the headmaster selects to indicate something about the drinker of the tea. To use tasseography, you must convince another to drink the tea and give you the cup. <br /><br />Doing this will allow you to read more about their intentions, motivations, needs, sorrows, or preferences. </p>"
+    }
   },
-  {
+  "v0vhm": {
     "id": "22712",
     "item_key": "v0vhm",
-    "meta": []
+    "name": "Dowsing",
+    "meta": {
+      "proficiencyname": "Dowsing",
+      "fjkhy": [
+        "Item Requirements"
+      ],
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "7",
+      "6hlo5": {
+        "form": "960",
+        "i29051": {
+          "aiwl3": "Magical Dowsing Rod"
+        }
+      },
+      "aiwl3": [
+        "Magical Dowsing Rod"
+      ],
+      "e3usn": "Dowsing points the user toward hidden sources of water. ",
+      "e3usn-value": "<p>Dowsing points the user toward hidden sources of water. </p>"
+    }
   },
-  {
+  "9n610": {
     "id": "22716",
     "item_key": "9n610",
-    "meta": []
+    "name": "Abacomancy",
+    "meta": {
+      "proficiencyname": "Abacomancy",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "18",
+      "e3usn": "When dust is present, the diviner can investigate to reveal the destination of those who traveled through this area. This will not help them know who passed through. ",
+      "e3usn-value": "<p>When dust is present, the diviner can investigate to reveal the destination of those who traveled through this area. This will not help them know who passed through. </p>"
+    }
   },
-  {
+  "i8mgs": {
     "id": "22717",
     "item_key": "i8mgs",
-    "meta": []
+    "name": "Aeromancy",
+    "meta": {
+      "proficiencyname": "Aeromancy",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "5",
+      "e3usn": "The diviner can read wind and weather patterns such that they are more aware of the exact trajectory of any projectiles (not magical blasts, but physical objects). As such they can inform the party who can take +2 to any attempt to dodge or block projectiles of any kind for the rest of the battle. ",
+      "e3usn-value": "<p>The diviner can read wind and weather patterns such that they are more aware of the exact trajectory of any projectiles (not magical blasts, but physical objects). As such they can inform the party who can take +2 to any attempt to dodge or block projectiles of any kind for the rest of the battle. </p>"
+    }
   },
-  {
+  "qb2ty": {
     "id": "22718",
     "item_key": "qb2ty",
-    "meta": []
+    "name": "Alomancy",
+    "meta": {
+      "proficiencyname": "Alomancy",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "13",
+      "e3usn": "Practitioners hold salt in their hands while thinking of two others. They then cast the salt into a fire. Doing so makes either one more likely to convince the other. The one doing the convincing gets a +5 to their next social skills check. ",
+      "e3usn-value": "<p>Practitioners hold salt in their hands while thinking of two others. They then cast the salt into a fire. Doing so makes either one more likely to convince the other. The one doing the convincing gets a +5 to their next social skills check. </p>"
+    }
   },
-  {
+  "to1b9": {
     "id": "22719",
     "item_key": "to1b9",
-    "meta": []
+    "name": "Alphitomancy",
+    "meta": {
+      "proficiencyname": "Alphitomancy",
+      "s71z0": "Divination",
+      "ipjf3": "18",
+      "6hlo5": {
+        "form": "960",
+        "i28986": {
+          "aiwl3": "Barley Cereal"
+        }
+      },
+      "aiwl3": [
+        "Barley Cereal"
+      ],
+      "e3usn": "Practitioners can sprinkle barley cereal upon an injured individual or creature to get a reading on the exact nature of their injuries. This will allow anyone they share this information with to heal the individual for 1H wound more than their regular heal would typically allow. ",
+      "e3usn-value": "<p>Practitioners can sprinkle barley cereal upon an injured individual or creature to get a reading on the exact nature of their injuries. This will allow anyone they share this information with to heal the individual for 1H wound more than their regular heal would typically allow. </p>"
+    }
   },
-  {
+  "im8nx": {
     "id": "22720",
     "item_key": "im8nx",
-    "meta": []
+    "name": "Anemoscopy",
+    "meta": {
+      "proficiencyname": "Anemoscopy",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "5",
+      "e3usn": "Reading the wind patterns gives the reader a bonus to their flying abilities. The reader themselves can take +6 to their flying. They can also inform others about these patterns and those others can take a +3 bonus to their flying abilities. Effects wear off after six hours. ",
+      "e3usn-value": "<p>Reading the wind patterns gives the reader a bonus to their flying abilities. The reader themselves can take +6 to their flying. They can also inform others about these patterns and those others can take a +3 bonus to their flying abilities. Effects wear off after six hours. </p>"
+    }
   },
-  {
+  "gpls6": {
     "id": "22721",
     "item_key": "gpls6",
-    "meta": []
+    "name": "Basic Anthomancy",
+    "meta": {
+      "proficiencyname": "Basic Anthomancy",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "12",
+      "6hlo5": {
+        "form": "960",
+        "i28987": {
+          "aiwl3": "Daisy Flowers"
+        }
+      },
+      "aiwl3": [
+        "Daisy Flowers"
+      ],
+      "e3usn": "The practitioner can scatter daisy flower petals on the head of a victim of psychological damage (sanity shaking, depressing, or anxiety-related) to understand their troubles, predict their recovery and heal 1H wound of psychological damage once per day per target.",
+      "e3usn-value": "<p>The practitioner can scatter daisy flower petals on the head of a victim of psychological damage (sanity shaking, depressing, or anxiety-related) to understand their troubles, predict their recovery and heal 1H wound of psychological damage once per day per target.</p>"
+    }
   },
-  {
+  "5xdol": {
     "id": "22722",
     "item_key": "5xdol",
-    "meta": []
+    "name": "Primitive Aichmomancy",
+    "meta": {
+      "proficiencyname": "Primitive Aichmomancy",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "5",
+      "6hlo5": {
+        "form": "960",
+        "i28994": {
+          "aiwl3": "Small pins"
+        }
+      },
+      "aiwl3": [
+        "Small pins"
+      ],
+      "e3usn": "In battle, the practitioner presses small pins gently into a nearby surface watching how the lean and rest. This gives them insights into possible futures which they can share with their allies. This gives any ally a +1 to any combat-related roll for one turn. It wears off when this practitioner's turn reemerges.",
+      "e3usn-value": "<p>In battle, the practitioner presses small pins gently into a nearby surface watching how the lean and rest. This gives them insights into possible futures which they can share with their allies. This gives any ally a +1 to any combat-related roll for one turn. It wears off when this practitioner's turn reemerges.</p>"
+    }
   },
-  {
+  "ni13q": {
     "id": "22723",
     "item_key": "ni13q",
-    "meta": []
+    "name": "Acultomancy",
+    "meta": {
+      "proficiencyname": "Acultomancy",
+      "fjkhy": [
+        "Item Requirements"
+      ],
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "20",
+      "6hlo5": {
+        "form": "960",
+        "i29018": {
+          "aiwl3": "Sewing needles"
+        }
+      },
+      "aiwl3": [
+        "Sewing needles"
+      ],
+      "e3usn": "The diviner flicks sewing needles into a shallow bowl and studies the skein they weave. This will allow the practitioner to discern the approximate location of a nearby magical energy or may point one in the direction of an important magical target (as in the destination they seek relative to a quest). Headmaster sets the target value required to acquire the information desired. ",
+      "e3usn-value": "<p>The diviner flicks sewing needles into a shallow bowl and studies the skein they weave. This will allow the practitioner to discern the approximate location of a nearby magical energy or may point one in the direction of an important magical target (as in the destination they seek relative to a quest). Headmaster sets the target value required to acquire the information desired. </p>",
+      "61l9a": "Springing from Romani and Near‑Eastern needle‑casting, acultomancy (a variant of acutomancy) reads the arabesque patterns made when seven – twenty‑one sewing needles are dropped into water, flour, or ash; broken lines augur journeys, parallel ranks presage lucre, and vertical spurs chart destiny’s straight road.",
+      "61l9a-value": "<p>Springing from Romani and Near‑Eastern needle‑casting, acultomancy (a variant of acutomancy) reads the arabesque patterns made when seven – twenty‑one sewing needles are dropped into water, flour, or ash; broken lines augur journeys, parallel ranks presage lucre, and vertical spurs chart destiny’s straight road.</p>"
+    }
   },
-  {
+  "jngcp": {
     "id": "22724",
     "item_key": "jngcp",
-    "meta": []
+    "name": "Ambulomancy",
+    "meta": {
+      "proficiencyname": "Ambulomancy",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "17",
+      "e3usn": "Observing the tracks left in snow, mud, or dirt allows the practitioner to learn about a single traveler who has traveled through this area recently. They may learn their approximate age, gender-identity, basic characteristics and skill-related strengths.",
+      "e3usn-value": "<p>Observing the tracks left in snow, mud, or dirt allows the practitioner to learn about a single traveler who has traveled through this area recently. They may learn their approximate age, gender-identity, basic characteristics and skill-related strengths.</p>",
+      "61l9a": "From Latin ambulare “to walk,” ambulomancy divines fate by watching the cadence, direction, and happenstance of passers‑by. Romans took auguries from the first stranger to cross a threshold at dawn; later wayfarers traced stray‑dog tracks and errant footprints to choose auspicious roads.",
+      "61l9a-value": "<p>From Latin <em data-start=\"65\" data-end=\"75\" data-is-only-node=\"\">ambulare</em> “to walk,” ambulomancy divines fate by watching the cadence, direction, and happenstance of passers‑by. Romans took auguries from the first stranger to cross a threshold at dawn; later wayfarers traced stray‑dog tracks and errant footprints to choose auspicious roads.</p>"
+    }
   },
-  {
+  "ms8z2": {
     "id": "22725",
     "item_key": "ms8z2",
-    "meta": []
+    "name": "Agalmatomancy",
+    "meta": {
+      "proficiencyname": "Agalmatomancy",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "20",
+      "e3usn": "The seer crafts a small idol (out of literally anything and with whatever quality) of any creature or human that they have met in person ever. The seer then examines the interplay of light and shadows upon the surface of the idol. While holding in mind the creature or human they wish to examine, they may glean any one bit of information: 1. Last set of eyes. A description of the physical location in which another human last saw this target (e.g., Troy was last seen inside a cave, we know nothing of the one who saw him or what they discussed, but we can describe the physical environment in which they were seen). 2. Skill of Greatest Power. The exact base value of the highest skill as it currently appears on the target's character sheet (e.g., they are able to roll a base 28 in Dark Arts).3. Current Motivation. The seer may get basic information about the target's current drives or motivations. This may be attempted once per play session.  ",
+      "e3usn-value": "<p>The seer crafts a small idol (out of literally anything and with whatever quality) of any creature or human that they have met in person ever. The seer then examines the interplay of light and shadows upon the surface of the idol. While holding in mind the creature or human they wish to examine, they may glean any one bit of information: <br /><br />1. <em><strong>Last set of eyes</strong></em>. A description of the physical location in which another human last saw this target (e.g., Troy was last seen inside a cave, we know nothing of the one who saw him or what they discussed, but we can describe the physical environment in which they were seen). <br />2. <em><strong>Skill of Greatest Power</strong></em>. The exact base value of the highest skill as it currently appears on the target's character sheet (e.g., they are able to roll a base 28 in Dark Arts).<br />3. <em><strong>Current Motivation</strong></em>. The seer may get basic information about the target's current drives or motivations. <br /><br />This may be attempted once per play session.  </p>",
+      "61l9a": "From Greek agalma “statue,” agalmatomancy divines omens in idols—cracks in marble, sweat on bronze, or the way a wax effigy melts. Ancient Greeks watched temple statues that wept or bled; medieval magi cast soft figurines into water, reading the fissures to diagnose hidden malefice.",
+      "61l9a-value": "<p>From Greek <em data-start=\"67\" data-end=\"75\" data-is-only-node=\"\">agalma</em> “statue,” agalmatomancy divines omens in idols—cracks in marble, sweat on bronze, or the way a wax effigy melts. Ancient Greeks watched temple statues that wept or bled; medieval magi cast soft figurines into water, reading the fissures to diagnose hidden malefice.</p>"
+    }
   },
-  {
+  "4ci8t": {
     "id": "22726",
     "item_key": "4ci8t",
-    "meta": []
+    "name": "Ailuromancy",
+    "meta": {
+      "proficiencyname": "Ailuromancy",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "15",
+      "e3usn": "The augur can observe the behaviors and movements of cats as a means of identifying nearby magical beings, creatures, objects, or locations. Transfigured/Conjured cats can be used. Once this proficiency is successfully used performed, the practitioner takes +5 to perception checks for anything related to something of a magical source.",
+      "e3usn-value": "<p>The augur can observe the behaviors and movements of cats as a means of identifying nearby magical beings, creatures, objects, or locations. Transfigured/Conjured cats <em>can</em> be used. Once this proficiency is successfully used performed, the practitioner takes +5 to perception checks for anything related to something of a magical source.</p>",
+      "61l9a": "From Greek ailouros “cat,” ailuromancy divines by feline comportment—tail flicks at dusk, the hearth‑side orientation of a dozing mouser, or a stray’s moonlit yowl. Sailors eyed ship’s cats to augur tempests; hearth‑seers foretold visitors and fortunes from the first paw over a threshold.",
+      "61l9a-value": "<p>From Greek <em data-start=\"65\" data-end=\"75\" data-is-only-node=\"\">ailouros</em> “cat,” ailuromancy divines by feline comportment—tail flicks at dusk, the hearth‑side orientation of a dozing mouser, or a stray’s moonlit yowl. Sailors eyed ship’s cats to augur tempests; hearth‑seers foretold visitors and fortunes from the first paw over a threshold.</p>"
+    }
   },
-  {
+  "1ww5l": {
     "id": "22727",
     "item_key": "1ww5l",
-    "meta": []
+    "name": "Alectormancy",
+    "meta": {
+      "proficiencyname": "Alectormancy",
+      "kv517": "Roman",
+      "s71z0": "Divination",
+      "ipjf3": "5",
+      "e3usn": "Interpreting the eating patterns of roosters, diviners can gain insights into the motivations of creatures granting +2 to any magical creatures roll to any target they choose including themselves. ",
+      "e3usn-value": "<p>Interpreting the eating patterns of roosters, diviners can gain insights into the motivations of creatures granting +2 to any magical creatures roll to any target they choose including themselves. </p>",
+      "61l9a": "From Greek alektōr “rooster.” Seers scattered alphabet‑marked grain in a circle and let a cock peck out letters that spelled the gods’ reply—an oracle prized from Rome’s camp‑tents to medieval barnyards.",
+      "61l9a-value": "<p>From Greek <em data-start=\"114\" data-end=\"123\">alektōr</em> “rooster.” Seers scattered alphabet‑marked grain in a circle and let a cock peck out letters that spelled the gods’ reply—an oracle prized from Rome’s camp‑tents to medieval barnyards.</p>"
+    }
   },
-  {
+  "147d2": {
     "id": "22728",
     "item_key": "147d2",
-    "meta": []
+    "name": "Aleuromancy",
+    "meta": {
+      "proficiencyname": "Aleuromancy",
+      "kv517": "Greek",
+      "s71z0": "Divination",
+      "ipjf3": "7",
+      "e3usn": "Practitioners use flour to form symbols that gain insights into deep magical realities. This grants any target of this proficiency +5 to ancient runes. ",
+      "e3usn-value": "<p>Practitioners use flour to form symbols that gain insights into deep magical realities. This grants any target of this proficiency +5 to ancient runes. </p>",
+      "61l9a": "Greek aleuron “flour.” Seers embedded lots in dough or traced flour‑whorls on bronze to augur plenty, plague, or famine.",
+      "61l9a-value": "<p>Greek <em data-start=\"46\" data-end=\"55\" data-is-only-node=\"\">aleuron</em> “flour.” Seers embedded lots in dough or traced flour‑whorls on bronze to augur plenty, plague, or famine.</p>"
+    }
   },
-  {
+  "2kmtl": {
     "id": "22729",
     "item_key": "2kmtl",
-    "meta": []
+    "name": "Alveromancy",
+    "meta": {
+      "proficiencyname": "Alveromancy",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "13",
+      "e3usn": "The diviner attunes to surrounding echoes—clapping, snapping, or humming until resonances divulge hidden stresses. Each target gains +5 to their next perception roll that involves detecting traps, unstable structures, or concealed magic.",
+      "e3usn-value": "<p>The diviner attunes to surrounding echoes—clapping, snapping, or humming until resonances divulge hidden stresses. Each target gains <strong data-start=\"1092\" data-end=\"1201\">+5 to their next <em data-start=\"1111\" data-end=\"1123\">perception</em> roll that involves detecting traps, unstable structures, or concealed magic.</strong></p>",
+      "61l9a": "Across Pharaonic Egypt and Hellenistic porticoes, hierophants held that phōnē was a direct conduit to the numina; they listened to the boom of cataracts, the crack of temple doors, and the hush between thunderclaps for auguries of empire. Medieval Arab geomancers refined the craft, mapping caravan fates from the echo‑time of camel bells in canyon hollows. By the Renaissance, itinerant peddlers hawked “oracle‑boxes” whose hidden reeds emitted tones said to name a thief or predict plague, a practice ecclesiastics decried as chicanery. Alpine shepherds later gauged avalanches from distant gun‑like reports, folding the lore into local alveromantic charts. Though eclipsed by modern acoustics, the art survives wherever a whisper in a cave or the ocean’s susurrus is thought to carry god‑tiding.",
+      "61l9a-value": "<p><br data-start=\"79\" data-end=\"82\" />Across Pharaonic Egypt and Hellenistic porticoes, hierophants held that <em data-start=\"154\" data-end=\"161\">phōnē</em> was a direct conduit to the numina; they listened to the boom of cataracts, the crack of temple doors, and the hush between thunderclaps for auguries of empire. Medieval Arab geomancers refined the craft, mapping caravan fates from the echo‑time of camel bells in canyon hollows. By the Renaissance, itinerant peddlers hawked “oracle‑boxes” whose hidden reeds emitted tones said to name a thief or predict plague, a practice ecclesiastics decried as chicanery. Alpine shepherds later gauged avalanches from distant gun‑like reports, folding the lore into local alveromantic charts. Though eclipsed by modern acoustics, the art survives wherever a whisper in a cave or the ocean’s susurrus is thought to carry god‑tiding.</p>"
+    }
   },
-  {
+  "7tjrs": {
     "id": "22730",
     "item_key": "7tjrs",
-    "meta": []
+    "name": "Amniomancy",
+    "meta": {
+      "proficiencyname": "Amniomancy",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "7",
+      "e3usn": "The diviner unfurls a preserved (or conjured) birth‑caul and scrutinizes its whorls. The target of this proficiency can mitigate 2H wounds of vital damage. If anyone or anything attempts to inflict the target with vital damage, that damage is simply ignored (as if this proficiency acts as a sort of shield). ",
+      "e3usn-value": "<p>The diviner unfurls a preserved (or conjured) birth‑caul and scrutinizes its whorls. The target of this proficiency can <strong><em>mitigate</em></strong> 2H wounds of vital damage. If anyone or anything attempts to inflict the target with vital damage, that damage is simply ignored (as if this proficiency acts as a sort of shield). </p>",
+      "61l9a": "Since antiquity, midwives prized the caul—the translucent amniotic veil sometimes sheathing a newborn’s head—as a numinous chart of the child’s destiny. Roman matronae preserved it in salt, reading minute folds to foretell prosperity or untimely peril, while sailors bought dried cauls as talismans against drowning, believing the membrane that once cocooned life could still ward the sea. Medieval cunning women and Scottish “wise wifies” consulted cauls to diagnose infant maladies and divine a household’s fortunes for the coming year. Renaissance physicians like Paracelsus wrote of signatura hidden in the caul’s marbling, linking its patterns to humoral imbalances. Though later denounced as superstition, the practice endured in rural Europe well into the nineteenth century, whispered of as “veil‑scrying.”",
+      "61l9a-value": "<p><br data-start=\"83\" data-end=\"86\" />Since antiquity, midwives prized the <em data-start=\"123\" data-end=\"129\" data-is-only-node=\"\">caul</em>—the translucent amniotic veil sometimes sheathing a newborn’s head—as a numinous chart of the child’s destiny. Roman matronae preserved it in salt, reading minute folds to foretell prosperity or untimely peril, while sailors bought dried cauls as talismans against drowning, believing the membrane that once cocooned life could still ward the sea. Medieval <em data-start=\"487\" data-end=\"502\">cunning women</em> and Scottish “wise wifies” consulted cauls to diagnose infant maladies and divine a household’s fortunes for the coming year. Renaissance physicians like Paracelsus wrote of <em data-start=\"677\" data-end=\"688\">signatura</em> hidden in the caul’s marbling, linking its patterns to humoral imbalances. Though later denounced as superstition, the practice endured in rural Europe well into the nineteenth century, whispered of as “veil‑scrying.”</p>"
+    }
   },
-  {
+  "en1on": {
     "id": "22731",
     "item_key": "en1on",
-    "meta": []
+    "name": "Basic Anthropomancy",
+    "meta": {
+      "proficiencyname": "Basic Anthropomancy",
+      "kv517": "Mesopotamian",
+      "s71z0": "Divination",
+      "ipjf3": "42",
+      "e3usn": "The diviner fashions a foul effigy—wax shell, pork viscera, a strand of the muggle’s hair—then slashes the mock entrails while intoning the name. The named target, no matter the distance, immediately suffers 1 H wound of disease/toxic damage. They will continue to take 1M wound for per day for seven days. Once this is cured, no Anthropomancy attempts are ever successful on this target again. ",
+      "e3usn-value": "<p>The diviner fashions a foul effigy—wax shell, pork viscera, a strand of the muggle’s hair—then slashes the mock entrails while intoning the name. The named target, no matter the distance, immediately suffers <strong data-start=\"1042\" data-end=\"1081\" data-is-only-node=\"\">1 H wound of <em data-start=\"1057\" data-end=\"1072\">disease/toxic</em> damage</strong>. They will continue to take 1M wound for per day for seven days. Once this is cured, no Anthropomancy attempts are ever successful on this target again. </p>",
+      "61l9a": "In Akkadian omen‑lists, royal haruspices dissected prisoners to read the “tablet of the gods” writ upon warm viscera, believing each lobe and sulcus mirrored cosmic provinces. Hellenistic warlords occasionally turned to the grisly rite when ovine livers proved inconclusive, though philosophers like Plutarch decried it as tyrannical hubris. Early Byzantine chronicles condemn errant bishops who read a slave’s heart for auguries of plague, prompting imperial edicts that conflated anthropomancy with outright sorcery. Medieval grimoires preserve instructions for crafting wax homunculi stuffed with animal offal as a bloodless substitute, a concession to tightening Church proscriptions. By the seventeenth century the practice lingered only in whispered necromantic circles, its visceral lexicon absorbed into later anatomical “science of correspondences.”",
+      "61l9a-value": "<p>In Akkadian omen‑lists, royal haruspices dissected prisoners to read the “tablet of the gods” writ upon warm viscera, believing each lobe and sulcus mirrored cosmic provinces. Hellenistic warlords occasionally turned to the grisly rite when ovine livers proved inconclusive, though philosophers like Plutarch decried it as tyrannical hubris. Early Byzantine chronicles condemn errant bishops who read a slave’s heart for auguries of plague, prompting imperial edicts that conflated anthropomancy with outright sorcery. Medieval grimoires preserve instructions for crafting wax homunculi stuffed with animal offal as a bloodless substitute, a concession to tightening Church proscriptions. By the seventeenth century the practice lingered only in whispered necromantic circles, its visceral lexicon absorbed into later anatomical “science of correspondences.”</p>"
+    }
   },
-  {
+  "zwc4l": {
     "id": "22732",
     "item_key": "zwc4l",
-    "meta": []
+    "name": "Apantomancy",
+    "meta": {
+      "proficiencyname": "Apantomancy",
+      "kv517": "Greek",
+      "s71z0": "Divination",
+      "ipjf3": "46",
+      "e3usn": "The diviner understands the deep and vital resonance of a bonded pet and can, once per the lifetime of the creature, grant it +1H wound capacity for the rest of its life. This can only be attempted once per creature per lifetime. This can be attempted on pets of allies. ",
+      "e3usn-value": "<p>The diviner understands the deep and vital resonance of a bonded pet and can, once per the lifetime of the creature, grant it +1H wound capacity for the rest of its life. This can only be attempted once per creature per lifetime. This can be attempted on pets of allies. </p>",
+      "61l9a": "Greek magoi coined apantomancy from apanthanein, “to chance upon,” discerning omens in whatever creature or object first crossed one’s path. Roman augurs weighed the portent of barking dogs, one‑eyed men, or stray cats at dawn, their note‑books bristling with graded auspices. Medieval wayfarers watched the road’s first passer‑by—monk, crone, or red‑haired youth—to judge whether the day promised profit or peril. Renaissance grimoires codified entire bestiaries of chance‑encounters: a hare on the left betokened betrayal; a blackbird alighting south augured sudden windfall. Though later mocked as mere superstition, sailors, gamblers, and hedge‑witches still mutter luck‑charms based on whatever apparition greets them at the threshold.",
+      "61l9a-value": "<p><br data-start=\"93\" data-end=\"96\" />Greek magoi coined <em data-start=\"115\" data-end=\"128\" data-is-only-node=\"\">apantomancy</em> from <em data-start=\"134\" data-end=\"147\">apanthanein</em>, “to chance upon,” discerning omens in whatever creature or object first crossed one’s path. Roman augurs weighed the portent of barking dogs, one‑eyed men, or stray cats at dawn, their note‑books bristling with graded auspices. Medieval wayfarers watched the road’s first passer‑by—monk, crone, or red‑haired youth—to judge whether the day promised profit or peril. Renaissance grimoires codified entire bestiaries of chance‑encounters: a hare on the left betokened betrayal; a blackbird alighting south augured sudden windfall. Though later mocked as mere superstition, sailors, gamblers, and hedge‑witches still mutter luck‑charms based on whatever apparition greets them at the threshold.</p>"
+    }
   },
-  {
+  "8f146": {
     "id": "22733",
     "item_key": "8f146",
-    "meta": []
+    "name": "Anthroposcopy",
+    "meta": {
+      "proficiencyname": "Anthroposcopy",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "7",
+      "e3usn": "By reading a person's general aura, the practitioner makes the receiver more susceptible to influence for the next 1 hour (they take -1 on any social skills checks for the next hour. ",
+      "e3usn-value": "<p>By reading a person's general aura, the practitioner makes the receiver more susceptible to influence for the next 1 hour (they take -1 on any social skills checks for the next hour. </p>",
+      "61l9a": "Rooted in classical physiognomica ascribed to Aristotle, anthroposcopy gauges destiny from the planes of cheekbones, the cant of eyebrows, and the rhythm of gait. Hellenistic physicians married it to humoral theory, reading sallow complexions as melancholic fates and sanguine flushes as auguries of triumph. Tang‑dynasty “face‑reading” manuals refined the art, mapping fortunes to sixty‑four ling points upon the countenance, while medieval European clerics alternately prized and proscribed the practice as a window to hidden sin. Renaissance savants such as Giambattista della Porta collated nose shapes, lip lines, and even ear‑lobes into elaborate taxonomies that promised insight into courage, cupidity, or treachery. By the nineteenth century it morphed into phrenology’s craniometric excesses before retreating to occult parlors as a discreet technique for reading motives at a glance.",
+      "61l9a-value": "<p>Rooted in classical physiognomica ascribed to Aristotle, anthroposcopy gauges destiny from the planes of cheekbones, the cant of eyebrows, and the rhythm of gait. Hellenistic physicians married it to humoral theory, reading sallow complexions as melancholic fates and sanguine flushes as auguries of triumph. Tang‑dynasty “face‑reading” manuals refined the art, mapping fortunes to sixty‑four <em data-start=\"507\" data-end=\"513\" data-is-only-node=\"\">ling</em> points upon the countenance, while medieval European clerics alternately prized and proscribed the practice as a window to hidden sin. Renaissance savants such as Giambattista della Porta collated nose shapes, lip lines, and even ear‑lobes into elaborate taxonomies that promised insight into courage, cupidity, or treachery. By the nineteenth century it morphed into phrenology’s craniometric excesses before retreating to occult parlors as a discreet technique for reading motives at a glance.</p>"
+    }
   },
-  {
+  "1b6iz": {
     "id": "22734",
     "item_key": "1b6iz",
-    "meta": []
+    "name": "Amathomancy",
+    "meta": {
+      "proficiencyname": "Amathomancy",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "12",
+      "e3usn": "The practitioner gains a deep resonance with the particulates in the air. They stifle any and all spell casts of the environmental subtype for the rest of a battle (or 10 minutes, whichever comes first) in the immediate area. ",
+      "e3usn-value": "<p>The practitioner gains a deep resonance with the particulates in the air. They stifle any and all spell casts of the environmental subtype for the rest of a battle (or 10 minutes, whichever comes first) in the immediate area. </p>",
+      "61l9a": "Sprung from the Greek amathos (“sand”), amathomancy bid ancient seers cast sand or grave‑ash upon marble to read the errant whorls, claiming each dune‑like ridge mirrored the coils of fate. Hellenistic manuals tally portents in drifting silt—forked lines presaged quarrel, concentric rings a safe voyage—while late‑Roman necromancers prized the cremains of nobles, believing the dead whispered by way of their own soot. Byzantine penitentials still condemn “dust‑letters” traced at crossroads to discover thieves, hinting the craft survived beneath ecclesiastical censure. Renaissance occultists revived the art in alchemical ateliers, sieving pulverized bone onto black glass to chart planetary conjunctions. Even modern mythic lore cites artists like Jackson Pollock, whose paint‑spatter “readings” echoed the old dust sigils.",
+      "61l9a-value": "<p>Sprung from the Greek <em data-start=\"99\" data-end=\"108\">amathos</em> (“sand”), amathomancy bid ancient seers cast sand or grave‑ash upon marble to read the errant whorls, claiming each dune‑like ridge mirrored the coils of fate. Hellenistic manuals tally portents in drifting silt—forked lines presaged quarrel, concentric rings a safe voyage—while late‑Roman necromancers prized the cremains of nobles, believing the dead whispered by way of their own soot. Byzantine penitentials still condemn “dust‑letters” traced at crossroads to discover thieves, hinting the craft survived beneath ecclesiastical censure. Renaissance occultists revived the art in alchemical ateliers, sieving pulverized bone onto black glass to chart planetary conjunctions. Even modern mythic lore cites artists like Jackson Pollock, whose paint‑spatter “readings” echoed the old dust sigils.</p>"
+    }
   },
-  {
+  "acjmp": {
     "id": "22735",
     "item_key": "acjmp",
-    "meta": []
+    "name": "Astragalomancy",
+    "meta": {
+      "proficiencyname": "Astragalomancy",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "10",
+      "e3usn": "By casting knucklebones or dice, the diviner explores the connection with threads of magical energy in the vicinity. This allows them to grant a +3 bonus to arithmancy for any target once per target per day. ",
+      "e3usn-value": "<p>By casting knucklebones or dice, the diviner explores the connection with threads of magical energy in the vicinity. This allows them to grant a +3 bonus to arithmancy for any target once per target per day. </p>",
+      "61l9a": "Greeks first cast astragaloi—polished sheep knucklebones scored with numerals—before Apollo’s shrines, trusting the tumble to reveal the god’s whim. Hellenistic gamblers pocketed the bones for both wagering and prophecy, believing a triple‑four fell only for the divinely favored. In republican Rome, sibyls etched planetary glyphs on astragaloi and claimed to read the spin, not the final number, for subtler fates. Byzantine manuals prescribe purple silk cloths, arguing the hue of emperors placates Fortuna and steadies the throw. By the late Renaissance, ivory dice supplanted bone, yet the old term endured in occult circles as shorthand for any lot‑casting that seeks to bend fortune’s braid.",
+      "61l9a-value": "<p>Greeks first cast <em data-start=\"103\" data-end=\"115\">astragaloi</em>—polished sheep knucklebones scored with numerals—before Apollo’s shrines, trusting the tumble to reveal the god’s whim. Hellenistic gamblers pocketed the bones for both wagering and prophecy, believing a triple‑four fell only for the divinely favored. In republican Rome, sibyls etched planetary glyphs on astragaloi and claimed to read the spin, not the final number, for subtler fates. Byzantine manuals prescribe purple silk cloths, arguing the hue of emperors placates Fortuna and steadies the throw. By the late Renaissance, ivory dice supplanted bone, yet the old term endured in occult circles as shorthand for any lot‑casting that seeks to bend fortune’s braid.</p>"
+    }
   },
-  {
+  "zfv4u": {
     "id": "22736",
     "item_key": "zfv4u",
-    "meta": []
+    "name": "Austromancy",
+    "meta": {
+      "proficiencyname": "Austromancy",
+      "s71z0": "Divination",
+      "ipjf3": "22",
+      "e3usn": "The diviner casts sand, studies banner‑whip, and names the covert cross‑currents. As a result of these resultant insights, their target takes +5 to flying rolls for the next hour.",
+      "e3usn-value": "<p>The diviner casts sand, studies banner‑whip, and names the covert cross‑currents. As a result of these resultant insights, their target takes +5 to flying rolls for the next hour.</p>",
+      "61l9a": "From Latin Auster—the hot, storm‑laden south wind—Etruscan diviners first raised sailcloth “wind‑skins” over sacred groves, reading each billow as a god‑breathed cipher. Republican Roman augurs ranked a duodecad of winds and watched temple banners whip to time campaigns and coronations. Byzantine pilots carried bronze anemoscopes whose vanes, when struck by a sudden gust, foretold reefs or raiders lurking beyond the horizon. Medieval monastic chronologers personified every quarter‑wind as an angelic choir, scribbling weather omens in climataries that guided sowing, siege, and pilgrimage alike. Renaissance cartographers blended compass‑rose and zodiac, plotting the “music of the air” so merchants could sail with fortune’s own bellows at their stern.",
+      "61l9a-value": "<p>From Latin <em data-start=\"90\" data-end=\"98\" data-is-only-node=\"\">Auster</em>—the hot, storm‑laden south wind—Etruscan diviners first raised sailcloth “wind‑skins” over sacred groves, reading each billow as a god‑breathed cipher. Republican Roman augurs ranked a duodecad of winds and watched temple banners whip to time campaigns and coronations. Byzantine pilots carried bronze anemoscopes whose vanes, when struck by a sudden gust, foretold reefs or raiders lurking beyond the horizon. Medieval monastic chronologers personified every quarter‑wind as an angelic choir, scribbling weather omens in <em data-start=\"621\" data-end=\"634\">climataries</em> that guided sowing, siege, and pilgrimage alike. Renaissance cartographers blended compass‑rose and zodiac, plotting the “music of the air” so merchants could sail with fortune’s own bellows at their stern.</p>"
+    }
   },
-  {
+  "izxte": {
     "id": "22737",
     "item_key": "izxte",
-    "meta": []
+    "name": "Botanomancy",
+    "meta": {
+      "proficiencyname": "Botanomancy",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "20",
+      "e3usn": "The diviner fires a sprig chosen for the task and studies the sputtering sparks and smoke‑whorls. The target of this reading is inspired to greater efficiency in their harvesting techniques, gathering double the yield of any plant part extraction attempts for the next day. One target one time per day. ",
+      "e3usn-value": "<p>The diviner fires a sprig chosen for the task and studies the sputtering sparks and smoke‑whorls. The target of this reading is inspired to greater efficiency in their harvesting techniques, gathering double the yield of any plant part extraction attempts for the next day. <br /><br />One target one time per day. </p>",
+      "61l9a": "Hellenic seers shorn fresh briar and perfumed vervain, carved their queries upon the twigs, then consigned them to the flame, judging destiny by the fuliginous smoke and the way green wood crackled. Roman manuals classed the art as a branch of pyromancy, insisting that east‑drifting ash foretold safe harvests while spiral jets augured civil discord. Medieval herb‑wives refined the rite with specific “speaking plants”: yew for death, rosemary for fidelity, mandrake for sorcery. Renaissance occultists, enamoured of sympathetic correspondences, burned a herb aligned to the querent’s birth planet and read the coiling plumes against black silk screens. Though modern parlours prefer tarot, some hedge‑mages still trust a sudden vermilion flare in vervain’s heart to signal the gods’",
+      "61l9a-value": "<p>Hellenic seers shorn fresh briar and perfumed vervain, carved their queries upon the twigs, then consigned them to the flame, judging destiny by the fuliginous smoke and the way green wood crackled. Roman manuals classed the art as a branch of pyromancy, insisting that east‑drifting ash foretold safe harvests while spiral jets augured civil discord. Medieval herb‑wives refined the rite with specific “speaking plants”: yew for death, rosemary for fidelity, mandrake for sorcery. Renaissance occultists, enamoured of sympathetic correspondences, burned a herb aligned to the querent’s birth planet and read the coiling plumes against black silk screens. Though modern parlours prefer tarot, some hedge‑mages still trust a sudden vermilion flare in vervain’s heart to signal the gods’</p>"
+    }
   },
-  {
+  "ksp7h": {
     "id": "22738",
     "item_key": "ksp7h",
-    "meta": []
+    "name": "Capnomancy",
+    "meta": {
+      "proficiencyname": "Capnomancy",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "15",
+      "e3usn": "The diviner burns a pinch of resin or parchment and studies the drift. In so doing, they come into resonance with the area around them. The diviner will notice any person who enters the area.\r\n&nbsp;\r\nWears off at dawn.",
+      "e3usn-value": "<p data-pm-slice=\"0 0 []\">The diviner burns a pinch of resin or parchment and studies the drift. In so doing, they come into resonance with the area around them. The diviner will notice any person who enters the area.</p>\r\n<p>&nbsp;</p>\r\n<p>Wears off at dawn.</p>"
+    }
   },
-  {
+  "azbd": {
     "id": "22739",
     "item_key": "azbd",
-    "meta": []
+    "name": "Causimancy",
+    "meta": {
+      "proficiencyname": "Causimancy",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "17",
+      "e3usn": "Practitioners gather an object from another person, then destroy it in a fire. While observing the specific way that the fire destroys the object, the practitioner understands the relationship between this person's aura and the objects they possess. They grant the target +2 to their next artificing attempt. ",
+      "e3usn-value": "<p>Practitioners gather an object from another person, then destroy it in a fire. While observing the specific way that the fire destroys the object, the practitioner understands the relationship between this person's aura and the objects they possess. They grant the target +2 to their next artificing attempt. </p>",
+      "61l9a": "Ancient Greek hearth‑priests tossed laurel leaves into the blaze; if they crackled sharply and leapt, victory in battle was assured, but if they hissed and smouldered, ruin loomed. Roman household shrines kept a small brazier where bits of cloth were burned each dawn—the direction the first spark flew foretold quarrels or peace in the domus. In Celtic Brittany, midsummer revellers judged the coming harvest by whether tossed woad‑bundles burst blue or fell dark in the bonfire. Medieval smith‑mages read sword destinies from the colour of the first tongue of flame that kissed a newly forged blade. Renaissance alchemists refined the art with chemicals, noting that a green flare meant hidden poison in the patron’s court, while a pure white column promised safe transmutation.",
+      "61l9a-value": "<p>Ancient Greek hearth‑priests tossed laurel leaves into the blaze; if they crackled sharply and leapt, victory in battle was assured, but if they hissed and smouldered, ruin loomed. Roman household shrines kept a small brazier where bits of cloth were burned each dawn—the direction the first spark flew foretold quarrels or peace in the domus. In Celtic Brittany, midsummer revellers judged the coming harvest by whether tossed woad‑bundles burst blue or fell dark in the bonfire. Medieval smith‑mages read sword destinies from the colour of the first tongue of flame that kissed a newly forged blade. Renaissance alchemists refined the art with chemicals, noting that a green flare meant hidden poison in the patron’s court, while a pure white column promised safe transmutation.</p>"
+    }
   },
-  {
+  "puppf": {
     "id": "22740",
     "item_key": "puppf",
-    "meta": []
+    "name": "Cephalomancy",
+    "meta": {
+      "proficiencyname": "Cephalomancy",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "18",
+      "e3usn": "Diviners break the skull of an animal at the feet of one they wish to read granting +2 to naturalism for the next day. ",
+      "e3usn-value": "<p>Diviners break the skull of an animal at the feet of one they wish to read granting +2 to naturalism for the next day. </p>",
+      "61l9a": "Priests in ancient Babylonia set a donkey’s severed head on live coals and listened for the first crack to name a hidden culprit. Greek seers boiled a kid’s skull until fissures traced letters that spelled out the thief or the sick child’s fate. Medieval judges sometimes balanced a suspect’s shorn skull‑cap on red‑hot iron; the way the bone smoked was said to prove innocence or guilt. Breton hedge‑healers tapped hollow cow skulls like drums—the pitch of the echo diagnosed madness or possession. By the seventeenth century fortune‑tellers were rapping coconuts at fairs, claiming the hollow thunk still carried the old omens of cephalomancy.",
+      "61l9a-value": "<p>Priests in ancient Babylonia set a donkey’s severed head on live coals and listened for the first crack to name a hidden culprit. Greek seers boiled a kid’s skull until fissures traced letters that spelled out the thief or the sick child’s fate. Medieval judges sometimes balanced a suspect’s shorn skull‑cap on red‑hot iron; the way the bone smoked was said to prove innocence or guilt. Breton hedge‑healers tapped hollow cow skulls like drums—the pitch of the echo diagnosed madness or possession. By the seventeenth century fortune‑tellers were rapping coconuts at fairs, claiming the hollow thunk still carried the old omens of cephalomancy.</p>"
+    }
   },
-  {
+  "ma5tk": {
     "id": "22741",
     "item_key": "ma5tk",
-    "meta": []
+    "name": "Ceraunoscopy",
+    "meta": {
+      "proficiencyname": "Ceraunoscopy",
+      "kv517": "Greek",
+      "s71z0": "Divination",
+      "ipjf3": "17",
+      "e3usn": "The diviner's foresight fully mitigates any eruption/explosion damage for a target for the rest of the day. The target cannot take damage of this type at all. ",
+      "e3usn-value": "<p>The diviner's foresight fully mitigates any eruption/explosion damage for a target for the rest of the day. The target cannot take damage of this type at all. </p>",
+      "61l9a": "Etruscan fulguratores fixed their gaze on storm‑torn skies, claiming each jagged bolt etched the gods’ verdict across the clouds. Greek temple records ranked omens by quadrant: a flash over the northern horn portended famine, while one in the west promised naval triumph. Roman augurs sent lictors to every smoking strike‑site, reading vitrified soil like crystal to divine the Senate’s fortunes. Medieval weather‑witches timed the gap between flash and clap, swearing the thunder’s cadence matched the march‑beat of looming armies. Renaissance pilots watching forked fire over capes charted its branching arcs as invisible coastlines, steering ships clear of hidden shoals.",
+      "61l9a-value": "<p>Etruscan <em data-start=\"114\" data-end=\"128\">fulguratores</em> fixed their gaze on storm‑torn skies, claiming each jagged bolt etched the gods’ verdict across the clouds. Greek temple records ranked omens by quadrant: a flash over the northern horn portended famine, while one in the west promised naval triumph. Roman augurs sent lictors to every smoking strike‑site, reading vitrified soil like crystal to divine the Senate’s fortunes. Medieval weather‑witches timed the gap between flash and clap, swearing the thunder’s cadence matched the march‑beat of looming armies. Renaissance pilots watching forked fire over capes charted its branching arcs as invisible coastlines, steering ships clear of hidden shoals.</p>"
+    }
   },
-  {
+  "ednl6": {
     "id": "22742",
     "item_key": "ednl6",
-    "meta": []
+    "name": "Belomancy",
+    "meta": {
+      "proficiencyname": "Belomancy",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "13",
+      "e3usn": "The diviner fires or draws a rune‑etched arrow and reads its landing. For the next hour the target can add +3 to any attempts to use the common shielding spells (protego).One target per day. ",
+      "e3usn-value": "<p>The diviner fires or draws a rune‑etched arrow and reads its landing. For the next hour the target can add +3 to any attempts to use the common shielding spells (protego).<br /><br />One target per day. </p>",
+      "61l9a": "Babylonian priests inscribed queries on reed arrows, loosed three skyward, and took the one that landed farthest as the god‑sanctioned course. Greek hoplites knotted omens into fletchings, trusting the first shaft to strike earth to name the safest march‑route. Bedouin soothsayers shook a quiver of marked shafts and drew one blindfolded—the inscription dictated war, peace, or forbearance. Islamic jurists begrudgingly tolerated the practice when “yes,” “no,” and “wait” alone adorned the arrows, so long as no idols were invoked. Medieval crusaders revived the rite, firing black‑feathered bolts over castle walls to foretell which breach would yield before dawn.",
+      "61l9a-value": "<p>Babylonian priests inscribed queries on reed arrows, loosed three skyward, and took the one that landed farthest as the god‑sanctioned course. Greek hoplites knotted omens into fletchings, trusting the first shaft to strike earth to name the safest march‑route. Bedouin soothsayers shook a quiver of marked shafts and drew one blindfolded—the inscription dictated war, peace, or forbearance. Islamic jurists begrudgingly tolerated the practice when “yes,” “no,” and “wait” alone adorned the arrows, so long as no idols were invoked. Medieval crusaders revived the rite, firing black‑feathered bolts over castle walls to foretell which breach would yield before dawn.</p>"
+    }
   },
-  {
+  "wur6d": {
     "id": "22743",
     "item_key": "wur6d",
-    "meta": []
+    "name": "Intermediate Catoptromancy",
+    "meta": {
+      "proficiencyname": "Intermediate Catoptromancy",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "15",
+      "e3usn": "The diviner unveils a lustrous hand‑mirror and reads fleeting images in its depths. For the next hour, the target is immune to any mental spell‑effects and cannot take anxiety-related, depressive, or sanity-shaking damage. ",
+      "e3usn-value": "<p>The diviner unveils a lustrous hand‑mirror and reads fleeting images in its depths. For the next hour, the target is immune to any <em data-start=\"997\" data-end=\"1005\">mental</em> spell‑effects and cannot take anxiety-related, depressive, or sanity-shaking damage. </p>",
+      "61l9a": "Ancient Greek seers lowered a polished bronze mirror into a temple well; the face that shimmered on its surface foretold life or death. Roman matrons peered into hand‑mirrors by moonlight to glimpse would‑be lovers, insisting a true match left a rosy halo round the reflection. Medieval thieves’‑catchers used blackened glass: the first glint of a culprit’s likeness named the pilferer to be seized at dawn. Elizabethan magicians such as Dr Dee prized obsidian “shew‑stones,” claiming fallen angels whispered through the dark glass. By the nineteenth century parlour mystics sold small scrying mirrors, keeping the art alive wherever a flicker of candle met polished silver.",
+      "61l9a-value": "<p>Ancient Greek seers lowered a polished bronze mirror into a temple well; the face that shimmered on its surface foretold life or death. Roman matrons peered into hand‑mirrors by moonlight to glimpse would‑be lovers, insisting a true match left a rosy halo round the reflection. Medieval thieves’‑catchers used blackened glass: the first glint of a culprit’s likeness named the pilferer to be seized at dawn. Elizabethan magicians such as Dr Dee prized obsidian “shew‑stones,” claiming fallen angels whispered through the dark glass. By the nineteenth century parlour mystics sold small scrying mirrors, keeping the art alive wherever a flicker of candle met polished silver.</p>"
+    }
   },
-  {
+  "ncwdq": {
     "id": "22744",
     "item_key": "ncwdq",
-    "meta": []
+    "name": "Cyclomancy",
+    "meta": {
+      "proficiencyname": "Cyclomancy",
+      "kv517": "Greek",
+      "s71z0": "Divination",
+      "ipjf3": "7",
+      "e3usn": "The diviner sends a rune‑carved top spinning and watches the arc where it comes to rest. In so doing, their target takes +1 to their next spell cast. ",
+      "e3usn-value": "<p>The diviner sends a rune‑carved top spinning and watches the arc where it comes to rest. In so doing, their target takes +1 to their next spell cast. </p>",
+      "61l9a": "Ancient Greek soothsayers spun bronze shields on their rims and read fate in the way the disks wobbled and fell. Roman household magicians used tiny bone tops etched with gods’ names, letting the pointing god dictate which petition they should make. In the Middle Ages, hedge‑witches whirled spindle whorls over chalk sigils to pick healing herbs or curse‑targets. Renaissance occultists preferred compass‑like wheels engraved with zodiac signs, claiming the stopping sign marked the querent’s ruling planet for the day. Spiritualists of the nineteenth century adapted the idea into table‑turning and planchette boards, keeping the spinning‑object oracle alive into modern parlours.",
+      "61l9a-value": "<p>Ancient Greek soothsayers spun bronze shields on their rims and read fate in the way the disks wobbled and fell. Roman household magicians used tiny bone tops etched with gods’ names, letting the pointing god dictate which petition they should make. In the Middle Ages, hedge‑witches whirled spindle whorls over chalk sigils to pick healing herbs or curse‑targets. Renaissance occultists preferred compass‑like wheels engraved with zodiac signs, claiming the stopping sign marked the querent’s ruling planet for the day. Spiritualists of the nineteenth century adapted the idea into table‑turning and planchette boards, keeping the spinning‑object oracle alive into modern parlours.</p>"
+    }
   },
-  {
+  "jztg6": {
     "id": "22745",
     "item_key": "jztg6",
-    "meta": []
+    "name": "Dactylomancy",
+    "meta": {
+      "proficiencyname": "Dactylomancy",
+      "kv517": "Roman",
+      "s71z0": "Divination",
+      "ipjf3": "17",
+      "e3usn": "The diviner suspends a consecrated ring on a strand of hair and lets it swing over a circle of runes. If the target or the seer successfully blocks or dodges any incoming attack during a battle, they both will be immune from that attack for the rest of the battle. The diviner and target fully anticipate this specific kind of attack for the rest of the battle and will not be affected by it. ",
+      "e3usn-value": "<p>The diviner suspends a consecrated ring on a strand of hair and lets it swing over a circle of runes. If the target <em>or </em>the seer successfully blocks or dodges any incoming attack during a battle, they <em>both </em>will be immune from that attack for the rest of the battle. The diviner and target fully anticipate this specific kind of attack for the rest of the battle and will not be affected by it. </p>",
+      "61l9a": "Greek matrons looped a gold ring on flax thread above a lettered tray; the letters the ring tapped spelled the gods’ reply. Roman legionaries spun iron signet rings over maps to choose a battle’s breach point, trusting whichever valley the ring’s gem pointed toward. Medieval scholars dangled bishop’s rings over astrolabes, reading the arc of the swing to divine eclipses and hidden treachery. Fortune‑tellers of the Victorian séance era used wedding bands as pendulums, claiming the number of sways foretold births or deaths in a household. Even modern dowser‑witches keep a silver ring in their kit, saying metal that has “tasted skin” sings truer to destiny than any crystal.",
+      "61l9a-value": "<p>Greek matrons looped a gold ring on flax thread above a lettered tray; the letters the ring tapped spelled the gods’ reply. Roman legionaries spun iron signet rings over maps to choose a battle’s breach point, trusting whichever valley the ring’s gem pointed toward. Medieval scholars dangled bishop’s rings over astrolabes, reading the arc of the swing to divine eclipses and hidden treachery. Fortune‑tellers of the Victorian séance era used wedding bands as pendulums, claiming the number of sways foretold births or deaths in a household. Even modern dowser‑witches keep a silver ring in their kit, saying metal that has “tasted skin” sings truer to destiny than any crystal.</p>"
+    }
   },
-  {
+  "26xdb": {
     "id": "22746",
     "item_key": "26xdb",
-    "meta": []
+    "name": "Daphnomancy",
+    "meta": {
+      "proficiencyname": "Daphnomancy",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "15",
+      "e3usn": "The practitioner burns the leaves or fallen plant parts off of a sick or dying plant more deeply understanding its destiny. This allows them to grant +5 to any herbology checks or spell cast targeting this plant. ",
+      "e3usn-value": "<p>The practitioner burns the leaves or fallen plant parts off of a sick or dying plant more deeply understanding its destiny. This allows them to grant +5 to any herbology checks or spell cast targeting this plant. </p>",
+      "61l9a": "Priests of Apollo kept groves of bay trees; when their leaves rustled without wind, the oracle declared the god was near. Greek seers also flung fresh laurel leaves onto sacred fires—if the leaves crackled and jumped, a petition would succeed, but if they smouldered quietly, misfortune lurked. Roman generals crowned themselves in bay after victory, believing the tree’s spirit had guided their strategy. Medieval herb‑witches still burned laurel on Midwinter nights, saying the popping leaves warned of sickness or witch‑craft approaching the village. Even today, coastal folk in the Mediterranean toss a bay leaf on the hearth: a sharp snap means welcome news, a dull hiss means keep the door barred.",
+      "61l9a-value": "<p>Priests of Apollo kept groves of bay trees; when their leaves rustled without wind, the oracle declared the god was near. Greek seers also flung fresh laurel leaves onto sacred fires—if the leaves crackled and jumped, a petition would succeed, but if they smouldered quietly, misfortune lurked. Roman generals crowned themselves in bay after victory, believing the tree’s spirit had guided their strategy. Medieval herb‑witches still burned laurel on Midwinter nights, saying the popping leaves warned of sickness or witch‑craft approaching the village. Even today, coastal folk in the Mediterranean toss a bay leaf on the hearth: a sharp snap means welcome news, a dull hiss means keep the door barred.</p>"
+    }
   },
-  {
+  "izwqb": {
     "id": "22747",
     "item_key": "izwqb",
-    "meta": []
+    "name": "Demonomancy",
+    "meta": {
+      "proficiencyname": "Demonomancy",
+      "kv517": "Mesopotamian",
+      "s71z0": "Divination",
+      "ipjf3": "25",
+      "e3usn": "the practitioner scratches sigils into a surface around them studying the imperfections. As a result, they are made aware of the use of any blood magic, hexes or curses cast in the area for the rest of the evening. ",
+      "e3usn-value": "<p>the practitioner scratches sigils into a surface around them studying the imperfections. As a result, they are made aware of the use of any blood magic, hexes or curses cast in the area for the rest of the evening. </p>",
+      "61l9a": "Akkadian āšipu scratched salt sigils on obsidian bowls, coaxing spiteful lamassu to whisper civil-unrest dates between gulps of goat’s blood. Late-Roman theurgists folded the art into the Ars Matheseos, trusting infernals to speak plainly when bribed with myrrh and bronze. When the Black Death crept across Europe, plague-haunted necromancers prized pestilent spirits for grimly accurate forecasts—until inquisitors reduced both wizards and fiends to smoke. Renaissance magi like Agrippa hid infernal circles in layered ciphers, warning that a single smudged line could topple dynasties. In the soot-bright industrial age, clandestine lodges wired rail-yard imps to telegraph keys, siphoning sulfurous stock tips before rivals could blink.",
+      "61l9a-value": "<p>Akkadian <strong data-start=\"126\" data-end=\"135\">āšipu</strong> scratched salt sigils on obsidian bowls, coaxing spiteful <strong data-start=\"194\" data-end=\"205\">lamassu</strong> to whisper civil-unrest dates between gulps of goat’s blood. Late-Roman theurgists folded the art into the <em data-start=\"313\" data-end=\"328\">Ars Matheseos</em>, trusting infernals to speak plainly when bribed with myrrh and bronze. When the Black Death crept across Europe, plague-haunted necromancers prized pestilent spirits for grimly accurate forecasts—until inquisitors reduced both wizards and fiends to smoke. Renaissance magi like Agrippa hid infernal circles in layered ciphers, warning that a single smudged line could topple dynasties. In the soot-bright industrial age, clandestine lodges wired rail-yard imps to telegraph keys, siphoning sulfurous stock tips before rivals could blink.</p>"
+    }
   },
-  {
+  "dexr7": {
     "id": "22748",
     "item_key": "dexr7",
-    "meta": []
+    "name": "Dendromancy",
+    "meta": {
+      "proficiencyname": "Dendromancy",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "13",
+      "e3usn": "Observing the patterns and movements of trees allows the practitioner to sense the direction of disturbances and dark forces in a forest. The darkest forces will have the greatest impact on the trees, though they may sometimes offer guidance toward multiple targets. ",
+      "e3usn-value": "<p>Observing the patterns and movements of trees allows the practitioner to sense the direction of disturbances and dark forces in a forest. The darkest forces will have the greatest impact on the trees, though they may sometimes offer guidance toward multiple targets. </p>",
+      "61l9a": "Iron Age druids of the Atlantic fringe pressed ears to ancient oaks, claiming the groan of winter sap foretold tribal fates. Hellenistic philosophers transplanted sacred acorns into marble‐ringed courtyards, charting leaf-drop patterns as calendars of war and peace. Medieval Slavic znakhari carved runes around birch fire-scars, reading the way char streaks climbed the trunk to time the next frost. In late-Renaissance Padua, botanist-mages grafted exotic barks together, wagering fortunes on which splice first exuded prophetic resin. By the steam age, colonial surveyors packed portable dendroscopes to “listen” for mineral veins—turning woodland whispers into stock-exchange thunder.",
+      "61l9a-value": "<p>Iron Age druids of the Atlantic fringe pressed ears to ancient oaks, claiming the groan of winter sap foretold tribal fates. Hellenistic philosophers transplanted sacred acorns into marble‐ringed courtyards, charting leaf-drop patterns as calendars of war and peace. Medieval Slavic <em data-start=\"340\" data-end=\"350\">znakhari</em> carved runes around birch fire-scars, reading the way char streaks climbed the trunk to time the next frost. In late-Renaissance Padua, botanist-mages grafted exotic barks together, wagering fortunes on which splice first exuded prophetic resin. By the steam age, colonial surveyors packed portable dendroscopes to “listen” for mineral veins—turning woodland whispers into stock-exchange thunder.</p>"
+    }
   },
-  {
+  "ci78f": {
     "id": "22749",
     "item_key": "ci78f",
-    "meta": []
+    "name": "Dominomancy",
+    "meta": {
+      "proficiencyname": "Dominomancy",
+      "fjkhy": [
+        "Item Requirements"
+      ],
+      "kv517": "Roman",
+      "s71z0": "Divination",
+      "ipjf3": "15",
+      "6hlo5": {
+        "form": "960",
+        "i29026": {
+          "aiwl3": "Domino Tiles"
+        }
+      },
+      "aiwl3": [
+        "Domino Tiles"
+      ],
+      "e3usn": "By laying out domino tiles, the practitioner can predict the ebb and flow of social dynamics within a group, this grants them +2 to social skills checks for the remainder of an interaction. The seer can do this discretely by holding the dominos in their hand. Unless others in the area succeed in a perception check that is greater than the Dominomancy roll, they will be unaware of this effect. ",
+      "e3usn-value": "<p>By laying out domino tiles, the practitioner can predict the ebb and flow of social dynamics within a group, this grants them +2 to social skills checks for the remainder of an interaction. The seer can do this discretely by holding the dominos in their hand. Unless others in the area succeed in a perception check that is greater than the Dominomancy roll, they will be unaware of this effect. </p>",
+      "61l9a": "Song-dynasty fortune-tellers arranged ivory “bone-tablets” whose missing pip pairs, they claimed, mirrored gaps in the Celestial Bureau’s mandate. Venetian merchants carried the game west, where mendicant friars quietly cast the tiles to choose pilgrimage roads and detect false alms-pleas. On Caribbean plantations, enslaved diviners fused Yoruba numerology with battered dominoes, letting rattled pips name which loa favoured revolt. Belle-Époque occultists in Paris systematised dominomancie, assigning each tile virtue, vice, and planetary ward—so subversive that police raided cafés to seize the scorebooks. By the Jazz Age, Harlem “bone readers” sold midnight throws that allegedly flagged police raids hours ahead, a service the policy kings funded lavishly.",
+      "61l9a-value": "<p>Song-dynasty fortune-tellers arranged ivory “bone-tablets” whose missing pip pairs, they claimed, mirrored gaps in the Celestial Bureau’s mandate. Venetian merchants carried the game west, where mendicant friars quietly cast the tiles to choose pilgrimage roads and detect false alms-pleas. On Caribbean plantations, enslaved diviners fused Yoruba numerology with battered dominoes, letting rattled pips name which <em data-start=\"458\" data-end=\"463\">loa</em> favoured revolt. Belle-Époque occultists in Paris systematised <em data-start=\"527\" data-end=\"541\">dominomancie</em>, assigning each tile virtue, vice, and planetary ward—so subversive that police raided cafés to seize the scorebooks. By the Jazz Age, Harlem “bone readers” sold midnight throws that allegedly flagged police raids hours ahead, a service the policy kings funded lavishly.</p>"
+    }
   },
-  {
+  "eeo23": {
     "id": "22750",
     "item_key": "eeo23",
-    "meta": []
+    "name": "Favomancy",
+    "meta": {
+      "proficiencyname": "Favomancy",
+      "fjkhy": [
+        "Item Requirements"
+      ],
+      "kv517": "Greek",
+      "s71z0": "Divination",
+      "ipjf3": "5",
+      "6hlo5": {
+        "form": "960",
+        "i29035": {
+          "aiwl3": "Dried Beans"
+        }
+      },
+      "aiwl3": [
+        "Dried Beans"
+      ],
+      "e3usn": "By casting a fistful of dried beans onto dark cloth, the practitioner gains +2 to perception checks for the next hour. ",
+      "e3usn-value": "<p>By casting a fistful of dried beans onto dark cloth, the practitioner gains +2 to perception checks for the next hour. </p>",
+      "61l9a": "Classical Attic farmers scattered black and white beans upon threshing floors, swearing the drift of legumes foretold both rainfall and revolt. Byzantine courtiers replaced dice with polished lupini seeds, claiming Emperor Justinian’s victories were first divined in a velvet-lined bean cup. Along the Sahel’s trade routes, Hausa wise-women tossed cowpeas into calabashes; their pattern predicted the monsoon’s first cloud and set caravan prices for salt. In early-modern Ruthenia, brides read lentil crescents on hearthstones, divining the temper of yet-unmet mothers-in-law. Soup-line mystics of the Great Depression clinked navy beans in tin mugs, promising desperate crowds a glimpse of tomorrow’s scarce pay packet.",
+      "61l9a-value": "<p>Classical Attic farmers scattered black and white beans upon threshing floors, swearing the drift of legumes foretold both rainfall and revolt. Byzantine courtiers replaced dice with polished lupini seeds, claiming Emperor Justinian’s victories were first divined in a velvet-lined bean cup. Along the Sahel’s trade routes, Hausa wise-women tossed cowpeas into calabashes; their pattern predicted the monsoon’s first cloud and set caravan prices for salt. In early-modern Ruthenia, brides read lentil crescents on hearthstones, divining the temper of yet-unmet mothers-in-law. Soup-line mystics of the Great Depression clinked navy beans in tin mugs, promising desperate crowds a glimpse of tomorrow’s scarce pay packet.</p>"
+    }
   },
-  {
+  "4y7s0": {
     "id": "22751",
     "item_key": "4y7s0",
-    "meta": []
+    "name": "Fractomancy",
+    "meta": {
+      "proficiencyname": "Fractomancy",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "18",
+      "e3usn": "Striking or heating a brittle surface and interpreting the resulting spider-web of cracks that form allow the practitioner to boost any shielding rolls for any allies for the remainder of a battle (+3 to any shielding rolls) or twenty minutes (whichever comes first). ",
+      "e3usn-value": "<p>Striking or heating a brittle surface and interpreting the resulting spider-web of cracks that form allow the practitioner to boost any shielding rolls for any allies for the remainder of a battle (+3 to any shielding rolls) or twenty minutes (whichever comes first). </p>",
+      "61l9a": "Shang-dynasty oracle-priests fired ox scapulae until hairline webs appeared, reading each crack as the king’s mandate to wage war or wed. Etruscan haruspices adopted the art with terracotta shards, insisting that how a plate split foretold famine routes more surely than omens in the sky. Medieval Persian glass-workers cooled goblets too quickly on purpose, then mapped the starburst fractures to pick auspicious trade caravans. Georgian-era miners in Cornwall chipped slate samples, claiming that sudden feather-cracks whispered where tin lodes thinned or poisonous firedamp pooled. By the early space age, Soviet cosmonauts kept cracked acrylic tiles aboard Soyuz capsules—one glance at the spreading fractures, they swore, warned of micrometeoroid strikes minutes before the alarms.",
+      "61l9a-value": "<p>Shang-dynasty oracle-priests fired ox scapulae until hairline webs appeared, reading each crack as the king’s mandate to wage war or wed. Etruscan haruspices adopted the art with terracotta shards, insisting that how a plate split foretold famine routes more surely than omens in the sky. Medieval Persian glass-workers cooled goblets too quickly on purpose, then mapped the starburst fractures to pick auspicious trade caravans. Georgian-era miners in Cornwall chipped slate samples, claiming that sudden feather-cracks whispered where tin lodes thinned or poisonous firedamp pooled. By the early space age, Soviet cosmonauts kept cracked acrylic tiles aboard Soyuz capsules—one glance at the spreading fractures, they swore, warned of micrometeoroid strikes minutes before the alarms.</p>"
+    }
   },
-  {
+  "klsc2": {
     "id": "22752",
     "item_key": "klsc2",
-    "meta": []
+    "name": "Dictiomancy",
+    "meta": {
+      "proficiencyname": "Dictiomancy",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "12",
+      "e3usn": "Riffling through any book or papers while letting a pin or quill rest upon the pages allows the seer to boost the intelligence rolls (+5) of all party members for the remainder of the day. ",
+      "e3usn-value": "<p>Riffling through any book or papers while letting a pin or quill rest upon the pages allows the seer to boost the intelligence rolls (+5) of all party members for the remainder of the day. </p>",
+      "61l9a": "Scholars in the Library of Alexandria kept “lexicon lots,” slipping bronze needles between scroll columns and reading the impaled word as the Muse’s verdict on state policy. Carthaginian traders later carried pocket wax-tablets whose random scratches, melted and re-etched, forecast whether a voyage would return laden or lost. In twelfth-century monasteries, illuminator-monks rifled glossaries by moonlight, trusting the first illuminated capital they saw to name tomorrow’s patron saint—or heresy. Ottoman kelime falcıları (“word seers”) balanced quills over bound Persian dictionaries; whichever page the quill stained revealed which vizier plotted intrigue that week. By the telegraph age, cipher clerks in London parlors flicked printed word-lists, betting on which blind poke predicted stock surges or scandal prints before the presses rolled.",
+      "61l9a-value": "<p>Scholars in the Library of Alexandria kept “lexicon lots,” slipping bronze needles between scroll columns and reading the impaled word as the Muse’s verdict on state policy. Carthaginian traders later carried pocket wax-tablets whose random scratches, melted and re-etched, forecast whether a voyage would return laden or lost. In twelfth-century monasteries, illuminator-monks rifled glossaries by moonlight, trusting the first illuminated capital they saw to name tomorrow’s patron saint—or heresy. Ottoman <em data-start=\"552\" data-end=\"570\">kelime falcıları</em> (“word seers”) balanced quills over bound Persian dictionaries; whichever page the quill stained revealed which vizier plotted intrigue that week. By the telegraph age, cipher clerks in London parlors flicked printed word-lists, betting on which blind poke predicted stock surges or scandal prints before the presses rolled.</p>"
+    }
   },
-  {
+  "3q3g4": {
     "id": "22753",
     "item_key": "3q3g4",
-    "meta": []
+    "name": "Gyromancy",
+    "meta": {
+      "proficiencyname": "Gyromancy",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "30",
+      "e3usn": "The practitioner spins themselves in a circle rapidly. This induces visions of ones very close friends or allies. While doing this, all party members gain +6 to any attempts to block or dodge any incoming spells. ",
+      "e3usn-value": "<p>The practitioner spins themselves in a circle rapidly. This induces visions of ones very close friends or allies. While doing this, all party members gain +6 to any attempts to block or dodge any incoming spells. </p>",
+      "61l9a": "Roman sortes rotundae set bronze alphabet disks on amphitheatre floors; petitioners spun until vertigo dropped them, the landing letters spelling fate. In early medieval Wales, hedge-seers chalked protective circles and twirled barefoot inside, divining stolen-cattle routes by the stumble’s compass point. Renaissance carnival mystics added numbered wedges and wagers, birthing the roulette wheel before casinos tamed it. Napoleonic officers paid Romani “whirl-witches” to pace dizzy loops around campfires, claiming the resulting sway foretold surprise flanks at dawn. Vaudeville spiritualists later sold “pivot séances,” spinning atop luminous boards; when a medium collapsed, the pointer’s direction promised everything from marriages to market crashes.",
+      "61l9a-value": "<p>Roman <em data-start=\"47\" data-end=\"64\">sortes rotundae</em> set bronze alphabet disks on amphitheatre floors; petitioners spun until vertigo dropped them, the landing letters spelling fate. In early medieval Wales, hedge-seers chalked protective circles and twirled barefoot inside, divining stolen-cattle routes by the stumble’s compass point. Renaissance carnival mystics added numbered wedges and wagers, birthing the roulette wheel before casinos tamed it. Napoleonic officers paid Romani “whirl-witches” to pace dizzy loops around campfires, claiming the resulting sway foretold surprise flanks at dawn. Vaudeville spiritualists later sold “pivot séances,” spinning atop luminous boards; when a medium collapsed, the pointer’s direction promised everything from marriages to market crashes.</p>"
+    }
   },
-  {
+  "q073y": {
     "id": "22754",
     "item_key": "q073y",
-    "meta": []
+    "name": "Hydromancy",
+    "meta": {
+      "proficiencyname": "Hydromancy",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "7",
+      "e3usn": "Gazing into still or gently moving water and reading the play of reflections and ripples for hidden currents of fate allows the practitioner to improve their own mental fortitude +10 (or the fortitude of another target +5) for the next day. However, this must be performed at dawn outside. One target per day. ",
+      "e3usn-value": "<p>Gazing into still or gently moving water and reading the play of reflections and ripples for hidden currents of fate allows the practitioner to improve their own mental fortitude +10 (or the fortitude of another target +5) for the next day. However, this must be performed at dawn outside. One target per day. </p>",
+      "61l9a": "Babylonian temple-priests poured oil onto sacred basins, claiming the swirl of slick coils spelled a city’s fortunes in drought or flood. Greek philosophers at Didyma read moon-lit ripples in the Castalian spring, timing oracles to when concentric rings overlapped just so. Viking navigators filled horn cups with seawater and bits of lodestone; whichever wavelet hugged a fragment showed the heading of unseen reefs. In Mughal Kashmir, court astrologers chilled silver bowls at dawn, mapping the fine ice-cracks that formed before the first sunbeam to forecast harvest yields. By the early twentieth century, rural “water-witches” in Appalachia skimmed creek pools with pan mirrors, divining lost livestock—or revenuers—from the patterns of mirrored clouds.",
+      "61l9a-value": "<p>Babylonian temple-priests poured oil onto sacred basins, claiming the swirl of slick coils spelled a city’s fortunes in drought or flood. Greek philosophers at Didyma read moon-lit ripples in the Castalian spring, timing oracles to when concentric rings overlapped just so. Viking navigators filled horn cups with seawater and bits of lodestone; whichever wavelet hugged a fragment showed the heading of unseen reefs. In Mughal Kashmir, court astrologers chilled silver bowls at dawn, mapping the fine ice-cracks that formed before the first sunbeam to forecast harvest yields. By the early twentieth century, rural “water-witches” in Appalachia skimmed creek pools with pan mirrors, divining lost livestock—or revenuers—from the patterns of mirrored clouds.</p>"
+    }
   },
-  {
+  "ld4q5": {
     "id": "22755",
     "item_key": "ld4q5",
-    "meta": []
+    "name": "Margaritomancy",
+    "meta": {
+      "proficiencyname": "Margaritomancy",
+      "kv517": "Greek",
+      "s71z0": "Divination",
+      "ipjf3": "5",
+      "e3usn": "This practice involves casting pearls into a bowl or other vessel, the reader gains +4 to any social skills checks involving business or financial transactions (including salary negotiations, job interviews, or efforts to barter). Self only. Lasts for 1 hour. ",
+      "e3usn-value": "<p>This practice involves casting pearls into a bowl or other vessel, the reader gains +4 to any social skills checks involving business or financial transactions (including salary negotiations, job interviews, or efforts to barter). Self only. Lasts for 1 hour. </p>",
+      "61l9a": "Hellenistic pearl-diviners in Seleucia dropped uncut gems into tinted wine, claiming the hue shift spelled out which satrap would prosper. Tang-dynasty courtiers rolled pearls across lacquered boards; the stop-point between etched ideograms set the day’s petition order before the throne. In Renaissance Venice, jewellers floated imperfect pearls in seawater, mapping the slow swirl of nacre dust to forecast both tides and trade embargoes. Georgian smugglers along the Malabar Coast rattled seed-pearls in coconut shells, listening for the “hollow note” that warned of customs dragnets. By the Art Deco boom, Parisian “pearl readers” arranged strings on black velvet, selling stock-tips and marriage omens to flappers who swore each bead’s shimmer brightened or dulled with tomorrow’s fortunes.",
+      "61l9a-value": "<p>Hellenistic pearl-diviners in Seleucia dropped uncut gems into tinted wine, claiming the hue shift spelled out which satrap would prosper. Tang-dynasty courtiers rolled pearls across lacquered boards; the stop-point between etched ideograms set the day’s petition order before the throne. In Renaissance Venice, jewellers floated imperfect pearls in seawater, mapping the slow swirl of nacre dust to forecast both tides and trade embargoes. Georgian smugglers along the Malabar Coast rattled seed-pearls in coconut shells, listening for the “hollow note” that warned of customs dragnets. By the Art Deco boom, Parisian “pearl readers” arranged strings on black velvet, selling stock-tips and marriage omens to flappers who swore each bead’s shimmer brightened or dulled with tomorrow’s fortunes.</p>"
+    }
   },
-  {
+  "g3qpu": {
     "id": "22756",
     "item_key": "g3qpu",
-    "meta": []
+    "name": "Myomancy",
+    "meta": {
+      "proficiencyname": "Myomancy",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "10",
+      "e3usn": "Myomancy involves observing the movements of small rodents. Doing so allows the practitioner to grant any target +3 to their next creatures roll. ",
+      "e3usn-value": "<p>Myomancy involves observing the movements of small rodents. Doing so allows the practitioner to grant any target +3 to their next creatures roll. </p>",
+      "61l9a": "Thracian grain-keepers scattered fresh barley at dusk, judging a harvest’s fate by which quadrant temple mice emptied first. Republican Roman augurs raised white mice in cedar cages, freeing them before battle; a scamper toward the enemy’s banner foretold victory bought dearly. Plague-era Florentine doctors made nightly sketches of sewer-rat routes, claiming the morning’s curve of corpses followed those very lines. In Edo-period Osaka, “nezumi onmyōji” mapped bite-marks on ledgers to warn merchants of looming warehouse fires. Today’s metro clairvoyants time the scuttle of platform rats against train whistles, selling commuters whispers of delays, derailments, or market dips hours ahead.",
+      "61l9a-value": "<p>Thracian grain-keepers scattered fresh barley at dusk, judging a harvest’s fate by which quadrant temple mice emptied first. Republican Roman augurs raised white mice in cedar cages, freeing them before battle; a scamper toward the enemy’s banner foretold victory bought dearly. Plague-era Florentine doctors made nightly sketches of sewer-rat routes, claiming the morning’s curve of corpses followed those very lines. In Edo-period Osaka, “nezumi onmyōji” mapped bite-marks on ledgers to warn merchants of looming warehouse fires. Today’s metro clairvoyants time the scuttle of platform rats against train whistles, selling commuters whispers of delays, derailments, or market dips hours ahead.</p>"
+    }
   },
-  {
+  "g5q2d": {
     "id": "22757",
     "item_key": "g5q2d",
-    "meta": []
+    "name": "Phyllorhodomancy",
+    "meta": {
+      "proficiencyname": "Phyllorhodomancy",
+      "fjkhy": [
+        "Item Requirements"
+      ],
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "23",
+      "6hlo5": {
+        "form": "960",
+        "i29041": {
+          "aiwl3": "Rose Petals"
+        }
+      },
+      "aiwl3": [
+        "Rose Petals"
+      ],
+      "e3usn": "By smashing rose petals in a target's hand, you allow them to see more clearly anyone who may have a romantic interest in them. They still must complete a social skills check (headmaster's discretion for the threshold value), but gain +6 to that one specific check roll. ",
+      "e3usn-value": "<p>By smashing rose petals in a target's hand, you allow them to see more clearly anyone who may have a romantic interest in them. They still must complete a social skills check (headmaster's discretion for the threshold value), but gain +6 to that one specific check roll. </p>",
+      "61l9a": "Hellenistic hedge-seers plucked fresh rose leaves, striking them against stone; a clear, ringing crack foretold steadfast love, while a dull thud warned of betrayal. Medieval Provençal troubadours carried pressed petals in songbooks, consulting their crispness before daring a serenade beneath castle balconies. In Mughal Lahore, court perfumers floated rose-leaf chains on still pools, reading the drift to schedule treaties—or poisonings—between rival nawabs. Victorian parlor mystics dried petals on silver trays and judged suitors by how quickly each fragment curled in the heat of a candle flame. Wartime resistance cells in Occupied Paris pinned secret orders to rose stems; operatives swore a glance at the bloom’s tilt told whether Gestapo eyes lurked nearby.",
+      "61l9a-value": "<p>Hellenistic hedge-seers plucked fresh rose leaves, striking them against stone; a clear, ringing crack foretold steadfast love, while a dull thud warned of betrayal. Medieval Provençal troubadours carried pressed petals in songbooks, consulting their crispness before daring a serenade beneath castle balconies. In Mughal Lahore, court perfumers floated rose-leaf chains on still pools, reading the drift to schedule treaties—or poisonings—between rival nawabs. Victorian parlor mystics dried petals on silver trays and judged suitors by how quickly each fragment curled in the heat of a candle flame. Wartime resistance cells in Occupied Paris pinned secret orders to rose stems; operatives swore a glance at the bloom’s tilt told whether Gestapo eyes lurked nearby.</p>"
+    }
   },
-  {
+  "22o0p": {
     "id": "22758",
     "item_key": "22o0p",
-    "meta": []
+    "name": "Psilomancy",
+    "meta": {
+      "proficiencyname": "Psilomancy",
+      "s71z0": "Divination",
+      "ipjf3": "13",
+      "e3usn": "Examining the patterns in shed skin, hair, and dandruff allows the diviner to aid the target in discovering their inner strength. They take +5 to their next strength roll. ",
+      "e3usn-value": "<p>Examining the patterns in shed skin, hair, and dandruff allows the diviner to aid the target in discovering their inner strength. They take +5 to their next strength roll. </p>",
+      "61l9a": "Babylonian barber-priests swept palace thresholds at dusk, spreading the king’s shed hairs on clay and reading which locks curled toward the rising moon to gauge the monarch’s waning strength. Hippocratic physicians at Kos dried patients’ skin scrapings on linen, claiming the pattern of flakes forecast fevers days before a pulse turned hot. Plague-era apothecaries in Avignon sifted church pew dust, tracing the tiniest blood-tinged specks to chart where the Black Death would bloom next. Edo-period street mystics strung beggars’ fallen hairs on rice paper; if the strands bent as kanji for “rust,” they warned smithies of impending iron shortages. In modern forensic labs, clandestine “strand readers” slip dandruff under polarized light, selling corporations twelve-hour leads on viral outbreaks that could tank their quarterly forecasts.",
+      "61l9a-value": "<p>Babylonian barber-priests swept palace thresholds at dusk, spreading the king’s shed hairs on clay and reading which locks curled toward the rising moon to gauge the monarch’s waning strength. Hippocratic physicians at Kos dried patients’ skin scrapings on linen, claiming the pattern of flakes forecast fevers days before a pulse turned hot. Plague-era apothecaries in Avignon sifted church pew dust, tracing the tiniest blood-tinged specks to chart where the Black Death would bloom next. Edo-period street mystics strung beggars’ fallen hairs on rice paper; if the strands bent as kanji for “rust,” they warned smithies of impending iron shortages. In modern forensic labs, clandestine “strand readers” slip dandruff under polarized light, selling corporations twelve-hour leads on viral outbreaks that could tank their quarterly forecasts.</p>"
+    }
   },
-  {
+  "9ffgt": {
     "id": "22759",
     "item_key": "9ffgt",
-    "meta": []
+    "name": "Libanomancy",
+    "meta": {
+      "proficiencyname": "Libanomancy",
+      "kv517": "Roman",
+      "s71z0": "Divination",
+      "ipjf3": "31",
+      "e3usn": "Watching incense smoke rise and curl to divine hidden currents of intent and danger allows the practitioner to lull any in their area into a deep sense of calm. This trance like state causes several progressive effects (in that after a period of time, a new effect takes hold as long as the practitioner can maintain their focus on the practice. 1. Immediately, all in the immediate area become docile. Anyone entering the area with hostile intentions always immediately become docile. 2. After five minutes, all anxiety related and depressive damage is completely healed. 3. After one hour, the practitioner gains coercive control over all subjects in the area for three hours. These subjects will obey simple commands, will not act against the practitioner's wishes. 4. After twelve hours, the practitioner gains mental invasion allowing them to glean important information from the subject. They take -15 to any social skills checks while under the influence of the practitioner.5. After twenty-four hours, the subject begins to take 1H wound of sanity-shaking damage each subsequent hour (with the opportunity to attempt to break free from control each hour). Damage is only incurred while the subject is still under the control of the practitioner. This trance can only be broken through the use of a Mental Fortitude roll higher than the Libanomancy roll. Any targets may attempt a mental fortitude roll at any progressive stage (e.g., immediately, after 5 minutes, after 1 hour).",
+      "e3usn-value": "<p>Watching incense smoke rise and curl to divine hidden currents of intent and danger allows the practitioner to lull any in their area into a deep sense of calm. This trance like state causes several progressive effects (in that after a period of time, a new effect takes hold as long as the practitioner can maintain their focus on the practice. <br /><br />1. Immediately, all in the immediate area become docile. Anyone entering the area with hostile intentions <em>always</em> immediately become docile. <br />2. After five minutes, all anxiety related and depressive damage is completely healed. <br />3. After one hour, the practitioner gains coercive control over all subjects in the area for three hours. These subjects will obey simple commands, will not act against the practitioner's wishes. <br />4. After twelve hours, the practitioner gains mental invasion allowing them to glean important information from the subject. They take -15 to any social skills checks while under the influence of the practitioner.<br />5. After twenty-four hours, the subject begins to take 1H wound of sanity-shaking damage each subsequent hour (with the opportunity to attempt to break free from control each hour). Damage is only incurred while the subject is still under the control of the practitioner. <br /><br /><br /><br />This trance can only be broken through the use of a Mental Fortitude roll higher than the Libanomancy roll. Any targets may attempt a mental fortitude roll at any progressive stage (e.g., immediately, after 5 minutes, after 1 hour).</p>",
+      "61l9a": "Akkadian temple‑priests burned cedar resin before sunrise, watching curls of vapor writhe to judge whether Ishtar’s favor or wrath would crown the day. Pythagorean mystics at Croton timed questions to the moment frankincense coils spiraled due east, claiming Apollo himself steered the smoke. Early caliphal scientists in Basra compared benzoin plumes in glass chambers, charting airflow subtleties that foretold plague winds weeks ahead of sailors’ gossip. High‑medieval alchemists scattered powdered myrrh on braziers, reading how sparks leapt through ascending haze to choose the safer crucible alloy. In Qing‑dynasty courts, palace astrologers noted that a drifting agarwood thread which bent twice before straightening augured imperial edicts within three days—an omen eunuchs tracked with shrewd anticipation.",
+      "61l9a-value": "<p>Akkadian temple‑priests burned cedar resin before sunrise, watching curls of vapor writhe to judge whether Ishtar’s favor or wrath would crown the day. Pythagorean mystics at Croton timed questions to the moment frankincense coils spiraled due east, claiming Apollo himself steered the smoke. Early caliphal scientists in Basra compared benzoin plumes in glass chambers, charting airflow subtleties that foretold plague winds weeks ahead of sailors’ gossip. High‑medieval alchemists scattered powdered myrrh on braziers, reading how sparks leapt through ascending haze to choose the safer crucible alloy. In Qing‑dynasty courts, palace astrologers noted that a drifting agarwood thread which bent twice before straightening augured imperial edicts within three days—an omen eunuchs tracked with shrewd anticipation.</p>"
+    }
   },
-  {
+  "zupgh": {
     "id": "22760",
     "item_key": "zupgh",
-    "meta": []
+    "name": "Oinomancy",
+    "meta": {
+      "proficiencyname": "Oinomancy",
+      "kv517": "Roman",
+      "s71z0": "Divination",
+      "ipjf3": "33",
+      "e3usn": "The diviner observes the swirls and legs of wine in a goblet. They then can have one of several effects on their target (who must then drink the wine for the effects to take hold): 1. The target takes 1L wound per minute (or one battle turn round) of curse damage2. 1H wound of any type is healed3. +6 to the target's next charms cast4. +6 to the target's next charisma check ",
+      "e3usn-value": "<p>The diviner observes the swirls and legs of wine in a goblet. They then can have one of several effects on their target (who must then drink the wine for the effects to take hold): <br /><br />1. The target takes 1L wound per minute (or one battle turn round) of curse damage<br />2. 1H wound of any type is healed<br />3. +6 to the target's next charms cast<br />4. +6 to the target's next charisma check </p>",
+      "61l9a": "Homeric seers dripped wine onto sacrificial ash, judging a voyage’s luck by how the crimson threads spread across gray dust. Roman patricians swirled amphora dregs and traced the residue on silver platters, claiming Mars himself steered spill-patterns toward victory or defeat. Monastic vintners of Burgundy tasted cask lees at matins, their whispered notes on sourness or bloom shaping which abbot dared build new cloisters that year. Venetian spice merchants in the Age of Sail cracked resin into goblets: if the bead turned the wine cloudy, they rerouted fleets before storms the Doge’s charts missed. By the Roaring Twenties, speakeasy “sommeliers” read tear-trails on coupe glasses, selling flappers midnight hints of market highs—or Prohibition raids—before ticker tape could whisper.",
+      "61l9a-value": "<p>Homeric seers dripped wine onto sacrificial ash, judging a voyage’s luck by how the crimson threads spread across gray dust. Roman patricians swirled amphora dregs and traced the residue on silver platters, claiming Mars himself steered spill-patterns toward victory or defeat. Monastic vintners of Burgundy tasted cask lees at matins, their whispered notes on sourness or bloom shaping which abbot dared build new cloisters that year. Venetian spice merchants in the Age of Sail cracked resin into goblets: if the bead turned the wine cloudy, they rerouted fleets before storms the Doge’s charts missed. By the Roaring Twenties, speakeasy “sommeliers” read tear-trails on coupe glasses, selling flappers midnight hints of market highs—or Prohibition raids—before ticker tape could whisper.</p>"
+    }
   },
-  {
+  "o18qm": {
     "id": "22761",
     "item_key": "o18qm",
-    "meta": []
+    "name": "Phrenology",
+    "meta": {
+      "proficiencyname": "Phrenology",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "27",
+      "e3usn": "By reading the ridges and bumps on one's skull, one can gain insights into the target's inner self and strengths. This grants them +5 on their next equanimity, creativity, fortitude, or willpower roll. ",
+      "e3usn-value": "<p>By reading the ridges and bumps on one's skull, one can gain insights into the target's inner self and strengths. This grants them +5 on their next equanimity, creativity, fortitude, or willpower roll. </p>",
+      "61l9a": "Late-Georgian doctors in Vienna stroked students’ scalps, declaring bumps behind the ear the surest markers of musical genius—fuel for salons and scandals alike. Victorians carried brass calipers to factories, measuring crown ridges to assign foremen or sack “dishonest” hands before payday. Abolitionists flipped the art on its head, publishing pamphlets whose sketched crania “proved” enslaved Black scholars their moral equals—sending slave-owners into a legislative panic. In Gilded-Age America, showboat mesmerists charged a dime to feel lovers’ heads and predict marital bliss or bankruptcy, turning river towns into carnival clinics. By the 1920s, Parisian detectives catalogued murderers’ skull-charts, cross-referencing lumps with arrest records to forecast the next spree—until statisticians exposed the ruse and the charts slipped quietly into occult backrooms.",
+      "61l9a-value": "<p>Late-Georgian doctors in Vienna stroked students’ scalps, declaring bumps behind the ear the surest markers of musical genius—fuel for salons and scandals alike. Victorians carried brass calipers to factories, measuring crown ridges to assign foremen or sack “dishonest” hands before payday. Abolitionists flipped the art on its head, publishing pamphlets whose sketched crania “proved” enslaved Black scholars their moral equals—sending slave-owners into a legislative panic. In Gilded-Age America, showboat mesmerists charged a dime to feel lovers’ heads and predict marital bliss or bankruptcy, turning river towns into carnival clinics. By the 1920s, Parisian detectives catalogued murderers’ skull-charts, cross-referencing lumps with arrest records to forecast the next spree—until statisticians exposed the ruse and the charts slipped quietly into occult backrooms.</p>"
+    }
   },
-  {
+  "2zjwl": {
     "id": "22762",
     "item_key": "2zjwl",
-    "meta": []
+    "name": "Pyromancy",
+    "meta": {
+      "proficiencyname": "Pyromancy",
+      "s71z0": "Divination",
+      "ipjf3": "15",
+      "e3usn": "This practice involves the practitioner holding in their mind a person they know well while staring into the flames of a self-lit fire. The observation allows for long distance communication with that other. However, critical fails cause 1H wound of burn damage to the target. ",
+      "e3usn-value": "<p>This practice involves the practitioner holding in their mind a person they know well while staring into the flames of a self-lit fire. The observation allows for long distance communication with that other. However, critical fails cause 1H wound of burn damage to the target. </p>",
+      "61l9a": "Bronze-Age Hittite diviners scattered sesame oil onto hearth embers, claiming the way each bead flared named tomorrow’s victor or sacrifice. Greek temple attendants at Delphi judged wars by the color tongues dancing atop goat fat, recording crimson forks as Apollo’s nod to bloodshed. Medieval Andalusian alchemists blew glass tubes through charcoal flames, sketching how sparks spiraled to pick safer trade winds across the Strait. Mongol shamans carried travel-altars of yak dung; if the campfire cracked twice before dawn, they rerouted horse herds away from unseen raids. In Gilded-Age Chicago, “fire readers” hired by insurance barons watched warehouse infernos, boasting a glance at collapsing beams could foretell the board’s next hostile takeover.",
+      "61l9a-value": "<p>Bronze-Age Hittite diviners scattered sesame oil onto hearth embers, claiming the way each bead flared named tomorrow’s victor or sacrifice. Greek temple attendants at Delphi judged wars by the color tongues dancing atop goat fat, recording crimson forks as Apollo’s nod to bloodshed. Medieval Andalusian alchemists blew glass tubes through charcoal flames, sketching how sparks spiraled to pick safer trade winds across the Strait. Mongol shamans carried travel-altars of yak dung; if the campfire cracked twice before dawn, they rerouted horse herds away from unseen raids. In Gilded-Age Chicago, “fire readers” hired by insurance barons watched warehouse infernos, boasting a glance at collapsing beams could foretell the board’s next hostile takeover.</p>"
+    }
   },
-  {
+  "sf2tv": {
     "id": "22763",
     "item_key": "sf2tv",
-    "meta": []
+    "name": "Sciomancy",
+    "meta": {
+      "proficiencyname": "Sciomancy",
+      "kv517": "Greek",
+      "s71z0": "Divination",
+      "ipjf3": "13",
+      "e3usn": "Casting a single light and reading the stretch, split, and tremor of resulting shadows for secrets cloaked in darkness. This allows one target to gain +3 to any attempts to use the common shielding spell (protego) against a dark art cast.",
+      "e3usn-value": "<p>Casting a single light and reading the stretch, split, and tremor of resulting shadows for secrets cloaked in darkness. This allows one target to gain +3 to any attempts to use the common shielding spell (protego) against a dark art cast.</p>",
+      "61l9a": "In dusk-flooded Sumer, temple watchers stretched linen cords beside obelisks, claiming the extra inch of shadow presaged either famine or a king’s long reign. Hellenistic philosophers at Eleusis charted “noon-shades” that defied the sun’s zenith, reading the anomaly as Demeter’s whispered price for next spring’s wheat. Umayyad astronomers in Damascus inked moonlit silhouettes across marble courtyards, their star charts laced with footnotes on how a flick of silver darkness foretold plague winds. Edo-period onmyōji trained paper-lantern beams through lattice screens, mapping shifting silhouettes of courtiers to unmask intrigue hours before rumor stirred. In the age of arc lamps, Parisian stage magicians timed spotlight eclipses against backstage walls, swearing the first errant flicker previewed critics’ applause—or derision—before the curtain even rose.",
+      "61l9a-value": "<p>In dusk-flooded Sumer, temple watchers stretched linen cords beside obelisks, claiming the extra inch of shadow presaged either famine or a king’s long reign. Hellenistic philosophers at Eleusis charted “noon-shades” that defied the sun’s zenith, reading the anomaly as Demeter’s whispered price for next spring’s wheat. Umayyad astronomers in Damascus inked moonlit silhouettes across marble courtyards, their star charts laced with footnotes on how a flick of silver darkness foretold plague winds. Edo-period onmyōji trained paper-lantern beams through lattice screens, mapping shifting silhouettes of courtiers to unmask intrigue hours before rumor stirred. In the age of arc lamps, Parisian stage magicians timed spotlight eclipses against backstage walls, swearing the first errant flicker previewed critics’ applause—or derision—before the curtain even rose.</p>"
+    }
   },
-  {
+  "w08cf": {
     "id": "22764",
     "item_key": "w08cf",
-    "meta": []
+    "name": "Spatilomancy",
+    "meta": {
+      "proficiencyname": "Spatilomancy",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "7",
+      "e3usn": "Inspecting fresh scat—its shape, spread, and scent—to read the hidden movements of bodies, beasts, and blight. The practitioner grants +2 to any rolls attempting to protect against a creature. ",
+      "e3usn-value": "<p>Inspecting fresh scat—its shape, spread, and scent—to read the hidden movements of bodies, beasts, and blight. The practitioner grants +2 to any rolls attempting to protect against a creature. </p>",
+      "61l9a": "Akkadian herdsmen read omen-clumps in goat yards, swearing a crooked spiral foretold jackal raids before nightfall. Roman haruspices extended the art, charting pigeons’ droppings on temple tiles to pick auspicious voting days for rival consuls. Black-Death chirurgeons in Avignon compared the flecks in patients’ stools to predict whose humors would sour by dawn—grim but startlingly accurate. Among San rock trackers of the Kalahari, the morning scatter of gemsbok pellets still guides hunters toward water or away from lions long before prints appear. Modern epidemiologists have quietly revived the craft, mapping sewer-borne traces to spot citywide outbreaks a week before lab tests turn positive.",
+      "61l9a-value": "<p>Akkadian herdsmen read omen-clumps in goat yards, swearing a crooked spiral foretold jackal raids before nightfall. Roman haruspices extended the art, charting pigeons’ droppings on temple tiles to pick auspicious voting days for rival consuls. Black-Death chirurgeons in Avignon compared the flecks in patients’ stools to predict whose humors would sour by dawn—grim but startlingly accurate. Among San rock trackers of the Kalahari, the morning scatter of gemsbok pellets still guides hunters toward water or away from lions long before prints appear. Modern epidemiologists have quietly revived the craft, mapping sewer-borne traces to spot citywide outbreaks a week before lab tests turn positive.</p>"
+    }
   },
-  {
+  "tanm8": {
     "id": "22765",
     "item_key": "tanm8",
-    "meta": []
+    "name": "Graphomancy",
+    "meta": {
+      "proficiencyname": "Graphomancy",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "12",
+      "e3usn": "The practitioner can take a reading of any writing of another person. They can then offer +4 to any social skills checks against this person to any target. For example, if the seer reads the writing of someone named Jennie, they may share those insights with Lars who then can take +4 when social skills rolling against Jennie.",
+      "e3usn-value": "<p>The practitioner can take a reading of any writing of another person. They can then offer +4 to any social skills checks against this person to any target. For example, if the seer reads the writing of someone named Jennie, they may share those insights with Lars who then can take +4 when social skills rolling against Jennie.</p>",
+      "61l9a": "Hellenistic scribes at Pergamon let fresh ink drip across draft scrolls; the way capillary fingers branched reportedly mapped plots hatched in rival courts. Abbasid calligraphers in Baghdad sprinkled sand on wet kufic strokes, reading the settling grains to time caravans before desert winds could scour their tracks. During the European Renaissance, chancery clerks flicked quills over blotting paper and saw future treaties in the blooms, a practice Erasmus derided even while quietly consulting his own blot-book. Civil-War telegraphers in Washington interpreted stray sparks that etched soot lines on tape, wagering rations on which general’s name the scorch marks would spell by dawn. In the cyber age, code-breakers screenshot packet noise and swear the glitch-glyphs that flicker first predict zero-day exploits hours before they hit the wire.",
+      "61l9a-value": "<p>Hellenistic scribes at Pergamon let fresh ink drip across draft scrolls; the way capillary fingers branched reportedly mapped plots hatched in rival courts. Abbasid calligraphers in Baghdad sprinkled sand on wet kufic strokes, reading the settling grains to time caravans before desert winds could scour their tracks. During the European Renaissance, chancery clerks flicked quills over blotting paper and saw future treaties in the blooms, a practice Erasmus derided even while quietly consulting his own blot-book. Civil-War telegraphers in Washington interpreted stray sparks that etched soot lines on tape, wagering rations on which general’s name the scorch marks would spell by dawn. In the cyber age, code-breakers screenshot packet noise and swear the glitch-glyphs that flicker first predict zero-day exploits hours before they hit the wire.</p>"
+    }
   },
-  {
+  "b1vyw": {
     "id": "22766",
     "item_key": "b1vyw",
-    "meta": []
+    "name": "Sycomancy",
+    "meta": {
+      "proficiencyname": "Sycomancy",
+      "fjkhy": [
+        "Item Requirements"
+      ],
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "12",
+      "6hlo5": {
+        "form": "960",
+        "i29046": {
+          "aiwl3": "Fig Leaves"
+        }
+      },
+      "aiwl3": [
+        "Fig Leaves"
+      ],
+      "e3usn": "Inscribing names or symbols on fresh fig leaves and watching how the sap-brown bruises spread and curl to unveil fortune or peril. Any efforts to conceal magic or any enchantments (in the immediate area) with a set value below that of the Sycomancy roll are immediately revealed. ",
+      "e3usn-value": "<p>Inscribing names or symbols on fresh fig leaves and watching how the sap-brown bruises spread and curl to unveil fortune or peril. Any efforts to conceal magic or any enchantments (in the immediate area) with a set value below that of the Sycomancy roll are immediately revealed. </p>",
+      "61l9a": "Priests of Old Memphis inked petitions onto supple sycomore-fig leaves, declaring that whichever name first puckered beneath the desert sun would draw the gods’ immediate gaze. Hellenistic orchard-keepers on Cyprus pierced green figs with bronze pins; the pattern of milky latex flecks foretold blight, windfall, or brigand raids along the coast. Early Byzantine ascetics floated carved fig chips on cisterns, timing their slow spin to choose which monastery bell should toll at dawn. In medieval Al-Andalus, huerta farmers strung drying leaves along canal walls—the first to crackle warned of frost two nights hence, saving whole groves. Sicilian dockworkers’ wives of the 1880s pinned fresh foliage to shutter slats; if a leaf turned black by moonset, they rerouted contraband before the carabinieri’s lanterns reached the quay.",
+      "61l9a-value": "<p>Priests of Old Memphis inked petitions onto supple <strong data-start=\"92\" data-end=\"108\">sycomore-fig</strong> leaves, declaring that whichever name first puckered beneath the desert sun would draw the gods’ immediate gaze. Hellenistic orchard-keepers on Cyprus pierced green figs with bronze pins; the pattern of milky latex flecks foretold blight, windfall, or brigand raids along the coast. Early Byzantine ascetics floated carved fig chips on cisterns, timing their slow spin to choose which monastery bell should toll at dawn. In medieval Al-Andalus, <strong data-start=\"554\" data-end=\"564\">huerta</strong> farmers strung drying leaves along canal walls—the first to crackle warned of frost two nights hence, saving whole groves. Sicilian dockworkers’ wives of the 1880s pinned fresh foliage to shutter slats; if a leaf turned black by moonset, they rerouted contraband before the carabinieri’s lanterns reached the quay.</p>"
+    }
   },
-  {
+  "g0km7": {
     "id": "22767",
     "item_key": "g0km7",
-    "meta": []
+    "name": "Pessomancy",
+    "meta": {
+      "proficiencyname": "Pessomancy",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "10",
+      "e3usn": "Casting multiple pebbles into water while reading their drift and collisions allows the practitioner to heal 1H wound of vital damage. ",
+      "e3usn-value": "<p>Casting multiple pebbles into water while reading their drift and collisions allows the practitioner to heal 1H wound of vital damage. </p>",
+      "61l9a": "Classical Greek polemarchs rattled black-and-white pebbles in bronze urns, trusting the spill-pattern to pick tomorrow’s march or retreat. Delphic priests later etched cryptic sigils on river stones and tossed them into sacred pools, mapping the ripples to warn of earthquakes days ahead. Byzantine judges kept velvet bags of numbered pebbles; any lot that landed point-up twice foretold riots in the Hippodrome, prompting extra guards. Berber caravan leaders in the Sahara still cast polished agate chips onto goat-hide, their scatter pointing to hidden wells—knowledge French engineers once tried (and failed) to buy. In Prohibition-era Chicago, speakeasy “stone readers” skimmed bar-top gravel into shot glasses; the first pebble to clink against glass walls named which rival joint the police would raid before dawn.",
+      "61l9a-value": "<p>Classical Greek polemarchs rattled black-and-white pebbles in bronze urns, trusting the spill-pattern to pick tomorrow’s march or retreat. Delphic priests later etched cryptic sigils on river stones and tossed them into sacred pools, mapping the ripples to warn of earthquakes days ahead. Byzantine judges kept velvet bags of numbered pebbles; any lot that landed point-up twice foretold riots in the Hippodrome, prompting extra guards. Berber caravan leaders in the Sahara still cast polished agate chips onto goat-hide, their scatter pointing to hidden wells—knowledge French engineers once tried (and failed) to buy. In Prohibition-era Chicago, speakeasy “stone readers” skimmed bar-top gravel into shot glasses; the first pebble to clink against glass walls named which rival joint the police would raid before dawn.</p>"
+    }
   },
-  {
+  "coy37": {
     "id": "22768",
     "item_key": "coy37",
-    "meta": []
+    "name": "Uromancy",
+    "meta": {
+      "proficiencyname": "Uromancy",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "7",
+      "e3usn": "Swirling fresh urine in a clear vessel and parsing its color, clarity, and sediment rings for omens of health and hidden contagion allow the seer to to mitigate 1H wound of damage for the next day. ",
+      "e3usn-value": "<p>Swirling fresh urine in a clear vessel and parsing its color, clarity, and sediment rings for omens of health and hidden contagion allow the seer to to mitigate 1H wound of damage for the next day. </p>",
+      "61l9a": "Babylonian āšipu inspected royal chamber pots at dawn, claiming flecks that floated foretold drought while swift‑sinking grains prophesied war. Hippocratic physicians charted hue and foam in glass beakers, timing fevers by how deep a ring of sediment settled by sunset. Medieval monastic infirmaries hung “wheel of waters” charts beside privy doors; pilgrims queued to have their flask compared and sins prescribed. In Renaissance Prague, alchemist‑doctors swirled urine over silver salts—the first flash of green warned of plague spores days before city bells tolled. By the Jazz Age, bootleg‑clinic diagnosticians in Chicago read cocktail‑yellow samples under neon light, selling whispered alerts of influenza spikes to speakeasies eager to dodge closures.",
+      "61l9a-value": "<p>Babylonian āšipu inspected royal chamber pots at dawn, claiming flecks that floated foretold drought while swift‑sinking grains prophesied war. Hippocratic physicians charted hue and foam in glass beakers, timing fevers by how deep a ring of sediment settled by sunset. Medieval monastic infirmaries hung “wheel of waters” charts beside privy doors; pilgrims queued to have their flask compared and sins prescribed. In Renaissance Prague, alchemist‑doctors swirled urine over silver salts—the first flash of green warned of plague spores days before city bells tolled. By the Jazz Age, bootleg‑clinic diagnosticians in Chicago read cocktail‑yellow samples under neon light, selling whispered alerts of influenza spikes to speakeasies eager to dodge closures.</p>"
+    }
   },
-  {
+  "bui8l": {
     "id": "22769",
     "item_key": "bui8l",
-    "meta": []
+    "name": "Vasomancy",
+    "meta": {
+      "proficiencyname": "Vasomancy",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "13",
+      "e3usn": "Striking or spinning a vessel and interpreting its tone, wobble, and hairline fractures allow the seer to bestow +2 to alchemy rolls on any target. ",
+      "e3usn-value": "<p>Striking or spinning a vessel and interpreting its tone, wobble, and hairline fractures allow the seer to bestow +2 to alchemy rolls on any target. </p>",
+      "61l9a": "Old-Kingdom potters at Memphis tapped cooling amphorae and claimed the pitch shift named which Nile bank would flood first. Classical Corinthian merchants weighed wine-jugs on tripods; a jar that groaned before settling foretold storms in the Saronic Gulf, saving many a cargo. Tang-dynasty tea-masters in Chang ’an spun fine porcelain and read the concentric rings left by drying glaze to time imperial edicts—court scribes swore the cups “spoke” a day ahead of the courier. Renaissance apothecaries clinked nested alembics, charting the resonance to predict which tincture would spoil or sparkle, quietly cornering guild markets. By the early electric age, Bohemian glass-blowers etched tuning lines on goblets; a single sung note that cracked the rim meant a war bond should be sold by morning.",
+      "61l9a-value": "<p>Old-Kingdom potters at Memphis tapped cooling amphorae and claimed the pitch shift named which Nile bank would flood first. Classical Corinthian merchants weighed wine-jugs on tripods; a jar that groaned before settling foretold storms in the Saronic Gulf, saving many a cargo. Tang-dynasty tea-masters in Chang ’an spun fine porcelain and read the concentric rings left by drying glaze to time imperial edicts—court scribes swore the cups “spoke” a day ahead of the courier. Renaissance apothecaries clinked nested alembics, charting the resonance to predict which tincture would spoil or sparkle, quietly cornering guild markets. By the early electric age, Bohemian glass-blowers etched tuning lines on goblets; a single sung note that cracked the rim meant a war bond should be sold by morning.</p>"
+    }
   },
-  {
+  "od86g": {
     "id": "22770",
     "item_key": "od86g",
-    "meta": []
+    "name": "Xylomancy",
+    "meta": {
+      "proficiencyname": "Xylomancy",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "12",
+      "e3usn": "Dropping snapped twigs and reading the way they settle gives the seer a guide toward powerful creatures or plants.",
+      "e3usn-value": "<p>Dropping snapped twigs and reading the way they settle gives the seer a guide toward powerful creatures or plants.</p>",
+      "61l9a": "Iron-Age Celts tossed freshly snapped hazel rods onto dew-soaked turf, swearing the angle of the longest stick named the clan a raider would strike before the next moon. In medieval Finland, Sámi noaiddit planted birch splinters in snowdrifts; the first to twist upright pointed toward reindeer herds—or hungry wargs—behind the ridge. Edo-period carpenters in Nara kept cedar shavings in lacquer boxes, consulting their spiral before raising temple beams; a curl that cracked warned of hidden rot aloft. Appalachian dowser-witches scattered dogwood twigs at crossroads, reading the pattern to guide moonshine runners past revenuers. By the Second World War, British code-rangers snapped match-sticks in mess tents: the way fragments aligned under lamplight told whose convoy would meet U-boats first.",
+      "61l9a-value": "<p>Iron-Age Celts tossed freshly snapped hazel rods onto dew-soaked turf, swearing the angle of the longest stick named the clan a raider would strike before the next moon. In medieval Finland, Sámi <em data-start=\"237\" data-end=\"247\">noaiddit</em> planted birch splinters in snowdrifts; the first to twist upright pointed toward reindeer herds—or hungry wargs—behind the ridge. Edo-period carpenters in Nara kept cedar shavings in lacquer boxes, consulting their spiral before raising temple beams; a curl that cracked warned of hidden rot aloft. Appalachian dowser-witches scattered dogwood twigs at crossroads, reading the pattern to guide moonshine runners past revenuers. By the Second World War, British code-rangers snapped match-sticks in mess tents: the way fragments aligned under lamplight told whose convoy would meet U-boats first.</p>"
+    }
   },
-  {
+  "ko6cd": {
     "id": "22771",
     "item_key": "ko6cd",
-    "meta": []
+    "name": "Ydromancy",
+    "meta": {
+      "proficiencyname": "Ydromancy",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "29",
+      "e3usn": "Dripping measured water into hollow vessels or fissures, then reading the pitch, pulse, and echo of each drip to map unseen currents above and below. This grants a target +5 to history checks for the next hour. ",
+      "e3usn-value": "<p>Dripping measured water into hollow vessels or fissures, then reading the pitch, pulse, and echo of each drip to map unseen currents above and below. This grants a target +5 to history checks for the next hour. </p>",
+      "61l9a": "— Hellenistic engineers at Rhodes lowered bronze cups into sacred wells and divined imperial fortunes from the pitch of escaping bubbles. Coptic hermits later ladled Nile seepage onto sun-hot flagstones, judging a village’s moral drift by the direction first vapor tendrils curled. In medieval Novgorod, ice-fishers drilled test holes at dusk; the swirl speed of rising slush allegedly plotted both blizzards and boyar treachery. Ottoman aqueduct-keepers floated orange blossoms down cistern tunnels—where a petal snagged foretold which marble lion-head would crack before spring floods. During the California Gold Rush, Chinese “water sha” prospectors listened at bamboo tubes: a hollow throb in the bedrock named the gulch whose hidden vein would give out next, days before the picks rang dry.",
+      "61l9a-value": "<p>— Hellenistic engineers at Rhodes lowered bronze cups into sacred wells and divined imperial fortunes from the <em data-start=\"150\" data-end=\"157\">pitch</em> of escaping bubbles. Coptic hermits later ladled Nile seepage onto sun-hot flagstones, judging a village’s moral drift by the direction first vapor tendrils curled. In medieval Novgorod, ice-fishers drilled test holes at dusk; the swirl speed of rising slush allegedly plotted both blizzards <strong data-start=\"450\" data-end=\"457\">and</strong> boyar treachery. Ottoman aqueduct-keepers floated orange blossoms down cistern tunnels—where a petal snagged foretold which marble lion-head would crack before spring floods. During the California Gold Rush, Chinese “water sha” prospectors listened at bamboo tubes: a hollow throb in the bedrock named the gulch whose hidden vein would give out next, days before the picks rang dry.</p>"
+    }
   },
-  {
+  "bb4fm": {
     "id": "22772",
     "item_key": "bb4fm",
-    "meta": []
+    "name": "Zoomancy",
+    "meta": {
+      "proficiencyname": "Zoomancy",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "7",
+      "e3usn": "Observing sudden shifts in nearby animal calls, posture, or flight grant to the target +3 to any attempts to tame or bond with a creature for the next hour. ",
+      "e3usn-value": "<p>Observing sudden shifts in nearby animal calls, posture, or flight grant to the target +3 to any attempts to tame or bond with a creature for the next hour. </p>",
+      "61l9a": "Mesopotamian pastoralists watched the restless pacing of ewes on windless nights; a single, sudden stillness foretold sand-storms that buried caravans before dawn. Greek hoplites trusted camp dogs whose hackles signaled unseen ambushes better than any scout, and philosophers at the Lyceum formalized charts of “canine augury.” In Song-dynasty China, court astrologers bred crickets behind silk screens, timing edicts by whether the chorus swelled or fell at the banging of the night-watch drum. Renaissance naturalists along the Danube recorded that swallows skimming river foam one hand-width lower than usual meant plague barges were days away—earning them fat stipends from nervous princes. By the era of telegraph wires, frontier rangers in Australia read cockatoo alarm flights to triangulate bush-fires fast enough for towns to douse sparks before telegrams even reached them.",
+      "61l9a-value": "<p>Mesopotamian pastoralists watched the restless pacing of ewes on windless nights; a single, sudden stillness foretold sand-storms that buried caravans before dawn. Greek hoplites trusted camp dogs whose hackles signaled unseen ambushes better than any scout, and philosophers at the Lyceum formalized charts of “canine augury.” In Song-dynasty China, court astrologers bred crickets behind silk screens, timing edicts by whether the chorus swelled or fell at the banging of the night-watch drum. Renaissance naturalists along the Danube recorded that swallows skimming river foam one hand-width lower than usual meant plague barges were days away—earning them fat stipends from nervous princes. By the era of telegraph wires, frontier rangers in Australia read cockatoo alarm flights to triangulate bush-fires fast enough for towns to douse sparks before telegrams even reached them.</p>"
+    }
   },
-  {
+  "vvtdh": {
     "id": "22773",
     "item_key": "vvtdh",
-    "meta": []
+    "name": "Woddomancy",
+    "meta": {
+      "proficiencyname": "Woddomancy",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "17",
+      "e3usn": "Entering a deliberate frenzy and gleaning auguries from the first lucid fragments that tear through the howl allows the practitioner to glean weaknesses in a target's psyche rendering them passive for one battle turn round or approximately 5 seconds. ",
+      "e3usn-value": "<p>Entering a deliberate frenzy and gleaning auguries from the first lucid fragments that tear through the howl allows the practitioner to glean weaknesses in a target's psyche rendering them passive for one battle turn round or approximately 5 seconds. </p>",
+      "61l9a": "— Bronze-Age Thracian maenads bit laurel and spun until speech dissolved into glossolalia; chieftains recorded the first coherent phrase and marched as if Ares had barked the order. In early Saxon courts the “woðe-women” were kept half-starved on henbane: their midnight shrieks, scratched on horn, mapped raids that struck days later. Constantinople’s beggar-saints turned rage into rote—scribes plucked a syllable from each outburst and, stitched together, foresaw which patriarch would fall from favour. During the Black Death, Tuscan hospitals hired “fool listeners” who copied plague-patients’ ravings; a cluster of identical words meant the next parish would need fresh graves by sunrise. By the Jazz Age, Harlem storefront prophets blasted trumpets until breath became broken howls; speakeasy owners swore a recording of those notes let them shutter two hours before the Untouchables kicked in the doors.",
+      "61l9a-value": "<p>— Bronze-Age Thracian <em data-start=\"62\" data-end=\"71\">maenads</em> bit laurel and spun until speech dissolved into glossolalia; chieftains recorded the first coherent phrase and marched as if Ares had barked the order. In early Saxon courts the “woðe-women” were kept half-starved on henbane: their midnight shrieks, scratched on horn, mapped raids that struck days later. Constantinople’s beggar-saints turned rage into rote—scribes plucked a syllable from each outburst and, stitched together, foresaw which patriarch would fall from favour. During the Black Death, Tuscan hospitals hired “fool listeners” who copied plague-patients’ ravings; a cluster of identical words meant the next parish would need fresh graves by sunrise. By the Jazz Age, Harlem storefront prophets blasted trumpets until breath became broken howls; speakeasy owners swore a recording of those notes let them shutter two hours before the Untouchables kicked in the doors.</p>"
+    }
   },
-  {
+  "2a7km": {
     "id": "22774",
     "item_key": "2a7km",
-    "meta": []
+    "name": "Querimancy",
+    "meta": {
+      "proficiencyname": "Querimancy",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "18",
+      "e3usn": "Hurling inscribed tokens representing chosen persons against a hard surface, then reading the clatter, rebounds, and resting angles to chart converging reveal elements of the map around them that were previously hidden. This may even include the position of particular creatures or humans. ",
+      "e3usn-value": "<p>Hurling inscribed tokens representing chosen persons against a hard surface, then reading the clatter, rebounds, and resting angles to chart converging reveal elements of the map around them that were previously hidden. This may even include the position of particular creatures or humans. </p>",
+      "61l9a": "Iron-Age Etruscan judges flicked numbered knucklebones at a slate court-stone; whichever bounced furthest named the litigant whose distant kin would ignite the next feud. Medieval Welsh bards carved hazel chips with clan sigils and hurled them against dolmen pillars, listening for which rune rang out to warn of coming grief. During the Dissolution, recusant nuns near York cast tiny pewter saints at abbey walls; a figure that lodged upright foretold whose secret mass the sheriff would raid. In the Boer War, Cape Town bookies skipped ivory tiles off granite quays, claiming the ricochet path spelled each regiment’s odds of surviving its next sortie. London codebreakers of 1940 kept Bakelite name-tokens in their pockets; a lunchtime flick down a bunker corridor decided which encrypted message hid the imminent raid—and saved whole blocks when the sirens lagged behind the echoes.",
+      "61l9a-value": "<p>Iron-Age Etruscan judges flicked numbered knucklebones at a slate court-stone; whichever bounced furthest named the litigant whose distant kin would ignite the next feud. Medieval Welsh bards carved hazel chips with clan sigils and hurled them against dolmen pillars, listening for which rune rang out to warn of coming grief. During the Dissolution, recusant nuns near York cast tiny pewter saints at abbey walls; a figure that lodged upright foretold whose secret mass the sheriff would raid. In the Boer War, Cape Town bookies skipped ivory tiles off granite quays, claiming the ricochet path spelled each regiment’s odds of surviving its next sortie. London codebreakers of 1940 kept Bakelite name-tokens in their pockets; a lunchtime flick down a bunker corridor decided which encrypted message hid the imminent raid—and saved whole blocks when the sirens lagged behind the echoes.</p>"
+    }
   },
-  {
+  "9tlna": {
     "id": "22775",
     "item_key": "9tlna",
-    "meta": []
+    "name": "Radiomancy",
+    "meta": {
+      "proficiencyname": "Radiomancy",
+      "fjkhy": [
+        "Item Requirements"
+      ],
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "25",
+      "6hlo5": {
+        "form": "960",
+        "i29053": {
+          "aiwl3": "Magical Radio"
+        }
+      },
+      "aiwl3": [
+        "Magical Radio"
+      ],
+      "e3usn": "Sweeping a hand-crank tuner across empty bands, parsing crackle harmonics and stray carrier tones to pull auguries from the electromagnetic hush the seer gains the ability to open a long-distance channel of communication to any ally at any distance for a short window of time. ",
+      "e3usn-value": "<p>Sweeping a hand-crank tuner across empty bands, parsing crackle harmonics and stray carrier tones to pull auguries from the electromagnetic hush the seer gains the ability to open a long-distance channel of communication to any ally at any distance for a short window of time. </p>",
+      "61l9a": "Telegraph operators at the close of the 19th century swore that a sudden snow of Morse “sparks” across the sounder foreshadowed coastal squalls hours before barometers twitched. Front-line signallers in 1918 kept pocket crystal sets; a whisper of “whistler” static in the headphones meant incoming shellfire long before the spotters sighted muzzle-flashes. Cold-War hams in Soviet bloc attics tuned number-stations and claimed that an errant burst of “UVB-76” buzz predicted Politburo purges within the week. Caribbean pirate-radio jockeys of the 1980s mixed field recordings of ionospheric hiss; when the pitch dipped a semitone during a set, they cleared the van before the police triangulated their rig. Modern solar-weather analysts still note that a chorus of short-wave crackles nine minutes after a flare can map which satellites will glitch—stock traders quietly pay for that minute-nine spreadsheet.",
+      "61l9a-value": "<p>Telegraph operators at the close of the 19th century swore that a sudden snow of Morse “sparks” across the sounder foreshadowed coastal squalls hours before barometers twitched. Front-line signallers in 1918 kept pocket crystal sets; a whisper of “whistler” static in the headphones meant incoming shellfire long before the spotters sighted muzzle-flashes. Cold-War hams in Soviet bloc attics tuned number-stations and claimed that an errant burst of “UVB-76” buzz predicted Politburo purges within the week. Caribbean pirate-radio jockeys of the 1980s mixed field recordings of ionospheric hiss; when the pitch dipped a semitone during a set, they cleared the van before the police triangulated their rig. Modern solar-weather analysts still note that a chorus of short-wave crackles nine minutes after a flare can map which satellites will glitch—stock traders quietly pay for that minute-nine spreadsheet.</p>"
+    }
   },
-  {
+  "shzuu": {
     "id": "23015",
     "item_key": "shzuu",
-    "meta": []
+    "name": "Crystallomancy",
+    "meta": {
+      "proficiencyname": "Crystallomancy",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "5",
+      "e3usn": "Rotating a faceted crystal beneath steady light and interpreting the refracted lattice of beams and shadows for hidden vectors of fate. Using a crystal ball allows oneself to peer through the eyes of a far away target sometimes gleaning information about their location or motivations. The target rolls a fortitude roll to defend against this incursion into their perspective. ",
+      "e3usn-value": "<p>Rotating a faceted crystal beneath steady light and interpreting the refracted lattice of beams and shadows for hidden vectors of fate. Using a crystal ball allows oneself to peer through the eyes of a far away target sometimes gleaning information about their location or motivations. The target rolls a fortitude roll to defend against this incursion into their perspective. </p>",
+      "61l9a": "Bronze-Age miners in Nubia submerged freshly quarried quartz in Nile water; any shard that shimmered thrice foretold a pharaoh’s safe passage through the cataracts. Gupta-period r̥ṣis carved hexagonal lenses from rock-crystal, claiming the sun-spun rainbows inside named exactly which village would bear the next enlightened child. When crusaders reached Outremer, Levantine lapidaries traded “star stones” whose asterisms, read at moon-rise, warned caravans where Bedouin raiders waited in the wadi bends. In 1780s Prague, alchemists suspended beryl spheres over candle grids; the dancing caustics mapped debt-bubble collapses weeks before the court bankers panicked. Modern laser technicians still keep a sliver of yttrium garnet on the bench—an unexpected green flash in its core famously tipped CERN physicists to a cooling-tower leak hours before sensors tripped.",
+      "61l9a-value": "<p>Bronze-Age miners in Nubia submerged freshly quarried quartz in Nile water; any shard that shimmered thrice foretold a pharaoh’s safe passage through the cataracts. Gupta-period r̥ṣis carved hexagonal lenses from rock-crystal, claiming the sun-spun rainbows inside named exactly which village would bear the next enlightened child. When crusaders reached Outremer, Levantine lapidaries traded “star stones” whose asterisms, read at moon-rise, warned caravans where Bedouin raiders waited in the wadi bends. In 1780s Prague, alchemists suspended beryl spheres over candle grids; the dancing caustics mapped debt-bubble collapses weeks before the court bankers panicked. Modern laser technicians still keep a sliver of yttrium garnet on the bench—an unexpected green flash in its core famously tipped CERN physicists to a cooling-tower leak hours before sensors tripped.</p>"
+    }
   },
-  {
+  "nurt9": {
     "id": "23016",
     "item_key": "nurt9",
-    "meta": []
+    "name": "Tarot",
+    "meta": {
+      "proficiencyname": "Tarot",
+      "fjkhy": [
+        "Item Requirements"
+      ],
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "5",
+      "e5ltj": "General",
+      "pm37m": "General",
+      "6hlo5": {
+        "form": "960",
+        "i29058": {
+          "aiwl3": "Tarot Deck"
+        }
+      },
+      "aiwl3": [
+        "Tarot Deck"
+      ],
+      "e3usn": "The art of Tarot is subversive. While ostensibly providing a \"reading\" to a user, tarot is usually used to gain insights about them. Whilst fanning illustrated trumps and suits into a spread, then parsing upright, reversed, and crossing cards for woven destinies allows the user to gain insights about the individual themselves, their backstory, strengths, weaknesses, motivations, and desires. The target may use willpower, fortitude, or equanimity to resist this incursion into their perspective. However, they take a -7 penalty to any of these characteristic rolls. ",
+      "e3usn-value": "<p>The art of Tarot is subversive. While ostensibly providing a \"reading\" to a user, tarot is usually used to gain insights about them. Whilst fanning illustrated trumps and suits into a spread, then parsing upright, reversed, and crossing cards for woven destinies allows the user to gain insights about the individual themselves, their backstory, strengths, weaknesses, motivations, and desires. The target may use willpower, fortitude, or equanimity to resist this incursion into their perspective. However, they take a -7 penalty to any of these characteristic rolls. </p>",
+      "61l9a": "Renaissance card-makers in 15th-century Milan painted allegorical “trionfi” decks for ducal pageants; court astrologers soon dealt the images to whisper which condottieri would betray their contract next. Enlightenment occultists in Paris—most famously Etteilla—rewrote the suits into an esoteric grammar, reading The Tower’s lightning as a warning of revolution three years before the Bastille fell. Victorian spiritualists carried trimmed Marseille packs to colonial outposts, timing risky railway ventures by whether The Wheel of Fortune landed upright or reversed in the daily spread. In Harlem’s Roaring-Twenties salons, Madam Juno stacked gilded Rider–Waite cards to predict Prohibition raids—her clients claimed the flopped Devil meant “put the gin in the basement, honey.” Modern code-breakers at Bletchley Park flirted with “SIG-INT spreads,” laying encrypted intercepts beside the cards; a string of swords allegedly marked every night the Luftwaffe crossed the Channel.",
+      "61l9a-value": "<p>Renaissance card-makers in 15th-century Milan painted allegorical “trionfi” decks for ducal pageants; court astrologers soon dealt the images to whisper which condottieri would betray their contract next. Enlightenment occultists in Paris—most famously Etteilla—rewrote the suits into an esoteric grammar, reading <em data-start=\"351\" data-end=\"362\">The Tower</em>’s lightning as a warning of revolution three years before the Bastille fell. Victorian spiritualists carried trimmed Marseille packs to colonial outposts, timing risky railway ventures by whether <em data-start=\"559\" data-end=\"581\">The Wheel of Fortune</em> landed upright or reversed in the daily spread. In Harlem’s Roaring-Twenties salons, Madam Juno stacked gilded Rider–Waite cards to predict Prohibition raids—her clients claimed the flopped <em data-start=\"772\" data-end=\"779\">Devil</em> meant “put the gin in the basement, honey.” Modern code-breakers at Bletchley Park flirted with “SIG-INT spreads,” laying encrypted intercepts beside the cards; a string of swords allegedly marked every night the Luftwaffe crossed the Channel.</p>"
+    }
   },
-  {
+  "e8h07": {
     "id": "23017",
     "item_key": "e8h07",
-    "meta": []
+    "name": "Dream Interpretation",
+    "meta": {
+      "proficiencyname": "Dream Interpretation",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "7",
+      "e3usn": "Recording, dissecting, and symbol-mapping a sleeper’s fresh dreams to chart fates that ripple from the subconscious into waking life. This allows the seer to bolster the individuals creativity, willpower, fortitude, intellect, or equanimity (+5) for the remainder of the day. ",
+      "e3usn-value": "<p>Recording, dissecting, and symbol-mapping a sleeper’s fresh dreams to chart fates that ripple from the subconscious into waking life. This allows the seer to bolster the individuals creativity, willpower, fortitude, intellect, or equanimity (+5) for the remainder of the day. </p>",
+      "61l9a": "— Pharaohs kept “books of dreams,” papyrus glossaries where temple scribes matched hippo-lions or broken teeth to harvest, war, or plague; generals weighed the glyphs before drawing chariots from the armory. Artemidorus of Daldis roamed the Roman ports gathering sailors’ nightmares, compiling a five-volume Oneirocritica that predicted which galleys would founder—insurance syndicates still quote it. Medieval Andalusian physicians wrote that a patient who dreamt of falling figs would bleed within a week, letting them prep cauteries before any wound appeared. In Qing-dynasty Beijing, opera troupes paid “dream-listeners” to sleep beside rival actors; the next morning’s whispered images set box-office wagers. Modern neuroscientists note a spike of shared REM imagery hours before large earthquakes—seismologists now keep an anonymized dream log tucked behind the seismograph.",
+      "61l9a-value": "<p>— Pharaohs kept “books of dreams,” papyrus glossaries where temple scribes matched hippo-lions or broken teeth to harvest, war, or plague; generals weighed the glyphs before drawing chariots from the armory. Artemidorus of Daldis roamed the Roman ports gathering sailors’ nightmares, compiling a five-volume <em data-start=\"373\" data-end=\"388\">Oneirocritica</em> that predicted which galleys would founder—insurance syndicates still quote it. Medieval Andalusian physicians wrote that a patient who dreamt of falling figs would bleed within a week, letting them prep cauteries before any wound appeared. In Qing-dynasty Beijing, opera troupes paid “dream-listeners” to sleep beside rival actors; the next morning’s whispered images set box-office wagers. Modern neuroscientists note a spike of shared REM imagery hours before large earthquakes—seismologists now keep an anonymized dream log tucked behind the seismograph.</p>"
+    }
   },
-  {
+  "vuart": {
     "id": "23036",
     "item_key": "vuart",
-    "meta": []
+    "name": "Mortomancy",
+    "meta": {
+      "proficiencyname": "Mortomancy",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "23",
+      "e3usn": "Palming the chill flesh of a newly stilled body and reading the first twitches of post-mortem drift allow the user to ask the fallen a single question. If answerable, the fallen shall answer. ",
+      "e3usn-value": "<p>Palming the chill flesh of a newly stilled body and reading the first twitches of post-mortem drift allow the user to ask the fallen a single question. If answerable, the fallen shall answer. </p>",
+      "61l9a": "Old-Kingdom embalmers in Abydos pressed reeds into cadavers’ throats; the pattern of expelled air pockets declared which heir the god-king’s ka favored. Roman battlefield surgeons mapped muscle-spasm “death smiles,” recording that a left-tilted grimace forewarned plague in the nearest legion camp. In 13th-century Samarkand, plague-pit guardians timed city gates by how long fresh corpses bled clear—merchants swore it saved whole caravans. Victorian anatomists at Guy’s Hospital kept secret ledgers: if a corpse’s fingers curled during the first incision, the next cholera wave would follow the Thames that week. Modern forensic teams in remote war zones still log body-cooling anomalies; NATO relief planners quietly consult those graphs before air-dropping supplies.",
+      "61l9a-value": "<p>Old-Kingdom embalmers in Abydos pressed reeds into cadavers’ throats; the pattern of expelled air pockets declared which heir the god-king’s <em data-start=\"347\" data-end=\"351\">ka</em> favored. Roman battlefield surgeons mapped muscle-spasm “death smiles,” recording that a left-tilted grimace forewarned plague in the nearest legion camp. In 13th-century Samarkand, plague-pit guardians timed city gates by how long fresh corpses bled clear—merchants swore it saved whole caravans. Victorian anatomists at Guy’s Hospital kept secret ledgers: if a corpse’s fingers curled during the first incision, the next cholera wave would follow the Thames that week. Modern forensic teams in remote war zones still log body-cooling anomalies; NATO relief planners quietly consult those graphs before air-dropping supplies.</p>"
+    }
   },
-  {
+  "1fxw7": {
     "id": "23040",
     "item_key": "1fxw7",
-    "meta": []
+    "name": "Ichthyomancy",
+    "meta": {
+      "proficiencyname": "Ichthyomancy",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "12",
+      "e3usn": "Ichthyomancy involves reading the entrails of fish to be guided toward nearby sentient water creatures.",
+      "e3usn-value": "<p>Ichthyomancy involves reading the entrails of fish to be guided toward nearby sentient water creatures.</p>",
+      "61l9a": "Micronesian way-finders watched how flying-fish burst from the swells at dawn; a low, scattered spray foretold rogue breakers and steered double-canoes around them. Roman harbour augurs dissected mullet livers, insisting a left-veering gallbladder meant pirates would strike Ostia within three tides. Viking fishwives in Bergen hung cod bladders from rafters—the first to wrinkle in the smoke warned of an early freeze that could crack longship hulls. Edo-period fishermen near Edo Bay judged silver scales swirling in washing buckets; a quick clockwise eddy signalled rich shoals, while a lazy counter-spin spelled typhoon winds. During WWII, Newfoundland “gut-readers” timed convoy departures by herring stomachs: krill-heavy bellies predicted a fog thick enough to foil U-boats, and Admiralty escorts quietly paid for the scrap-bucket forecasts.",
+      "61l9a-value": "<p>Micronesian way-finders watched how flying-fish burst from the swells at dawn; a low, scattered spray foretold rogue breakers and steered double-canoes around them. Roman harbour augurs dissected mullet livers, insisting a left-veering gallbladder meant pirates would strike Ostia within three tides. Viking fishwives in Bergen hung cod bladders from rafters—the first to wrinkle in the smoke warned of an early freeze that could crack longship hulls. Edo-period fishermen near Edo Bay judged silver scales swirling in washing buckets; a quick clockwise eddy signalled rich shoals, while a lazy counter-spin spelled typhoon winds. During WWII, Newfoundland “gut-readers” timed convoy departures by herring stomachs: krill-heavy bellies predicted a fog thick enough to foil U-boats, and Admiralty escorts quietly paid for the scrap-bucket forecasts.</p>"
+    }
   },
-  {
+  "605n3": {
     "id": "23050",
     "item_key": "605n3",
-    "meta": []
+    "name": "Numerology for Divination",
+    "meta": {
+      "proficiencyname": "Numerology for Divination",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "5",
+      "e3usn": "Arranging numbered lots and scribbling rapid-fire sums until a sigil-like total emerges, then reading that value for destiny’s hidden equation allows the diviner to grant +1 to arithmancy checks to their target. ",
+      "e3usn-value": "<p>Arranging numbered lots and scribbling rapid-fire sums until a sigil-like total emerges, then reading that value for destiny’s hidden equation allows the diviner to grant +1 to arithmancy checks to their target. </p>",
+      "61l9a": "Pythagorean adepts in Croton weighed consonants as integers, claiming any name whose factors summed to ten would topple tyrants by year’s end. Late-Republic augurs carved rows of tally cuts on olive wood; a column that completed the Fibonacci step foretold a Senate vote swinging unexpectedly east. Medieval Kabbalists mapped Hebrew verses to prime spirals, timing exiles and festivals by where the spiral first bent. German Renaissance bankers slipped cipher-squares beneath inkblots on bonds, insisting a contract whose digits reduced to six would never default. During the Apollo program, NASA “trajectory witches” checked burn times against digital roots; a mis-rooted nine famously tagged the valve that stuck on Apollo 13.",
+      "61l9a-value": "<p>Pythagorean adepts in Croton weighed consonants as integers, claiming any name whose factors summed to ten would topple tyrants by year’s end. Late-Republic augurs carved rows of tally cuts on olive wood; a column that completed the Fibonacci step foretold a Senate vote swinging unexpectedly east. Medieval Kabbalists mapped Hebrew verses to prime spirals, timing exiles and festivals by where the spiral first bent. German Renaissance bankers slipped cipher-squares beneath inkblots on bonds, insisting a contract whose digits reduced to six would never default. During the Apollo program, NASA “trajectory witches” checked burn times against digital roots; a mis-rooted nine famously tagged the valve that stuck on Apollo 13.</p>"
+    }
   },
-  {
+  "h7d20": {
     "id": "23074",
     "item_key": "h7d20",
-    "meta": []
+    "name": "Mesopotamian Animal Absorption",
+    "meta": {
+      "proficiencyname": "Mesopotamian Animal Absorption",
+      "kv517": "Mesopotamian",
+      "s71z0": "History",
+      "ipjf3": "7",
+      "e3usn": "This proficiency allows a non-magical animal, stowed by the practitioner, to absorb some of all of a non-damaging spell. For example, if the individual had a memory charm cast on them, the animal would absorb the charm instead. This proficiency must be performed prior to the spell being cast. Typically, this procedure is performed prior to battle (but can be performed in battle).",
+      "e3usn-value": "This proficiency allows a non-magical animal, stowed by the practitioner, to absorb some of all of a non-damaging spell. For example, if the individual had a memory charm cast on them, the animal would absorb the charm instead. This proficiency must be performed <em>prior </em>to the spell being cast. Typically, this procedure is performed prior to battle (but can be performed in battle)."
+    }
   },
-  {
+  "yexok": {
     "id": "23075",
     "item_key": "yexok",
-    "meta": []
+    "name": "yexok",
+    "meta": {
+      "proficiencyname": "Druidic Herbolore",
+      "kv517": "British",
+      "s71z0": "History",
+      "ipjf3": "15",
+      "e3usn": "By recalling the ancient Druidic rituals of plant care, the practitioner can extract an extra amount of a plant part when attempting a plant part extraction proficiency."
+    }
   },
-  {
+  "osddy": {
     "id": "23076",
     "item_key": "osddy",
-    "meta": []
+    "name": "osddy",
+    "meta": {
+      "proficiencyname": "Saxon Plant Care",
+      "kv517": "British",
+      "s71z0": "History",
+      "ipjf3": "5",
+      "e3usn": "By recalling the ancient Druidic rituals of plant care, the practitioner can revive a plant that is dying or ailing."
+    }
   },
-  {
+  "ea6xp": {
     "id": "23077",
     "item_key": "ea6xp",
-    "meta": []
+    "name": "ea6xp",
+    "meta": {
+      "proficiencyname": "Fenland Creature Whispering",
+      "kv517": "British",
+      "s71z0": "History",
+      "ipjf3": "30",
+      "e3usn": "Utilizing knowledge of ancient Fenland husbandry, a practitioner can communicate more effectively with magical creatures granting them a +3 bonus to any taming or bonding efforts. The bonus is even more effective for water-dwelling beasts (+5)."
+    }
   },
-  {
+  "m2fdf": {
     "id": "23078",
     "item_key": "m2fdf",
-    "meta": []
+    "name": "m2fdf",
+    "meta": {
+      "proficiencyname": "Celtic Knotwork for Magic Detection",
+      "kv517": "British",
+      "s71z0": "History",
+      "ipjf3": "18",
+      "e3usn": "Practitioners can create intricate Celtic knots that vibrate in the presence of strong enchantments, increasing their ability to detect hidden magical items, locations, and wards."
+    }
   },
-  {
+  "aesex": {
     "id": "23079",
     "item_key": "aesex",
-    "meta": []
+    "name": "aesex",
+    "meta": {
+      "proficiencyname": "Pictish Shield Shattering",
+      "kv517": "British",
+      "s71z0": "History",
+      "ipjf3": "10",
+      "e3usn": "Practitioners carve Pitish Symbols in a stone and throw it at a magical shield or barrier to attempt to damage or destroy it."
+    }
   },
-  {
+  "86v0l": {
     "id": "23080",
     "item_key": "86v0l",
-    "meta": []
+    "name": "86v0l",
+    "meta": {
+      "proficiencyname": "Welsh Bardic Charms",
+      "kv517": "British",
+      "s71z0": "History",
+      "ipjf3": "17",
+      "e3usn": "Practitioners recite bardic poetry to gain favor from others.This increases others perceptions of the practitioners intellect and charisma."
+    }
   },
-  {
+  "fuko9": {
     "id": "23081",
     "item_key": "fuko9",
-    "meta": []
+    "name": "fuko9",
+    "meta": {
+      "proficiencyname": "Cornish Potioning Practices",
+      "kv517": "British",
+      "s71z0": "History",
+      "ipjf3": "5",
+      "e3usn": "The proficiency grants the practitioner a +1 bonus to any potioncrafting attempts. Can be granted to others."
+    }
   },
-  {
+  "tnd6p": {
     "id": "23082",
     "item_key": "tnd6p",
-    "meta": []
+    "name": "tnd6p",
+    "meta": {
+      "proficiencyname": "Scottish Clan Healing",
+      "kv517": "British",
+      "s71z0": "History",
+      "ipjf3": "5",
+      "e3usn": "This proficiency increases the effectiveness of any healing attempts (by 1L wound per attempt; whether by spell or proficiency) for the next day."
+    }
   },
-  {
+  "t8s8e": {
     "id": "23083",
     "item_key": "t8s8e",
-    "meta": []
+    "name": "t8s8e",
+    "meta": {
+      "proficiencyname": "Callanish Ley-Line Mapping",
+      "kv517": "British",
+      "s71z0": "History",
+      "ipjf3": "7",
+      "e3usn": "This proficiency improves any shielding casts by +2 for the rest of the day. Can be granted to others."
+    }
   },
-  {
+  "m9slh": {
     "id": "23084",
     "item_key": "m9slh",
-    "meta": []
+    "name": "m9slh",
+    "meta": {
+      "proficiencyname": "Orkney Rune Channeling",
+      "kv517": "British",
+      "s71z0": "History",
+      "ipjf3": "5",
+      "e3usn": "By channeling the ancient runes found in Maeshowe and other Neolithic Orkney sites, a practitioner gains +2 to any mental casts."
+    }
   },
-  {
+  "3q5xf": {
     "id": "23085",
     "item_key": "3q5xf",
-    "meta": []
+    "name": "3q5xf",
+    "meta": {
+      "proficiencyname": "Beaker Folk Alchemical Wisdom",
+      "kv517": "British",
+      "s71z0": "History",
+      "ipjf3": "7",
+      "e3usn": "This grants the practitioner +2 to Alchemy for the next day. Can be granted to others."
+    }
   },
-  {
+  "g2liw": {
     "id": "23086",
     "item_key": "g2liw",
-    "meta": []
+    "name": "g2liw",
+    "meta": {
+      "proficiencyname": "Mercian Herbal Poultices",
+      "kv517": "British",
+      "s71z0": "History",
+      "ipjf3": "7",
+      "e3usn": "These rudimentary poultices heal any surface wound by 1L wound per injury, but are even more effective for animals and creatures (1M wound per injury)"
+    }
   },
-  {
+  "4bxcr": {
     "id": "23087",
     "item_key": "4bxcr",
-    "meta": []
+    "name": "4bxcr",
+    "meta": {
+      "proficiencyname": "Dál Riata Sea Charms",
+      "kv517": "British",
+      "s71z0": "History",
+      "ipjf3": "36",
+      "e3usn": "Incorporating the seafaring knowledge of the ancient Gaelic overkingdom of Dál Riata, practitioners can imbue any water-going vessels with protective charms that guard against any source of destruction."
+    }
   },
-  {
+  "j9gu5": {
     "id": "23088",
     "item_key": "j9gu5",
-    "meta": []
+    "name": "j9gu5",
+    "meta": {
+      "proficiencyname": "Goidelic Creature Empathy",
+      "kv517": "British",
+      "s71z0": "History",
+      "ipjf3": "12",
+      "e3usn": "This approach communicates the practitioners intentions to a creature in a way that the creature is likely to understand. This will not automatically tame the creature, even if your intentions are noble and non-threatening. However, it may provide some boost to any future attempts to interact positively with a creature."
+    }
   },
-  {
+  "mb8kh": {
     "id": "23089",
     "item_key": "mb8kh",
-    "meta": []
+    "name": "mb8kh",
+    "meta": {
+      "proficiencyname": "Iceni Tactics of Stealth",
+      "kv517": "British",
+      "s71z0": "History",
+      "ipjf3": "10",
+      "e3usn": "Utilizing the Iceni tribe's stealth tactics, this practice grants +3 to any casts of the concealing subtype."
+    }
   },
-  {
+  "9luw1": {
     "id": "23090",
     "item_key": "9luw1",
-    "meta": []
+    "name": "9luw1",
+    "meta": {
+      "proficiencyname": "Wessex Warding Stones",
+      "kv517": "British",
+      "s71z0": "History",
+      "ipjf3": "13",
+      "e3usn": "By carving runes into stones and placing these around an encampment, a location can be concealed from view by anyone outside of the perimeter of the stones. Sound and smell may carry out from the inside of the encampment, however, these will be substantially muted. Only critically successful perception rolls will detect these lingering traces. Finally, muggles will be automatically repelled by the ward and magical folks will tend to unconsciously stop short of the threshold unless they pass the aforementioned perceptual roll."
+    }
   },
-  {
+  "jo5aw": {
     "id": "23091",
     "item_key": "jo5aw",
-    "meta": []
+    "name": "jo5aw",
+    "meta": {
+      "proficiencyname": "Celtic Knotwork Illusions",
+      "kv517": "British",
+      "s71z0": "History",
+      "ipjf3": "12",
+      "e3usn": "The practitioner hangs these intricate patterns of knotwork nearby to create a perimeter. Those approaching the perimeter will experience illusions of creatures, spirits, or other distractions that draw their attention away from the perimeter itself."
+    }
   },
-  {
+  "sh8g8": {
     "id": "23092",
     "item_key": "sh8g8",
-    "meta": []
+    "name": "sh8g8",
+    "meta": {
+      "proficiencyname": "Avalonian Mist Manipulation",
+      "kv517": "British",
+      "s71z0": "History",
+      "ipjf3": "13",
+      "e3usn": "The practitioner simply boils water in a specific way so as to create a very low hanging very dense fog over a large area. This substantially lowers perception rolls in the area for anyone."
+    }
   },
-  {
+  "t35cy": {
     "id": "23093",
     "item_key": "t35cy",
-    "meta": []
+    "name": "t35cy",
+    "meta": {
+      "proficiencyname": "Neolithic Fertility Rites",
+      "kv517": "British",
+      "s71z0": "History",
+      "ipjf3": "20",
+      "e3usn": "These rites increase the likelihood of conceiving."
+    }
   },
-  {
+  "lss5l": {
     "id": "23094",
     "item_key": "lss5l",
-    "meta": []
+    "name": "lss5l",
+    "meta": {
+      "proficiencyname": "Saxon Sigilcrafting for Political Disruption",
+      "kv517": "British",
+      "s71z0": "History",
+      "ipjf3": "22",
+      "e3usn": "These Saxon-based sigils are drawn or painted in specific strategic places around the perimeter of a building, town, or area. In so doing, they slowly and subtly begin to weaken the power of those who are presently in control of the dominion within these perimeters."
+    }
   },
-  {
+  "a4yky": {
     "id": "23095",
     "item_key": "a4yky",
-    "meta": []
+    "name": "a4yky",
+    "meta": {
+      "proficiencyname": "Sophisticated Boudiccan Battle Tactics",
+      "kv517": "British",
+      "s71z0": "History",
+      "ipjf3": "50",
+      "e3usn": "This proficiency grants the practitioner +7 to all casting attempts for the duration of battle"
+    }
   },
-  {
+  "90bqm": {
     "id": "23096",
     "item_key": "90bqm",
-    "meta": []
+    "name": "90bqm",
+    "meta": {
+      "proficiencyname": "Elegant Boudiccan Battle Tactics",
+      "kv517": "British",
+      "s71z0": "History",
+      "ipjf3": "46",
+      "e3usn": "This proficiency grants the practitioner +6 to all casting attempts for the duration of battle"
+    }
   },
-  {
+  "9326c": {
     "id": "23097",
     "item_key": "9326c",
-    "meta": []
+    "name": "9326c",
+    "meta": {
+      "proficiencyname": "Intricate Bouddican Battle Tactics",
+      "kv517": "British",
+      "s71z0": "History",
+      "ipjf3": "42",
+      "e3usn": "This proficiency grants the practitioner +5 to all casting attempts for the duration of battle"
+    }
   },
-  {
+  "7c21c": {
     "id": "23098",
     "item_key": "7c21c",
-    "meta": []
+    "name": "7c21c",
+    "meta": {
+      "proficiencyname": "Refined Bouddican Battle Tactics",
+      "kv517": "British",
+      "s71z0": "History",
+      "ipjf3": "35",
+      "e3usn": "This proficiency grants the practitioner +4 to all casting attempts for the duration of battle"
+    }
   },
-  {
+  "qsn6g": {
     "id": "23099",
     "item_key": "qsn6g",
-    "meta": []
+    "name": "qsn6g",
+    "meta": {
+      "proficiencyname": "Improved Bouddican Battle Tactics",
+      "kv517": "British",
+      "s71z0": "History",
+      "ipjf3": "25",
+      "e3usn": "This proficiency grants the practitioner +3 to all casting attempts for the duration of battle"
+    }
   },
-  {
+  "5ihjh": {
     "id": "23100",
     "item_key": "5ihjh",
-    "meta": []
+    "name": "5ihjh",
+    "meta": {
+      "proficiencyname": "Rudimentary Bouddican Battle Tactics",
+      "kv517": "British",
+      "s71z0": "History",
+      "ipjf3": "15",
+      "e3usn": "This proficiency grants the practitioner +2 to all casting attempts for the duration of battle"
+    }
   },
-  {
+  "kv3th": {
     "id": "23101",
     "item_key": "kv3th",
-    "meta": []
+    "name": "kv3th",
+    "meta": {
+      "proficiencyname": "Primitive Bouddican Battle Tactics",
+      "kv517": "British",
+      "s71z0": "History",
+      "ipjf3": "10",
+      "e3usn": "This proficiency grants the practitioner +1 to all casting attempts for the duration of battle"
+    }
   },
-  {
+  "bsh22": {
     "id": "23102",
     "item_key": "bsh22",
-    "meta": []
+    "name": "bsh22",
+    "meta": {
+      "proficiencyname": "Druidic Trance",
+      "kv517": "British",
+      "s71z0": "History",
+      "ipjf3": "17",
+      "e3usn": "This trance helps the practitioner to gain a vision of nearby magical enchantments, concealed items, or hard-to-detect magical locations."
+    }
   },
-  {
+  "od1bm": {
     "id": "23114",
     "item_key": "od1bm",
-    "meta": []
+    "name": "Birthing Dragons",
+    "meta": {
+      "proficiencyname": "Birthing Dragons",
+      "kv517": "British",
+      "s71z0": "Magical Creatures",
+      "ipjf3": "42",
+      "pm37m": "General",
+      "e3usn": "In the wild, dragons will lay their eggs next to or inside of a fire seed bush. However, this effect can be replicated by cooking the egg in a pot over a fire or by placing the dragon egg on top of fire seed embers or fire seeds themselves (while still smoldering)."
+    }
   },
-  {
+  "7mx6r": {
     "id": "23121",
     "item_key": "7mx6r",
-    "meta": []
+    "name": "Creature Cave Drawing",
+    "meta": {
+      "proficiencyname": "Creature Cave Drawing",
+      "s71z0": "History",
+      "ipjf3": "5",
+      "e3usn": "By drawing creatures on a cave wall using Red Ochre and in this Early European Stylistic Tradition early, you can detect the exact location of any such creature in the area. However, it may move from the time you finish your drawing to the time you make it to the location in question."
+    }
   },
-  {
+  "c068o": {
     "id": "23122",
     "item_key": "c068o",
-    "meta": []
+    "name": "A Cure for Spattergroit Infection",
+    "meta": {
+      "proficiencyname": "A Cure for Spattergroit Infection",
+      "s71z0": "History",
+      "ipjf3": "36",
+      "e3usn": "A healer from the middle ages had a theory that \"the only remedy is to take the liver of a toad, bind it tight about your throat, stand naked by the full moon in a barrel of eels’ eyes\".",
+      "e3usn-value": "<a href=\"https://harrypotter.fandom.com/wiki/Portrait_of_a_Healer_in_St_Mungo%27s_Hospital\">A healer from the middle ages</a> had a theory that \"the only remedy is to take the liver of a toad, bind it tight about your throat, stand naked by the full moon in a barrel of eels’ eyes\"."
+    }
   },
-  {
+  "g6vi3": {
     "id": "23123",
     "item_key": "g6vi3",
-    "meta": []
+    "name": "g6vi3",
+    "meta": {
+      "proficiencyname": "Digital Interference",
+      "kv517": "British",
+      "s71z0": "Muggles",
+      "ipjf3": "7",
+      "e3usn": "When magical folk are around technology, the technology tends to experience more glitches and interference. This proficiency helps to minimize the degree of that interference and helps the practitioner blend in to evade detection as an anomaly in such a circumstance."
+    }
   },
-  {
+  "zwv12": {
     "id": "23124",
     "item_key": "zwv12",
-    "meta": []
+    "name": "zwv12",
+    "meta": {
+      "proficiencyname": "Transit Navigation",
+      "kv517": "British",
+      "s71z0": "Muggles",
+      "ipjf3": "18",
+      "e3usn": "This proficiency is used any time the individual needs to utilize muggle transit systems. Failure results in ineffectively utilizing the service."
+    }
   },
-  {
+  "f08xu": {
     "id": "23125",
     "item_key": "f08xu",
-    "meta": []
+    "name": "f08xu",
+    "meta": {
+      "proficiencyname": "Vehical Usage",
+      "kv517": "British",
+      "s71z0": "Muggles",
+      "ipjf3": "17",
+      "e3usn": "This proficiency allows the practitioner to drive a muggle vehicle without the use of magic"
+    }
   },
-  {
+  "txirt": {
     "id": "23126",
     "item_key": "txirt",
-    "meta": []
+    "name": "txirt",
+    "meta": {
+      "proficiencyname": "Currency Usage",
+      "kv517": "British",
+      "s71z0": "Muggles",
+      "ipjf3": "13",
+      "e3usn": "This proficiency involves understanding and utilizing muggle currency. Failure results in spending too much or otherwise losing money."
+    }
   },
-  {
+  "nrh2l": {
     "id": "23127",
     "item_key": "nrh2l",
-    "meta": []
+    "name": "nrh2l",
+    "meta": {
+      "proficiencyname": "Emergency Services",
+      "kv517": "British",
+      "s71z0": "Muggles",
+      "ipjf3": "20",
+      "e3usn": "This proficiency involves effectively using muggle emergency services"
+    }
   },
-  {
+  "vf49j": {
     "id": "23128",
     "item_key": "vf49j",
-    "meta": []
+    "name": "vf49j",
+    "meta": {
+      "proficiencyname": "Muggle Fashion",
+      "kv517": "British",
+      "s71z0": "Muggles",
+      "ipjf3": "13",
+      "e3usn": "This proficiency involves understanding muggle fashion well enough to blend in amongst muggles in public. Failure results in negative attention and judgement. The greater the failure, the greater the scrutiny."
+    }
   },
-  {
+  "5ujrj": {
     "id": "23129",
     "item_key": "5ujrj",
-    "meta": []
+    "name": "5ujrj",
+    "meta": {
+      "proficiencyname": "Airline Usage",
+      "kv517": "British",
+      "s71z0": "Muggles",
+      "ipjf3": "25",
+      "e3usn": "This proficiency allows muggles to appropriately and effectively navigate an airport and plane ride."
+    }
   },
-  {
+  "yqjtp": {
     "id": "23130",
     "item_key": "yqjtp",
-    "meta": []
+    "name": "yqjtp",
+    "meta": {
+      "proficiencyname": "Political Involvement",
+      "kv517": "British",
+      "s71z0": "Muggles",
+      "ipjf3": "32",
+      "e3usn": "This proficiency involves understanding and appropriately interacting with the muggle political system, helping one advance their political aims."
+    }
   },
-  {
+  "aihab": {
     "id": "23131",
     "item_key": "aihab",
-    "meta": []
+    "name": "aihab",
+    "meta": {
+      "proficiencyname": "Muggle Sports Spectation",
+      "kv517": "British",
+      "s71z0": "Muggles",
+      "ipjf3": "12",
+      "e3usn": "This proficiency involves blending in while observing muggle sports. Failure results in negative attention and judgement. The greater the failure, the greater the scrutiny."
+    }
   },
-  {
+  "sbnt7": {
     "id": "23132",
     "item_key": "sbnt7",
-    "meta": []
+    "name": "sbnt7",
+    "meta": {
+      "proficiencyname": "Legal System Involvement",
+      "kv517": "British",
+      "s71z0": "Muggles",
+      "ipjf3": "42",
+      "e3usn": "This proficiency allows the practitioner to successfully navigate the muggle legal system during something like a traffic stop or interrogation. Failure results in negative attention and judgement. The greater the failure, the greater the scrutiny. This could significantly escalate if the practitioner fails and is arrested."
+    }
   },
-  {
+  "6jchs": {
     "id": "23133",
     "item_key": "6jchs",
-    "meta": []
+    "name": "6jchs",
+    "meta": {
+      "proficiencyname": "Muggle First Aid",
+      "kv517": "British",
+      "s71z0": "Muggles",
+      "ipjf3": "5",
+      "e3usn": "This proficiency allows the practitioner to utilize muggle approaches to healing. Typically this will only amount to 1-2L wounds of healing per injury, but in some cases can be much more effective. Failure often results in greater injury or the introduction of infection."
+    }
   },
-  {
+  "2gro0": {
     "id": "23134",
     "item_key": "2gro0",
-    "meta": []
+    "name": "2gro0",
+    "meta": {
+      "proficiencyname": "Shopping Mastery",
+      "kv517": "British",
+      "s71z0": "Muggles",
+      "ipjf3": "7",
+      "e3usn": "This proficiency involves successfully navigating a shopping outing (excluding money exchange). Failure results in negative attention and judgement. The greater the failure, the greater the scrutiny."
+    }
   },
-  {
+  "g3sn3": {
     "id": "23135",
     "item_key": "g3sn3",
-    "meta": []
+    "name": "g3sn3",
+    "meta": {
+      "proficiencyname": "Pop Culture Knowledge",
+      "kv517": "British",
+      "s71z0": "Muggles",
+      "ipjf3": "50",
+      "e3usn": "This proficiency involves the practitioner having detailed knowledge of pop-culture references"
+    }
   },
-  {
+  "hkbsb": {
     "id": "23136",
     "item_key": "hkbsb",
-    "meta": []
+    "name": "hkbsb",
+    "meta": {
+      "proficiencyname": "Basic Muggle Cooking",
+      "kv517": "British",
+      "s71z0": "Muggles",
+      "ipjf3": "5",
+      "e3usn": "This proficiency allows one to prepare a basic meal using muggle approaches"
+    }
   },
-  {
+  "13en7": {
     "id": "23137",
     "item_key": "13en7",
-    "meta": []
+    "name": "13en7",
+    "meta": {
+      "proficiencyname": "Intemediate Muggle Cooking",
+      "kv517": "British",
+      "s71z0": "Muggles",
+      "ipjf3": "10",
+      "e3usn": "This proficiency allows one to prepare a typical meal using muggle approaches"
+    }
   },
-  {
+  "16usy": {
     "id": "23138",
     "item_key": "16usy",
-    "meta": []
+    "name": "16usy",
+    "meta": {
+      "proficiencyname": "Advanced Muggle Cooking",
+      "kv517": "British",
+      "s71z0": "Muggles",
+      "ipjf3": "20",
+      "e3usn": "This proficiency allows one to prepare a world-class meal using muggle approaches"
+    }
   },
-  {
+  "dl76p": {
     "id": "23139",
     "item_key": "dl76p",
-    "meta": []
+    "name": "dl76p",
+    "meta": {
+      "proficiencyname": "Muggle Entertainment",
+      "kv517": "British",
+      "s71z0": "Muggles",
+      "ipjf3": "50",
+      "e3usn": "This proficiency involves effectively entertaining muggles without being detected as a magician (often leading to fame)"
+    }
   },
-  {
+  "udzr9": {
     "id": "23140",
     "item_key": "udzr9",
-    "meta": []
+    "name": "udzr9",
+    "meta": {
+      "proficiencyname": "Dining Etiquiette",
+      "kv517": "British",
+      "s71z0": "Muggles",
+      "ipjf3": "27",
+      "e3usn": "This proficiency involves fine dining etiquette. Failure results in negative attention and judgement. The greater the failure, the greater the scrutiny and embarrassment."
+    }
   },
-  {
+  "kuw7b": {
     "id": "23141",
     "item_key": "kuw7b",
-    "meta": []
+    "name": "kuw7b",
+    "meta": {
+      "proficiencyname": "Greeting Customs",
+      "kv517": "British",
+      "s71z0": "Muggles",
+      "ipjf3": "5",
+      "e3usn": "This proficiency involves the proper greetings used by muggles in various situations. Failure results in negative attention and judgement. The greater the failure, the greater the scrutiny."
+    }
   },
-  {
+  "wr1ce": {
     "id": "23142",
     "item_key": "wr1ce",
-    "meta": []
+    "name": "wr1ce",
+    "meta": {
+      "proficiencyname": "Queue Etiquette",
+      "kv517": "British",
+      "s71z0": "Muggles",
+      "ipjf3": "5",
+      "e3usn": "This proficiency involves understanding how to stand on line without being detected. Failure results in negative attention and judgement. The greater the failure, the greater the scrutiny."
+    }
   },
-  {
+  "q64ve": {
     "id": "23143",
     "item_key": "q64ve",
-    "meta": []
+    "name": "q64ve",
+    "meta": {
+      "proficiencyname": "Small Talk Mastery",
+      "kv517": "British",
+      "s71z0": "Muggles",
+      "ipjf3": "5",
+      "e3usn": "This proficiency involves understanding how to engage in very basic muggle small talk. Failure results in negative attention and judgement. The greater the failure, the greater the scrutiny."
+    }
   },
-  {
+  "9zgwu": {
     "id": "23144",
     "item_key": "9zgwu",
-    "meta": []
+    "name": "9zgwu",
+    "meta": {
+      "proficiencyname": "Compliments",
+      "kv517": "British",
+      "s71z0": "Muggles",
+      "ipjf3": "7",
+      "e3usn": "This proficiency involves effectively complimenting a muggle. Failure results in negative attention and judgement. The greater the failure, the greater the scrutiny. It may also involve offending the muggle."
+    }
   },
-  {
+  "onvyn": {
     "id": "23145",
     "item_key": "onvyn",
-    "meta": []
+    "name": "onvyn",
+    "meta": {
+      "proficiencyname": "Restaurant Ordering",
+      "kv517": "British",
+      "s71z0": "Muggles",
+      "ipjf3": "7",
+      "e3usn": "This proficiency involves understanding how to order at a restaurant. Failure results in negative attention and judgement. The greater the failure, the greater the scrutiny."
+    }
   },
-  {
+  "zasf": {
     "id": "23146",
     "item_key": "zasf",
-    "meta": []
+    "name": "zasf",
+    "meta": {
+      "proficiencyname": "Celebratory Customs",
+      "kv517": "British",
+      "s71z0": "Muggles",
+      "ipjf3": "10",
+      "e3usn": "This proficiency involves effectively celebrating in a muggle way without drawing suspicion. Failure results in negative attention and judgement. The greater the failure, the greater the scrutiny."
+    }
   },
-  {
+  "lnw2u": {
     "id": "23147",
     "item_key": "lnw2u",
-    "meta": []
+    "name": "lnw2u",
+    "meta": {
+      "proficiencyname": "Cinema Protocol",
+      "kv517": "British",
+      "s71z0": "Muggles",
+      "ipjf3": "15",
+      "e3usn": "This proficiency involves effectively navigating the rules and expectations at a muggle cinema. Failure results in being thrown out of the cinema."
+    }
   },
-  {
+  "n4t7b": {
     "id": "23148",
     "item_key": "n4t7b",
-    "meta": []
+    "name": "n4t7b",
+    "meta": {
+      "proficiencyname": "Fitness Center Decorum",
+      "kv517": "British",
+      "s71z0": "Muggles",
+      "ipjf3": "20",
+      "e3usn": "This proficiency involves fitting in at a fitness center or pool. Failure results in being thrown out or banned."
+    }
   },
-  {
+  "gcq17": {
     "id": "23149",
     "item_key": "gcq17",
-    "meta": []
+    "name": "gcq17",
+    "meta": {
+      "proficiencyname": "Muggle Workplace Decorum",
+      "kv517": "British",
+      "s71z0": "Muggles",
+      "ipjf3": "18",
+      "e3usn": "This proficiency involves fitting in at a muggle workplace."
+    }
   },
-  {
+  "i7qgu": {
     "id": "23150",
     "item_key": "i7qgu",
-    "meta": []
+    "name": "i7qgu",
+    "meta": {
+      "proficiencyname": "Appliance Utilization",
+      "kv517": "British",
+      "s71z0": "Muggles",
+      "ipjf3": "10",
+      "e3usn": "This proficiency involves successfully using muggle appliances. Included in this is effectively suppressing one's own magical aura to avoid interfering with the appliance's operation."
+    }
   },
-  {
+  "44b48": {
     "id": "23151",
     "item_key": "44b48",
-    "meta": []
+    "name": "44b48",
+    "meta": {
+      "proficiencyname": "Muggle Post",
+      "kv517": "British",
+      "s71z0": "Muggles",
+      "ipjf3": "12",
+      "e3usn": "This proficiency involves effectively utilizing the muggle postage system"
+    }
   },
-  {
+  "a2ppd": {
     "id": "23152",
     "item_key": "a2ppd",
-    "meta": []
+    "name": "a2ppd",
+    "meta": {
+      "proficiencyname": "Neighborly Relations",
+      "kv517": "British",
+      "s71z0": "Muggles",
+      "ipjf3": "25",
+      "e3usn": "This proficiency involves all things related to the external presentation of one's home and interactions with the neighbors. Failure results in the home being seen as a blight or oddity on the street bringing scrutiny, disdain, and declining property values."
+    }
   },
-  {
+  "9drx4": {
     "id": "23512",
     "item_key": "9drx4",
-    "meta": []
+    "name": "Bamboo Plant Infection",
+    "meta": {
+      "proficiencyname": "Bamboo Plant Infection",
+      "kv517": "British",
+      "s71z0": "Herbology",
+      "ipjf3": "12",
+      "e5ltj": "General",
+      "n1yfm": {
+        "form": "1021",
+        "i23509": {
+          "nt3s3": "Bamboo Proper Care and Safe Handling"
+        }
+      },
+      "nt3s3": [
+        "Bamboo Proper Care and Safe Handling"
+      ],
+      "6hlo5": {
+        "form": "960",
+        "i23510": {
+          "aiwl3": "Bamboo"
+        }
+      },
+      "aiwl3": [
+        "Bamboo"
+      ],
+      "f2ux5": {
+        "form": "961",
+        "i23511": {
+          "53wtd": "Infected Bamboo Plant Stem"
+        }
+      },
+      "53wtd": [
+        "Infected Bamboo Plant Stem"
+      ],
+      "e3usn": "This method infects a bamboo plant."
+    }
   },
-  {
+  "38246a": {
     "id": "24467",
     "item_key": "38246a",
-    "meta": []
+    "name": "Extraction of Purified Welwitschia Leaf Oils from Welwitschia",
+    "meta": {
+      "proficiencyname": "Extraction of Purified Welwitschia Leaf Oils from Welwitschia",
+      "kv517": "British",
+      "s71z0": "Herbology",
+      "ipjf3": "28",
+      "e5ltj": "Part Extraction",
+      "iw2jn": "Welwitschia",
+      "f2ux5": {
+        "form": "961",
+        "i24468": {
+          "53wtd": "High Quality Welwitschia Leaf Oils"
+        }
+      },
+      "53wtd": [
+        "High Quality Welwitschia Leaf Oils"
+      ]
+    }
   },
-  {
+  "qjybf": {
     "id": "24539",
     "item_key": "qjybf",
-    "meta": []
+    "name": "Penelope's Welwitschia Extraction Procedures",
+    "meta": {
+      "proficiencyname": "Penelope's Welwitschia Extraction Procedures",
+      "kv517": "British",
+      "s71z0": "Herbology",
+      "ipjf3": "36",
+      "e5ltj": "Part Extraction",
+      "3aycs": "Welwitschia Leaf Oils",
+      "6hlo5": {
+        "form": "960",
+        "i24538": {
+          "aiwl3": "Cassowary"
+        }
+      },
+      "aiwl3": [
+        "Cassowary"
+      ],
+      "e3usn": "This procedure extracts a significant amount of Welwitschia leaf oils using Caster Oil to force a greater amount of the oils out of the plant."
+    }
   },
-  {
+  "y2qml": {
     "id": "24815",
     "item_key": "y2qml",
-    "meta": []
+    "name": "Questions to the Gods",
+    "meta": {
+      "proficiencyname": "Questions to the Gods",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "7",
+      "6hlo5": {
+        "form": "960",
+        "i24813": {
+          "aiwl3": "Oracle Bones"
+        }
+      },
+      "aiwl3": [
+        "Oracle Bones"
+      ],
+      "f2ux5": {
+        "form": "961",
+        "i24814": {
+          "53wtd": "Cracked Oracle Bones"
+        }
+      },
+      "53wtd": [
+        "Cracked Oracle Bones"
+      ],
+      "e3usn": "Inscribe Oracle Bones with questions to the gods, heat them, then read the answers in the patterns of cracked bone. As a divination technique, this proficiency can yield visions of direction and guidance from the gods which vary in specificity and accuracy depending on the quality of the roll. This will typically yield information about specific people and their motivations.",
+      "g8yjf-value": "0"
+    }
   },
-  {
+  "y7lpr": {
     "id": "28996",
     "item_key": "y7lpr",
-    "meta": []
+    "name": "Rudimentary Aichmomancy",
+    "meta": {
+      "proficiencyname": "Rudimentary Aichmomancy",
+      "s71z0": "Divination",
+      "ipjf3": "10",
+      "6hlo5": {
+        "form": "960",
+        "i28995": {
+          "aiwl3": "Small pins"
+        }
+      },
+      "aiwl3": [
+        "Small pins"
+      ],
+      "e3usn": "In battle, the practitioner presses small pins gently into a nearby surface watching how the lean and rest. This gives them insights into possible futures which they can share with their allies. This gives any ally a +2 to any combat-related roll for one turn. It wears off when this practitioner's turn reemerges.",
+      "e3usn-value": "<p>In battle, the practitioner presses small pins gently into a nearby surface watching how the lean and rest. This gives them insights into possible futures which they can share with their allies. This gives any ally a +2 to any combat-related roll for one turn. It wears off when this practitioner's turn reemerges.</p>"
+    }
   },
-  {
+  "1b31p": {
     "id": "28998",
     "item_key": "1b31p",
-    "meta": []
+    "name": "Improved Aichmomancy",
+    "meta": {
+      "proficiencyname": "Improved Aichmomancy",
+      "s71z0": "Divination",
+      "ipjf3": "13",
+      "6hlo5": {
+        "form": "960",
+        "i28997": {
+          "aiwl3": "Small pins"
+        }
+      },
+      "aiwl3": [
+        "Small pins"
+      ],
+      "e3usn": "In battle, the practitioner presses small pins gently into a nearby surface watching how the lean and rest. This gives them insights into possible futures which they can share with their allies. This gives any ally a +3 to any combat-related roll for one turn. It wears off when this practitioner's turn reemerges.",
+      "e3usn-value": "<p>In battle, the practitioner presses small pins gently into a nearby surface watching how the lean and rest. This gives them insights into possible futures which they can share with their allies. This gives any ally a +3 to any combat-related roll for one turn. It wears off when this practitioner's turn reemerges.</p>"
+    }
   },
-  {
+  "4ded5": {
     "id": "29000",
     "item_key": "4ded5",
-    "meta": []
+    "name": "Refined Aichmomancy",
+    "meta": {
+      "proficiencyname": "Refined Aichmomancy",
+      "s71z0": "Divination",
+      "ipjf3": "17",
+      "6hlo5": {
+        "form": "960",
+        "i28999": {
+          "aiwl3": "Small pins"
+        }
+      },
+      "aiwl3": [
+        "Small pins"
+      ],
+      "e3usn": "In battle, the practitioner presses small pins gently into a nearby surface watching how the lean and rest. This gives them insights into possible futures which they can share with their allies. This gives any ally a +4 to any combat-related roll for one turn. It wears off when this practitioner's turn reemerges.",
+      "e3usn-value": "<p>In battle, the practitioner presses small pins gently into a nearby surface watching how the lean and rest. This gives them insights into possible futures which they can share with their allies. This gives any ally a +4 to any combat-related roll for one turn. It wears off when this practitioner's turn reemerges.</p>"
+    }
   },
-  {
+  "w2psv": {
     "id": "29002",
     "item_key": "w2psv",
-    "meta": []
+    "name": "Intricate Aichmomancy",
+    "meta": {
+      "proficiencyname": "Intricate Aichmomancy",
+      "s71z0": "Divination",
+      "ipjf3": "22",
+      "6hlo5": {
+        "form": "960",
+        "i29001": {
+          "aiwl3": "Small pins"
+        }
+      },
+      "aiwl3": [
+        "Small pins"
+      ],
+      "e3usn": "In battle, the practitioner presses small pins gently into a nearby surface watching how the lean and rest. This gives them insights into possible futures which they can share with their allies. This gives any ally a +5 to any combat-related roll for one turn. It wears off when this practitioner's turn reemerges.",
+      "e3usn-value": "<p>In battle, the practitioner presses small pins gently into a nearby surface watching how the lean and rest. This gives them insights into possible futures which they can share with their allies. This gives any ally a +5 to any combat-related roll for one turn. It wears off when this practitioner's turn reemerges.</p>"
+    }
   },
-  {
+  "o6dwg": {
     "id": "29004",
     "item_key": "o6dwg",
-    "meta": []
+    "name": "Elegant Aichmomancy",
+    "meta": {
+      "proficiencyname": "Elegant Aichmomancy",
+      "s71z0": "Divination",
+      "ipjf3": "28",
+      "6hlo5": {
+        "form": "960",
+        "i29003": {
+          "aiwl3": "Small pins"
+        }
+      },
+      "aiwl3": [
+        "Small pins"
+      ],
+      "e3usn": "In battle, the practitioner presses small pins gently into a nearby surface watching how the lean and rest. This gives them insights into possible futures which they can share with their allies. This gives any ally a +6 to any combat-related roll for one turn. It wears off when this practitioner's turn reemerges.",
+      "e3usn-value": "<p>In battle, the practitioner presses small pins gently into a nearby surface watching how the lean and rest. This gives them insights into possible futures which they can share with their allies. This gives any ally a +6 to any combat-related roll for one turn. It wears off when this practitioner's turn reemerges.</p>"
+    }
   },
-  {
+  "cff5r": {
     "id": "29006",
     "item_key": "cff5r",
-    "meta": []
+    "name": "Sophisticated Aichmomancy",
+    "meta": {
+      "proficiencyname": "Sophisticated Aichmomancy",
+      "s71z0": "Divination",
+      "ipjf3": "33",
+      "6hlo5": {
+        "form": "960",
+        "i29005": {
+          "aiwl3": "Small pins"
+        }
+      },
+      "aiwl3": [
+        "Small pins"
+      ],
+      "e3usn": "In battle, the practitioner presses small pins gently into a nearby surface watching how the lean and rest. This gives them insights into possible futures which they can share with their allies. This gives any ally a +7 to any combat-related roll for one turn. It wears off when this practitioner's turn reemerges.",
+      "e3usn-value": "<p>In battle, the practitioner presses small pins gently into a nearby surface watching how the lean and rest. This gives them insights into possible futures which they can share with their allies. This gives any ally a +7 to any combat-related roll for one turn. It wears off when this practitioner's turn reemerges.</p>"
+    }
   },
-  {
+  "g0p2v": {
     "id": "29008",
     "item_key": "g0p2v",
-    "meta": []
+    "name": "Intermediate Anthomancy",
+    "meta": {
+      "proficiencyname": "Intermediate Anthomancy",
+      "s71z0": "Divination",
+      "ipjf3": "22",
+      "6hlo5": {
+        "form": "960",
+        "i29007": {
+          "aiwl3": "Daisy Flowers"
+        }
+      },
+      "aiwl3": [
+        "Daisy Flowers"
+      ],
+      "e3usn": "The practitioner can scatter daisy flower petals on the head of a victim of psychological damage (sanity shaking, depressing, or anxiety-related) to understand their troubles, predict their recovery and heal 2H wound of psychological damage once per day per target."
+    }
   },
-  {
+  "q9s3f": {
     "id": "29010",
     "item_key": "q9s3f",
-    "meta": []
+    "name": "Advanced Anthomancy",
+    "meta": {
+      "proficiencyname": "Advanced Anthomancy",
+      "s71z0": "Divination",
+      "ipjf3": "38",
+      "6hlo5": {
+        "form": "960",
+        "i29009": {
+          "aiwl3": "Daisy Flowers"
+        }
+      },
+      "aiwl3": [
+        "Daisy Flowers"
+      ],
+      "e3usn": "The practitioner can scatter daisy flower petals on the head of a victim of psychological damage (sanity shaking, depressing, or anxiety-related) to understand their troubles, predict their recovery and heal 1H wound of psychological damage once per day per target."
+    }
   },
-  {
+  "sizj1": {
     "id": "29011",
     "item_key": "sizj1",
-    "meta": []
+    "name": "Intermediate Leacanach",
+    "meta": {
+      "proficiencyname": "Intermediate Leacanach",
+      "kv517": "Mesopotamian",
+      "s71z0": "Divination",
+      "ipjf3": "42",
+      "e3usn": "By dripping oil, water, or any other fluid into other fluids, a the practitioner can heal 2H wound of any type of damage caused by hexes, jinxes, curses, or poisons.",
+      "61l9a": "Also called Lecanomancy. From Greek lekane “basin,” lecanomancy reads ripples, oil‑slicks, or floating objects in a shallow dish of water. Babylonian seers used it to unmask hidden guilt; medieval magi prized it for discovering thieves and sorcerous afflictions."
+    }
   },
-  {
+  "q3j3a": {
     "id": "29012",
     "item_key": "q3j3a",
-    "meta": []
+    "name": "Advanced Leacanach",
+    "meta": {
+      "proficiencyname": "Advanced Leacanach",
+      "kv517": "Mesopotamian",
+      "s71z0": "Divination",
+      "ipjf3": "50",
+      "e3usn": "By dripping oil, water, or any other fluid into other fluids, a the practitioner can heal 3H wound of any type of damage caused by hexes, jinxes, curses, or poisons. Once per day per target.",
+      "61l9a": "Also called Lecanomancy. From Greek lekane “basin,” lecanomancy reads ripples, oil‑slicks, or floating objects in a shallow dish of water. Babylonian seers used it to unmask hidden guilt; medieval magi prized it for discovering thieves and sorcerous afflictions."
+    }
   },
-  {
+  "5cz92": {
     "id": "29019",
     "item_key": "5cz92",
-    "meta": []
+    "name": "Intermediate Anthropomancy",
+    "meta": {
+      "proficiencyname": "Intermediate Anthropomancy",
+      "kv517": "Mesopotamian",
+      "s71z0": "Divination",
+      "ipjf3": "46",
+      "e3usn": "The diviner fashions a foul effigy—wax shell, pork viscera, a strand of the muggle’s hair—then slashes the mock entrails while intoning the name. The named target, no matter the distance, immediately suffers 2H wound of disease/toxic damage. They will continue to take 1H wound for per day for seven days. Once this is cured, no Anthropomancy attempts are ever successful on this target again. ",
+      "61l9a": "In Akkadian omen‑lists, royal haruspices dissected prisoners to read the “tablet of the gods” writ upon warm viscera, believing each lobe and sulcus mirrored cosmic provinces. Hellenistic warlords occasionally turned to the grisly rite when ovine livers proved inconclusive, though philosophers like Plutarch decried it as tyrannical hubris. Early Byzantine chronicles condemn errant bishops who read a slave’s heart for auguries of plague, prompting imperial edicts that conflated anthropomancy with outright sorcery. Medieval grimoires preserve instructions for crafting wax homunculi stuffed with animal offal as a bloodless substitute, a concession to tightening Church proscriptions. By the seventeenth century the practice lingered only in whispered necromantic circles, its visceral lexicon absorbed into later anatomical “science of correspondences.”"
+    }
   },
-  {
+  "a6wi7": {
     "id": "29020",
     "item_key": "a6wi7",
-    "meta": []
+    "name": "Advanced Anthropomancy",
+    "meta": {
+      "proficiencyname": "Advanced Anthropomancy",
+      "kv517": "Mesopotamian",
+      "s71z0": "Divination",
+      "ipjf3": "58",
+      "e3usn": "The diviner fashions a foul effigy—wax shell, pork viscera, a strand of the muggle’s hair—then slashes the mock entrails while intoning the name. The named target, no matter the distance, immediately suffers 3H wound of disease/toxic damage. They will continue to take 2H wound for per day for seven days. Once this is cured, no Anthropomancy attempts are ever successful on this target again. ",
+      "61l9a": "In Akkadian omen‑lists, royal haruspices dissected prisoners to read the “tablet of the gods” writ upon warm viscera, believing each lobe and sulcus mirrored cosmic provinces. Hellenistic warlords occasionally turned to the grisly rite when ovine livers proved inconclusive, though philosophers like Plutarch decried it as tyrannical hubris. Early Byzantine chronicles condemn errant bishops who read a slave’s heart for auguries of plague, prompting imperial edicts that conflated anthropomancy with outright sorcery. Medieval grimoires preserve instructions for crafting wax homunculi stuffed with animal offal as a bloodless substitute, a concession to tightening Church proscriptions. By the seventeenth century the practice lingered only in whispered necromantic circles, its visceral lexicon absorbed into later anatomical “science of correspondences.”"
+    }
   },
-  {
+  "vhmh6": {
     "id": "29021",
     "item_key": "vhmh6",
-    "meta": []
+    "name": "Advanced Catoptromancy",
+    "meta": {
+      "proficiencyname": "Advanced Catoptromancy",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "27",
+      "e3usn": "The diviner unveils a lustrous hand‑mirror and reads fleeting images in its depths. For the rest of the evening, the target is immune to any mental spell‑effects and cannot take anxiety-related, depressive, or sanity-shaking damage. This can also be used to heal 1H wound of any anxiety-related, depressive, or sanity-shaking damage",
+      "61l9a": "Ancient Greek seers lowered a polished bronze mirror into a temple well; the face that shimmered on its surface foretold life or death. Roman matrons peered into hand‑mirrors by moonlight to glimpse would‑be lovers, insisting a true match left a rosy halo round the reflection. Medieval thieves’‑catchers used blackened glass: the first glint of a culprit’s likeness named the pilferer to be seized at dawn. Elizabethan magicians such as Dr Dee prized obsidian “shew‑stones,” claiming fallen angels whispered through the dark glass. By the nineteenth century parlour mystics sold small scrying mirrors, keeping the art alive wherever a flicker of candle met polished silver."
+    }
   },
-  {
+  "kdnqp": {
     "id": "29022",
     "item_key": "kdnqp",
-    "meta": []
+    "name": "Basic Catoptromancy",
+    "meta": {
+      "proficiencyname": "Basic Catoptromancy",
+      "kv517": "British",
+      "s71z0": "Divination",
+      "ipjf3": "5",
+      "e3usn": "The diviner unveils a lustrous hand‑mirror and reads fleeting images in its depths. This can also be used to heal 1H wound of any anxiety-related, depressive, or sanity-shaking damage",
+      "61l9a": "Ancient Greek seers lowered a polished bronze mirror into a temple well; the face that shimmered on its surface foretold life or death. Roman matrons peered into hand‑mirrors by moonlight to glimpse would‑be lovers, insisting a true match left a rosy halo round the reflection. Medieval thieves’‑catchers used blackened glass: the first glint of a culprit’s likeness named the pilferer to be seized at dawn. Elizabethan magicians such as Dr Dee prized obsidian “shew‑stones,” claiming fallen angels whispered through the dark glass. By the nineteenth century parlour mystics sold small scrying mirrors, keeping the art alive wherever a flicker of candle met polished silver."
+    }
   },
-  {
+  "4r7e2": {
     "id": "29062",
     "item_key": "4r7e2",
-    "meta": []
+    "name": "Heptomancy",
+    "meta": {
+      "proficiencyname": "Heptomancy",
+      "s71z0": "Divination",
+      "ipjf3": "10",
+      "e3usn": "Laying out seven tokens (stones, cards, bones, or candles) in a star-heptagon and tracing how each point “leans” toward the next to expose the hidden cadence of fate. This allows the user to heal 1L wound of any kind of damage but only seven times per day.",
+      "61l9a": "Chaldean astrologer-priests first bound the seven visible “wanderers” to weekday omens, casting seven-sided clay lots to settle royal marriages. Neo-Pythagoreans tuned bronze chimes to the diatonic scale; wherever the seventh overtone rang sharp, they declared a city’s walls would fall within seven seasons. Ummayad courtiers at Damascus arranged seven pearls on mirrored trays, watching which gem met its reflection last to judge the caliph’s final decree. In Tudor London, plague-doctors burned bundles of seven herbs each dusk—the twist of the seventh stem flagged which parish the carts would visit next. Modern numerologists still chart corporate fortunes by plotting seven-day moving averages against lunar sevens; traders quietly pay when the seventh candle closes outside the heptagon."
+    }
   },
-  {
+  "53js8": {
     "id": "29065",
     "item_key": "53js8",
-    "meta": []
+    "name": "Ovomancy",
+    "meta": {
+      "proficiencyname": "Ovomancy",
+      "fjkhy": [
+        "Item Requirements"
+      ],
+      "s71z0": "Divination",
+      "ipjf3": "7",
+      "6hlo5": {
+        "form": "960",
+        "i29064": {
+          "aiwl3": "Doxy Eggs"
+        }
+      },
+      "aiwl3": [
+        "Doxy Eggs"
+      ],
+      "e3usn": "Cracking a fresh egg into cool water and reading the drifting yolk-globes and albumen filaments for omens of birth, shelter, and brittle peril. Doing so grants +1 to naturalism for a target for the next hour.",
+      "61l9a": "Roman midwives floated eggs in wine, judging a mother’s fate by whether the yolk broke before the first bubble rose. Basque sorginak (“egg-witches”) left sunrise eggs on slate; a curling white thread that pointed uphill foretold the next thunder-witch’s path. Russian Old-Believers candle-read Easter eggs, claiming a dark blood-spot in the air cell warned of tsarist arrests within the week. In coastal Yorùbá towns, fishermen stirred hen eggs into tide-pools; if the yolk coiled clockwise, the surf would spare their canoes but drown rivals. By the Dust Bowl era, Kansas healers dropped farm eggs into Mason jars—clouded whites meant the coming storm would strip topsoil clean, and they moved cattle two counties east."
+    }
   },
-  {
+  "g5tva": {
     "id": "29066",
     "item_key": "g5tva",
-    "meta": []
+    "name": "Ornithomancy",
+    "meta": {
+      "proficiencyname": "Ornithomancy",
+      "s71z0": "Divination",
+      "ipjf3": "13",
+      "e3usn": "Watching the looping flight, wing-flicks, and warning cries of wild birds to decode the sky’s verdict on earthbound affairs. This grants the target +3 to perception for the next hour.",
+      "61l9a": "Etruscan augurs stood on oak platforms at dawn, tracing every raven arc as a rough sketch of next week’s battle lines. Roman legionaries swore by the auspex who halted an entire column after vultures crossed left-to-right—hours later the road was found mined with makeshift spikes. Medieval falconers in Aragón timed royal marriages by how kestrels hovered over the palace chimney; a sudden stoop meant the betrothal would break like brittle bone. During the spice boom, Javanese traders read frigatebird kettles over the strait, rerouting clove junks away from storms Portuguese charts never saw. In the age of telegraph wires, Australian telegraphists judged cockatoo alarm flights; when the flock veered seaward, they cut the line current and saved miles of cable from a lightning surge that hit minutes later."
+    }
   },
-  {
+  "nus8b": {
     "id": "29113",
     "item_key": "nus8b",
-    "meta": []
+    "name": "Artificing Preparation of a Very Small Object",
+    "meta": {
+      "proficiencyname": "Artificing Preparation of a Very Small Object",
+      "s71z0": "Artificing",
+      "ipjf3": "5",
+      "e3usn": "This effect prepares a very small object (size 1) for artificing. If the roll is failed, the object is completely destroyed. If the roll is critically failed, the practitioner takes 1H wound of burn damage. Once the prepared object is created, please add a note in your inventory that the object has been \"prepared for artificing\"",
+      "g8yjf": "Adam Fominaya",
+      "g8yjf-value": "72590398"
+    }
   },
-  {
+  "3xb4o": {
     "id": "29114",
     "item_key": "3xb4o",
-    "meta": []
+    "name": "Artificing Preparation of a Small Object",
+    "meta": {
+      "proficiencyname": "Artificing Preparation of a Small Object",
+      "s71z0": "Artificing",
+      "ipjf3": "10",
+      "e3usn": "This effect prepares a small object (size 2) for artificing. If the roll is failed, the object is completely destroyed. If the roll is critically failed, the practitioner takes 2H wounds of burn damage. Once the prepared object is created, please add a note in your inventory that the object has been \"prepared for artificing\"",
+      "g8yjf": "Adam Fominaya",
+      "g8yjf-value": "72590398"
+    }
   },
-  {
+  "t7u9u": {
     "id": "29115",
     "item_key": "t7u9u",
-    "meta": []
+    "name": "Artificing Preparation of a Medium Sized Object",
+    "meta": {
+      "proficiencyname": "Artificing Preparation of a Medium Sized Object",
+      "s71z0": "Artificing",
+      "ipjf3": "17",
+      "e3usn": "This effect prepares a medium sized object (size 3) for artificing. If the roll is failed, the object is completely destroyed. If the roll is critically failed, the practitioner takes 3H wounds of burn damage. Once the prepared object is created, please add a note in your inventory that the object has been \"prepared for artificing\"",
+      "g8yjf": "Adam Fominaya",
+      "g8yjf-value": "72590398"
+    }
   },
-  {
+  "e507q": {
     "id": "29116",
     "item_key": "e507q",
-    "meta": []
+    "name": "Artificing Preparation of a Very Large Object",
+    "meta": {
+      "proficiencyname": "Artificing Preparation of a Very Large Object",
+      "s71z0": "Artificing",
+      "ipjf3": "27",
+      "e3usn": "This effect prepares a very large object (size 5) for artificing. If the roll is failed, the object is completely destroyed. If the roll is critically failed, the practitioner takes 5H wounds of burn damage. Once the prepared object is created, please add a note in your inventory that the object has been \"prepared for artificing\"",
+      "g8yjf": "Adam Fominaya",
+      "g8yjf-value": "72590398"
+    }
   },
-  {
+  "9rqps": {
     "id": "29117",
     "item_key": "9rqps",
-    "meta": []
+    "name": "Artificing Preparation of a Large Object",
+    "meta": {
+      "proficiencyname": "Artificing Preparation of a Large Object",
+      "s71z0": "Artificing",
+      "ipjf3": "23",
+      "e3usn": "This effect prepares a large object (size 4) for artificing. If the roll is failed, the object is completely destroyed. If the roll is critically failed, the practitioner takes 4H wounds of burn damage. Once the prepared object is created, please add a note in your inventory that the object has been \"prepared for artificing\"",
+      "g8yjf": "Adam Fominaya",
+      "g8yjf-value": "72590398"
+    }
   }
-];
+};
 
 let potions=[
   {
@@ -115604,3 +123381,4 @@ let castatage=8;
 let rollhistory=[];
 let woundhistory=[];
 let totallightwounds=0;
+const datadate=1748207438389;//25 May 2025

@@ -13,7 +13,7 @@ async function settingstab() {
   tabcontent.textContent = 'Loading settings…';
   rendersettingstabui();
   loadcachemini();                   // default view
-  activateSettingTab('btncache');
+  activateSettingTab('btnhistory');
 }
 
 function rendersettingstabui() {
@@ -23,17 +23,17 @@ function rendersettingstabui() {
   // button bar
   const bar = document.createElement('div');
   bar.id = 'settingstabbuttonbar';
-  const btnCache = Object.assign(document.createElement('button'), { id: 'btncache', textContent: 'Cache' });
   const btnHistory = Object.assign(document.createElement('button'), { id: 'btnhistory', textContent: 'Roll History' });
+  const btnCache = Object.assign(document.createElement('button'), { id: 'btncache', textContent: 'Cache' });
   btnCache.addEventListener('click', () => { activateSettingTab('btncache'); loadcachemini(); });
   btnHistory.addEventListener('click', () => { activateSettingTab('btnhistory'); loadhistorymini(); });
-  bar.append(btnCache, btnHistory);
+  bar.append(btnHistory, btnCache);
   tabcontent.append(bar);
 
   // two mini-windows
   const cachePane = document.createElement('div'); cachePane.id = 'cacheminiwindow';
   const historyPane = document.createElement('div'); historyPane.id = 'historyminiwindow';
-  tabcontent.append(cachePane, historyPane);
+  tabcontent.append(historyPane, cachePane);
 }
 
 function activateSettingTab(tabId) {
@@ -90,18 +90,12 @@ function loadcachemini() {
     const btnFetch = document.createElement('button');
     btnFetch.textContent = 'Fetch';
     btnFetch.addEventListener('click', async () => {
-      await forcefetchapi(key);
+      const fn = window['get' + key];      // e.g. getcharacters
+      if (typeof fn === 'function') await fn();
       loadcachemini();
     });
 
-
-    const btnClear = document.createElement('button');
-    btnClear.textContent = 'Clear';
-    btnClear.addEventListener('click', () => {
-      clearcachefor(key);
-    });
-
-    li.append(span, btnFetch, btnClear);
+    li.append(span, btnFetch);
     list.append(li);
   });
 
@@ -145,24 +139,3 @@ function loadhistorymini() {
       container.appendChild(details);
     });
 }
-
-/** clear cache for one dataset */
-function clearcachefor(key) {
-  // 1) remove your localStorage copy
-  localStorage.removeItem('cache_' + key);
-  // 2) drop the in-memory copy
-  window[key] = undefined;
-  // 3) remove its entry from cache_meta
-  if (Array.isArray(cache_meta)) {
-    const idx = cache_meta.findIndex(e => e.dataset === key);
-    if (idx > -1) cache_meta.splice(idx, 1);
-  }
-  // 4) mark it for a fresh network load next time
-  if (forceloadfromnetwork.indexOf(key) === -1) {
-    forceloadfromnetwork.push(key);
-  }
-  console.log(`cache cleared for ${key}`);
-  // your mini‐loader (alias for init_cache or similar)
-  loadcachemini();
-}
-

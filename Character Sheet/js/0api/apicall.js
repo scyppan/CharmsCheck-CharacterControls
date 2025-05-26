@@ -24,11 +24,11 @@ const datasetinfo = {
 };
 
 async function getDataset(key) {
-
+    
     //in order to "fetch fresh forcibly from the settings page"
     //we just need to unassign lastassigned
-    
-    if (datasetinfo[key].lastassigned) {
+
+    if (!datasetinfo[key].lastassigned) {
 
         const formId = datasetinfo[key].formId; console.log(datasetinfo[key], key);
         const cachems = datasetinfo[key].lastcache || 0;
@@ -121,6 +121,12 @@ function setCacheEntry(key, data) {
         console.log(key + "data cached");
     } catch (e) { }
 
+}
+
+function clearcache(key) {
+  const storageKey = `cache_${key}`;
+  localStorage.removeItem(storageKey);
+  datasetinfo[key].lastcache = null;
 }
 
 async function fetchformdata(formId, bust = true) {
