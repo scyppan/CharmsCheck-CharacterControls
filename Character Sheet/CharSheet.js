@@ -13,11 +13,13 @@ async function initApp() {
   
 	//init_cache();
 	//startidlefetchsequence();
+	
+	starttimer();
 	createCharacterSheet();
   }
   
   async function initCharmsCheckLoader() {
-	const version = 'a25.5.25.012';
+	const version = 'a25.5.26.003';
 	const subDir  = 'Character%20Sheet/';
 	const base    = `https://cdn.jsdelivr.net/gh/scyppan/CharmsCheck-CharacterControls@${version}/${subDir}`;
   

@@ -1,26 +1,26 @@
 const datasetinfo = {
-    characters: { formId: 972, lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null },
-    traits: { formId: 979, lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null },
-    accessories: { formId: 995, lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null },
-    wands: { formId: 114, lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null },
-    wandwoods: { formId: 120, lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null },
-    wandcores: { formId: 116, lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null },
-    wandqualities: { formId: 124, lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null },
-    spells: { formId: 191, lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null },
-    books: { formId: 8, lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null },
-    schools: { formId: 3, lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null },
-    proficiencies: { formId: 944, lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null },
-    potions: { formId: 34, lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null },
-    namedcreatures: { formId: 170, lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null },
-    items: { formId: 964, lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null },
-    itemsinhand: { formId: 1085, lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null },
-    generalitems: { formId: 126, lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null },
-    creatures: { formId: 48, lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null },
-    creatureparts: { formId: 53, lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null },
-    plants: { formId: 2, lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null },
-    plantparts: { formId: 43, lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null },
-    preparations: { formId: 908, lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null },
-    fooddrink: { formId: 67, lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null },
+  characters:      { formId: 972,  lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null, lastidleloadercheck: null },
+  traits:          { formId: 979,  lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null, lastidleloadercheck: null },
+  accessories:     { formId: 995,  lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null, lastidleloadercheck: null },
+  wands:           { formId: 114,  lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null, lastidleloadercheck: null },
+  wandwoods:       { formId: 120,  lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null, lastidleloadercheck: null },
+  wandcores:       { formId: 116,  lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null, lastidleloadercheck: null },
+  wandqualities:   { formId: 124,  lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null, lastidleloadercheck: null },
+  spells:          { formId: 191,  lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null, lastidleloadercheck: null },
+  books:           { formId:   8,  lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null, lastidleloadercheck: null },
+  schools:         { formId:   3,  lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null, lastidleloadercheck: null },
+  proficiencies:   { formId: 944,  lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null, lastidleloadercheck: null },
+  potions:         { formId:  34,  lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null, lastidleloadercheck: null },
+  namedcreatures:  { formId: 170,  lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null, lastidleloadercheck: null },
+  items:           { formId: 964,  lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null, lastidleloadercheck: null },
+  itemsinhand:     { formId:1085,  lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null, lastidleloadercheck: null },
+  generalitems:    { formId: 126,  lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null, lastidleloadercheck: null },
+  creatures:       { formId:  48,  lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null, lastidleloadercheck: null },
+  creatureparts:   { formId:  53,  lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null, lastidleloadercheck: null },
+  plants:          { formId:   2,  lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null, lastidleloadercheck: null },
+  plantparts:      { formId:  43,  lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null, lastidleloadercheck: null },
+  preparations:    { formId: 908,  lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null, lastidleloadercheck: null },
+  fooddrink:       { formId:  67,  lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null, lastidleloadercheck: null },
 };
 
 async function getDataset(key) {
@@ -30,7 +30,8 @@ async function getDataset(key) {
 
     if (!datasetinfo[key].lastassigned) {
 
-        const formId = datasetinfo[key].formId; console.log(datasetinfo[key], key);
+        const formId = datasetinfo[key].formId; 
+        //console.log(datasetinfo[key], key);
         const cachems = datasetinfo[key].lastcache || 0;
 
         // fetch and parse WP’s last‐update
@@ -118,7 +119,7 @@ function setCacheEntry(key, data) {
         if (datasetinfo[name]) {
             datasetinfo[name].lastcache = ts;
         }
-        console.log(key + "data cached");
+        //console.log(key + "data cached");
     } catch (e) { }
 
 }
@@ -145,7 +146,7 @@ async function fetchfresh(formid) {
 }
 
 async function checkdblastupdated(formid) {
-    console.log("formid=" + formid);
+    //console.log("formid=" + formid);
     const key = Object.keys(datasetinfo).find(k => datasetinfo[k].formId === formid);
     if (!key) throw new Error(`Unknown formid: ${formid}`);
 
@@ -158,7 +159,7 @@ async function checkdblastupdated(formid) {
     datasetinfo[key].lastdbcheck = Date.now();
     datasetinfo[key].dblastupdated = last_updated;
 
-    console.log(key + ' ' + formid + ' dblast updated: ' + last_updated);
+    //console.log(key + ' ' + formid + ' dblast updated: ' + last_updated);
     return last_updated;
 }
 

@@ -1,100 +1,73 @@
-const isDataLoaded = key => {
-  const data = window.getCacheData?.[key]?.();
-  if (Array.isArray(data)) return data.length > 0;
-  if (data && typeof data === 'object') return Object.keys(data).length > 0;
-  return false;
-};
+let showidlefetchlogs = true
+let idleactive = false
+let hasbeentidle = false
+const activityevents = ['mousemove', 'mousedown', 'keydown', 'scroll', 'touchstart']
+let timer = 0;
+const thresh = 5000;
 
-// check if localStorage.cache_<key> exists and is younger than ttl (ms)
-const isCacheFresh = (key, ttl = 24 * 60 * 60 * 1000) => {
-  // anything you manually cleared must be fetched again
-  if (forceloadfromnetwork.includes(key)) return false;
+const stopListeners = new Map();
 
-  const raw = localStorage.getItem(`cache_${key}`);
-  if (!raw) return false;
-  try {
-    const { ts } = JSON.parse(raw);
-    return Date.now() - ts < ttl;
-  } catch {
-    localStorage.removeItem(`cache_${key}`);
-    return false;
-  }
-};
+function cooldown() {
+  console.log("cooling down");
+  setTimeout(() => {
+    console.log("cooldown complete");
+    starttimer();
+  }, 5000);
+}
 
-// walk through cacheConfigs, loading missing or stale datasets on idle
-function startIdleFetchSequence(cacheConfigs, {
-  cacheTTL = 24 * 60 * 60 * 1000,
-  inactivityDelay = 5000,
-  quickThreshold = 1000
-} = {}) {
-  console.log("starting idle fetch sequence");
-  let idx = 0, cumulative = 0, timer;
+function addstoplisteners() {
+  console.log("adding stop listeners");
+  activityevents.forEach(evt => {
+    const fn = () => {
+      clearTimeout(timer);
+      stripstoplisteners();
+      console.log("timer stopped");
+    };
+    stopListeners.set(evt, fn);
+    document.addEventListener(evt, fn);
+  });
+}
 
-  const onActivity = () => {
-    clearTimeout(timer);
-    timer = setTimeout(onIdle, inactivityDelay);
-  };
+function stripstoplisteners() {
+  stopListeners.forEach((fn, evt) =>
+    document.removeEventListener(evt, fn)
+  );
+  stopListeners.clear();
+  cooldown();
+}
 
-  async function onIdle() {
-    console.log("user is idle.");
-    // skip any datasets already loaded into memory AND fresh
-    while (idx < cacheConfigs.length) {
-      const { key } = cacheConfigs[idx];
-      if (isDataLoaded(key) && isCacheFresh(key, cacheTTL)) idx++;
-      else break;
-    }
+function starttimer() {
+  clearTimeout(timer);
+  timer=0;
+  addstoplisteners(); 
+  timer = setTimeout(() => {
+  stripstoplisteners();
+  idleloader();
+}, thresh);
+}
 
-    if (idx >= cacheConfigs.length) {
-      cleanup();
-      return setTimeout(reset, cacheTTL);
-    }
-
-    do {
-      const { key, fn } = cacheConfigs[idx++];
-      const stale = !isCacheFresh(key, cacheTTL);
-      const start = performance.now();
-      try {
-        // this calls your getDataset wrapper (or equivalent) with
-        // checkCache = !stale, forceApi = stale
-        await window[fn](!stale, stale);
-      } catch (e) {
-        console.warn(`idle load ${key} failed:`, e);
-      }
-      cumulative += performance.now() - start;
-
-      // skip any that just became fresh
-      while (idx < cacheConfigs.length) {
-        const { key: next } = cacheConfigs[idx];
-        if (isDataLoaded(next) && isCacheFresh(next, cacheTTL)) idx++;
-        else break;
-      }
-    }
-    while (idx < cacheConfigs.length
-           && cumulative < inactivityDelay
-           && performance.now() - start < quickThreshold);
-
-    if (idx >= cacheConfigs.length || cumulative >= inactivityDelay) {
-      cleanup();
-      setTimeout(reset, cacheTTL);
-    } else {
-      timer = setTimeout(onIdle, inactivityDelay);
+async function idleloader() {
+  const key = choosedbtocheck();
+  console.log("starting idleloader for " + key);
+  const info = datasetinfo[key];
+  const dblast = await checkdblastupdated(info.formId);
+  info.lastidleloadercheck = Date.now();
+  if (info.lastassigned == null || info.lastassigned < dblast) {
+    const fn = window['get' + key];
+    if (typeof fn === 'function') {
+      idlelog(`calling getter for ${key}`);
+      await fn();
+      info.lastassigned = Date.now();
     }
   }
+}
 
-  function reset() {
-    idx = 0;
-    cumulative = 0;
-    startIdleFetchSequence(cacheConfigs, { cacheTTL, inactivityDelay, quickThreshold });
-  }
-
-  function cleanup() {
-    clearTimeout(timer);
-    ['mousemove','mousedown','keydown','scroll','touchstart']
-      .forEach(evt => document.removeEventListener(evt, onActivity));
-  }
-
-  ['mousemove','mousedown','keydown','scroll','touchstart']
-    .forEach(evt => document.addEventListener(evt, onActivity, { passive:true }));
-
-  timer = setTimeout(onIdle, inactivityDelay);
+function choosedbtocheck() {
+  const arr = Object.entries(datasetinfo);
+  // 1) any with null lastidleloadercheck?
+  const nulls = arr.filter(([,info]) => info.lastidleloadercheck == null);
+  if (nulls.length) return nulls[0][0];
+  // 2) else pick the one with the oldest timestamp
+  arr.sort(([,a],[,b]) => a.lastidleloadercheck - b.lastidleloadercheck);
+  return arr[0][0];
 }
