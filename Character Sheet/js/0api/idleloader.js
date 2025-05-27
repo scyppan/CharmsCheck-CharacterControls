@@ -8,20 +8,20 @@ const thresh = 5000;
 const stopListeners = new Map();
 
 function cooldown() {
-  console.log("cooling down");
+  //console.log("cooling down");
   setTimeout(() => {
-    console.log("cooldown complete");
+    //console.log("cooldown complete");
     starttimer();
   }, 5000);
 }
 
 function addstoplisteners() {
-  console.log("adding stop listeners");
+  //console.log("adding stop listeners");
   activityevents.forEach(evt => {
     const fn = () => {
       clearTimeout(timer);
       stripstoplisteners();
-      console.log("timer stopped");
+      //console.log("timer stopped");
     };
     stopListeners.set(evt, fn);
     document.addEventListener(evt, fn);
@@ -37,6 +37,7 @@ function stripstoplisteners() {
 }
 
 function starttimer() {
+  console.log("starting idle fetch. This will run quietly in the background without cessation.");
   clearTimeout(timer);
   timer=0;
   addstoplisteners(); 
@@ -48,7 +49,7 @@ function starttimer() {
 
 async function idleloader() {
   const key = choosedbtocheck();
-  console.log("starting idleloader for " + key);
+  //console.log("starting idleloader for " + key);
   const info = datasetinfo[key];
   const dblast = await checkdblastupdated(info.formId);
   info.lastidleloadercheck = Date.now();
