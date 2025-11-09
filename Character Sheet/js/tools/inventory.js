@@ -70,89 +70,74 @@ function getallequippableitems() {
     return equippableitems;
 }
 
-function getallunequippableitems() {
-    const rawTypes = currentchar.meta.wlivm || [];
-    const rawNames = currentchar.meta.exsiy || [];
-    const length = rawTypes.length;
+function getunequipableitembonuses() {
+  var bonuslist = [];
+  var itemlist = getallunequippableitems() || [];
 
-    // 1) Build a raw list pairing type with the base item object from `items`
-    const unequippableitemsraw = [];
-    for (let i = 0; i < length; i++) {
-        const type = rawTypes[i];
-        const name = rawNames[i];
-        const baseItem = Object
-            .values(items)
-            .find(it => it.meta.itemname === name) || null;
-        unequippableitemsraw.push({ type, item: baseItem });
+  for (var idx = 0; idx < itemlist.length; idx++) {
+    var item = itemlist[idx];
+    if (!item) {
+      console.error("getunequipableitembonuses: null or undefined item at index", idx);
+      continue;
+    }
+    if (item.type !== "General") continue;
+
+    var generalitem = item.item;
+    if (!generalitem) {
+      console.error("getunequipableitembonuses: missing item.item for", item);
+      continue;
     }
 
-    // 2) For each raw entry, look up the final object in its own collection
-    const finalitems = [];
-    unequippableitemsraw.forEach(entry => {
+    var meta = generalitem.meta;
+    if (!meta) {
+      console.error("getunequipableitembonuses: missing meta for", generalitem);
+      continue;
+    }
 
-        const { type, item: wrapped } = entry;
-        if (!wrapped) {
-            finalitems.push({ type, item: null });
-            return;
-        }
+    var types = Array.isArray(meta.generalitempassiveabilitytype)
+      ? meta.generalitempassiveabilitytype
+      : (console.error("getunequipableitembonuses: generalitempassiveabilitytype not array for", meta), []);
+    var name = meta.generalitemname || "unknown";
 
-        const rawName = wrapped.meta.itemname;
-        let finalitem = null;
+    var abilitybonus = Array.isArray(meta.generalitempassiveabilitybonus)
+      ? meta.generalitempassiveabilitybonus
+      : (console.error("getunequipableitembonuses: generalitempassiveabilitybonus not array for", name), []);
+    var skillbonus = Array.isArray(meta.generalitempassiveskillbonus)
+      ? meta.generalitempassiveskillbonus
+      : (console.error("getunequipableitembonuses: generalitempassiveskillbonus not array for", name), []);
+    var charbonus = Array.isArray(meta.generalitempassivecharacteristicbonus)
+      ? meta.generalitempassivecharacteristicbonus
+      : (console.error("getunequipableitembonuses: generalitempassivecharacteristicbonus not array for", name), []);
+    var subtypebonus = Array.isArray(meta.generalitempassivesubtypebonus)
+      ? meta.generalitempassivesubtypebonus
+      : (console.error("getunequipableitembonuses: generalitempassivesubtypebonus not array for", name), []);
 
-        switch (type) {
-            case "General":
-                finalitem = Object
-                    .values(generalitems)
-                    .find(x => x.meta.generalitemname === rawName) || null;
-                break;
-            case "Creature":
-                finalitem = Object
-                    .values(creatures)
-                    .find(x => x.meta.creaturename === rawName) || null;
-                break;
-            case "Creature Part":
-                finalitem = Object
-                    .values(creatureparts)
-                    .find(x => x.meta.creaturepartname === rawName) || null;
-                break;
-            case "Plant":
-                finalitem = Object
-                    .values(plants)
-                    .find(x => x.meta.plantname === rawName) || null;
-                break;
-            case "Plant Part":
-                finalitem = Object
-                    .values(plantparts)
-                    .find(x => x.meta.plantpartname === rawName) || null;
-                break;
-            case "Preparation":
-                finalitem = Object
-                    .values(preparations)
-                    .find(x => x.meta.prepname === rawName) || null;
-                break;
-            case "Food/Drink":
-                finalitem = Object
-                    .values(fooddrink)
-                    .find(x => x.meta.fooddrinkname === rawName) || null;
-                break;
-            case "Potion":
-                finalitem = Object
-                    .values(potions)
-                    .find(x => x.meta.potionname === rawName) || null;
-                break;
-            case "Book":
-                finalitem = Object
-                    .values(books)
-                    .find(x => x.meta.bookname === rawName) || null;
-                break;
-            default:
-                console.warn(`Unknown unequippable type "${type}"`);
-        }
+    var bonusamt = meta.generalitempassivebonusamt;
+    var bonusamtisarray = Array.isArray(bonusamt);
+    if (bonusamt == null) {
+      console.error("getunequipableitembonuses: bonus amount missing for", name);
+    }
 
-        finalitems.push({ type, item: finalitem });
-    });
+    for (var i = 0; i < types.length; i++) {
+      var chosenbonustype =
+        abilitybonus[i] ||
+        skillbonus[i] ||
+        charbonus[i] ||
+        subtypebonus[i] ||
+        "none";
 
-    return finalitems;
+      var amt = bonusamtisarray ? bonusamt[i] : bonusamt;
+
+      bonuslist.push({
+        source: name,
+        bonustype: chosenbonustype,
+        amt: amt,
+        abilitytype: types[i]
+      });
+    }
+  }
+
+  return bonuslist;
 }
 
 function getuniqueequippableitems() {
