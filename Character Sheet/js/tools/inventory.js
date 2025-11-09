@@ -70,6 +70,122 @@ function getallequippableitems() {
     return equippableitems;
 }
 
+function getallunequippableitems() {
+    const rawTypes = currentchar.meta.wlivm || [];
+    const rawNames = currentchar.meta.exsiy || [];
+    const length = rawTypes.length;
+
+    // 1) Build a raw list pairing type with the base item object from `items`
+    const unequippableitemsraw = [];
+    for (let i = 0; i < length; i++) {
+        const type = rawTypes[i];
+        const name = rawNames[i];
+        const baseItem = Object
+            .values(items)
+            .find(it => it.meta.itemname === name) || null;
+        unequippableitemsraw.push({ type, item: baseItem });
+    }
+
+    // 2) For each raw entry, look up the final object in its own collection
+    const finalitems = [];
+    unequippableitemsraw.forEach(entry => {
+
+        const { type, item: wrapped } = entry;
+        if (!wrapped) {
+            finalitems.push({ type, item: null });
+            return;
+        }
+
+        const rawName = wrapped.meta.itemname;
+        let finalitem = null;
+
+        switch (type) {
+            case "General":
+                finalitem = Object
+                    .values(generalitems)
+                    .find(x => x.meta.generalitemname === rawName) || null;
+                break;
+            case "Creature":
+                finalitem = Object
+                    .values(creatures)
+                    .find(x => x.meta.creaturename === rawName) || null;
+                break;
+            case "Creature Part":
+                finalitem = Object
+                    .values(creatureparts)
+                    .find(x => x.meta.creaturepartname === rawName) || null;
+                break;
+            case "Plant":
+                finalitem = Object
+                    .values(plants)
+                    .find(x => x.meta.plantname === rawName) || null;
+                break;
+            case "Plant Part":
+                finalitem = Object
+                    .values(plantparts)
+                    .find(x => x.meta.plantpartname === rawName) || null;
+                break;
+            case "Preparation":
+                finalitem = Object
+                    .values(preparations)
+                    .find(x => x.meta.prepname === rawName) || null;
+                break;
+            case "Food/Drink":
+                finalitem = Object
+                    .values(fooddrink)
+                    .find(x => x.meta.fooddrinkname === rawName) || null;
+                break;
+            case "Potion":
+                finalitem = Object
+                    .values(potions)
+                    .find(x => x.meta.potionname === rawName) || null;
+                break;
+            case "Book":
+                finalitem = Object
+                    .values(books)
+                    .find(x => x.meta.bookname === rawName) || null;
+                break;
+            default:
+                console.warn(`Unknown unequippable type "${type}"`);
+        }
+
+        finalitems.push({ type, item: finalitem });
+    });
+
+    return finalitems;
+}
+
+function getuniqueequippableitems() {
+    // 1) get raw lists, tag equipped vs. unequipped
+    const equippedList = getequippeditems()
+        .filter(e => e.item)
+        .map(e => ({ type: e.type, item: e.item, equipped: true }));
+
+    const equippableList = getallequippableitems()
+        .filter(e => e.item)
+        .map(e => ({ type: e.type, item: e.item, equipped: false }));
+
+    // 2) merge into a Map keyed by item.id so we can dedupe and let 'equipped' win
+    const merged = new Map();
+    equippableList.forEach(entry => {
+        merged.set(entry.item.id, entry);
+    });
+    equippedList.forEach(entry => {
+        const id = entry.item.id;
+        if (merged.has(id)) {
+            // upgrade existing entry to equipped
+            const existing = merged.get(id);
+            existing.equipped = true;
+            existing.type = entry.type;
+        } else {
+            merged.set(id, entry);
+        }
+    });
+
+    // 3) return array of unique items with their equipped flag
+    return Array.from(merged.values());
+}
+
 function getunequipableitembonuses() {
   var bonuslist = [];
   var itemlist = getallunequippableitems() || [];
@@ -138,67 +254,6 @@ function getunequipableitembonuses() {
   }
 
   return bonuslist;
-}
-
-function getuniqueequippableitems() {
-    // 1) get raw lists, tag equipped vs. unequipped
-    const equippedList = getequippeditems()
-        .filter(e => e.item)
-        .map(e => ({ type: e.type, item: e.item, equipped: true }));
-
-    const equippableList = getallequippableitems()
-        .filter(e => e.item)
-        .map(e => ({ type: e.type, item: e.item, equipped: false }));
-
-    // 2) merge into a Map keyed by item.id so we can dedupe and let 'equipped' win
-    const merged = new Map();
-    equippableList.forEach(entry => {
-        merged.set(entry.item.id, entry);
-    });
-    equippedList.forEach(entry => {
-        const id = entry.item.id;
-        if (merged.has(id)) {
-            // upgrade existing entry to equipped
-            const existing = merged.get(id);
-            existing.equipped = true;
-            existing.type = entry.type;
-        } else {
-            merged.set(id, entry);
-        }
-    });
-
-    // 3) return array of unique items with their equipped flag
-    return Array.from(merged.values());
-}
-
-function getunequipableitembonuses() {
-    let bonuslist = [];
-    let itemlist = getallunequippableitems();
-    itemlist.forEach(item => {
-
-        if (item.type == "General") {
-            const generalitem = item.item;
-
-            if (generalitem.meta.generalitempassiveabilitytype) {
-                const bonuslen = generalitem.meta.generalitempassiveabilitytype.length || 0;
-
-                for (let i = 0; i < bonuslen; i++) {
-                    bonuslist.push({
-                        source: generalitem.meta.generalitemname,
-                        bonustype: generalitem.meta.generalitempassiveabilitybonus[i] ||
-                            generalitem.meta.generalitempassiveskillbonus[i] ||
-                            generalitem.meta.generalitempassivecharacteristicbonus[i] ||
-                            generalitem.meta.generalitempassivesubtypebonus[i] || "none",
-                        amt: generalitem.meta.generalitempassivebonusamt
-                    });
-                }
-            }
-
-
-
-        }
-    });
-    return bonuslist;
 }
 
 function getpassivebonusesbyattribute(attribute) {
