@@ -2,7 +2,7 @@
 //GLOBAL VARIABLES (MODULE STATE)
 //---------
 
-// dataset registry and metadata
+// dataset registry and metadata 
 const datasetinfo = {
   characters:      { formId: 972,  lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null, lastidleloadercheck: null },
   traits:          { formId: 979,  lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null, lastidleloadercheck: null },
