@@ -1,23 +1,25 @@
 //this is the script to put in wordpress scripts n' styles
 async function initApp() {
-	console.log("loading scripts");
-	await initCharmsCheckLoader();
-	console.log("scripts loaded; now loading characters");
-	await getcharacters();
-	console.log("got characters");
+  console.log("loading scripts");
+  await initCharmsCheckLoader();
+  console.log("scripts loaded; now loading characters");
+  await getcharacters();
+  console.log("got characters");
 
-	hidegif();
-	createfuse();
-	document.getElementById('charsheetmain').classList.remove('hidden');
-	searchbox.focus();
+  hidegif();
+  createfuse();
+  document.getElementById('charsheetmain').classList.remove('hidden');
+  searchbox.focus();
 
-	//init_cache();
-	//startidlefetchsequence();
-	createCharacterSheet();
+  initapicall();
+  requestAnimationFrame(() => { startidlefetchsequence(); });
+
+  createCharacterSheet();
 }
 
+
 async function initCharmsCheckLoader() {
-	const version = 'a25.5.26.003';
+	const version = 'b25.11.10.005';
 	const subDir = 'Character%20Sheet/';
 	const base = `https://cdn.jsdelivr.net/gh/scyppan/CharmsCheck-CharacterControls@${version}/${subDir}`;
 
