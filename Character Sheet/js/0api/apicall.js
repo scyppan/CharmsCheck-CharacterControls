@@ -44,39 +44,76 @@ const datasetinfo = {
 //MAJOR FUNCTIONS
 //---------
 */
+var inflight_fetches = {};
+
 async function getDataset(key) {
+  if (!datasetinfo[key]) throw new Error('unknown dataset key: ' + key);
+
   if (!datasetinfo[key].lastassigned) {
-    const formid  = datasetinfo[key].formId;
-    const cachems = datasetinfo[key].lastcache || 0;
+    // Fast path: return cached immediately if present; refresh in background
+    const cached0 = await getCacheEntry('cache_' + key) || await getCacheEntry(key);
+    if (cached0 && cached0.data) {
+      datasetinfo[key].lastassigned = Date.now();
+      datasetinfo[key].assignedfrom = 'cache';
+      datasetinfo[key].lastcache    = cached0.ts;
+      refresh_if_stale(key, cached0.ts).catch(function(){});
+      return cached0.data;
+    }
 
-    const dbstr = await checkdblastupdated(formid); // 'YYYY-MM-DD HH:mm:ss'
-    datasetinfo[key].lastdbcheck   = Date.now();
-    datasetinfo[key].dblastupdated = dbstr;
-    const dbms = parse_wp_ts(dbstr);
+    // No cache — check DB freshness, then fetch or fall back
+    const formid = datasetinfo[key].formId;
+    const dbstr  = await checkdblastupdated(formid).catch(function(){ return null; });
+    const dbms   = dbstr ? parse_wp_ts(dbstr) : 0;
+    const cachems= datasetinfo[key].lastcache || 0;
 
-    // 1) db newer than hardcode and cache → fetch fresh
     if (dbms > datadate && dbms > cachems) {
-      const data = await fetchfresh(formid);
-      await setCacheEntry('cache_' + key, data);
-      const now = Date.now();
+      const data = await fetchfresh_once(key, formid);
+      const now  = Date.now();
       datasetinfo[key].lastcache    = now;
       datasetinfo[key].lastassigned = now;
       datasetinfo[key].assignedfrom = 'db';
       return data;
     }
 
-    // 2) cache fresher than hardcode → return cached dataset (unwrap)
-    if (cachems > datadate) {
+    if (cachems > 0) {
+      const cached = await getCacheEntry('cache_' + key) || await getCacheEntry(key);
       datasetinfo[key].lastassigned = Date.now();
-      datasetinfo[key].assignedfrom = 'cache';
-      const cached = await getCacheEntry('cache_' + key) || await getCacheEntry(key); // tolerate legacy key
+      datasetinfo[key].assignedfrom = cached ? 'cache' : 'hardcode';
       return cached ? cached.data : null;
     }
 
-    // 3) fall back to baked-in data (caller uses globals)
     datasetinfo[key].lastassigned = Date.now();
     datasetinfo[key].assignedfrom = 'hardcode';
     return null;
+  }
+}
+
+async function refresh_if_stale(key, knowncachets) {
+  try {
+    const formid = datasetinfo[key].formId;
+    const dbstr  = await checkdblastupdated(formid);
+    const dbms   = parse_wp_ts(dbstr);
+    if (!knowncachets || dbms > knowncachets) {
+      const data = await fetchfresh_once(key, formid);
+      datasetinfo[key].lastcache = Date.now();
+      return data;
+    }
+  } catch(e) {}
+  return null;
+}
+
+async function fetchfresh_once(key, formid) {
+  if (inflight_fetches[key]) return inflight_fetches[key];
+  inflight_fetches[key] = (async function() {
+    const data = await fetchfresh(formid);
+    await setCacheEntry('cache_' + key, data);
+    return data;
+  })();
+  try {
+    const result = await inflight_fetches[key];
+    return result;
+  } finally {
+    delete inflight_fetches[key];
   }
 }
 
@@ -104,6 +141,12 @@ async function compare_cache_dblastupdate(formid) {
   return 'identical';
 }
 
+/*
+//---------
+//HELPER FUNCTIONS
+//---------
+// Cache helpers (localStorage version kept for drop-in; uses 'cache_' prefix)
+*/
 function getCacheEntry(cachekey) {
   try {
     const raw = localStorage.getItem(cachekey);
@@ -150,10 +193,16 @@ function clearcache(key) {
   if (datasetinfo[key]) datasetinfo[key].lastcache = null;
 }
 
-async function fetchformdata(formid, bust = true) {
+/*
+//---------
+//NETWORK FUNCTIONS
+//---------
+*/
+async function fetchformdata(formid, bust) {
   const params = new URLSearchParams({ action: 'get_form_data', form: formid });
   if (bust) params.append('bust', '1');
-  const res = await fetch(`/wp-admin/admin-ajax.php?${params}`, { credentials: 'same-origin' });
+  const url = '/wp-admin/admin-ajax.php?' + params.toString();
+  const res = await fetch_with_timeout(url, { credentials: 'same-origin' }, 15000);
   if (!res.ok) throw new Error('HTTP ' + res.status);
   return res.json();
 }
@@ -163,23 +212,45 @@ async function fetchfresh(formid) {
 }
 
 async function checkdblastupdated(formid) {
-  const key = Object.keys(datasetinfo).find(k => datasetinfo[k].formId === formid);
-  if (!key) throw new Error('Unknown formid: ' + formid);
-
-  const res = await fetch(`/wp-admin/admin-ajax.php?action=get_form_last_update&form=${formid}`);
+  const url = '/wp-admin/admin-ajax.php?action=get_form_last_update&form=' + formid;
+  const res = await fetch_with_timeout(url, {}, 8000);
   if (!res.ok) throw new Error('HTTP ' + res.status);
-  const json = await res.json();
-  const last_updated = json.last_updated;
+  const j = await res.json();
 
-  datasetinfo[key].lastdbcheck   = Date.now();
-  datasetinfo[key].dblastupdated = last_updated;
+  const key = Object.keys(datasetinfo).find(function(k){ return datasetinfo[k].formId === formid; });
+  if (key) {
+    datasetinfo[key].lastdbcheck   = Date.now();
+    datasetinfo[key].dblastupdated = j.last_updated;
+  }
+  return j.last_updated;
+}
 
-  return last_updated;
+function fetch_with_timeout(url, options, ms) {
+  let controller = null;
+  if (typeof AbortController !== 'undefined') {
+    controller = new AbortController();
+    options = Object.assign({}, options || {}, { signal: controller.signal });
+  }
+  let timer = null;
+  return new Promise(function(resolve, reject) {
+    timer = setTimeout(function(){
+      if (controller) { try { controller.abort(); } catch(e){} }
+      reject(new Error('timeout'));
+    }, ms || 15000);
+
+    fetch(url, options).then(function(res){
+      clearTimeout(timer);
+      resolve(res);
+    }).catch(function(err){
+      clearTimeout(timer);
+      reject(err);
+    });
+  });
 }
 
 /*
 //---------
-//HELPER FUNCTIONS
+//PUBLIC GETTERS
 //---------
 */
 const getcharacters     = async () => { const d = await getDataset('characters');     return d == null ? characters     : (characters     = d) };
