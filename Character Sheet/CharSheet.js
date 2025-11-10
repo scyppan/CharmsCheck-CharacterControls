@@ -1,25 +1,23 @@
-//this is the function that goes in wordpress scripts n styles
+//this is the script to put in wordpress scripts n' styles
 async function initApp() {
-  console.log("loading scripts");
-  await initCharmsCheckLoader();
+	console.log("loading scripts");
+	await initCharmsCheckLoader();
+	console.log("scripts loaded; now loading characters");
+	await getcharacters();
+	console.log("got characters");
 
-  console.log("scripts loaded; initializing cache");
-  await initializedbcache();
+	hidegif();
+	createfuse();
+	document.getElementById('charsheetmain').classList.remove('hidden');
+	searchbox.focus();
 
-  console.log("cache ready; now loading characters");
-  await getcharacters();
-  console.log("got characters");
-
-  hidegif();
-  createfuse();
-  document.getElementById('charsheetmain').classList.remove('hidden');
-  searchbox.focus();
-
-  createCharacterSheet();
+	//init_cache();
+	//startidlefetchsequence();
+	createCharacterSheet();
 }
 
 async function initCharmsCheckLoader() {
-	const version = 'b25.11.10.001';
+	const version = 'a25.5.26.003';
 	const subDir = 'Character%20Sheet/';
 	const base = `https://cdn.jsdelivr.net/gh/scyppan/CharmsCheck-CharacterControls@${version}/${subDir}`;
 
@@ -32,7 +30,6 @@ async function initCharmsCheckLoader() {
 	const js = [
 		//'js/0globalvars/globalvars.js',
 		//'js/0api/cache.js', 
-		'js/0api/cachelayer.js',
 		'js/0api/idleloader.js',
 		'js/0api/loadgiflogic.js',
 		'js/0api/apicall.js',
