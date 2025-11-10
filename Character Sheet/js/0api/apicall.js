@@ -1,3 +1,19 @@
+/*
+//---------
+//GLOBAL VARIABLES (MODULE STATE)
+//---------
+// safe fallbacks so getDataset() never throws if globals aren't defined yet
+*/
+var datadate = (typeof window !== 'undefined' && typeof window.datadate === 'number')
+  ? window.datadate
+  : (typeof window !== 'undefined' && typeof window.datadate === 'string'
+      ? Date.parse(window.datadate.replace(' ', 'T') + 'Z')
+      : 0);
+
+var cache_ttl = (typeof window !== 'undefined' && typeof window.cache_ttl === 'number')
+  ? window.cache_ttl
+  : 7 * 24 * 60 * 60 * 1000; // 7d default
+
 const datasetinfo = {
   characters:      { formId: 972,  lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null, lastidleloadercheck: null },
   traits:          { formId: 979,  lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null, lastidleloadercheck: null },
@@ -23,19 +39,24 @@ const datasetinfo = {
   fooddrink:       { formId:  67,  lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null, lastidleloadercheck: null },
 };
 
+/*
+//---------
+//MAJOR FUNCTIONS
+//---------
+*/
 async function getDataset(key) {
   if (!datasetinfo[key].lastassigned) {
-
-    const formId  = datasetinfo[key].formId;
+    const formid  = datasetinfo[key].formId;
     const cachems = datasetinfo[key].lastcache || 0;
 
-    const dbstr = await checkdblastupdated(formId);
+    const dbstr = await checkdblastupdated(formid); // 'YYYY-MM-DD HH:mm:ss'
     datasetinfo[key].lastdbcheck   = Date.now();
     datasetinfo[key].dblastupdated = dbstr;
     const dbms = parse_wp_ts(dbstr);
 
+    // 1) db newer than hardcode and cache → fetch fresh
     if (dbms > datadate && dbms > cachems) {
-      const data = await fetchfresh(formId);
+      const data = await fetchfresh(formid);
       await setCacheEntry('cache_' + key, data);
       const now = Date.now();
       datasetinfo[key].lastcache    = now;
@@ -44,13 +65,15 @@ async function getDataset(key) {
       return data;
     }
 
+    // 2) cache fresher than hardcode → return cached dataset (unwrap)
     if (cachems > datadate) {
       datasetinfo[key].lastassigned = Date.now();
       datasetinfo[key].assignedfrom = 'cache';
-      const cached = await getCacheEntry('cache_' + key) || await getCacheEntry(key);
+      const cached = await getCacheEntry('cache_' + key) || await getCacheEntry(key); // tolerate legacy key
       return cached ? cached.data : null;
     }
 
+    // 3) fall back to baked-in data (caller uses globals)
     datasetinfo[key].lastassigned = Date.now();
     datasetinfo[key].assignedfrom = 'hardcode';
     return null;
@@ -81,22 +104,20 @@ async function compare_cache_dblastupdate(formid) {
   return 'identical';
 }
 
-function getCacheEntry(cacheKey) {
+function getCacheEntry(cachekey) {
   try {
-    const raw = localStorage.getItem(cacheKey);
+    const raw = localStorage.getItem(cachekey);
     if (!raw) return null;
     const parsed = JSON.parse(raw);
     if (!parsed || typeof parsed.ts !== 'number') {
-      localStorage.removeItem(cacheKey);
+      localStorage.removeItem(cachekey);
       return null;
     }
-    if (typeof cache_ttl === 'number' && cache_ttl > 0) {
-      if (Date.now() - parsed.ts >= cache_ttl) {
-        localStorage.removeItem(cacheKey);
-        return null;
-      }
+    if (cache_ttl && Date.now() - parsed.ts >= cache_ttl) {
+      localStorage.removeItem(cachekey);
+      return null;
     }
-    const key = cacheKey.replace(/^cache_/, '');
+    const key = cachekey.replace(/^cache_/, '');
     if (datasetinfo[key]) {
       datasetinfo[key].lastassigned = Date.now();
       datasetinfo[key].assignedfrom = 'cache';
@@ -104,7 +125,7 @@ function getCacheEntry(cacheKey) {
     }
     return { ts: parsed.ts, data: parsed.data };
   } catch (e) {
-    try { localStorage.removeItem(cacheKey); } catch(_) {}
+    try { localStorage.removeItem(cachekey); } catch(_) {}
     return null;
   }
 }
@@ -112,9 +133,9 @@ function getCacheEntry(cacheKey) {
 function setCacheEntry(key, data) {
   try {
     const ts = Date.now();
-    const storageKey = key.startsWith('cache_') ? key : ('cache_' + key);
-    localStorage.setItem(storageKey, JSON.stringify({ ts, data }));
-    const name = storageKey.replace(/^cache_/, '');
+    const storagekey = key.startsWith('cache_') ? key : ('cache_' + key);
+    localStorage.setItem(storagekey, JSON.stringify({ ts, data }));
+    const name = storagekey.replace(/^cache_/, '');
     if (datasetinfo[name]) datasetinfo[name].lastcache = ts;
     return true;
   } catch (e) {
@@ -125,12 +146,12 @@ function setCacheEntry(key, data) {
 function clearcache(key) {
   const k1 = 'cache_' + key;
   try { localStorage.removeItem(k1); } catch(_) {}
-  try { localStorage.removeItem(key); } catch(_) {}
+  try { localStorage.removeItem(key); } catch(_) {} // legacy
   if (datasetinfo[key]) datasetinfo[key].lastcache = null;
 }
 
-async function fetchformdata(formId, bust = true) {
-  const params = new URLSearchParams({ action: 'get_form_data', form: formId });
+async function fetchformdata(formid, bust = true) {
+  const params = new URLSearchParams({ action: 'get_form_data', form: formid });
   if (bust) params.append('bust', '1');
   const res = await fetch(`/wp-admin/admin-ajax.php?${params}`, { credentials: 'same-origin' });
   if (!res.ok) throw new Error('HTTP ' + res.status);
@@ -150,12 +171,17 @@ async function checkdblastupdated(formid) {
   const json = await res.json();
   const last_updated = json.last_updated;
 
-  datasetinfo[key].lastdbcheck    = Date.now();
-  datasetinfo[key].dblastupdated  = last_updated;
+  datasetinfo[key].lastdbcheck   = Date.now();
+  datasetinfo[key].dblastupdated = last_updated;
 
   return last_updated;
 }
 
+/*
+//---------
+//HELPER FUNCTIONS
+//---------
+*/
 const getcharacters     = async () => { const d = await getDataset('characters');     return d == null ? characters     : (characters     = d) };
 const gettraits         = async () => { const d = await getDataset('traits');         return d == null ? traits         : (traits         = d) };
 const getaccessories    = async () => { const d = await getDataset('accessories');    return d == null ? accessories    : (accessories    = d) };
