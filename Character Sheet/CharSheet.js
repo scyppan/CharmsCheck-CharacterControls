@@ -1,19 +1,20 @@
-//this is the script to put in wordpress scripts n' styles
 async function initApp() {
-	console.log("loading scripts");
-	await initCharmsCheckLoader();
-	console.log("scripts loaded; now loading characters");
-	await getcharacters();
-	console.log("got characters");
+  console.log("loading scripts");
+  await initCharmsCheckLoader();
 
-	hidegif();
-	createfuse();
-	document.getElementById('charsheetmain').classList.remove('hidden');
-	searchbox.focus();
+  console.log("scripts loaded; initializing cache");
+  await initializedbcache();
 
-	//init_cache();
-	//startidlefetchsequence();
-	createCharacterSheet();
+  console.log("cache ready; now loading characters");
+  await getcharacters();
+  console.log("got characters");
+
+  hidegif();
+  createfuse();
+  document.getElementById('charsheetmain').classList.remove('hidden');
+  searchbox.focus();
+
+  createCharacterSheet();
 }
 
 async function initCharmsCheckLoader() {
@@ -30,6 +31,7 @@ async function initCharmsCheckLoader() {
 	const js = [
 		//'js/0globalvars/globalvars.js',
 		//'js/0api/cache.js', 
+		'js/0api/cachelayer.js',
 		'js/0api/idleloader.js',
 		'js/0api/loadgiflogic.js',
 		'js/0api/apicall.js',
