@@ -1,3 +1,4 @@
+//this is the function that goes in wordpress scripts n styles
 async function initApp() {
   console.log("loading scripts");
   await initCharmsCheckLoader();
@@ -18,7 +19,7 @@ async function initApp() {
 }
 
 async function initCharmsCheckLoader() {
-	const version = 'a25.5.26.003';
+	const version = 'b25.11.10.001';
 	const subDir = 'Character%20Sheet/';
 	const base = `https://cdn.jsdelivr.net/gh/scyppan/CharmsCheck-CharacterControls@${version}/${subDir}`;
 
