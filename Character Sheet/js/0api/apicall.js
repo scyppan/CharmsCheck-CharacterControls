@@ -1,5 +1,4 @@
-/*
-//---------
+﻿//---------
 //GLOBAL VARIABLES (MODULE STATE)
 //---------
 
@@ -29,36 +28,31 @@ const datasetinfo = {
   fooddrink:       { formId:  67,  lastcache: null, lastdbcheck: null, dblastupdated: null, lastassigned: null, assignedfrom: null, lastidleloadercheck: null }
 };
 
-// safe fallbacks so this file never explodes if globals aren't defined elsewhere
+// safe fallbacks (use existing globals if present)
 var datadate = (typeof datadate === 'number') ? datadate
   : (typeof window !== 'undefined' && typeof window.datadate === 'number') ? window.datadate
   : 0;
 
 var cache_ttl = (typeof cache_ttl === 'number') ? cache_ttl
   : (typeof window !== 'undefined' && typeof window.cache_ttl === 'number') ? window.cache_ttl
-  : 7 * 24 * 60 * 60 * 1000; // 7 days
+  : 7 * 24 * 60 * 60 * 1000; // 7d
 
-// legacy baked-in dataset globals are assumed to exist elsewhere (characters, traits, etc.)
-
-/*
 //---------
 //ENTRY FUNCTION
 //---------
-// (optional) call this once during app boot if you want to verify the API layer is wired
-function initapicall(){
-  // no-op: reserved for future diagnostics or warmups
-}
-*/
 
-/*
+function initapicall(){
+  // reserved for future warmups/diagnostics
+}
+
 //---------
 //MAJOR FUNCTIONS
 //---------
-*/
-async function getDataset(key) {
+
+async function getdataset(key) {
   if (!datasetinfo[key]) throw new Error('unknown dataset key: ' + key);
 
-  // if already assigned this session, signal "use current/baked/global"
+  // already assigned this session → use current/baked/global
   if (datasetinfo[key].lastassigned) {
     return null;
   }
@@ -66,13 +60,13 @@ async function getDataset(key) {
   const formid  = datasetinfo[key].formId;
   const cachems = datasetinfo[key].lastcache || 0;
 
-  // fetch DB last-updated and normalize to ms
+  // fetch DB last-updated
   const dbstr = await checkdblastupdated(formid); // 'YYYY-MM-DD hh:mm:ss'
   datasetinfo[key].lastdbcheck   = Date.now();
   datasetinfo[key].dblastupdated = dbstr;
-  const dbms = parse_wp_ts(dbstr);
+  const dbms = parsewpts(dbstr);
 
-  // 1) DB is newer than baked and cache → refetch
+  // 1) DB newer than baked + cache → refetch
   if (dbms > datadate && dbms > cachems) {
     const data = await fetchfresh(formid);
     setcacheentry(key, data);
@@ -82,7 +76,7 @@ async function getDataset(key) {
     return data;
   }
 
-  // 2) Try cache if newer than baked
+  // 2) Cache newer than baked → use cache
   const cached = getcacheentry(key); // raw data or null
   if (cached != null && (datasetinfo[key].lastcache || 0) > datadate) {
     datasetinfo[key].lastassigned = Date.now();
@@ -98,7 +92,7 @@ async function getDataset(key) {
 
 async function compare_hardcode_dblastupdate(formid) {
   const dbstr = await checkdblastupdated(formid);
-  const dbms = parse_wp_ts(dbstr);
+  const dbms = parsewpts(dbstr);
   if (dbms > datadate) return 'db';
   if (dbms < datadate) return 'hardcode';
   return 'identical';
@@ -108,7 +102,7 @@ async function compare_cache_dblastupdate(formid) {
   const key = Object.keys(datasetinfo).find(function(k){ return datasetinfo[k].formId === formid; });
   if (!key) throw new Error('unknown formid: ' + formid);
 
-  const dbms = parse_wp_ts(datasetinfo[key].dblastupdated || await checkdblastupdated(formid));
+  const dbms = parsewpts(datasetinfo[key].dblastupdated || await checkdblastupdated(formid));
   const cachems = datasetinfo[key].lastcache || 0;
 
   if (!cachems) return 'nocache';
@@ -145,35 +139,34 @@ async function checkdblastupdated(formid) {
 }
 
 // dataset getters exposed as global functions so idleloader can call window['get' + key]()
-function getcharacters(){ return getDataset('characters').then(function(d){ return d == null ? characters : (characters = d); }); }
-function gettraits(){ return getDataset('traits').then(function(d){ return d == null ? traits : (traits = d); }); }
-function getaccessories(){ return getDataset('accessories').then(function(d){ return d == null ? accessories : (accessories = d); }); }
-function getwands(){ return getDataset('wands').then(function(d){ return d == null ? wands : (wands = d); }); }
-function getwandwoods(){ return getDataset('wandwoods').then(function(d){ return d == null ? wandwoods : (wandwoods = d); }); }
-function getwandcores(){ return getDataset('wandcores').then(function(d){ return d == null ? wandcores : (wandcores = d); }); }
-function getwandqualities(){ return getDataset('wandqualities').then(function(d){ return d == null ? wandqualities : (wandqualities = d); }); }
-function getspells(){ return getDataset('spells').then(function(d){ return d == null ? spells : (spells = d); }); }
-function getbooks(){ return getDataset('books').then(function(d){ return d == null ? books : (books = d); }); }
-function getschools(){ return getDataset('schools').then(function(d){ return d == null ? schools : (schools = d); }); }
-function getproficiencies(){ return getDataset('proficiencies').then(function(d){ return d == null ? proficiencies : (proficiencies = d); }); }
-function getpotions(){ return getDataset('potions').then(function(d){ return d == null ? potions : (potions = d); }); }
-function getnamedcreatures(){ return getDataset('namedcreatures').then(function(d){ return d == null ? namedcreatures : (namedcreatures = d); }); }
-function getitems(){ return getDataset('items').then(function(d){ return d == null ? items : (items = d); }); }
-function getitemsinhand(){ return getDataset('itemsinhand').then(function(d){ return d == null ? itemsinhand : (itemsinhand = d); }); }
-function getgeneralitems(){ return getDataset('generalitems').then(function(d){ return d == null ? generalitems : (generalitems = d); }); }
-function getcreatures(){ return getDataset('creatures').then(function(d){ return d == null ? creatures : (creatures = d); }); }
-function getcreatureparts(){ return getDataset('creatureparts').then(function(d){ return d == null ? creatureparts : (creatureparts = d); }); }
-function getplants(){ return getDataset('plants').then(function(d){ return d == null ? plants : (plants = d); }); }
-function getplantparts(){ return getDataset('plantparts').then(function(d){ return d == null ? plantparts : (plantparts = d); }); }
-function getpreparations(){ return getDataset('preparations').then(function(d){ return d == null ? preparations : (preparations = d); }); }
-function getfooddrink(){ return getDataset('fooddrink').then(function(d){ return d == null ? fooddrink : (fooddrink = d); }); }
+function getcharacters(){ return getdataset('characters').then(function(d){ return d == null ? characters : (characters = d); }); }
+function gettraits(){ return getdataset('traits').then(function(d){ return d == null ? traits : (traits = d); }); }
+function getaccessories(){ return getdataset('accessories').then(function(d){ return d == null ? accessories : (accessories = d); }); }
+function getwands(){ return getdataset('wands').then(function(d){ return d == null ? wands : (wands = d); }); }
+function getwandwoods(){ return getdataset('wandwoods').then(function(d){ return d == null ? wandwoods : (wandwoods = d); }); }
+function getwandcores(){ return getdataset('wandcores').then(function(d){ return d == null ? wandcores : (wandcores = d); }); }
+function getwandqualities(){ return getdataset('wandqualities').then(function(d){ return d == null ? wandqualities : (wandqualities = d); }); }
+function getspells(){ return getdataset('spells').then(function(d){ return d == null ? spells : (spells = d); }); }
+function getbooks(){ return getdataset('books').then(function(d){ return d == null ? books : (books = d); }); }
+function getschools(){ return getdataset('schools').then(function(d){ return d == null ? schools : (schools = d); }); }
+function getproficiencies(){ return getdataset('proficiencies').then(function(d){ return d == null ? proficiencies : (proficiencies = d); }); }
+function getpotions(){ return getdataset('potions').then(function(d){ return d == null ? potions : (potions = d); }); }
+function getnamedcreatures(){ return getdataset('namedcreatures').then(function(d){ return d == null ? namedcreatures : (namedcreatures = d); }); }
+function getitems(){ return getdataset('items').then(function(d){ return d == null ? items : (items = d); }); }
+function getitemsinhand(){ return getdataset('itemsinhand').then(function(d){ return d == null ? itemsinhand : (itemsinhand = d); }); }
+function getgeneralitems(){ return getdataset('generalitems').then(function(d){ return d == null ? generalitems : (generalitems = d); }); }
+function getcreatures(){ return getdataset('creatures').then(function(d){ return d == null ? creatures : (creatures = d); }); }
+function getcreatureparts(){ return getdataset('creatureparts').then(function(d){ return d == null ? creatureparts : (creatureparts = d); }); }
+function getplants(){ return getdataset('plants').then(function(d){ return d == null ? plants : (plants = d); }); }
+function getplantparts(){ return getdataset('plantparts').then(function(d){ return d == null ? plantparts : (plantparts = d); }); }
+function getpreparations(){ return getdataset('preparations').then(function(d){ return d == null ? preparations : (preparations = d); }); }
+function getfooddrink(){ return getdataset('fooddrink').then(function(d){ return d == null ? fooddrink : (fooddrink = d); }); }
 
-/*
 //---------
 //HELPER FUNCTIONS
 //---------
-*/
-function parse_wp_ts(ts){
+
+function parsewpts(ts){
   // expects 'YYYY-MM-DD hh:mm:ss' from WP
   return Date.parse(String(ts).replace(' ', 'T') + 'Z');
 }
@@ -196,7 +189,7 @@ function getcacheentry(key) {
     }
     if (Date.now() - obj.ts < cache_ttl) {
       datasetinfo[key].lastcache = obj.ts;
-      return obj.data; // always return raw data
+      return obj.data; // return raw data
     }
     localStorage.removeItem(cachekey(key));
     localStorage.removeItem(legacycachekey(key));
@@ -212,7 +205,7 @@ function setcacheentry(key, data) {
     var ts = Date.now();
     localStorage.setItem(cachekey(key), JSON.stringify({ ts: ts, data: data }));
     datasetinfo[key].lastcache = ts;
-  } catch(e) { /* ignore quota / privacy mode errors */ }
+  } catch(e) { }
 }
 
 function clearcache(key) {
@@ -224,9 +217,8 @@ function clearcache(key) {
   }
 }
 
-/*
 //---------
 //IMMEDIATE FUNCTIONS
 //---------
+
 // none
-*/
