@@ -2,10 +2,10 @@
 //GLOBAL VARIABLES (MODULE STATE)
 //---------
 
-let showidlefetchlogs = true;
+let showidlefetchlogs = true;     // master toggle
 let idleactive = false;
 let hasloggedstart = false;
-let ispaused = false;                     // NEW: track pause state
+let ispaused = false;             // only log one pause per window
 const activityevents = ['mousemove','mousedown','keydown','scroll','touchstart'];
 let timer = 0;
 const thresh = 5000;
@@ -28,7 +28,7 @@ function startidlefetchsequence(){
   if (idleactive) return;
   idleactive = true;
   if (!hasloggedstart) {
-    console.log('starting idle fetch. this will run quietly in the background without cessation.');
+    logidle('starting idle fetch (background).');
     hasloggedstart = true;
   }
   starttimer();
@@ -40,10 +40,10 @@ function startidlefetchsequence(){
 
 function cooldown(){
   // after user activity, wait a short window before re-arming
-  console.log('[idle] paused due to user activity — rearming in 5s');
   setTimeout(function(){
-    ispaused = false;                    // we’re leaving paused state
-    console.log('[idle] resumed after inactivity — countdown restarted');
+    if (!idleactive) return;
+    ispaused = false;                    // exit paused state
+    logidle('resumed after inactivity.');
     starttimer();
   }, 5000);
 }
@@ -51,14 +51,12 @@ function cooldown(){
 function addstoplisteners(){
   activityevents.forEach(function(evt){
     const fn = function(){
-      // first activity cancels the pending idle run
       if (timer) {
         clearTimeout(timer);
         timer = 0;
-        if (!ispaused) {
+        if (!ispaused) {                // log only once per pause burst
           ispaused = true;
-          // one-time notice per pause window
-          console.log('[idle] pause event:', evt);
+          logidle('paused due to user activity — rearming shortly.');
         }
       }
       stripstoplisteners();
@@ -80,9 +78,9 @@ function starttimer(){
   clearTimeout(timer);
   timer = 0;
   addstoplisteners();
-  console.log('[idle] waiting', thresh + 'ms', 'for inactivity before background fetch');
+  // don’t spam: no countdown log here; just quietly arm the timer
   timer = setTimeout(function(){
-    stripstoplisteners();     // will log paused/resume as appropriate next time
+    stripstoplisteners();
     idleloader();
   }, thresh);
 }
@@ -94,42 +92,39 @@ async function idleloader(){
   const info = datasetinfo[key];
 
   // capture state before the getter runs
-  const beforecache  = info.lastcache || 0;
+  const beforecache = info.lastcache || 0;
 
   const dblast = await checkdblastupdated(info.formId); // 'YYYY-MM-DD hh:mm:ss'
   info.lastidleloadercheck = Date.now();
   const dbms = parsewpts(dblast);
 
   if (info.lastassigned == null || info.lastassigned < dbms) {
-    const fnname = 'get' + key;           // e.g., getcharacters
-    const fn = globalThis[fnname];        // function declarations are globals
+    const fnname = 'get' + key;            // e.g., getcharacters
+    const fn = globalThis[fnname];
     if (typeof fn === 'function') {
-      idlelog('calling getter for ' + key);
-      const result = await fn();          // data or null (baked)
+      const result = await fn();           // data or null (baked)
       info.lastassigned = Date.now();
 
       // state after the getter runs
       const aftercache  = datasetinfo[key].lastcache || 0;
       const aftersource = datasetinfo[key].assignedfrom || 'unknown';
-
       const downloadedfresh = (aftersource === 'db') && (aftercache > beforecache);
       const dataset = (result != null ? result : globalThis[key]);
       const size = countrecords(dataset);
 
+      // single, concise outcome line per cycle
       if (downloadedfresh) {
-        console.log('[idle]', key, 'downloaded fresh from DB — records:', size);
+        logidle(key + ' → fresh DB download (' + size + ' records)');
       } else if (aftersource === 'cache') {
-        console.log('[idle]', key, 'served from cache — records:', size);
+        logidle(key + ' → cache (' + size + ' records)');
       } else if (aftersource === 'hardcode') {
-        console.log('[idle]', key, 'using baked snapshot — records:', size);
+        logidle(key + ' → baked snapshot (' + size + ' records)');
       } else {
-        console.log('[idle]', key, 'no change — source:', aftersource, 'records:', size);
+        logidle(key + ' → no change (' + size + ' records)');
       }
     } else {
-      idlelog('getter not found: ' + fnname);
+      logidle('getter not found: ' + fnname);
     }
-  } else {
-    idlelog('up-to-date: ' + key);
   }
 
   if (idleactive) starttimer();
@@ -139,21 +134,18 @@ function choosedbtocheck(){
   const entries = Object.entries(datasetinfo);
   if (!entries.length) return null;
 
-  const info = datasetinfo;
-
   // 1) any never checked, follow priority order and skip characters until last
   for (let i=0;i<idle_priority.length;i++){
     const k = idle_priority[i];
-    if (info[k] && info[k].lastidleloadercheck == null) return k;
+    if (datasetinfo[k] && datasetinfo[k].lastidleloadercheck == null) return k;
   }
 
-  // 2) otherwise pick the stalest by lastidleloadercheck, but bias characters to the end
+  // 2) otherwise the stalest, with characters biased to last
   const sorted = entries.slice().sort(function(a,b){
-    const ak = a[0], bk = b[0];
     const at = a[1].lastidleloadercheck;
     const bt = b[1].lastidleloadercheck;
-    const abias = ak === 'characters' ? 1e15 : 0;
-    const bbias = bk === 'characters' ? 1e15 : 0;
+    const abias = a[0] === 'characters' ? 1e15 : 0;
+    const bbias = b[0] === 'characters' ? 1e15 : 0;
     return (at + abias) - (bt + bbias);
   });
 
@@ -164,12 +156,11 @@ function choosedbtocheck(){
 //HELPER FUNCTIONS
 //---------
 
-function idlelog(msg){
+function logidle(msg){
   if (showidlefetchlogs) console.log('[idle]', msg);
 }
 
 function parsewpts(ts){
-  // expects 'YYYY-MM-DD hh:mm:ss' from wordpress ajax
   return Date.parse(String(ts).replace(' ', 'T') + 'Z');
 }
 
