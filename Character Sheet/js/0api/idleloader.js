@@ -77,6 +77,11 @@ async function idleloader(){
   if (!key) { if (idleactive) starttimer(); return; }
 
   const info = datasetinfo[key];
+
+  // capture state before the getter runs
+  const beforecache = info.lastcache || 0;
+  const beforesource = info.assignedfrom || 'unassigned';
+
   const dblast = await checkdblastupdated(info.formId); // 'YYYY-MM-DD hh:mm:ss'
   info.lastidleloadercheck = Date.now();
   const dbms = parsewpts(dblast);
@@ -86,13 +91,26 @@ async function idleloader(){
     const fn = globalThis[fnname];        // function declarations are globals
     if (typeof fn === 'function') {
       idlelog('calling getter for ' + key);
-      const data = await fn();            // getter returns assigned data or null (baked)
+      const result = await fn();          // data or null (baked)
       info.lastassigned = Date.now();
 
-      // report where it came from + size
-      const src = datasetinfo[key].assignedfrom || 'unknown';
-      const size = countrecords(data != null ? data : globalThis[key]);
-      console.log('[idle]', key, '→', src, 'records:', size);
+      // state after the getter runs
+      const aftercache = datasetinfo[key].lastcache || 0;
+      const aftersource = datasetinfo[key].assignedfrom || 'unknown';
+
+      const downloadedfresh = (aftersource === 'db') && (aftercache > beforecache);
+      const dataset = (result != null ? result : globalThis[key]);
+      const size = countrecords(dataset);
+
+      if (downloadedfresh) {
+        console.log('[idle]', key, 'downloaded fresh from DB — records:', size);
+      } else if (aftersource === 'cache') {
+        console.log('[idle]', key, 'served from cache — records:', size);
+      } else if (aftersource === 'hardcode') {
+        console.log('[idle]', key, 'using baked snapshot — records:', size);
+      } else {
+        console.log('[idle]', key, 'no change — source:', aftersource, 'records:', size);
+      }
     } else {
       idlelog('getter not found: ' + fnname);
     }

@@ -88,46 +88,63 @@ async function compare_cache_dblastupdate(formid) {
     return 'identical';
 }
 
-function getCacheEntry(cacheKey) {
-    try {
-        const raw = localStorage.getItem(cacheKey);
-        if (!raw) return null;
-        const { ts, data } = JSON.parse(raw);
-        if (Date.now() - ts < cache_ttl) {
-            // update datasetinfo
-            const key = cacheKey.replace(/^cache_/, '');
-            if (datasetinfo[key]) {
-                datasetinfo[key].lastassigned = Date.now();
-                datasetinfo[key].assignedfrom = 'cache';
-                datasetinfo[key].lastcache = ts;
-            }
-            return { ts, data };
-        }
-        localStorage.removeItem(cacheKey);
-    } catch (e) {
-        localStorage.removeItem(cacheKey);
+function getCacheEntry(name) {
+  try {
+    const canonical = storageKeyFor(name);
+    // read canonical; fall back to legacy plain key for backward compatibility
+    let raw = localStorage.getItem(canonical);
+    if (!raw) raw = localStorage.getItem(name);
+    if (!raw) return null;
+
+    const obj = JSON.parse(raw);
+    const ts = obj && obj.ts;
+    const data = obj && obj.data;
+
+    if (typeof ts !== 'number') {
+      localStorage.removeItem(canonical);
+      localStorage.removeItem(name);
+      return null;
     }
-    return null;
+
+    if (Date.now() - ts < cache_ttl) {
+      if (datasetinfo[name]) {
+        datasetinfo[name].lastassigned = Date.now();
+        datasetinfo[name].assignedfrom = 'cache';
+        datasetinfo[name].lastcache = ts;
+      }
+      // migrate legacy entry into canonical key
+      if (!localStorage.getItem(canonical)) {
+        localStorage.setItem(canonical, JSON.stringify({ ts: ts, data: data }));
+      }
+      return { ts: ts, data: data };
+    }
+
+    // expired → clear both keys
+    localStorage.removeItem(canonical);
+    localStorage.removeItem(name);
+  } catch(e) {
+    localStorage.removeItem(storageKeyFor(name));
+    localStorage.removeItem(name);
+  }
+  return null;
 }
 
-function setCacheEntry(key, data) {
-
-    try {
-        const ts = Date.now();
-        localStorage.setItem(key, JSON.stringify({ ts, data }));
-        const name = key.replace(/^cache_/, '');
-        if (datasetinfo[name]) {
-            datasetinfo[name].lastcache = ts;
-        }
-        //console.log(key + "data cached");
-    } catch (e) { }
-
+function setCacheEntry(name, data) {
+  try {
+    const ts = Date.now();
+    localStorage.setItem(storageKeyFor(name), JSON.stringify({ ts: ts, data: data }));
+    if (datasetinfo[name]) datasetinfo[name].lastcache = ts;
+  } catch(e) { }
 }
 
-function clearcache(key) {
-  const storageKey = `cache_${key}`;
-  localStorage.removeItem(storageKey);
-  datasetinfo[key].lastcache = null;
+function clearcache(name) {
+  try {
+    localStorage.removeItem(storageKeyFor(name));
+    // also remove legacy plain key to avoid ghosts
+    localStorage.removeItem(name);
+  } finally {
+    if (datasetinfo[name]) datasetinfo[name].lastcache = null;
+  }
 }
 
 async function fetchformdata(formId, bust = true) {
@@ -162,6 +179,10 @@ async function checkdblastupdated(formid) {
     //console.log(key + ' ' + formid + ' dblast updated: ' + last_updated);
     return last_updated;
 }
+
+function storageKeyFor(name){ return 'cache_' + name; }
+
+
 
 var getcharacters = async () => { const d = await getDataset('characters'); return d == null ? characters : (characters = d) };
 var  gettraits = async () => { const d = await getDataset('traits'); return d == null ? traits : (traits = d) };
