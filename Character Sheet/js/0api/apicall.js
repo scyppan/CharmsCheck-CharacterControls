@@ -182,9 +182,17 @@ async function checkdblastupdated(formid) {
 
 function storageKeyFor(name){ return 'cache_' + name; }
 
+var getcharacters = async function(){
+  const formid = datasetinfo.characters.formId;
+  const data = await fetchfresh(formid);        // always hit DB
+  setCacheEntry('characters', data);            // keep cache in sync
+  const now = Date.now();
+  datasetinfo.characters.lastcache    = now;
+  datasetinfo.characters.lastassigned = now;
+  datasetinfo.characters.assignedfrom = 'db';
+  return (characters = data);                   // replace baked/global with fresh
+};
 
-
-var getcharacters = async () => { const d = await getDataset('characters'); return d == null ? characters : (characters = d) };
 var  gettraits = async () => { const d = await getDataset('traits'); return d == null ? traits : (traits = d) };
 var getaccessories = async () => { const d = await getDataset('accessories'); return d == null ? accessories : (accessories = d) };
 var getwands = async () => { const d = await getDataset('wands'); return d == null ? wands : (wands = d) };

@@ -1,23 +1,26 @@
 //this is the script to put in wordpress scripts n' styles
 async function initApp() {
-  console.log("loading scripts");
   await initCharmsCheckLoader();
-  console.log("scripts loaded; now loading characters");
-  await getcharacters();
-  console.log("got characters");
+  await getcharacters();          // ensures characters is set
+  createfuse();                   // safe: characters exists here
+
+  // MOVE the input binding below so it can’t fire early
+  document.getElementById('searchbox')
+    .addEventListener('input', (e) => {
+      const query = e.target.value.trim();
+      const oldEl = document.getElementById('suggestions');
+      if (oldEl) oldEl.remove();
+      if (!query) return;
+      getsuggestions(query, e);
+    });
 
   hidegif();
-  createfuse();
   document.getElementById('charsheetmain').classList.remove('hidden');
   searchbox.focus();
-
-   initapicall();
-   startidlefetchsequence();
-//   requestAnimationFrame(() => { startidlefetchsequence(); });
-
+  initapicall();
+  startidlefetchsequence();
   createCharacterSheet();
 }
-
 
 async function initCharmsCheckLoader() {
 	const version = 'b25.11.10.005';
