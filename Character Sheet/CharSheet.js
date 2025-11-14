@@ -12,6 +12,7 @@ async function initApp() {
   searchbox.focus();
 
    initapicall();
+   startidlefetchsequence();
 //   requestAnimationFrame(() => { startidlefetchsequence(); });
 
   createCharacterSheet();
