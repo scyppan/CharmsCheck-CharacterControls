@@ -2,30 +2,31 @@
 //GLOBAL VARIABLES (MODULE STATE)
 //---------
 
-let showidlefetchlogs = true;          // master toggle
-
+let showidlefetchlogs = true;     // master toggle
 let idleactive = false;
 let hasloggedstart = false;
 
 const activityevents = ['mousemove','mousedown','keydown','scroll','touchstart'];
 
-let timer = 0;                         // idle arm timer
-let cooldowntimer = 0;                 // cooldown timer
-
-const thresh = 5000;                   // ms until we consider the user idle
+let timer = 0;                    // idle arm timer
+let cooldowntimer = 0;            // single cooldown timer
+const thresh = 5000;
 
 const stoplisteners = new Map();
 
-// Finite-state machine (single source of truth for logging)
-//   'off'       → not running
-//   'armed'     → waiting for idle timeout (listeners attached)
-//   'cooldown'  → user activity detected; rearm after short delay
-//   'running'   → executing idleloader()
-let idlestate = 'off';
+// state machine guards to kill spam
+let armed = false;                // true while the idle timer is armed
+let ispaused = false;             // true once we’ve logged a pause for this burst
+let iscooling = false;            // true while cooldown is counting down
 
-// ensure we don’t attach listeners multiple times
-let listenersattached = false;
-
+// strict priority; characters is intentionally last
+const idle_priority = [
+  'spells','traits','wands','accessories','wandwoods','wandcores','wandqualities',
+  'itemsinhand','items','generalitems','creatures','creatureparts',
+  'plants','plantparts','preparations','fooddrink','potions','books',
+  'schools','proficiencies','namedcreatures',
+  'characters'
+];
 
 //---------
 //ENTRY FUNCTION
@@ -34,129 +35,139 @@ let listenersattached = false;
 function startidlefetchsequence(){
   if (idleactive) return;
   idleactive = true;
-
   if (!hasloggedstart) {
     logidle('starting idle fetch (background).');
     hasloggedstart = true;
   }
-
-  armidle();
+  starttimer();
 }
-
 
 //---------
 //MAJOR FUNCTIONS
 //---------
 
-function armidle(){
-  // enter ARMED only if not cooling/running
-  if (!idleactive || idlestate === 'cooldown' || idlestate === 'running') return;
+function cooldown(){
+  // only one cooldown window at a time
+  if (iscooling) return;
+  iscooling = true;
 
-  clearTimeout(timer);
-  idlestate = 'armed';
-
-  if (!listenersattached) attachstoplisteners();
-  timer = setTimeout(() => {
-    // timer fired: we became idle
-    detachstoplisteners();
-    idlestate = 'running';
-    idleloader().finally(() => {
-      if (!idleactive) return;
-      // go back to armed after the work completes
-      armidle();
-    });
-  }, thresh);
-}
-
-function attachstoplisteners(){
-  if (listenersattached) return;
-  listenersattached = true;
-
-  activityevents.forEach(evt => {
-    const handler = () => {
-      // only react the FIRST time during a given armed window
-      if (idlestate !== 'armed') return;
-
-      // transition to cooldown (log once)
-      logidle('paused due to user activity — rearming shortly.');
-      clearTimeout(timer);
-      detachstoplisteners();
-      startcooldown();
-    };
-    stoplisteners.set(evt, handler);
-    document.addEventListener(evt, handler, { passive: true });
-  });
-}
-
-function detachstoplisteners(){
-  if (!listenersattached) return;
-  stoplisteners.forEach((fn, evt) => document.removeEventListener(evt, fn));
-  stoplisteners.clear();
-  listenersattached = false;
-}
-
-function startcooldown(){
-  // go to COOLDOWN, ignore further activity until we rearm
-  idlestate = 'cooldown';
   clearTimeout(cooldowntimer);
-  cooldowntimer = setTimeout(() => {
+  cooldowntimer = setTimeout(function(){
+    iscooling = false;
+    ispaused = false;            // allow the next pause to log once
     if (!idleactive) return;
     logidle('resumed after inactivity.');
-    armidle();                // this sets state back to 'armed'
+    starttimer();
   }, 5000);
 }
 
+function addstoplisteners(){
+  activityevents.forEach(function(evt){
+    const fn = function(){
+      // ignore activity if we’re not armed or already cooling/paused
+      if (!armed) return;
+
+      // first activity in this burst → log once, disarm, and start cooldown
+      if (!ispaused) {
+        ispaused = true;
+        logidle('paused due to user activity — rearming shortly.');
+      }
+
+      // disarm exactly once
+      armed = false;
+      clearTimeout(timer);
+      timer = 0;
+
+      // remove listeners and enter single cooldown window
+      stripstoplisteners();
+    };
+    stoplisteners.set(evt, fn);
+    document.addEventListener(evt, fn, { passive: true });
+  });
+}
+
+function stripstoplisteners(){
+  stoplisteners.forEach(function(fn, evt){
+    document.removeEventListener(evt, fn);
+  });
+  stoplisteners.clear();
+  cooldown();
+}
+
+function starttimer(){
+  // arm a fresh idle timer
+  clearTimeout(timer);
+  timer = 0;
+
+  // if we’re cooling, don’t arm another timer yet
+  if (iscooling) return;
+
+  armed = true;
+  addstoplisteners();
+  timer = setTimeout(function(){
+    // timer fired → not paused, drop listeners and run loader
+    armed = false;
+    stripstoplisteners();
+    idleloader();
+  }, thresh);
+}
+
 async function idleloader(){
-  // choose the next dataset
   const key = choosedbtocheck();
-  if (!key) return;
+  if (!key) { if (idleactive) starttimer(); return; }
 
   const info = datasetinfo[key];
 
-  // snapshot before
+  // capture state before the getter runs
   const beforecache = info.lastcache || 0;
 
-  // check DB freshness (one lightweight call)
   const dblast = await checkdblastupdated(info.formId); // 'YYYY-MM-DD hh:mm:ss'
   info.lastidleloadercheck = Date.now();
   const dbms = parsewpts(dblast);
 
-  // only fetch if needed
   if (info.lastassigned == null || info.lastassigned < dbms) {
-    const fnname = 'get' + key;
+    const fnname = 'get' + key;            // e.g., getcharacters
     const fn = globalThis[fnname];
-
     if (typeof fn === 'function') {
-      const result = await fn();               // data or null (baked)
+      const result = await fn();           // data or null (baked)
       info.lastassigned = Date.now();
 
+      // state after the getter runs
       const aftercache  = datasetinfo[key].lastcache || 0;
       const aftersource = datasetinfo[key].assignedfrom || 'unknown';
-      const fresh       = (aftersource === 'db') && (aftercache > beforecache);
-      const dataset     = (result != null ? result : globalThis[key]);
-      const size        = countrecords(dataset);
+      const downloadedfresh = (aftersource === 'db') && (aftercache > beforecache);
+      const dataset = (result != null ? result : globalThis[key]);
+      const size = countrecords(dataset);
 
-      if (fresh)          logidle(key + ' → fresh DB download (' + size + ' records)');
-      else if (aftersource === 'cache')   logidle(key + ' → cache (' + size + ' records)');
-      else if (aftersource === 'hardcode')logidle(key + ' → baked snapshot (' + size + ' records)');
-      else                                 logidle(key + ' → no change (' + size + ' records)');
+      // single, concise outcome line per cycle
+      if (downloadedfresh) {
+        logidle(key + ' → fresh DB download (' + size + ' records)');
+      } else if (aftersource === 'cache') {
+        logidle(key + ' → cache (' + size + ' records)');
+      } else if (aftersource === 'hardcode') {
+        logidle(key + ' → baked snapshot (' + size + ' records)');
+      } else {
+        logidle(key + ' → no change (' + size + ' records)');
+      }
     } else {
       logidle('getter not found: ' + fnname);
     }
   }
+
+  if (idleactive) starttimer();
 }
 
 function choosedbtocheck(){
   const entries = Object.entries(datasetinfo);
   if (!entries.length) return null;
 
-  // 1) any never checked, follow priority (characters last)
+  // 1) any never checked, follow priority order and skip characters until last
   for (let i=0;i<idle_priority.length;i++){
     const k = idle_priority[i];
     if (datasetinfo[k] && datasetinfo[k].lastidleloadercheck == null) return k;
   }
 
-  // 2) otherwise the stalest, bias characters to last
+  // 2) otherwise the stalest, with characters biased to last
   const sorted = entries.slice().sort(function(a,b){
     const at = a[1].lastidleloadercheck;
     const bt = b[1].lastidleloadercheck;
@@ -167,7 +178,6 @@ function choosedbtocheck(){
 
   return sorted[0][0] || null;
 }
-
 
 //---------
 //HELPER FUNCTIONS
@@ -187,7 +197,6 @@ function countrecords(val){
   if (typeof val === 'object') return Object.keys(val).length;
   return 1;
 }
-
 
 //---------
 //IMMEDIATE FUNCTIONS
