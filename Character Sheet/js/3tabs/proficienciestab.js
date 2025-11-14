@@ -1,9 +1,6 @@
 async function proficiencestab() {
     const tabcontent = document.getElementById('tabcontent');
-    tabcontent.textContent = 'Fetching API Data 1/2...';
-    await getproficiencies(true);
-    tabcontent.textContent = 'Fetching API Data 2/2...';
-    await getbooks(true);
+    tabcontent.textContent = '...';
 
     renderproficienciestabui();
     loadfavoriteproficiencies();      // default view

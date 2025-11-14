@@ -1,18 +1,7 @@
 // ————— Tab loader remains the same —————
 async function potionstab() {
   const tabcontent = document.getElementById('tabcontent');
-  tabcontent.textContent = 'Fetching API Data 1/11...'; await getpotions(true);
-  tabcontent.textContent = 'Fetching API Data 2/11...'; await gettraits(true);
-  tabcontent.textContent = 'Fetching API Data 3/11...'; await getwands(true);
-  tabcontent.textContent = 'Fetching API Data 4/11...'; await getaccessories(true);
-  tabcontent.textContent = 'Fetching API Data 5/11...'; await getwandwoods(true);
-  tabcontent.textContent = 'Fetching API Data 6/11...'; await getwandcores(true);
-  tabcontent.textContent = 'Fetching API Data 7/11...'; await getwandqualities(true);
-  tabcontent.textContent = 'Fetching API Data 8/11...'; await getitemsinhand(true);
-  tabcontent.textContent = 'Fetching API Data 9/11...'; await getitems(true);
-  tabcontent.textContent = 'Fetching API Data 10/11...'; await getgeneralitems(true);
-  tabcontent.textContent = 'Fetching API Data 11/11...'; await getbooks(true);
-
+  tabcontent.textContent = '...';
 
     renderpotionstabui();
     loadfavoritepotions(); // default view

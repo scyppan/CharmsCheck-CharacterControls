@@ -1,10 +1,7 @@
 // ————— Tab loader for named creatures —————
 async function petstab() {
     const tabcontent = document.getElementById('tabcontent');
-    tabcontent.textContent = 'Fetching API Data 1/2...';
-    await getnamedcreatures(true);
-    tabcontent.textContent = 'Fetching API Data 2/2...';
-    await getbooks(true);
+    tabcontent.textContent = '...'
 
     rendercreaturestabui();
     

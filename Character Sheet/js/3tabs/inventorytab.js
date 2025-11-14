@@ -1,32 +1,6 @@
 async function inventorytab() {
     const tabcontent = document.getElementById('tabcontent');
-    tabcontent.textContent = 'Fetching API Data 1/6...';
-
-    // Equipment sources
-    await getwands(true);
-    tabcontent.textContent = 'Fetching API Data 2/6...';
-    await getaccessories(true);
-    tabcontent.textContent = 'Fetching API Data 3/6...';
-    await getitemsinhand(true);
-    await getitems(true);
-
-    // Other‐items sources
-    tabcontent.textContent = 'Fetching API Data 4/6...';
-    await getgeneralitems(true);
-    await getcreatures(true);
-    await getcreatureparts(true);
-    await getplants(true);
-    await getplantparts(true);
-
-    tabcontent.textContent = 'Fetching API Data 5/6...';
-    await getpreparations(true);
-    await getfooddrink(true);
-    await getpotions(true);
-
-    tabcontent.textContent = 'Fetching API Data 6/6...';
-    await getbooks(true);
-
-    tabcontent.textContent = 'Rendering inventory…';
+    tabcontent.textContent = '...';
     renderInventoryTabUI();
     activateTab('btnEquipment');
 }
