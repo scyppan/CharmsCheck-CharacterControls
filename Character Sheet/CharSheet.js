@@ -11,8 +11,8 @@ async function initApp() {
   document.getElementById('charsheetmain').classList.remove('hidden');
   searchbox.focus();
 
-  initapicall();
-  requestAnimationFrame(() => { startidlefetchsequence(); });
+   initapicall();
+//   requestAnimationFrame(() => { startidlefetchsequence(); });
 
   createCharacterSheet();
 }
