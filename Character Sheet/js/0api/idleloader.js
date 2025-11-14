@@ -5,11 +5,19 @@
 let showidlefetchlogs = true;     // master toggle
 let idleactive = false;
 let hasloggedstart = false;
-let ispaused = false;             // only log one pause per window
+
 const activityevents = ['mousemove','mousedown','keydown','scroll','touchstart'];
-let timer = 0;
+
+let timer = 0;                    // idle arm timer
+let cooldowntimer = 0;            // single cooldown timer
 const thresh = 5000;
+
 const stoplisteners = new Map();
+
+// state machine guards to kill spam
+let armed = false;                // true while the idle timer is armed
+let ispaused = false;             // true once we’ve logged a pause for this burst
+let iscooling = false;            // true while cooldown is counting down
 
 // strict priority; characters is intentionally last
 const idle_priority = [
@@ -39,10 +47,15 @@ function startidlefetchsequence(){
 //---------
 
 function cooldown(){
-  // after user activity, wait a short window before re-arming
-  setTimeout(function(){
+  // only one cooldown window at a time
+  if (iscooling) return;
+  iscooling = true;
+
+  clearTimeout(cooldowntimer);
+  cooldowntimer = setTimeout(function(){
+    iscooling = false;
+    ispaused = false;            // allow the next pause to log once
     if (!idleactive) return;
-    ispaused = false;                    // exit paused state
     logidle('resumed after inactivity.');
     starttimer();
   }, 5000);
@@ -51,14 +64,21 @@ function cooldown(){
 function addstoplisteners(){
   activityevents.forEach(function(evt){
     const fn = function(){
-      if (timer) {
-        clearTimeout(timer);
-        timer = 0;
-        if (!ispaused) {                // log only once per pause burst
-          ispaused = true;
-          logidle('paused due to user activity — rearming shortly.');
-        }
+      // ignore activity if we’re not armed or already cooling/paused
+      if (!armed) return;
+
+      // first activity in this burst → log once, disarm, and start cooldown
+      if (!ispaused) {
+        ispaused = true;
+        logidle('paused due to user activity — rearming shortly.');
       }
+
+      // disarm exactly once
+      armed = false;
+      clearTimeout(timer);
+      timer = 0;
+
+      // remove listeners and enter single cooldown window
       stripstoplisteners();
     };
     stoplisteners.set(evt, fn);
@@ -75,11 +95,18 @@ function stripstoplisteners(){
 }
 
 function starttimer(){
+  // arm a fresh idle timer
   clearTimeout(timer);
   timer = 0;
+
+  // if we’re cooling, don’t arm another timer yet
+  if (iscooling) return;
+
+  armed = true;
   addstoplisteners();
-  // don’t spam: no countdown log here; just quietly arm the timer
   timer = setTimeout(function(){
+    // timer fired → not paused, drop listeners and run loader
+    armed = false;
     stripstoplisteners();
     idleloader();
   }, thresh);

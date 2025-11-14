@@ -16,7 +16,6 @@ async function initApp() {
   createCharacterSheet();
 }
 
-
 async function initCharmsCheckLoader() {
 	const version = 'b25.11.14.009';
 	const subDir = 'Character%20Sheet/';
