@@ -1,29 +1,24 @@
 //this is the script to put in wordpress scripts n' styles
 async function initApp() {
+  console.log("loading scripts");
   await initCharmsCheckLoader();
-  await getcharacters();          // ensures characters is set
-  createfuse();                   // safe: characters exists here
-
-  // MOVE the input binding below so it can’t fire early
-  document.getElementById('searchbox')
-    .addEventListener('input', (e) => {
-      const query = e.target.value.trim();
-      const oldEl = document.getElementById('suggestions');
-      if (oldEl) oldEl.remove();
-      if (!query) return;
-      getsuggestions(query, e);
-    });
+  console.log("scripts loaded; now loading characters");
+  await getcharacters();
+  console.log("got characters");
 
   hidegif();
+  createfuse();
   document.getElementById('charsheetmain').classList.remove('hidden');
   searchbox.focus();
-  initapicall();
-  startidlefetchsequence();
+
+  
+   startidlefetchsequence();
   createCharacterSheet();
 }
 
+
 async function initCharmsCheckLoader() {
-	const version = 'b25.11.10.005';
+	const version = 'b25.11.14.009';
 	const subDir = 'Character%20Sheet/';
 	const base = `https://cdn.jsdelivr.net/gh/scyppan/CharmsCheck-CharacterControls@${version}/${subDir}`;
 
@@ -34,8 +29,6 @@ async function initCharmsCheckLoader() {
 		'css/relationshipdisplay.css', 'css/settingdisplay.css', 'css/rolldisplay.css', 'css/wounddisplay.css'
 	];
 	const js = [
-		//'js/0globalvars/globalvars.js',
-		//'js/0api/cache.js', 
 		'js/0api/idleloader.js',
 		'js/0api/loadgiflogic.js',
 		'js/0api/apicall.js',

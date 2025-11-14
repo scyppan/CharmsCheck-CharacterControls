@@ -5,6 +5,7 @@
 let showidlefetchlogs = true;
 let idleactive = false;
 let hasloggedstart = false;
+let ispaused = false;                     // NEW: track pause state
 const activityevents = ['mousemove','mousedown','keydown','scroll','touchstart'];
 let timer = 0;
 const thresh = 5000;
@@ -12,7 +13,7 @@ const stoplisteners = new Map();
 
 // strict priority; characters is intentionally last
 const idle_priority = [
-  'spells', 'traits','wands','accessories','wandwoods','wandcores','wandqualities',
+  'spells','traits','wands','accessories','wandwoods','wandcores','wandqualities',
   'itemsinhand','items','generalitems','creatures','creatureparts',
   'plants','plantparts','preparations','fooddrink','potions','books',
   'schools','proficiencies','namedcreatures',
@@ -38,7 +39,11 @@ function startidlefetchsequence(){
 //---------
 
 function cooldown(){
+  // after user activity, wait a short window before re-arming
+  console.log('[idle] paused due to user activity — rearming in 5s');
   setTimeout(function(){
+    ispaused = false;                    // we’re leaving paused state
+    console.log('[idle] resumed after inactivity — countdown restarted');
     starttimer();
   }, 5000);
 }
@@ -46,11 +51,20 @@ function cooldown(){
 function addstoplisteners(){
   activityevents.forEach(function(evt){
     const fn = function(){
-      clearTimeout(timer);
+      // first activity cancels the pending idle run
+      if (timer) {
+        clearTimeout(timer);
+        timer = 0;
+        if (!ispaused) {
+          ispaused = true;
+          // one-time notice per pause window
+          console.log('[idle] pause event:', evt);
+        }
+      }
       stripstoplisteners();
     };
     stoplisteners.set(evt, fn);
-    document.addEventListener(evt, fn);
+    document.addEventListener(evt, fn, { passive: true });
   });
 }
 
@@ -66,8 +80,9 @@ function starttimer(){
   clearTimeout(timer);
   timer = 0;
   addstoplisteners();
+  console.log('[idle] waiting', thresh + 'ms', 'for inactivity before background fetch');
   timer = setTimeout(function(){
-    stripstoplisteners();
+    stripstoplisteners();     // will log paused/resume as appropriate next time
     idleloader();
   }, thresh);
 }
@@ -79,8 +94,7 @@ async function idleloader(){
   const info = datasetinfo[key];
 
   // capture state before the getter runs
-  const beforecache = info.lastcache || 0;
-  const beforesource = info.assignedfrom || 'unassigned';
+  const beforecache  = info.lastcache || 0;
 
   const dblast = await checkdblastupdated(info.formId); // 'YYYY-MM-DD hh:mm:ss'
   info.lastidleloadercheck = Date.now();
@@ -95,7 +109,7 @@ async function idleloader(){
       info.lastassigned = Date.now();
 
       // state after the getter runs
-      const aftercache = datasetinfo[key].lastcache || 0;
+      const aftercache  = datasetinfo[key].lastcache || 0;
       const aftersource = datasetinfo[key].assignedfrom || 'unknown';
 
       const downloadedfresh = (aftersource === 'db') && (aftercache > beforecache);
@@ -125,7 +139,6 @@ function choosedbtocheck(){
   const entries = Object.entries(datasetinfo);
   if (!entries.length) return null;
 
-  // build a lookup for convenience
   const info = datasetinfo;
 
   // 1) any never checked, follow priority order and skip characters until last
@@ -139,7 +152,6 @@ function choosedbtocheck(){
     const ak = a[0], bk = b[0];
     const at = a[1].lastidleloadercheck;
     const bt = b[1].lastidleloadercheck;
-    // push characters down by adding a large offset to its timestamp
     const abias = ak === 'characters' ? 1e15 : 0;
     const bbias = bk === 'characters' ? 1e15 : 0;
     return (at + abias) - (bt + bbias);
