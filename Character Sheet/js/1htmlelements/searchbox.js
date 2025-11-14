@@ -1,5 +1,5 @@
 // Create Fuse instance once, referencing your "characters" array
-function createfuse() {
+function createfuse() {console.log(characters);
   fuse = new Fuse(characters, {
     keys: ['name'],
     threshold: 0.3 // adjust for more or less fuzziness
